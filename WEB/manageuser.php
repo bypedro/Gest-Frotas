@@ -35,7 +35,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">texto</a></li>
+            <li class="active"><a href="#">Suporte</a></li>
             <li><a href="#">texto</a></li>
             <li><a href="manageuser.php">Texto</a></li>
           </ul>
@@ -62,11 +62,11 @@
 	<div class="container">
     
     	<div class="page-header">
-    	<h3>Utilizadores</h3>
+    	<h3>Painel Admin</h3>
     	</div>
 		
 		
-		<iframe src="users.php" height="200" width="500"></iframe>
+		<iframe src="users.php" height="200" width="500" frameBorder="0"></iframe>
 	
    
 

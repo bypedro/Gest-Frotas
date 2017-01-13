@@ -36,7 +36,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">texto</a></li>
+            <li class="active"><a href="#">Suporte</a></li>
             <li><a href="#">texto</a></li>
             <li><a href="manageuser.php">Texto</a></li>
           </ul>
@@ -99,21 +99,25 @@
 		</div>
 		<p align="right">
 		<button class="btnn">Ver Mais</button>
+		<button class="btnn"><</button>
 		</p>
+		
 	<br>
 	<br>
-	 <div class="footer"><div id="social-platforms">
-	<a class="btne" href="#"><img src="http://www.png.pa.gov/publishingimages/facebook.png"</img></i><span></span></a>
-	
-	<a class="btne" href="#"><img src="http://belohorizonte.mg.gov.br/sites/belohorizonte.pbh.gov.br/files/images/1462253679_square-twitter.png"</img></i><span></span></a>
-	<a class="btne" href="#"><img src="http://www.rpiindustries.com/RPI%20Brochures%20Graphics/Plaza%20Brochure/style/google.png"</img></i><span></span></a>
-	</div>
+	<br>
+	<br>
     </div>
-	 
 	
-	 
 	</div>
 	
+	<div class="footer"><a class="btne" href="#"><span><img src="logos/fb.png"</img></span></a>
+	<a class="btne" href="#"><span><img src="logos/tt.png"</img></span></a>
+	<a class="btne" href="#"></i><span><img src="logos/gg.jpg"</img></span></a>
+	<a class="btne" href="#"></i><span><img src="logos/em.png"</img></span></a>
+	&#124
+	 FRONTALINES © 2017 
+	
+	</div>
 	
     </div>
    
