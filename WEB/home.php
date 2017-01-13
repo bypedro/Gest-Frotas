@@ -99,7 +99,6 @@
 		</div>
 		<p align="right">
 		<button class="btnn">Ver Mais</button>
-		<button class="btnn"><</button>
 		</p>
 		
 	<br>

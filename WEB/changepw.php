@@ -63,23 +63,14 @@
 	<div class="container">
     
     	<div class="page-header">
-    	<h3>Perfil</h3>
+    	<h3>Alterar Password</h3>
     	</div>
 		
 		
+			<iframe src="change.php" align="justify" height="200" width="500" frameBorder="0"></iframe>
 	
-	<table cellspacing='0'>
-	<tr><th>ID</th><td><?php echo $userRow['userId']; ?></td></tr>	
-	<tr><th>Utilizador </th><td><?php echo $userRow['userName']; ?></td></tr>
-	<tr><th>Data Registo </th><td><?php echo $userRow['userRegisto']; ?></td></tr>
-	<tr><th>Email </th><td><?php echo $userRow['userEmail']; ?></td></tr>
-	<tr><th>Endereço </th><td><?php echo $userRow['userRua']; ?></td></tr>
-   
 
-</table>
-		<br>
-		<p align="right">
-		<button class="btnn" type=button onClick="parent.location='changepw.php'">Alterar Password</button>
+		<p align="left">
 		</p>
 
         <div class="row">
