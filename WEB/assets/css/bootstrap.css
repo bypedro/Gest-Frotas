@@ -239,11 +239,13 @@ th {
   p,
   h2,
   h3 {
+	  font-family: Verdana, Geneva, sans-serif;
     orphans: 3;
     widows: 3;
   }
   h2,
   h3 {
+	  font-family: Verdana, Geneva, sans-serif;
     page-break-after: avoid;
   }
   .navbar {
