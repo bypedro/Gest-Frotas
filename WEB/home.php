@@ -100,10 +100,16 @@
 		<p align="right">
 		<button class="btnn">Ver Mais</button>
 		</p>
-		
 	<br>
 	<br>
+	 <div class="footer"><div id="social-platforms">
+	<a class="btne" href="#"><img src="http://www.png.pa.gov/publishingimages/facebook.png"</img></i><span></span></a>
+	
+	<a class="btne" href="#"><img src="http://belohorizonte.mg.gov.br/sites/belohorizonte.pbh.gov.br/files/images/1462253679_square-twitter.png"</img></i><span></span></a>
+	<a class="btne" href="#"><img src="http://www.rpiindustries.com/RPI%20Brochures%20Graphics/Plaza%20Brochure/style/google.png"</img></i><span></span></a>
+	</div>
     </div>
+	 
 	
 	 
 	</div>
