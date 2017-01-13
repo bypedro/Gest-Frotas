@@ -1,6 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
 
+
+
 *{
 	margin:0;
 	padding:0;
@@ -88,12 +90,33 @@ font-size: 18px;
 
 }
 
+.btnn {
+	font-family: Verdana, Geneva, sans-serif;
+	bottom-align: right;
+	background-color: #ECECEC;
+    border: none;
+    color: #FCFCFC;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+	color: black;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.btnn:hover {
+	background-color: #c5c5c5 !important;
+}
 
 h1 {
 	font-family: Verdana, Geneva, sans-serif;
 	text-align: justify;
 	font-size: 95%;
 }
+
 
 img.bottom {
     vertical-align: text-bottom;
@@ -105,6 +128,20 @@ th {
     background-color:	#E3E3E3;
     color: #4D4D4D
 ;
+}
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+     
+
+
 }
 
 tr:hover {background-color: #f5f5f5}

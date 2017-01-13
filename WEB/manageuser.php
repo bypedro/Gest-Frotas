@@ -56,27 +56,21 @@
     </nav> 
 
 		
-		
 	
 	<div id="wrapper">
 
 	<div class="container">
     
     	<div class="page-header">
-    	<h3>Perfil</h3>
+    	<h3>Utilizadores</h3>
     	</div>
 		
 		
+		<iframe src="users.php" height="200" width="500"></iframe>
 	
-	<table cellspacing='0'>
-	<tr><th>ID</th><td><?php echo $userRow['userId']; ?></td></tr>	
-	<tr><th>Utilizador </th><td><?php echo $userRow['userName']; ?></td></tr>
-	<tr><th>Data Registo </th><td><?php echo $userRow['userRegisto']; ?></td></tr>
-	<tr><th>Email </th><td><?php echo $userRow['userEmail']; ?></td></tr>
-	<tr><th>Endereço </th><td><?php echo $userRow['userRua']; ?></td></tr>
    
 
-</table>
+
 		
 		
 		
