@@ -36,7 +36,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">texto</a></li>
+            <li class="active"><a href="#">Suporte</a></li>
             <li><a href="#">texto</a></li>
             <li><a href="manageuser.php">Texto</a></li>
           </ul>
@@ -103,11 +103,20 @@
 		
 	<br>
 	<br>
+	<br>
+	<br>
     </div>
 	
-	 
 	</div>
 	
+	<div class="footer"><a class="btne" href="#"><span><img src="logos/fb.png"</img></span></a>
+	<a class="btne" href="#"><span><img src="logos/tt.png"</img></span></a>
+	<a class="btne" href="#"></i><span><img src="logos/gg.jpg"</img></span></a>
+	<a class="btne" href="#"></i><span><img src="logos/em.png"</img></span></a>
+	&#124
+	 FRONTALINES © 2017 
+	
+	</div>
 	
     </div>
    
