@@ -69,17 +69,17 @@
 		
 	
 	<table cellspacing='0'>
-	<tr><th>ID</th><td><?php echo $userRow['userId']; ?></td></tr>	
+	<tr><th>ID</th><td><?php echo $userRow['userId']; ?></td></tr>
 	<tr><th>Utilizador </th><td><?php echo $userRow['userName']; ?></td></tr>
 	<tr><th>Data Registo </th><td><?php echo $userRow['userRegisto']; ?></td></tr>
 	<tr><th>Email </th><td><?php echo $userRow['userEmail']; ?></td></tr>
 	<tr><th>Endereço </th><td><?php echo $userRow['userRua']; ?></td></tr>
-   
+	</table>
 
-</table>
 		<br>
 		<p align="right">
-		<button class="btnn" type=button onClick="parent.location='changepw.php'">Alterar Password</button>
+		<button class="btnnn" type=button onClick="parent.location='#.php'">?</button>
+		<button class="btnn" type=button onClick="parent.location='changepw.php'">Alterar</button>
 		</p>
 
         <div class="row">

@@ -3,6 +3,9 @@
 	session_start();
 	if( isset($_SESSION['user'])!="" ){
 	}
+	
+	
+	
 	include_once 'dbconnect.php';
 	
 	if ( isset($_POST['btn-signup']) ) {
@@ -12,6 +15,14 @@
 		$pass = strip_tags($pass);
 		$pass = htmlspecialchars($pass);
 		
+		$email = trim($_POST['email']);
+		$email = strip_tags($email);
+		$email = htmlspecialchars($email);
+		
+		$adress = trim($_POST['adress']);
+		$adress= strip_tags($adress);
+		$adress = htmlspecialchars($adress);
+		
 		if (empty($pass)){
 			$error = true;
 			$passError = "Please enter password.";
@@ -20,12 +31,27 @@
 			$passError = "Password must have atleast 6 characters.";
 		}
 		
+		//basic email validation
+		if ( !filter_var($email,FILTER_VALIDATE_EMAIL) ) {
+			$error = true;
+			$emailError = "Please enter valid email address.";
+		} else {
+			// check email exist or not
+			$query = "SELECT userEmail FROM users WHERE userEmail='$email'";
+			$result = mysql_query($query);
+			$count = mysql_num_rows($result);
+			if($count!=0){
+				$error = true;
+				$emailError = "Provided Email is already in use.";
+			}
+		}
+		
 		// password encrypt using SHA256();
 		$password = hash('sha256', $pass);
 		
 		if( !$error ) {
 			
-			$query = ("UPDATE users SET userPass='$password' WHERE userId=".$_SESSION['user']);
+			$query = ("UPDATE users SET userPass='$password', userEmail='$email', userRua='$adress' WHERE userId=".$_SESSION['user']);
 			$res = mysql_query($query);
 				
 			if ($res) {
@@ -63,19 +89,34 @@
     	<div class="col-md-12">
         
            
-            
             <div class="form-group">
             	<div class="input-group">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-            	<input type="password" name="pass" class="form-control" placeholder="Nova Password" maxlength="15" />
+                <span class=""><span class=""></span></span>
+            	<input type="email" name="email" class="" placeholder="Email" maxlength="40" value="<?php echo $email ?>" />
+                </div>
+                <span class="text-danger"><?php echo $emailError; ?></span>
+            </div>
+			<br>
+            <div class="form-group">
+            	<div class="input-group">
+                <span class=""><span class=""></span></span>
+            	<input type="password" name="pass" class="" placeholder="Password" maxlength="15" />
                 </div>
                 <span class="text-danger"><?php echo $passError; ?></span>
             </div>
-
-            <div class="form-group">
-            	<button type="submit" class="btna" name="btn-signup">Actualizar</button>
-				<button class="btna" type=button onClick="parent.location='Perfil.php'">Voltar</button>
+			<br>
+			<div class="form-group">
+            	<div class="input-group">
+                <span class=""><span class=""></span></span>
+            	<input type="adress" name="adress" class="" placeholder="Morada" maxlength="100" value="<?php echo $adress ?>" />
+                </div>
+                <span class="text-danger"><?php echo $emailError; ?></span>
             </div>
+			<br>
+			<center><div class="form-group">
+            	<button type="submit" class="btnn" name="btn-signup">Actualizar</button>
+				<button class="btnnn" type=button onClick="parent.location='Perfil.php'">Voltar</button>
+            </div></center>
         
         </div>
    

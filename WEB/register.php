@@ -27,6 +27,7 @@
 		$pass = strip_tags($pass);
 		$pass = htmlspecialchars($pass);
 		
+		
 		// basic name validation
 		if (empty($name)) {
 			$error = true;

@@ -17,16 +17,38 @@
 }
 
 table {
-
+	font-family: Verdana, Geneva, sans-serif;
     width: 100%;
 	border-collapse: collapse;
 }
 
 th, td {
-border: 1px solid #F7F7F7;
+     border-bottom: solid #949494 1px;
     text-align: left;
-    padding: 8px;
+    padding: 18px;
 }
+
+input, select {
+	font-family: Verdana, Geneva, sans-serif;
+    border: 0px solid #ccc;
+	border-bottom: solid #a7a7a7 1px;
+	width: 350px;
+	
+}
+
+
+input:hover {
+	font-family: Verdana, Geneva, sans-serif;
+    border: 0px solid ;
+	border-bottom: solid #555 1px;
+}
+
+input:focus {
+    outline: none;
+	border-bottom: solid #FF5252 1px;
+}
+
+
 
 .button {
   display: inline-block;
@@ -68,8 +90,8 @@ font-size: 18px;
   right: 0;
 }
 
+
 .hover08 figure img {
-	
 	margin:0 20px 10px 0;
 	width: 180px;
     height: 180px;
@@ -82,20 +104,23 @@ font-size: 18px;
 	border-radius: 150px;
 	-webkit-border-radius: 150px;
 	-moz-border-radius: 130px;
+	
+
 }
 .hover08 figure:hover img {
 
 	-webkit-filter: grayscale(70%) blur(0px);
 	filter: grayscale(70%) blur(0px);
-
+	
 }
+
+
 
 .btnn {
 	font-family: Verdana, Geneva, sans-serif;
 	bottom-align: right;
 	background-color: rgba(236, 236, 236, 0);
     border: none;
-    color: #FCFCFC;
     padding: 8px 15px;
     text-align: center;
 	border-radius: 6px;
@@ -106,11 +131,13 @@ font-size: 18px;
     margin: 4px 2px;
     cursor: pointer;
 	border: 1px solid;
+	outline: none;
 }
 
 .btnn:hover {
 	background-color: #2f2f2f;
 	color: #f5f5f5;
+	outline: none;
 }
 
 .btna {
@@ -119,7 +146,6 @@ font-size: 18px;
 	bottom-align: right;
 	background-color: #ECECEC;
     border: none;
-    color: #FCFCFC;
     padding: 8px 15px;
     text-align: center;
     text-decoration: none;
@@ -128,12 +154,45 @@ font-size: 18px;
     font-size: 15px;
     margin: 4px 2px;
     cursor: pointer;
+	outline: none;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
 .btna:hover {
 	background-color: #c5c5c5 !important;
+	outline: none;
 }
+
+.btnnn {
+	font-family: Verdana, Geneva, sans-serif;
+	bottom-align: right;
+	background-color: rgba(236, 236, 236, 0);
+    border: none;
+    color: #FF5252;
+    padding: 8px 15px;
+    text-align: center;
+	border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+	border: 1px solid;
+	outline: none;
+}
+
+.btnnn:hover {
+	background-color: #FF5252;
+	color: #f5f5f5;
+	outline: none;
+}
+
+
+
+
+
+
+
 
 h1 {
 	font-family: Verdana, Geneva, sans-serif;
@@ -150,11 +209,11 @@ img.bottom {
     vertical-align: text-bottom;
 }
 
-tr:nth-child(even){background-color: #F8F8F8 }
+tr:nth-child(even){background-color: white }
 
 th {
-    background-color:	#E3E3E3;
-    color: #4D4D4D
+    background-color:	white;
+    color: #555;
 ;
 }
 

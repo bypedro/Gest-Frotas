@@ -98,7 +98,9 @@
 			
 		</div>
 		<p align="right">
+		<button class="btnnn">?</button>
 		<button class="btnn">Ver Mais</button>
+		
 		</p>
 		
 	<br>
@@ -109,7 +111,7 @@
 	
 	</div>
 	
-	<div class="footer"><a class="btne" href="#"><span><img src="logos/fb.png"</img></span></a>
+	<div class="footer"><a class="btne" href="#"><span><img src="logos/fb.png"</img></span>
 	<a class="btne" href="#"><span><img src="logos/tt.png"</img></span></a>
 	<a class="btne" href="#"></i><span><img src="logos/gg.jpg"</img></span></a>
 	<a class="btne" href="#"></i><span><img src="logos/em.png"</img></span></a>
