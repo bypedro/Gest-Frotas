@@ -30,9 +30,10 @@ Partial Class BtnImagem
         'LblTexto
         '
         Me.LblTexto.AutoSize = True
+        Me.LblTexto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblTexto.Location = New System.Drawing.Point(47, 15)
         Me.LblTexto.Name = "LblTexto"
-        Me.LblTexto.Size = New System.Drawing.Size(34, 13)
+        Me.LblTexto.Size = New System.Drawing.Size(42, 16)
         Me.LblTexto.TabIndex = 0
         Me.LblTexto.Text = "Texto"
         '
