@@ -70,9 +70,11 @@
 		
 			
 	
-
+<br>
         <div class="row">
         <div class="col-lg-12">
+		<div class="hover08 column">
+<center><figure><img src="https://store.multidots.com/wp-content/uploads/2016/07/user-image-.png"></figure></div></center>
 <p align="center">
 <iframe src="change.php" align="fixed" height="500" width="500" frameBorder="0"></iframe>
 			</p>
