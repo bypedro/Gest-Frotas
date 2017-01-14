@@ -12,39 +12,32 @@
         Next
     End Sub
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        Fade(1) 'VEr
+    End Sub
+    ' VEr
 
-        '???? modulo aparencia?
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TxtFirstName.Hide()
+        TxtLastName.Hide()
+        TxtUserReg.Hide()
+        TxtEmail.Hide()
+        TxtPwdReg1.Hide()
+        TxtPwdReg2.Hide()
+
+
+        '???? modulo aparencia?   
         Dim CentroEcranX As Integer = Me.Width / 2
         Dim CentroEcranY As Integer = Me.Height / 2
-
-        BtnImagemLogin.Left = CentroEcranX - BtnImagemLogin.Width - 5
-        BtnImagemRegister.Left = CentroEcranX + 5
-        BtnImagemLogin.Top = CentroEcranY + BtnImagemLogin.Height
-        BtnImagemRegister.Top = CentroEcranY + BtnImagemRegister.Height
-
-        LoginPanel.Left = 0
-        LoginPanel.Top = Panel2.Bottom
-        LoginPanel.Height = Me.Height - Panel2.Height
-        LoginPanel.Width = Me.Width
-
-        TxtUser.Font = Fonte.GetInstance(12, FontStyle.Bold)
-        TxtPwd.Font = Fonte.GetInstance(12, FontStyle.Bold)
-        TxtUser.Left = CentroEcranX - (TxtUser.Width / 2)
-        TxtPwd.Left = CentroEcranX - (TxtPwd.Width / 2)
-        TxtUser.Top = Panel2.Bottom + 150
-        TxtPwd.Top = TxtUser.Bottom + 10
-
-
-
 
         'Registar
         TxtFirstName.Font = Fonte.GetInstance(12, FontStyle.Bold)
         TxtFirstName.Left = CentroEcranX - TxtFirstName.Width - 5
-        TxtFirstName.Top = Panel2.Bottom + 150
+        TxtFirstName.Top = PnlMenuTop.Bottom + 150
         TxtLastName.Font = Fonte.GetInstance(12, FontStyle.Bold)
         TxtLastName.Left = CentroEcranX + 5
-        TxtLastName.Top = Panel2.Bottom + 150
+        TxtLastName.Top = PnlMenuTop.Bottom + 150
 
         TxtUserReg.Font = Fonte.GetInstance(12, FontStyle.Bold)
         TxtUserReg.Left = CentroEcranX - TxtUserReg.Width - 5
@@ -60,50 +53,42 @@
         TxtPwdReg2.Left = CentroEcranX + 5
         TxtPwdReg2.Top = TxtEmail.Bottom + 10
         'Just to see
-        TxtFirstName.Hide()
-        TxtLastName.Hide()
-        TxtUserReg.Hide()
-        TxtEmail.Hide()
-        TxtPwdReg1.Hide()
-        TxtPwdReg2.Hide()
 
 
 
 
 
-        'User
-        'Ao clickar abre um menu??
-        'pôr isto a refazer sempre que se dá login
-        LblUserName.Text = "byp3dr0 "
-        LblUserName.Font = Fonte.GetInstance(9, FontStyle.Bold)
-        LblUserName.ForeColor = Color.White
-        LblUserName.Top = (Panel2.Height - LblUserName.Height) / 2
-        LblUserName.Left = Fechar.Right - LblUserName.Width - 20
+
 
 
         'MENU e Barra
-        Panel1.Left = 0
-        Panel1.Top = Panel2.Bottom
-        Panel1.Height = Me.Height - Panel2.Height
-        Panel1.Width = 200
-        BtnMenu1.Left = Panel1.Right - 36
-        LabelNomeProjeto.Text = "Nome Genérico 1"
-        LabelNomeProjeto.Font = Fonte.GetInstance(10, FontStyle.Bold)
-        LabelNomeProjeto.Top = (Panel2.Height - LabelNomeProjeto.Height) / 2
-        LabelNomeProjeto.Left = 5
+        PnlMenu.Left = 0
+        PnlMenu.Top = PnlMenuTop.Bottom
+        PnlMenu.Height = Me.Height - PnlMenuTop.Height
+        PnlMenu.Width = 200
+        BtnMenu1.Left = PnlMenu.Right - 36
+
+
+
+
         'IDK yet
         Fechar.Font = Fonte.GetInstance(12, FontStyle.Bold)
         Fechar.Text = "X"
         Fechar.ForeColor = Color.White
-        Fechar.Left = Panel2.Right - 25
-        Fechar.Top = (Panel2.Height - Fechar.Height) / 2
+        Fechar.Left = PnlMenuTop.Right - 25
+        Fechar.Top = (PnlMenuTop.Height - Fechar.Height) / 2
 
         '???? automatização?
         BtnImagem(0) = BtnImagem1
         BtnImagem(1) = BtnImagem2
         BtnImagem(2) = BtnImagem3
         BtnImagem(3) = BtnImagem4
+
+        LoadOrder.l1() 'é tipo o modulo aparencia
+        Fade(0)
     End Sub
+
+
 
     Private Sub BtnImagem1_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem1.ButtonClickMasterRace
         check(0)
@@ -119,8 +104,8 @@
     End Sub
 
     Private Sub TmrSlide1_Tick(sender As Object, e As EventArgs) Handles TmrSlide1.Tick
-        Panel1.Left = Panel1.Left - 2
-        If Panel1.Right = 36 Then
+        PnlMenu.Left = PnlMenu.Left - 2
+        If PnlMenu.Right = 36 Then
             TmrSlide1.Enabled = False
             BtnImagem1.Hide()
             BtnImagem2.Hide()
@@ -130,8 +115,8 @@
     End Sub
 
     Private Sub TmrSlide2_Tick(sender As Object, e As EventArgs) Handles TmrSlide2.Tick
-        Panel1.Left = Panel1.Left + 2
-        If Panel1.Right = 200 Then
+        PnlMenu.Left = PnlMenu.Left + 2
+        If PnlMenu.Right = 200 Then
             TmrSlide2.Enabled = False
             BtnImagem1.Show()
             BtnImagem2.Show()
@@ -142,15 +127,15 @@
 
     Private Sub BtnMenu1_Click(sender As Object, e As EventArgs) Handles BtnMenu1.Click
         If BtnMenu1.zEstadoBotao = True Then
-            If Panel1.Right = 200 Then
+            If PnlMenu.Right = 200 Then
                 TmrSlide1.Enabled = True
-            ElseIf Panel1.Right = 36 Then
+            ElseIf PnlMenu.Right = 36 Then
                 TmrSlide2.Enabled = True
             End If
         ElseIf BtnMenu1.zEstadoBotao = False Then
-            If Panel1.Right = 200 Then
+            If PnlMenu.Right = 200 Then
                 TmrSlide1.Enabled = True
-            ElseIf Panel1.Right = 36 Then
+            ElseIf PnlMenu.Right = 36 Then
                 TmrSlide2.Enabled = True
             End If
         End If
@@ -166,17 +151,25 @@
     End Sub
 
     Private Sub BtnImagemLogin_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemLogin.ButtonClickMasterRace
-        LoginPanel.Hide()
-        TxtPwd.Hide()
+        LoadOrder.l2()
+
     End Sub
 
     Private Sub BtnImagemRegister_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemRegister.ButtonClickMasterRace
+        TxtFirstName.Show()
+        TxtLastName.Show()
+        TxtUserReg.Show()
+        TxtEmail.Show()
+        TxtPwdReg1.Show()
+        TxtPwdReg2.Show()
+        TxtUser.Hide()
+        TxtPwd.Hide()
         'Mudar txt para as de registo
         'mudar butoes registar e cancelar
         'etc
     End Sub
 
-    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles PnlMenuTop.Paint
         'Por o programa a mexer pelo rato
     End Sub
 End Class
