@@ -24,22 +24,22 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PnlMenu = New System.Windows.Forms.Panel()
         Me.TmrSlide1 = New System.Windows.Forms.Timer(Me.components)
         Me.TmrSlide2 = New System.Windows.Forms.Timer(Me.components)
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.PnlMenuTop = New System.Windows.Forms.Panel()
         Me.LblUserName = New System.Windows.Forms.Label()
         Me.Fechar = New System.Windows.Forms.Label()
         Me.LabelNomeProjeto = New System.Windows.Forms.Label()
         Me.LoginPanel = New System.Windows.Forms.Panel()
-        Me.TxtUser = New System.Windows.Forms.TextBox()
-        Me.TxtPwd = New System.Windows.Forms.TextBox()
+        Me.TxtPwdReg2 = New System.Windows.Forms.TextBox()
+        Me.TxtPwdReg1 = New System.Windows.Forms.TextBox()
+        Me.TxtEmail = New System.Windows.Forms.TextBox()
+        Me.TxtUserReg = New System.Windows.Forms.TextBox()
         Me.TxtFirstName = New System.Windows.Forms.TextBox()
         Me.TxtLastName = New System.Windows.Forms.TextBox()
-        Me.TxtUserReg = New System.Windows.Forms.TextBox()
-        Me.TxtEmail = New System.Windows.Forms.TextBox()
-        Me.TxtPwdReg1 = New System.Windows.Forms.TextBox()
-        Me.TxtPwdReg2 = New System.Windows.Forms.TextBox()
+        Me.TxtPwd = New System.Windows.Forms.TextBox()
+        Me.TxtUser = New System.Windows.Forms.TextBox()
         Me.BtnImagemRegister = New GestFrotPAP.BtnImagem()
         Me.BtnImagemLogin = New GestFrotPAP.BtnImagem()
         Me.BtnMenu1 = New GestFrotPAP.BtnMenu()
@@ -48,23 +48,23 @@ Partial Class Form1
         Me.BtnImagem4 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem3 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem5 = New GestFrotPAP.BtnImagem()
-        Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
+        Me.PnlMenu.SuspendLayout()
+        Me.PnlMenuTop.SuspendLayout()
         Me.LoginPanel.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Panel1
+        'PnlMenu
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.BtnMenu1)
-        Me.Panel1.Controls.Add(Me.BtnImagem1)
-        Me.Panel1.Controls.Add(Me.BtnImagem2)
-        Me.Panel1.Controls.Add(Me.BtnImagem4)
-        Me.Panel1.Controls.Add(Me.BtnImagem3)
-        Me.Panel1.Location = New System.Drawing.Point(0, 24)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(82, 476)
-        Me.Panel1.TabIndex = 5
+        Me.PnlMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.PnlMenu.Controls.Add(Me.BtnMenu1)
+        Me.PnlMenu.Controls.Add(Me.BtnImagem1)
+        Me.PnlMenu.Controls.Add(Me.BtnImagem2)
+        Me.PnlMenu.Controls.Add(Me.BtnImagem4)
+        Me.PnlMenu.Controls.Add(Me.BtnImagem3)
+        Me.PnlMenu.Location = New System.Drawing.Point(0, 24)
+        Me.PnlMenu.Name = "PnlMenu"
+        Me.PnlMenu.Size = New System.Drawing.Size(82, 476)
+        Me.PnlMenu.TabIndex = 5
         '
         'TmrSlide1
         '
@@ -74,17 +74,17 @@ Partial Class Form1
         '
         Me.TmrSlide2.Interval = 10
         '
-        'Panel2
+        'PnlMenuTop
         '
-        Me.Panel2.BackColor = System.Drawing.Color.SlateGray
-        Me.Panel2.Controls.Add(Me.LblUserName)
-        Me.Panel2.Controls.Add(Me.Fechar)
-        Me.Panel2.Controls.Add(Me.LabelNomeProjeto)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1000, 30)
-        Me.Panel2.TabIndex = 6
+        Me.PnlMenuTop.BackColor = System.Drawing.Color.SlateGray
+        Me.PnlMenuTop.Controls.Add(Me.LblUserName)
+        Me.PnlMenuTop.Controls.Add(Me.Fechar)
+        Me.PnlMenuTop.Controls.Add(Me.LabelNomeProjeto)
+        Me.PnlMenuTop.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PnlMenuTop.Location = New System.Drawing.Point(0, 0)
+        Me.PnlMenuTop.Name = "PnlMenuTop"
+        Me.PnlMenuTop.Size = New System.Drawing.Size(1000, 30)
+        Me.PnlMenuTop.TabIndex = 6
         '
         'LblUserName
         '
@@ -94,6 +94,7 @@ Partial Class Form1
         Me.LblUserName.Size = New System.Drawing.Size(39, 13)
         Me.LblUserName.TabIndex = 2
         Me.LblUserName.Text = "Label3"
+        Me.LblUserName.Visible = False
         '
         'Fechar
         '
@@ -130,6 +131,72 @@ Partial Class Form1
         Me.LoginPanel.Size = New System.Drawing.Size(830, 396)
         Me.LoginPanel.TabIndex = 7
         '
+        'TxtPwdReg2
+        '
+        Me.TxtPwdReg2.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtPwdReg2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtPwdReg2.Location = New System.Drawing.Point(415, 202)
+        Me.TxtPwdReg2.Name = "TxtPwdReg2"
+        Me.TxtPwdReg2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TxtPwdReg2.Size = New System.Drawing.Size(200, 13)
+        Me.TxtPwdReg2.TabIndex = 17
+        '
+        'TxtPwdReg1
+        '
+        Me.TxtPwdReg1.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtPwdReg1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtPwdReg1.Location = New System.Drawing.Point(209, 202)
+        Me.TxtPwdReg1.Name = "TxtPwdReg1"
+        Me.TxtPwdReg1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TxtPwdReg1.Size = New System.Drawing.Size(200, 13)
+        Me.TxtPwdReg1.TabIndex = 16
+        '
+        'TxtEmail
+        '
+        Me.TxtEmail.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtEmail.Location = New System.Drawing.Point(415, 183)
+        Me.TxtEmail.Name = "TxtEmail"
+        Me.TxtEmail.Size = New System.Drawing.Size(200, 13)
+        Me.TxtEmail.TabIndex = 15
+        '
+        'TxtUserReg
+        '
+        Me.TxtUserReg.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtUserReg.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtUserReg.Location = New System.Drawing.Point(209, 183)
+        Me.TxtUserReg.Name = "TxtUserReg"
+        Me.TxtUserReg.Size = New System.Drawing.Size(200, 13)
+        Me.TxtUserReg.TabIndex = 14
+        '
+        'TxtFirstName
+        '
+        Me.TxtFirstName.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtFirstName.Location = New System.Drawing.Point(209, 164)
+        Me.TxtFirstName.Name = "TxtFirstName"
+        Me.TxtFirstName.Size = New System.Drawing.Size(200, 13)
+        Me.TxtFirstName.TabIndex = 13
+        '
+        'TxtLastName
+        '
+        Me.TxtLastName.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtLastName.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtLastName.Location = New System.Drawing.Point(415, 164)
+        Me.TxtLastName.Name = "TxtLastName"
+        Me.TxtLastName.Size = New System.Drawing.Size(200, 13)
+        Me.TxtLastName.TabIndex = 12
+        '
+        'TxtPwd
+        '
+        Me.TxtPwd.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtPwd.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtPwd.Location = New System.Drawing.Point(209, 57)
+        Me.TxtPwd.Name = "TxtPwd"
+        Me.TxtPwd.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TxtPwd.Size = New System.Drawing.Size(200, 13)
+        Me.TxtPwd.TabIndex = 11
+        '
         'TxtUser
         '
         Me.TxtUser.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
@@ -138,65 +205,6 @@ Partial Class Form1
         Me.TxtUser.Name = "TxtUser"
         Me.TxtUser.Size = New System.Drawing.Size(200, 13)
         Me.TxtUser.TabIndex = 9
-        '
-        'TxtPwd
-        '
-        Me.TxtPwd.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtPwd.Location = New System.Drawing.Point(209, 57)
-        Me.TxtPwd.Name = "TxtPwd"
-        Me.TxtPwd.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TxtPwd.Size = New System.Drawing.Size(200, 13)
-        Me.TxtPwd.TabIndex = 11
-        '
-        'TxtFirstName
-        '
-        Me.TxtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtFirstName.Location = New System.Drawing.Point(209, 133)
-        Me.TxtFirstName.Name = "TxtFirstName"
-        Me.TxtFirstName.Size = New System.Drawing.Size(200, 13)
-        Me.TxtFirstName.TabIndex = 13
-        '
-        'TxtLastName
-        '
-        Me.TxtLastName.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtLastName.Location = New System.Drawing.Point(415, 133)
-        Me.TxtLastName.Name = "TxtLastName"
-        Me.TxtLastName.Size = New System.Drawing.Size(200, 13)
-        Me.TxtLastName.TabIndex = 12
-        '
-        'TxtUserReg
-        '
-        Me.TxtUserReg.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtUserReg.Location = New System.Drawing.Point(209, 152)
-        Me.TxtUserReg.Name = "TxtUserReg"
-        Me.TxtUserReg.Size = New System.Drawing.Size(200, 13)
-        Me.TxtUserReg.TabIndex = 14
-        '
-        'TxtEmail
-        '
-        Me.TxtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtEmail.Location = New System.Drawing.Point(415, 152)
-        Me.TxtEmail.Name = "TxtEmail"
-        Me.TxtEmail.Size = New System.Drawing.Size(200, 13)
-        Me.TxtEmail.TabIndex = 15
-        '
-        'TxtPwdReg1
-        '
-        Me.TxtPwdReg1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtPwdReg1.Location = New System.Drawing.Point(209, 171)
-        Me.TxtPwdReg1.Name = "TxtPwdReg1"
-        Me.TxtPwdReg1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TxtPwdReg1.Size = New System.Drawing.Size(200, 13)
-        Me.TxtPwdReg1.TabIndex = 16
-        '
-        'TxtPwdReg2
-        '
-        Me.TxtPwdReg2.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtPwdReg2.Location = New System.Drawing.Point(415, 171)
-        Me.TxtPwdReg2.Name = "TxtPwdReg2"
-        Me.TxtPwdReg2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TxtPwdReg2.Size = New System.Drawing.Size(200, 13)
-        Me.TxtPwdReg2.TabIndex = 17
         '
         'BtnImagemRegister
         '
@@ -335,16 +343,16 @@ Partial Class Form1
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1000, 500)
         Me.Controls.Add(Me.LoginPanel)
-        Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.PnlMenuTop)
+        Me.Controls.Add(Me.PnlMenu)
         Me.Controls.Add(Me.BtnImagem5)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "GestFrot"
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
+        Me.PnlMenu.ResumeLayout(False)
+        Me.PnlMenuTop.ResumeLayout(False)
+        Me.PnlMenuTop.PerformLayout()
         Me.LoginPanel.ResumeLayout(False)
         Me.LoginPanel.PerformLayout()
         Me.ResumeLayout(False)
@@ -355,11 +363,11 @@ Partial Class Form1
     Friend WithEvents BtnImagem3 As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagem4 As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagem5 As GestFrotPAP.BtnImagem
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents PnlMenu As System.Windows.Forms.Panel
     Friend WithEvents TmrSlide1 As System.Windows.Forms.Timer
     Friend WithEvents TmrSlide2 As System.Windows.Forms.Timer
     Friend WithEvents BtnMenu1 As GestFrotPAP.BtnMenu
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents PnlMenuTop As System.Windows.Forms.Panel
     Friend WithEvents LabelNomeProjeto As System.Windows.Forms.Label
     Friend WithEvents Fechar As System.Windows.Forms.Label
     Friend WithEvents LoginPanel As System.Windows.Forms.Panel
