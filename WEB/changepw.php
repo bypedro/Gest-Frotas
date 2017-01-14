@@ -46,7 +46,7 @@
 			  <span class="glyphicon glyphicon-user"></span>&nbsp;Olá,  <?php echo $userRow['userName']; ?>&nbsp;<span class="caret"></span></a>
               <ul class="dropdown-menu">
 				<li><a href="#"><span class=""></span>&#9742; Serviços</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Perfil</a></li>
+                <li><a href="perfil.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Perfil</a></li>
 				<li><a href="logout.php?logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sair</a></li>
               </ul>
             </li>
@@ -63,19 +63,21 @@
 	<div class="container">
     
     	<div class="page-header">
-    	<h3>Alterar Password</h3>
+    	<h3>Alterar Perfil</h3>
     	</div>
+			
+
 		
-		
-			<iframe src="change.php" align="justify" height="200" width="500" frameBorder="0"></iframe>
+			
 	
-
-		<p align="left">
-		</p>
-
+<br>
         <div class="row">
         <div class="col-lg-12">
-
+		<div class="hover08 column">
+<center><figure><img src="https://store.multidots.com/wp-content/uploads/2016/07/user-image-.png"></figure></div></center>
+<p align="center">
+<iframe src="change.php" align="fixed" height="500" width="500" frameBorder="0"></iframe>
+			</p>
         </div>
         </div>
     
