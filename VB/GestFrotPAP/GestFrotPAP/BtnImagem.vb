@@ -1,7 +1,7 @@
 Imports System.Drawing.Text
 Imports System.Drawing
 'Define evento primário->
-<System.ComponentModel.DefaultEventAttribute("Click")> _
+<System.ComponentModel.DefaultEventAttribute("ButtonClickMasterRace")> _
 Public Class BtnImagem
     <System.ComponentModel.Category("BtnImagem")> _
     Public Property zCorSelecionado As Color = Color.SteelBlue
@@ -77,27 +77,34 @@ Public Class BtnImagem
         End If
     End Sub
 
-
-
-    Private Sub EventoClick()
-        corfundo = zCorFundo
-        corselecionado = zCorSelecionado
+    Public Sub VerificarEstadoBotao()
         If zEstadoBotao = False Then
+            Me.BackColor = corfundo
+            zEstadoBotao = False
+        End If
+        If zEstadoBotao = True Then
             Me.BackColor = corselecionado
             zEstadoBotao = True
-            'ElseIf zEstadoBotao = True Then
-            '    Me.BackColor = corfundo
-            '    zEstadoBotao = False
-            'Não sei se necessito disto
         End If
     End Sub
 
-
-    Private Sub btnImagem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Click, LblTexto.Click, Imagem.Click
-        EventoClick()
+    Public Sub EventoClick()
+        If zEstadoBotao = False Then
+            Me.BackColor = corselecionado
+            Me.zEstadoBotao = True
+        End If
+        VerificarEstadoBotao()
     End Sub
 
-    Private Sub Btnhover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.MouseHover, LblTexto.MouseHover, Imagem.MouseHover
+    Public Event ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    Private Sub Objetos(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Imagem.Click, LblTexto.Click, Me.Click
+        EventoClick()
+        RaiseEvent ButtonClickMasterRace(Me, EventArgs.Empty)
+    End Sub
+
+
+    Private Sub Btnhover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.MouseEnter, LblTexto.MouseEnter, Imagem.MouseEnter 'Mousehover tem delay
         If zEstadoBotao = False Then
             Me.BackColor = zCorHover
         End If
@@ -105,15 +112,6 @@ Public Class BtnImagem
     Private Sub Btnleave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.MouseLeave, Imagem.MouseLeave, LblTexto.MouseLeave
         If zEstadoBotao = False Then
             Me.BackColor = corfundo
-        End If
-    End Sub
-
-    Public Sub VerificarEstadoBotao()
-        If zEstadoBotao = False Then
-            Me.BackColor = corfundo
-        End If
-        If zEstadoBotao = True Then
-            Me.BackColor = corselecionado
         End If
     End Sub
 End Class
