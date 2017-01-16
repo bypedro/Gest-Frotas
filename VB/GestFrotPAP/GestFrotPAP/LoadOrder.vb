@@ -28,7 +28,7 @@ Public Module LoadOrder
 
     Public Sub l1()
         'Menu do topo com titulo / Por aqui o butão fechar
-        Form1.LabelNomeProjeto.Text = "Nome Genérico 1"
+        Form1.LabelNomeProjeto.Text = "VecXP"
         Form1.LabelNomeProjeto.Font = Fonte.GetInstance(10, FontStyle.Bold)
         Form1.LabelNomeProjeto.Top = (Form1.PnlMenuTop.Height - Form1.LabelNomeProjeto.Height) / 2
         Form1.LabelNomeProjeto.Left = 5
@@ -58,8 +58,8 @@ Public Module LoadOrder
 
     Public Sub l2() 'Depois do Login
         'User
-        'Ao clickar abre um menu??
-        Form1.LblUserName.Visible = True
+
+        Form1.LblUserName.Visible = True  'Ao clickar abre um menu??
         Form1.LblUserName.Text = Form1.TxtUser.Text + "MUDAR" 'nome do Utilizador/ email/ idk possivelmente buscar nome e apelido á bd
         Form1.LblUserName.Font = Fonte.GetInstance(9, FontStyle.Bold)
         Form1.LblUserName.ForeColor = Color.White 'No futuro Opção para mudar?

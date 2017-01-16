@@ -26,12 +26,12 @@
         TxtPwdReg1.Hide()
         TxtPwdReg2.Hide()
 
-
         '???? modulo aparencia?   
         Dim CentroEcranX As Integer = Me.Width / 2
         Dim CentroEcranY As Integer = Me.Height / 2
 
         'Registar
+        'Talvez outro panel?
         TxtFirstName.Font = Fonte.GetInstance(12, FontStyle.Bold)
         TxtFirstName.Left = CentroEcranX - TxtFirstName.Width - 5
         TxtFirstName.Top = PnlMenuTop.Bottom + 150
@@ -52,7 +52,6 @@
         TxtPwdReg2.Font = Fonte.GetInstance(12, FontStyle.Bold)
         TxtPwdReg2.Left = CentroEcranX + 5
         TxtPwdReg2.Top = TxtEmail.Bottom + 10
-        'Just to see
 
 
 

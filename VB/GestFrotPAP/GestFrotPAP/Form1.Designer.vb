@@ -126,6 +126,7 @@ Partial Class Form1
         Me.LoginPanel.Controls.Add(Me.TxtUser)
         Me.LoginPanel.Controls.Add(Me.BtnImagemRegister)
         Me.LoginPanel.Controls.Add(Me.BtnImagemLogin)
+        Me.LoginPanel.ForeColor = System.Drawing.Color.White
         Me.LoginPanel.Location = New System.Drawing.Point(88, 36)
         Me.LoginPanel.Name = "LoginPanel"
         Me.LoginPanel.Size = New System.Drawing.Size(830, 396)
@@ -196,6 +197,7 @@ Partial Class Form1
         Me.TxtPwd.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TxtPwd.Size = New System.Drawing.Size(200, 13)
         Me.TxtPwd.TabIndex = 11
+        Me.TxtPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'TxtUser
         '
@@ -205,11 +207,12 @@ Partial Class Form1
         Me.TxtUser.Name = "TxtUser"
         Me.TxtUser.Size = New System.Drawing.Size(200, 13)
         Me.TxtUser.TabIndex = 9
+        Me.TxtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'BtnImagemRegister
         '
         Me.BtnImagemRegister.BackColor = System.Drawing.Color.SlateGray
-        Me.BtnImagemRegister.Location = New System.Drawing.Point(209, 3)
+        Me.BtnImagemRegister.Location = New System.Drawing.Point(409, 3)
         Me.BtnImagemRegister.Name = "BtnImagemRegister"
         Me.BtnImagemRegister.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagemRegister.TabIndex = 6
@@ -324,7 +327,7 @@ Partial Class Form1
         Me.BtnImagem5.BackColor = System.Drawing.Color.SlateGray
         Me.BtnImagem5.Location = New System.Drawing.Point(924, 185)
         Me.BtnImagem5.Name = "BtnImagem5"
-        Me.BtnImagem5.Size = New System.Drawing.Size(64, 41)
+        Me.BtnImagem5.Size = New System.Drawing.Size(400, 300)
         Me.BtnImagem5.TabIndex = 4
         Me.BtnImagem5.zAlturaImagem = 38
         Me.BtnImagem5.zComprimentoImagem = 38
