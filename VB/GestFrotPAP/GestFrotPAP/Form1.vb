@@ -166,6 +166,20 @@
         'Mudar txt para as de registo
         'mudar butoes registar e cancelar
         'etc
+        Dim Userlogin As String
+        Userlogin = TxtUser.Text
+
+        For i = 1 To Len(Userlogin)
+            Userlogin = Mid(Userlogin, i, 1)
+            If InStr("@", Userlogin) = 0 Then
+                MsgBox("nao tem @") 'Por codigo para comprar com user
+                Exit For
+            Else
+                ' Por codigo para email
+            End If
+        Next
+
+        MsgBox(HashPassword(TxtUser.Text))
     End Sub
 
     Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles PnlMenuTop.Paint
