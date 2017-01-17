@@ -31,10 +31,10 @@
 		// basic name validation
 		if (empty($name)) {
 			$error = true;
-			$nameError = "Please enter your full name.";
+			$nameError = "Introduza o seu nome completo.";
 		} else if (strlen($name) < 3) {
 			$error = true;
-			$nameError = "Name must have atleat 3 characters.";
+			$nameError = "Nome tem de ter pelo menos 3 carateres.";
 		} else if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
 			$error = true;
 			$nameError = "Name must contain alphabets and space.";
@@ -43,7 +43,7 @@
 		//basic email validation
 		if ( !filter_var($email,FILTER_VALIDATE_EMAIL) ) {
 			$error = true;
-			$emailError = "Please enter valid email address.";
+			$emailError = "Introduza um email válido.";
 		} else {
 			// check email exist or not
 			$query = "SELECT userEmail FROM users WHERE userEmail='$email'";
@@ -51,16 +51,16 @@
 			$count = mysql_num_rows($result);
 			if($count!=0){
 				$error = true;
-				$emailError = "Provided Email is already in use.";
+				$emailError = "O email que digitou já está a ser usado.";
 			}
 		}
 		// password validation
 		if (empty($pass)){
 			$error = true;
-			$passError = "Please enter password.";
+			$passError = "Introduza a sua password.";
 		} else if(strlen($pass) < 6) {
 			$error = true;
-			$passError = "Password must have atleast 6 characters.";
+			$passError = "Password tem de ter pelo menos 6 carateres.";
 		}
 		
 		// password encrypt using SHA256();
@@ -73,15 +73,15 @@
 			$res = mysql_query($query);
 				
 			if ($res) {
-				$errTyp = "success";
-				$errMSG = "Successfully registered, you may login now";
+				$errTyp = "Concluído!";
+				$errMSG = "Registo concluído com sucesso, agora pode entrar.";
 				unset($name);
 				unset($email);
 				unset($adress);
 				unset($pass);
 			} else {
-				$errTyp = "danger";
-				$errMSG = "Something went wrong, try again later...";	
+				$errTyp = "Erro";
+				$errMSG = "Alguma coisa está mal, tente novamente mais tarde...";	
 			}	
 				
 		}
