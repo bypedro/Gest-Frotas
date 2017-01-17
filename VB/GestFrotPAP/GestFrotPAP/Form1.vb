@@ -150,8 +150,8 @@
     End Sub
 
     Private Sub BtnImagemLogin_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemLogin.ButtonClickMasterRace
-        LoadOrder.l2()
-
+        Login(TxtUser.Text, HashPassword(TxtPwd.Text))
+        'LoadOrder.l2()
     End Sub
 
     Private Sub BtnImagemRegister_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemRegister.ButtonClickMasterRace
@@ -179,7 +179,7 @@
             End If
         Next
 
-        MsgBox(HashPassword(TxtUser.Text))
+
     End Sub
 
     Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles PnlMenuTop.Paint
