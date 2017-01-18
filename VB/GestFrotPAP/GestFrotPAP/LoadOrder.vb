@@ -26,7 +26,7 @@ Public Module LoadOrder
 
 
 
-    Public Sub l1()
+    Public Sub LoginPage()
         'Menu do topo com titulo / Por aqui o butão fechar
         Form1.LabelNomeProjeto.Text = "VecXP"
         Form1.LabelNomeProjeto.Font = Fonte.GetInstance(10, FontStyle.Bold)
@@ -40,9 +40,9 @@ Public Module LoadOrder
         Form1.LoginPanel.Width = Form1.Width
         'Talvez Criar outro botão ou mudar o atual
         Form1.BtnImagemLogin.Left = CentroEcranX - Form1.BtnImagemLogin.Width - 5
-        Form1.BtnImagemRegister.Left = CentroEcranX + 5
+        Form1.BtnImagemRegistarEntrar.Left = CentroEcranX + 5
         Form1.BtnImagemLogin.Top = CentroEcranY + Form1.BtnImagemLogin.Height
-        Form1.BtnImagemRegister.Top = CentroEcranY + Form1.BtnImagemRegister.Height
+        Form1.BtnImagemRegistarEntrar.Top = CentroEcranY + Form1.BtnImagemRegistarEntrar.Height
         Form1.TxtUser.Font = Fonte.GetInstance(12, FontStyle.Bold)
         Form1.TxtPwd.Font = Fonte.GetInstance(12, FontStyle.Bold)
         Form1.TxtUser.ForeColor = Color.White
@@ -54,21 +54,68 @@ Public Module LoadOrder
         SendMessage(Form1.TxtUser.Handle, &H1501, 0, "Utilizador ou Email")
         SendMessage(Form1.TxtPwd.Handle, &H1501, 0, "Password")
 
+
+        SendMessage(Form1.TxtEmail.Handle, &H1501, 0, "Email")
+        SendMessage(Form1.TxtPwdReg1.Handle, &H1501, 0, "Password")
+        SendMessage(Form1.TxtPwdReg2.Handle, &H1501, 0, "Repetir Password")
+        SendMessage(Form1.TxtFirstName.Handle, &H1501, 0, "Nome")
+        SendMessage(Form1.TxtLastName.Handle, &H1501, 0, "Apelido")
+        SendMessage(Form1.TxtUserReg.Handle, &H1501, 0, "Utilizador")
+
+
+
+        Form1.BtnImagemCancelar.Hide()
+        Form1.BtnImagemRegistar.Hide()
+        Form1.TxtEmail.Hide()
+        Form1.TxtPwdReg1.Hide()
+        Form1.TxtPwdReg2.Hide()
+        Form1.TxtUserReg.Hide()
+        Form1.TxtFirstName.Hide()
+        Form1.TxtLastName.Hide()
+        Form1.TxtUser.Show()
+        Form1.TxtPwd.Show()
     End Sub
 
-    Public Sub l2() 'Depois do Login
-        'User
 
+
+    Public Sub MenuPrincipalPage() 'Depois do Login
+        'User
         Form1.LblUserName.Visible = True  'Ao clickar abre um menu??
         Form1.LblUserName.Text = Form1.TxtUser.Text + "MUDAR" 'nome do Utilizador/ email/ idk possivelmente buscar nome e apelido á bd
         Form1.LblUserName.Font = Fonte.GetInstance(9, FontStyle.Bold)
         Form1.LblUserName.ForeColor = Color.White 'No futuro Opção para mudar?
         Form1.LblUserName.Top = (Form1.PnlMenuTop.Height - Form1.LblUserName.Height) / 2
         Form1.LblUserName.Left = Form1.Fechar.Right - Form1.LblUserName.Width - 20
-
         '
         'IDK
         Form1.LoginPanel.Hide()
+    End Sub
+
+    Public Sub RegistarPage()
+
+        Form1.TxtFirstName.Show()
+        Form1.TxtLastName.Show()
+        Form1.TxtUserReg.Show()
+        Form1.TxtEmail.Show()
+        Form1.TxtPwdReg1.Show()
+        Form1.TxtPwdReg2.Show()
+        Form1.TxtUser.Hide()
+        Form1.TxtPwd.Hide()
+        Form1.BtnImagemCancelar.Show()
+        Form1.BtnImagemRegistar.Show()
+
+        Form1.BtnImagemRegistar.Left = CentroEcranX - Form1.BtnImagemRegistar.Width - 5
+        Form1.BtnImagemCancelar.Left = CentroEcranX + 5
+        Form1.BtnImagemRegistar.Top = CentroEcranY + Form1.BtnImagemRegistar.Height
+        Form1.BtnImagemCancelar.Top = CentroEcranY + Form1.BtnImagemCancelar.Height
+
+
+        'Mudar txt para as de registo
+        'mudar butoes registar e cancelar
+        'etc
+
+
+
     End Sub
 
 End Module

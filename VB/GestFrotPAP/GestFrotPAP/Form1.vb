@@ -83,7 +83,7 @@
         BtnImagem(2) = BtnImagem3
         BtnImagem(3) = BtnImagem4
 
-        LoadOrder.l1() 'é tipo o modulo aparencia
+        LoadOrder.LoginPage() 'é tipo o modulo aparencia
         Fade(0)
     End Sub
 
@@ -150,39 +150,27 @@
     End Sub
 
     Private Sub BtnImagemLogin_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemLogin.ButtonClickMasterRace
-        Login(TxtUser.Text, HashPassword(TxtPwd.Text))
+        If Login(TxtUser.Text, HashPassword(TxtPwd.Text)) = True Then
+            LoadOrder.MenuPrincipalPage()
+        End If
         'LoadOrder.l2()
     End Sub
 
-    Private Sub BtnImagemRegister_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemRegister.ButtonClickMasterRace
-        TxtFirstName.Show()
-        TxtLastName.Show()
-        TxtUserReg.Show()
-        TxtEmail.Show()
-        TxtPwdReg1.Show()
-        TxtPwdReg2.Show()
-        TxtUser.Hide()
-        TxtPwd.Hide()
-        'Mudar txt para as de registo
-        'mudar butoes registar e cancelar
-        'etc
-        Dim Userlogin As String
-        Userlogin = TxtUser.Text
-
-        For i = 1 To Len(Userlogin)
-            Userlogin = Mid(Userlogin, i, 1)
-            If InStr("@", Userlogin) = 0 Then
-                MsgBox("nao tem @") 'Por codigo para comprar com user
-                Exit For
-            Else
-                ' Por codigo para email
-            End If
-        Next
-
-
-    End Sub
 
     Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles PnlMenuTop.Paint
         'Por o programa a mexer pelo rato
+    End Sub
+
+    Private Sub BtnImagemRegistarEntrar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemRegistarEntrar.ButtonClickMasterRace
+        LoadOrder.RegistarPage()
+    End Sub
+
+    Private Sub BtnImagemCancelar_ButtonClickMasterRace_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemCancelar.ButtonClickMasterRace
+        LoadOrder.LoginPage()
+    End Sub
+
+    Private Sub BtnImagemRegistar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemRegistar.ButtonClickMasterRace
+        'Por codigo
+        Registar(TxtUserReg.Text, TxtPwdReg1.Text, TxtPwdReg2.Text, TxtEmail.Text, "MORADA POR AQUI COISAS", TxtFirstName.Text, TxtLastName.Text)
     End Sub
 End Class

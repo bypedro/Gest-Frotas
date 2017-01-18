@@ -40,7 +40,9 @@ Partial Class Form1
         Me.TxtLastName = New System.Windows.Forms.TextBox()
         Me.TxtPwd = New System.Windows.Forms.TextBox()
         Me.TxtUser = New System.Windows.Forms.TextBox()
-        Me.BtnImagemRegister = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemCancelar = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemRegistar = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemRegistarEntrar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemLogin = New GestFrotPAP.BtnImagem()
         Me.BtnMenu1 = New GestFrotPAP.BtnMenu()
         Me.BtnImagem1 = New GestFrotPAP.BtnImagem()
@@ -116,6 +118,8 @@ Partial Class Form1
         '
         'LoginPanel
         '
+        Me.LoginPanel.Controls.Add(Me.BtnImagemCancelar)
+        Me.LoginPanel.Controls.Add(Me.BtnImagemRegistar)
         Me.LoginPanel.Controls.Add(Me.TxtPwdReg2)
         Me.LoginPanel.Controls.Add(Me.TxtPwdReg1)
         Me.LoginPanel.Controls.Add(Me.TxtEmail)
@@ -124,7 +128,7 @@ Partial Class Form1
         Me.LoginPanel.Controls.Add(Me.TxtLastName)
         Me.LoginPanel.Controls.Add(Me.TxtPwd)
         Me.LoginPanel.Controls.Add(Me.TxtUser)
-        Me.LoginPanel.Controls.Add(Me.BtnImagemRegister)
+        Me.LoginPanel.Controls.Add(Me.BtnImagemRegistarEntrar)
         Me.LoginPanel.Controls.Add(Me.BtnImagemLogin)
         Me.LoginPanel.ForeColor = System.Drawing.Color.White
         Me.LoginPanel.Location = New System.Drawing.Point(88, 36)
@@ -209,22 +213,56 @@ Partial Class Form1
         Me.TxtUser.TabIndex = 9
         Me.TxtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'BtnImagemRegister
+        'BtnImagemCancelar
         '
-        Me.BtnImagemRegister.BackColor = System.Drawing.Color.SlateGray
-        Me.BtnImagemRegister.Location = New System.Drawing.Point(409, 3)
-        Me.BtnImagemRegister.Name = "BtnImagemRegister"
-        Me.BtnImagemRegister.Size = New System.Drawing.Size(200, 44)
-        Me.BtnImagemRegister.TabIndex = 6
-        Me.BtnImagemRegister.zAlturaImagem = 38
-        Me.BtnImagemRegister.zComprimentoImagem = 38
-        Me.BtnImagemRegister.zCorFundo = System.Drawing.Color.SlateGray
-        Me.BtnImagemRegister.zCorHover = System.Drawing.Color.LightSlateGray
-        Me.BtnImagemRegister.zCorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagemRegister.zEstadoBotao = False
-        Me.BtnImagemRegister.zImagem = Nothing
-        Me.BtnImagemRegister.zTamanhoLetra = 10
-        Me.BtnImagemRegister.zTexto = "Register"
+        Me.BtnImagemCancelar.BackColor = System.Drawing.Color.SlateGray
+        Me.BtnImagemCancelar.Location = New System.Drawing.Point(209, 251)
+        Me.BtnImagemCancelar.Name = "BtnImagemCancelar"
+        Me.BtnImagemCancelar.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagemCancelar.TabIndex = 19
+        Me.BtnImagemCancelar.zAlturaImagem = 38
+        Me.BtnImagemCancelar.zComprimentoImagem = 38
+        Me.BtnImagemCancelar.zCorFundo = System.Drawing.Color.SlateGray
+        Me.BtnImagemCancelar.zCorHover = System.Drawing.Color.LightSlateGray
+        Me.BtnImagemCancelar.zCorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemCancelar.zEstadoBotao = False
+        Me.BtnImagemCancelar.zImagem = Nothing
+        Me.BtnImagemCancelar.zTamanhoLetra = 10
+        Me.BtnImagemCancelar.zTexto = "Cancelar"
+        '
+        'BtnImagemRegistar
+        '
+        Me.BtnImagemRegistar.BackColor = System.Drawing.Color.SlateGray
+        Me.BtnImagemRegistar.Location = New System.Drawing.Point(3, 251)
+        Me.BtnImagemRegistar.Name = "BtnImagemRegistar"
+        Me.BtnImagemRegistar.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagemRegistar.TabIndex = 18
+        Me.BtnImagemRegistar.zAlturaImagem = 38
+        Me.BtnImagemRegistar.zComprimentoImagem = 38
+        Me.BtnImagemRegistar.zCorFundo = System.Drawing.Color.SlateGray
+        Me.BtnImagemRegistar.zCorHover = System.Drawing.Color.LightSlateGray
+        Me.BtnImagemRegistar.zCorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemRegistar.zEstadoBotao = False
+        Me.BtnImagemRegistar.zImagem = Nothing
+        Me.BtnImagemRegistar.zTamanhoLetra = 10
+        Me.BtnImagemRegistar.zTexto = "Registar"
+        '
+        'BtnImagemRegistarEntrar
+        '
+        Me.BtnImagemRegistarEntrar.BackColor = System.Drawing.Color.SlateGray
+        Me.BtnImagemRegistarEntrar.Location = New System.Drawing.Point(409, 3)
+        Me.BtnImagemRegistarEntrar.Name = "BtnImagemRegistarEntrar"
+        Me.BtnImagemRegistarEntrar.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagemRegistarEntrar.TabIndex = 6
+        Me.BtnImagemRegistarEntrar.zAlturaImagem = 38
+        Me.BtnImagemRegistarEntrar.zComprimentoImagem = 38
+        Me.BtnImagemRegistarEntrar.zCorFundo = System.Drawing.Color.SlateGray
+        Me.BtnImagemRegistarEntrar.zCorHover = System.Drawing.Color.LightSlateGray
+        Me.BtnImagemRegistarEntrar.zCorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemRegistarEntrar.zEstadoBotao = False
+        Me.BtnImagemRegistarEntrar.zImagem = Nothing
+        Me.BtnImagemRegistarEntrar.zTamanhoLetra = 10
+        Me.BtnImagemRegistarEntrar.zTexto = "Registar"
         '
         'BtnImagemLogin
         '
@@ -241,7 +279,7 @@ Partial Class Form1
         Me.BtnImagemLogin.zEstadoBotao = False
         Me.BtnImagemLogin.zImagem = Nothing
         Me.BtnImagemLogin.zTamanhoLetra = 10
-        Me.BtnImagemLogin.zTexto = "Login"
+        Me.BtnImagemLogin.zTexto = "Entrar"
         '
         'BtnMenu1
         '
@@ -374,7 +412,7 @@ Partial Class Form1
     Friend WithEvents LabelNomeProjeto As System.Windows.Forms.Label
     Friend WithEvents Fechar As System.Windows.Forms.Label
     Friend WithEvents LoginPanel As System.Windows.Forms.Panel
-    Friend WithEvents BtnImagemRegister As GestFrotPAP.BtnImagem
+    Friend WithEvents BtnImagemRegistarEntrar As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagemLogin As GestFrotPAP.BtnImagem
     Friend WithEvents LblUserName As System.Windows.Forms.Label
     Friend WithEvents TxtUser As System.Windows.Forms.TextBox
@@ -385,5 +423,7 @@ Partial Class Form1
     Friend WithEvents TxtLastName As System.Windows.Forms.TextBox
     Friend WithEvents TxtPwdReg2 As System.Windows.Forms.TextBox
     Friend WithEvents TxtPwdReg1 As System.Windows.Forms.TextBox
+    Friend WithEvents BtnImagemCancelar As GestFrotPAP.BtnImagem
+    Friend WithEvents BtnImagemRegistar As GestFrotPAP.BtnImagem
 
 End Class
