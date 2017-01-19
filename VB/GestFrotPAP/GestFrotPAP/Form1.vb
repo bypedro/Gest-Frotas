@@ -167,10 +167,19 @@
 
     Private Sub BtnImagemCancelar_ButtonClickMasterRace_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemCancelar.ButtonClickMasterRace
         LoadOrder.LoginPage()
+        TxtFirstName.Text = ""
+        TxtLastName.Text = ""
+        TxtEmail.Text = ""
+        TxtUserReg.Text = ""
+        TxtPwdReg1.Text = ""
+        TxtPwdReg2.Text = ""
+
+
     End Sub
 
     Private Sub BtnImagemRegistar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemRegistar.ButtonClickMasterRace
         'Por codigo
         Registar(TxtUserReg.Text, TxtPwdReg1.Text, TxtPwdReg2.Text, TxtEmail.Text, "MORADA POR AQUI COISAS", TxtFirstName.Text, TxtLastName.Text)
+
     End Sub
 End Class

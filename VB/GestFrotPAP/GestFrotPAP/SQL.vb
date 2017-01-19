@@ -74,7 +74,16 @@ Module SQL
             MsgBox("Necessita de um email")
             Return False
             Exit Function
+        Else
+            If LCase(Email).Contains(LCase("@")) Then
+
+            Else
+                MsgBox("Email invalido")
+                Return False
+                Exit Function
+            End If
         End If
+       
         'VEr?
         If Password1 = "" Then
             MsgBox("Necessita de Password")
