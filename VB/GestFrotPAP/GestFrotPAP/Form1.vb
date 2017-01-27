@@ -1,4 +1,8 @@
-﻿Public Class Form1
+﻿Imports System.Drawing
+Imports System.Drawing.Drawing2D
+
+
+Public Class Form1
     Dim N As Integer = 3 'Nº butões
     Dim BtnImagem(N) As BtnImagem
 
@@ -12,19 +16,23 @@
         Next
     End Sub
 
-    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+
+    Private Sub Form1_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
         Fade(1) 'VEr
     End Sub
     ' VEr
 
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TxtFirstName.Hide()
-        TxtLastName.Hide()
-        TxtUserReg.Hide()
-        TxtEmail.Hide()
-        TxtPwdReg1.Hide()
-        TxtPwdReg2.Hide()
+    Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+        PnlUser.Width = 200 'Ver qual a label maior?
+        PnlUser.Height = Label1.Height + Label2.Height + Label3.Height + 20
+        
+
+
+
+        PnlUser.Hide()
+
+
 
         '???? modulo aparencia?   
         Dim CentroEcranX As Integer = Me.Width / 2
@@ -102,7 +110,7 @@
         check(3)
     End Sub
 
-    Private Sub TmrSlide1_Tick(sender As Object, e As EventArgs) Handles TmrSlide1.Tick
+    Private Sub TmrSlide1_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles TmrSlide1.Tick
         PnlMenu.Left = PnlMenu.Left - 2
         If PnlMenu.Right = 36 Then
             TmrSlide1.Enabled = False
@@ -113,7 +121,7 @@
         End If
     End Sub
 
-    Private Sub TmrSlide2_Tick(sender As Object, e As EventArgs) Handles TmrSlide2.Tick
+    Private Sub TmrSlide2_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles TmrSlide2.Tick
         PnlMenu.Left = PnlMenu.Left + 2
         If PnlMenu.Right = 200 Then
             TmrSlide2.Enabled = False
@@ -124,7 +132,7 @@
         End If
     End Sub
 
-    Private Sub BtnMenu1_Click(sender As Object, e As EventArgs) Handles BtnMenu1.Click
+    Private Sub BtnMenu1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BtnMenu1.Click
         If BtnMenu1.zEstadoBotao = True Then
             If PnlMenu.Right = 200 Then
                 TmrSlide1.Enabled = True
@@ -141,23 +149,27 @@
     End Sub
 
 
-    Private Sub BtnImagem5_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagem5.ButtonClickMasterRace
+    Private Sub BtnImagem5_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs)
         Close()
     End Sub
 
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Fechar.Click
+    Private Sub Label2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Fechar.Click
         Close()
     End Sub
 
-    Private Sub BtnImagemLogin_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemLogin.ButtonClickMasterRace
+    Private Sub BtnImagemLogin_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs) Handles BtnImagemLogin.ButtonClickMasterRace
         If Login(TxtUser.Text, HashPassword(TxtPwd.Text)) = True Then
             LoadOrder.MenuPrincipalPage()
         End If
+        PnlUser.Left = LblUserName.Left
+        PnlUser.Top = LblUserName.Bottom + 7
+        PnlUser.Width = LblUserName.Width
+        PnlUser.BringToFront()
         'LoadOrder.l2()
     End Sub
 
 
-    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles PnlMenuTop.Paint
+    Private Sub Panel2_Paint(ByVal sender As Object, ByVal e As PaintEventArgs) Handles PnlMenuTop.Paint
         'Por o programa a mexer pelo rato
     End Sub
 
@@ -182,4 +194,21 @@
         Registar(TxtUserReg.Text, TxtPwdReg1.Text, TxtPwdReg2.Text, TxtEmail.Text, "MORADA POR AQUI COISAS", TxtFirstName.Text, TxtLastName.Text)
 
     End Sub
+
+    Private Sub LblUserName_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LblUserName.Click
+        Label1.Top = (PnlUser.Height - PnlUser.Height) / 2 + 2 '
+        Label1.Left = (PnlUser.Width - PnlUser.Width) / 2 + 2
+        PnlUser.Show()
+    End Sub
+
+    Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles PnlUser.Paint
+        PnlUser.BorderStyle = BorderStyle.None
+
+        e.Graphics.DrawRectangle(Pens.Black,
+                                 e.ClipRectangle.Left,
+                                 e.ClipRectangle.Top,
+                                 e.ClipRectangle.Width - 1,
+                                 e.ClipRectangle.Height - 1)
+    End Sub
+
 End Class

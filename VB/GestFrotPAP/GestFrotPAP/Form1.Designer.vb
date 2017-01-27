@@ -40,6 +40,10 @@ Partial Class Form1
         Me.TxtLastName = New System.Windows.Forms.TextBox()
         Me.TxtPwd = New System.Windows.Forms.TextBox()
         Me.TxtUser = New System.Windows.Forms.TextBox()
+        Me.PnlUser = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.BtnImagemCancelar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemRegistar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemRegistarEntrar = New GestFrotPAP.BtnImagem()
@@ -49,10 +53,10 @@ Partial Class Form1
         Me.BtnImagem2 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem4 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem3 = New GestFrotPAP.BtnImagem()
-        Me.BtnImagem5 = New GestFrotPAP.BtnImagem()
         Me.PnlMenu.SuspendLayout()
         Me.PnlMenuTop.SuspendLayout()
         Me.LoginPanel.SuspendLayout()
+        Me.PnlUser.SuspendLayout()
         Me.SuspendLayout()
         '
         'PnlMenu
@@ -65,7 +69,7 @@ Partial Class Form1
         Me.PnlMenu.Controls.Add(Me.BtnImagem3)
         Me.PnlMenu.Location = New System.Drawing.Point(0, 24)
         Me.PnlMenu.Name = "PnlMenu"
-        Me.PnlMenu.Size = New System.Drawing.Size(82, 476)
+        Me.PnlMenu.Size = New System.Drawing.Size(201, 476)
         Me.PnlMenu.TabIndex = 5
         '
         'TmrSlide1
@@ -131,9 +135,9 @@ Partial Class Form1
         Me.LoginPanel.Controls.Add(Me.BtnImagemRegistarEntrar)
         Me.LoginPanel.Controls.Add(Me.BtnImagemLogin)
         Me.LoginPanel.ForeColor = System.Drawing.Color.White
-        Me.LoginPanel.Location = New System.Drawing.Point(88, 36)
+        Me.LoginPanel.Location = New System.Drawing.Point(305, 36)
         Me.LoginPanel.Name = "LoginPanel"
-        Me.LoginPanel.Size = New System.Drawing.Size(830, 396)
+        Me.LoginPanel.Size = New System.Drawing.Size(643, 396)
         Me.LoginPanel.TabIndex = 7
         '
         'TxtPwdReg2
@@ -212,6 +216,47 @@ Partial Class Form1
         Me.TxtUser.Size = New System.Drawing.Size(200, 13)
         Me.TxtUser.TabIndex = 9
         Me.TxtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'PnlUser
+        '
+        Me.PnlUser.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.PnlUser.Controls.Add(Me.Label3)
+        Me.PnlUser.Controls.Add(Me.Label2)
+        Me.PnlUser.Controls.Add(Me.Label1)
+        Me.PnlUser.Location = New System.Drawing.Point(788, 39)
+        Me.PnlUser.Name = "PnlUser"
+        Me.PnlUser.Size = New System.Drawing.Size(200, 100)
+        Me.PnlUser.TabIndex = 8
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(16, 31)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(48, 13)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "Sign Out"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(16, 17)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(77, 13)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Acount Setting"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(16, 4)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(34, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "LOLZ"
         '
         'BtnImagemCancelar
         '
@@ -295,7 +340,7 @@ Partial Class Form1
         'BtnImagem1
         '
         Me.BtnImagem1.BackColor = System.Drawing.Color.SteelBlue
-        Me.BtnImagem1.Location = New System.Drawing.Point(0, 45)
+        Me.BtnImagem1.Location = New System.Drawing.Point(0, 56)
         Me.BtnImagem1.Name = "BtnImagem1"
         Me.BtnImagem1.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagem1.TabIndex = 0
@@ -312,7 +357,7 @@ Partial Class Form1
         'BtnImagem2
         '
         Me.BtnImagem2.BackColor = System.Drawing.Color.SlateGray
-        Me.BtnImagem2.Location = New System.Drawing.Point(0, 95)
+        Me.BtnImagem2.Location = New System.Drawing.Point(0, 101)
         Me.BtnImagem2.Name = "BtnImagem2"
         Me.BtnImagem2.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagem2.TabIndex = 1
@@ -329,7 +374,7 @@ Partial Class Form1
         'BtnImagem4
         '
         Me.BtnImagem4.BackColor = System.Drawing.Color.SlateGray
-        Me.BtnImagem4.Location = New System.Drawing.Point(0, 195)
+        Me.BtnImagem4.Location = New System.Drawing.Point(0, 191)
         Me.BtnImagem4.Name = "BtnImagem4"
         Me.BtnImagem4.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagem4.TabIndex = 3
@@ -346,7 +391,7 @@ Partial Class Form1
         'BtnImagem3
         '
         Me.BtnImagem3.BackColor = System.Drawing.Color.SlateGray
-        Me.BtnImagem3.Location = New System.Drawing.Point(0, 145)
+        Me.BtnImagem3.Location = New System.Drawing.Point(0, 146)
         Me.BtnImagem3.Name = "BtnImagem3"
         Me.BtnImagem3.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagem3.TabIndex = 2
@@ -360,33 +405,16 @@ Partial Class Form1
         Me.BtnImagem3.zTamanhoLetra = 10
         Me.BtnImagem3.zTexto = "COISA"
         '
-        'BtnImagem5
-        '
-        Me.BtnImagem5.BackColor = System.Drawing.Color.SlateGray
-        Me.BtnImagem5.Location = New System.Drawing.Point(924, 185)
-        Me.BtnImagem5.Name = "BtnImagem5"
-        Me.BtnImagem5.Size = New System.Drawing.Size(400, 300)
-        Me.BtnImagem5.TabIndex = 4
-        Me.BtnImagem5.zAlturaImagem = 38
-        Me.BtnImagem5.zComprimentoImagem = 38
-        Me.BtnImagem5.zCorFundo = System.Drawing.Color.SlateGray
-        Me.BtnImagem5.zCorHover = System.Drawing.Color.LightSlateGray
-        Me.BtnImagem5.zCorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagem5.zEstadoBotao = False
-        Me.BtnImagem5.zImagem = Nothing
-        Me.BtnImagem5.zTamanhoLetra = 10
-        Me.BtnImagem5.zTexto = "X"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1000, 500)
+        Me.Controls.Add(Me.PnlUser)
         Me.Controls.Add(Me.LoginPanel)
         Me.Controls.Add(Me.PnlMenuTop)
         Me.Controls.Add(Me.PnlMenu)
-        Me.Controls.Add(Me.BtnImagem5)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -396,6 +424,8 @@ Partial Class Form1
         Me.PnlMenuTop.PerformLayout()
         Me.LoginPanel.ResumeLayout(False)
         Me.LoginPanel.PerformLayout()
+        Me.PnlUser.ResumeLayout(False)
+        Me.PnlUser.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -403,7 +433,6 @@ Partial Class Form1
     Friend WithEvents BtnImagem2 As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagem3 As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagem4 As GestFrotPAP.BtnImagem
-    Friend WithEvents BtnImagem5 As GestFrotPAP.BtnImagem
     Friend WithEvents PnlMenu As System.Windows.Forms.Panel
     Friend WithEvents TmrSlide1 As System.Windows.Forms.Timer
     Friend WithEvents TmrSlide2 As System.Windows.Forms.Timer
@@ -425,5 +454,9 @@ Partial Class Form1
     Friend WithEvents TxtPwdReg1 As System.Windows.Forms.TextBox
     Friend WithEvents BtnImagemCancelar As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagemRegistar As GestFrotPAP.BtnImagem
+    Friend WithEvents PnlUser As System.Windows.Forms.Panel
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 
 End Class
