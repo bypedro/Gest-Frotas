@@ -36,12 +36,14 @@ Module SQL
                     User = max.ExecuteScalar
                     str = CType(User, String)
                     ligacao.Close()
-                    If str = Password Then
+                    If str = Password.ToLower Or str = Password.ToUpper Then
                         MsgBox("Password correta")
+                        MsgBox(Password + "||||||||||" + str)
                         Return (True)
                         Exit Function
                     Else
                         MsgBox("Password errada")
+
                         Return (False)
                         Exit Function
                     End If
@@ -65,7 +67,6 @@ Module SQL
         'MsgBox(Apelido)
         Dim Comando As MySqlCommand
         Dim Objecto As Object
-
         Dim UtilizadorBD As String = ""
         Dim EmailBD As String = ""
 
@@ -127,6 +128,7 @@ Module SQL
                 Return False
                 Exit Function
             End If
+        Else
         End If
 
         If UtilizadorBD <> "" Then
@@ -135,11 +137,10 @@ Module SQL
                 Return False
                 Exit Function
             End If
+
         End If
-
-
-
-
+        MsgBox(Email + "," + PrimeiroNome + "," + Apelido + "," + Morada + "," + HashPassword(Password1))
+        Form1.TxtUser.Text = HashPassword(Password1)
 
         Return (False)
     End Function

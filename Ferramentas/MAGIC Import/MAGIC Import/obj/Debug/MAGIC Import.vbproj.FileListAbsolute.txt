@@ -12,3 +12,14 @@ C:\Users\Pedro\Documents\Visual Studio 2012\Projects\MAGIC Import\MAGIC Import\b
 C:\Users\Pedro\Documents\Visual Studio 2012\Projects\MAGIC Import\MAGIC Import\obj\Debug\MAGIC Import.exe
 C:\Users\Pedro\Documents\Visual Studio 2012\Projects\MAGIC Import\MAGIC Import\obj\Debug\MAGIC Import.xml
 C:\Users\Pedro\Documents\Visual Studio 2012\Projects\MAGIC Import\MAGIC Import\obj\Debug\MAGIC Import.pdb
+C:\Users\12F\Documents\GitHub\Gest-Frotas\Ferramentas\MAGIC Import\MAGIC Import\bin\Debug\MAGIC Import.exe.config
+C:\Users\12F\Documents\GitHub\Gest-Frotas\Ferramentas\MAGIC Import\MAGIC Import\obj\Debug\MAGIC Import.exe
+C:\Users\12F\Documents\GitHub\Gest-Frotas\Ferramentas\MAGIC Import\MAGIC Import\obj\Debug\MAGIC Import.xml
+C:\Users\12F\Documents\GitHub\Gest-Frotas\Ferramentas\MAGIC Import\MAGIC Import\obj\Debug\MAGIC Import.pdb
+C:\Users\12F\Documents\GitHub\Gest-Frotas\Ferramentas\MAGIC Import\MAGIC Import\bin\Debug\MAGIC Import.exe
+C:\Users\12F\Documents\GitHub\Gest-Frotas\Ferramentas\MAGIC Import\MAGIC Import\bin\Debug\MAGIC Import.pdb
+C:\Users\12F\Documents\GitHub\Gest-Frotas\Ferramentas\MAGIC Import\MAGIC Import\bin\Debug\MAGIC Import.xml
+C:\Users\12F\Documents\GitHub\Gest-Frotas\Ferramentas\MAGIC Import\MAGIC Import\obj\Debug\MAGIC Import.vbprojResolveAssemblyReference.cache
+C:\Users\12F\Documents\GitHub\Gest-Frotas\Ferramentas\MAGIC Import\MAGIC Import\obj\Debug\MAGIC_IMPORT.Form1.resources
+C:\Users\12F\Documents\GitHub\Gest-Frotas\Ferramentas\MAGIC Import\MAGIC Import\obj\Debug\MAGIC_IMPORT.Resources.resources
+C:\Users\12F\Documents\GitHub\Gest-Frotas\Ferramentas\MAGIC Import\MAGIC Import\obj\Debug\MAGIC Import.vbproj.GenerateResource.Cache

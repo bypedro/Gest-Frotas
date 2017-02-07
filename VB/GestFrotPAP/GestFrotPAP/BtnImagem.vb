@@ -69,6 +69,7 @@ Public Class BtnImagem
     Public Property zEstadoBotao As Boolean = False
 
     Private Sub BtnImagem_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        
         'TESTE
         'Dim p As New Drawing2D.GraphicsPath()
         ' p.StartFigure()

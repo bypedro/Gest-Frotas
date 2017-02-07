@@ -45,7 +45,9 @@ Public Class Form1
             Exit Sub
         End If
         Dim ler As New StreamReader(fich)
+
         Dim str As String
+
 
         While (ler.Peek >= 0)
             'Metodo readline serve para ler uma linha de texto do ficheiro

@@ -211,4 +211,7 @@ Public Class Form1
                                  e.ClipRectangle.Height - 1)
     End Sub
 
+    Private Sub PnlMenu_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles PnlMenu.Paint
+
+    End Sub
 End Class
