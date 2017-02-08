@@ -19,10 +19,6 @@
 		$email = strip_tags($email);
 		$email = htmlspecialchars($email);
 		
-		$adress = trim($_POST['adress']);
-		$adress= strip_tags($adress);
-		$adress = htmlspecialchars($adress);
-		
 		$pass = trim($_POST['pass']);
 		$pass = strip_tags($pass);
 		$pass = htmlspecialchars($pass);
@@ -31,10 +27,10 @@
 		// basic name validation
 		if (empty($name)) {
 			$error = true;
-			$nameError = "Please enter your full name.";
+			$nameError = "Introduza o seu nome completo.";
 		} else if (strlen($name) < 3) {
 			$error = true;
-			$nameError = "Name must have atleat 3 characters.";
+			$nameError = "Nome tem de ter pelo menos 3 carateres.";
 		} else if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
 			$error = true;
 			$nameError = "Name must contain alphabets and space.";
@@ -43,24 +39,24 @@
 		//basic email validation
 		if ( !filter_var($email,FILTER_VALIDATE_EMAIL) ) {
 			$error = true;
-			$emailError = "Please enter valid email address.";
+			$emailError = "Introduza um email válido.";
 		} else {
 			// check email exist or not
-			$query = "SELECT userEmail FROM users WHERE userEmail='$email'";
+			$query = "SELECT Email FROM utilizador WHERE Email='$email'";
 			$result = mysql_query($query);
 			$count = mysql_num_rows($result);
 			if($count!=0){
 				$error = true;
-				$emailError = "Provided Email is already in use.";
+				$emailError = "O email que digitou já está a ser usado.";
 			}
 		}
 		// password validation
 		if (empty($pass)){
 			$error = true;
-			$passError = "Please enter password.";
+			$passError = "Introduza a sua password.";
 		} else if(strlen($pass) < 6) {
 			$error = true;
-			$passError = "Password must have atleast 6 characters.";
+			$passError = "Password tem de ter pelo menos 6 carateres.";
 		}
 		
 		// password encrypt using SHA256();
@@ -69,19 +65,19 @@
 		// if there's no error, continue to signup
 		if( !$error ) {
 			
-			$query = "INSERT INTO users(userName,userEmail,userPass,userRegisto, userRua) VALUES('$name','$email','$password', now(),'$adress')";
+			$query = "INSERT INTO utilizador(Nome_Registo, Email, Senha) VALUES('$name','$email','$password')";
 			$res = mysql_query($query);
 				
 			if ($res) {
-				$errTyp = "success";
-				$errMSG = "Successfully registered, you may login now";
+				$errTyp = "Concluído!";
+				$errMSG = "Registo concluído com sucesso, agora pode entrar.";
 				unset($name);
 				unset($email);
-				unset($adress);
 				unset($pass);
 			} else {
-				$errTyp = "danger";
-				$errMSG = "Something went wrong, try again later...";	
+				$errTyp = "Erro";
+				$errMSG = "Alguma coisa está mal, tente novamente mais tarde...";
+				
 			}	
 				
 		}
@@ -93,11 +89,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Coding Cage - Login & Registration System</title>
+<title>Registar</title>
 <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css"  />
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
-<body>
+<body style="background-color:#f7f7f7;>
 
 <div class="container">
 
@@ -107,12 +103,10 @@
     	<div class="col-md-12">
         
         	<div class="form-group">
-            	<h2 class="">Registar</h2>
+
             </div>
         
-        	<div class="form-group">
-            	<hr />
-            </div>
+        
             
             <?php
 			if ( isset($errMSG) ) {
@@ -120,63 +114,56 @@
 				?>
 				<div class="form-group">
             	<div class="alert alert-<?php echo ($errTyp=="success") ? "success" : $errTyp; ?>">
-				<span class="glyphicon glyphicon-info-sign"></span> <?php echo $errMSG; ?>
+				 <?php echo "<script type='text/javascript'>alert('$errMSG');</script>"; ?>
                 </div>
             	</div>
                 <?php
 			}
 			?>
             
+			
+		<div class="boxxx">	
+		<h6>Registar Utilizador</h6>
             <div class="form-group">
-            	<div class="input-group">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-            	<input type="text" name="name" class="form-control" placeholder="Utilizador" maxlength="50" value="<?php echo $name ?>" />
+            	<div class="">
+			
+			<br>
+                <span class=""><span class=""></span></span>
+            	<input type="text" name="name" class="" placeholder="Utilizador" maxlength="50" value="<?php echo $name ?>" />
                 </div>
                 <span class="text-danger"><?php echo $nameError; ?></span>
             </div>
             
             <div class="form-group">
-            	<div class="input-group">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-            	<input type="email" name="email" class="form-control" placeholder="Email" maxlength="40" value="<?php echo $email ?>" />
-                </div>
-                <span class="text-danger"><?php echo $emailError; ?></span>
-            </div>
-			
-			<div class="form-group">
-            	<div class="input-group">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-            	<input type="adress" name="adress" class="form-control" placeholder="Endereço" maxlength="40" value="<?php echo $adress ?>" />
+            	<div  class="">
+                <span class=""><span class=""></span></span>
+            	<input type="email" name="email" class="" placeholder="Email" maxlength="40" value="<?php echo $email ?>" />
                 </div>
                 <span class="text-danger"><?php echo $emailError; ?></span>
             </div>
             
             <div class="form-group">
-            	<div class="input-group">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-            	<input type="password" name="pass" class="form-control" placeholder="Password" maxlength="15" />
+            	<div class=""> 
+                <span class=""><span class=""></span></span> 
+            	<input type="password" name="pass" class="" placeholder="•••••••" maxlength="15" />
                 </div>
                 <span class="text-danger"><?php echo $passError; ?></span>
             </div>
-            
-            <div class="form-group">
-            	<hr />
-            </div>
-            
-            <div class="form-group">
-            	<button type="submit" class="btn btn-block btn-primary" name="btn-signup">Registar</button>
-				<button class="btn btn-block btn-primary" type=button onClick="parent.location='index.php'">Entrar</button>
-            </div>
-            
-            <div class="form-group">
-            	<hr />
-            </div>
-            
+			
+			<br>
+         <button type="submit" class="btnreg" name="btn-signup">Registar</button>
+				   
+        <button class="btnlogin" type=button onClick="parent.location='index.php'">Entrar</button>   
             <div class="form-group">
             </div>
-        
-        </div>
-   
+			
+        </div> 
+		
+
+		
+		
+    </form>
+    </div>	
     </form>
     </div>	
 

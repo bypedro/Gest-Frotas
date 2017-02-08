@@ -23,6 +23,12 @@
 		$adress= strip_tags($adress);
 		$adress = htmlspecialchars($adress);
 		
+		$gender = trim($_POST['Gender']);
+		$gender= strip_tags($gender);
+		$gender = htmlspecialchars($gender);
+		
+
+		
 		if (empty($pass)){
 			$error = true;
 			$passError = "Please enter password.";
@@ -51,7 +57,7 @@
 		
 		if( !$error ) {
 			
-			$query = ("UPDATE users SET userPass='$password', userEmail='$email', userRua='$adress' WHERE userId=".$_SESSION['user']);
+			$query = ("UPDATE users SET userPass='$password', userEmail='$email', userRua='$adress', userGenero='$gender', userEdit = NOW()  WHERE userId=".$_SESSION['user']);
 			$res = mysql_query($query);
 				
 			if ($res) {
@@ -110,15 +116,21 @@
                 <span class=""><span class=""></span></span>
             	<input type="adress" name="adress" class="" placeholder="Morada" maxlength="100" value="<?php echo $adress ?>" />
                 </div>
-                <span class="text-danger"><?php echo $emailError; ?></span>
-            </div>
 			<br>
+			
+			<div class="input-group" method ="post" action ="">
+		 <input type="radio" name="Gender" value="Masculino" checked="checked" />Masculino<input type="radio" name="Gender" value="Feminino" />Feminino
+		</div>
+			<br>
+			
 			<center><div class="form-group">
             	<button type="submit" class="btnn" name="btn-signup">Actualizar</button>
 				<button class="btnnn" type=button onClick="parent.location='Perfil.php'">Voltar</button>
             </div></center>
+			
         
         </div>
+   
    
     </form>
     </div>	

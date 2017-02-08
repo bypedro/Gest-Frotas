@@ -1,7 +1,7 @@
 <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "root", "1234", "pap");
+$link = mysqli_connect("localhost", "root", "", "pap");
  
 // Check connection
 if($link === false){

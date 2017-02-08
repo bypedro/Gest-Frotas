@@ -6,8 +6,8 @@
 	
 	define('DBHOST', 'localhost');
 	define('DBUSER', 'root');
-	define('DBPASS', '1234');
-	define('DBNAME', 'pap');
+	define('DBPASS', '');
+	define('DBNAME', 'frotas');
 	
 	$conn = mysql_connect(DBHOST,DBUSER,DBPASS);
 	$dbcon = mysql_select_db(DBNAME);

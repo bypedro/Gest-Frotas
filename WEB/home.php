@@ -9,14 +9,14 @@
 		exit;
 	}
 	// select loggedin users detail
-	$res=mysql_query("SELECT * FROM users WHERE userId=".$_SESSION['user']);
+	$res=mysql_query("SELECT * FROM utilizador WHERE CodUser=".$_SESSION['user']);
 	$userRow=mysql_fetch_array($res);
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Bem Vindo - <?php echo $userRow['userName']; ?></title>
+<title>Bem Vindo - <?php echo $userRow['Nome_Registo']; ?></title>
 <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css"  />
 <link rel="stylesheet" href="style.css" type="text/css" />
 
@@ -44,7 +44,7 @@
             
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-			  <span class="glyphicon glyphicon-user"></span>&nbsp;Olá,  <?php echo $userRow['userName']; ?>&nbsp;<span class="caret"></span></a>
+			  <span class="glyphicon glyphicon-user"></span>&nbsp;Olá,  <?php echo $userRow['Nome_Registo']; ?>&nbsp;<span class="caret"></span></a>
               <ul class="dropdown-menu">
 			    <li><a href="#"><span class=""></span>&#9742; Serviços</a></li>
                 <li><a href="perfil.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Perfil</a></li>
@@ -111,14 +111,7 @@
 	
 	</div>
 	
-	<div class="footer"><a class="btne" href="#"><span><img src="logos/fb.png"</img></span>
-	<a class="btne" href="#"><span><img src="logos/tt.png"</img></span></a>
-	<a class="btne" href="#"></i><span><img src="logos/gg.jpg"</img></span></a>
-	<a class="btne" href="#"></i><span><img src="logos/em.png"</img></span></a>
-	&#124
-	 FRONTALINES © 2017 
 	
-	</div>
 	
     </div>
    

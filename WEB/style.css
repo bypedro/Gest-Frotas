@@ -37,6 +37,7 @@ input, select {
 }
 
 
+
 input:hover {
 	font-family: Verdana, Geneva, sans-serif;
     border: 0px solid ;
@@ -92,7 +93,6 @@ font-size: 18px;
 
 
 .hover08 figure img {
-	margin:0 20px 10px 0;
 	width: 180px;
     height: 180px;
 	-webkit-filter: grayscale(0) blur(0);
@@ -158,10 +158,63 @@ font-size: 18px;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
+.box {
+	display-align: block;
+  vertical-align: top;
+  background-color: white;
+  text-align: left;
+  padding: 30px;
+      width: 286px;
+      height: 339px;
+  margin: 10px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.26);
+}
+
+.boxx {
+  display-align: block;
+  vertical-align: top;
+  background-color: #cccccc;
+  text-align: left;
+  padding: 20px;
+  width: 286px;
+  height: 10px;
+  margin: 10px;
+ 
+}
+
+.boxx:hover {
+background-color: #e8e8e8
+
+}
+
+.boxxx {
+  display-align: block;
+  vertical-align: top;
+  background-color: white;
+  text-align: left;
+  padding: 30px;
+      width: 281px;width: 281px;
+    height: 420px;
+  margin: 10px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.26);
+
+
+}
+
+.boxleft {
+  background-color: white;
+  width: 281px;
+width: 281px;
+   height: 420px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.26);
+}
+
+
 .btna:hover {
 	background-color: #c5c5c5 !important;
 	outline: none;
 }
+
 
 .btnnn {
 	font-family: Verdana, Geneva, sans-serif;
@@ -187,12 +240,122 @@ font-size: 18px;
 	outline: none;
 }
 
+.btnlogin {
+	font-family: Verdana, Geneva, sans-serif;
+	bottom-align: right;
+	background-color: rgba(236, 236, 236, 0);
+    border: none;
+    color: #ff9d9d;
+    padding: 8px 15px;
+    text-align: center;
+	border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+	border: 1px solid;
+	outline: none;
+	width: 219px;
+}
+
+.btnlogin:hover {
+	background-color: #ff9d9d;
+	color: #f5f5f5;
+	outline: none;
+}
+
+.btnreg {
+	font-family: Verdana, Geneva, sans-serif;
+	bottom-align: right;
+	background-color: rgba(236, 236, 236, 0);
+    border: none;
+    color: #ada7a7;
+    padding: 8px 15px;
+    text-align: center;
+	border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+	border: 1px solid;
+	outline: none;
+	width: 219px;
+}
+
+.btnreg:hover {
+	background-color: #ada7a7;
+	color: #f5f5f5;
+	outline: none;
+}
+
+
+.btnnnn {
+	font-family: Verdana, Geneva, sans-serif;
+	bottom-align: right;
+	background-color: rgba(236, 236, 236, 0);
+    border: none;
+    color: #848080;
+    padding: 8px 15px;
+    text-align: center;
+	border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+	border: 1px solid;
+	outline: none;
+}
+
+.btnnnn:hover {
+	background-color: #848080;
+	color: #f5f5f5;
+	outline: none;
+}
+
+
+input[type=text] {
+    padding: 14px 10px 14px 40px;
+    width: calc(100%);
+    border-radius: 3px;
+    border: 1px solid #E3E4E7;
+    background: #FFF url(https://www.flex11.org/visuals/skins/modern_flex/images/icon-login.png) no-repeat 15px center;
+    color: #66737E;
+    font: 400 14px 'Cabin', sans-serif;
+    max-width: 230px;
+	
+}
 
 
 
+input[type=password] {
+    padding: 14px 10px 14px 40px;
+    width: calc(100%);
+    border-radius: 3px;
+    border: 1px solid #E3E4E7;
+    background: #FFF url(https://www.flex11.org/visuals/skins/modern_flex/images/icon-password.png) no-repeat 15px center;
+    color: #66737E;
+    font: 400 14px 'Cabin', sans-serif;
+    max-width: 230px;
+}
 
 
+input[type=email] {
+    padding: 14px 10px 14px 40px;
+    width: calc(100%);
+    border-radius: 3px;
+    border: 1px solid #E3E4E7;
+    background: #FFF url(https://www.flex11.org/visuals/skins/modern_flex/images/icon-email.png) no-repeat 14px center;
+    color: #66737E;
+    font: 400 14px 'Cabin', sans-serif;
+    max-width: 230px;
+}
 
+img {
+
+}
 
 h1 {
 	font-family: Verdana, Geneva, sans-serif;
@@ -203,6 +366,23 @@ h1 {
 h3 {
 	font-family: Verdana, Geneva, sans-serif;
 }
+
+h4 {
+    color: #7b7b7b;
+	font: 500 18px 'Cabin', sans-serif;
+	margin-left: 47px;
+}
+
+h6 {
+    color: #7b7b7b;
+	font: 500 18px 'Cabin', sans-serif;
+	margin-left: 37px;
+}
+
+h5 {
+    color: white;
+	font: 500 15px 'Cabin', sans-serif;
+	}
 
 
 img.bottom {
@@ -239,22 +419,23 @@ th {
 	transition: .3s ease-in-out;
 
  }
-     
-.footer {
-font-family: Verdana, Geneva, sans-serif;
-	font-size: 90%;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #efefef;
-  text-align: center;
-  box-shadow: 0 0px 83px 0 rgba(0, 0, 0, 0.26);
-}
 
+        
 
+        .direita {
+            float: right;
+            width:100%;
+			margin:0 20px 10px 0;
 
-}
+        }
+
+        .esquerda {
+            float: left;
+            width:100%;
+			margin:0 20px 10px 0;
+
+        }
+
+        
 
 tr:hover {background-color: #f5f5f5}
