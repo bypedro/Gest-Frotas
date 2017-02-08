@@ -1,4 +1,11 @@
-﻿Public Class Form1
+﻿Imports System.Drawing
+Imports System.Drawing.Drawing2D
+
+
+Imports System.Net.Mail
+
+
+Public Class Form1
     Dim N As Integer = 3 'Nº butões
     Dim BtnImagem(N) As BtnImagem
 
@@ -12,19 +19,24 @@
         Next
     End Sub
 
-    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+
+    Private Sub Form1_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
         Fade(1) 'VEr
     End Sub
     ' VEr
 
+    Public bdpass As String
+    Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+        bdpass = InputBox("PASS BASE DADOS")
+        PnlUser.Width = 200 'Ver qual a label maior?
+        PnlUser.Height = Label1.Height + Label2.Height + Label3.Height + 20
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TxtFirstName.Hide()
-        TxtLastName.Hide()
-        TxtUserReg.Hide()
-        TxtEmail.Hide()
-        TxtPwdReg1.Hide()
-        TxtPwdReg2.Hide()
+    
+
+
+        PnlUser.Hide()
+
+
 
         '???? modulo aparencia?   
         Dim CentroEcranX As Integer = Me.Width / 2
@@ -32,19 +44,13 @@
 
         'Registar
         'Talvez outro panel?
-        TxtFirstName.Font = Fonte.GetInstance(12, FontStyle.Bold)
-        TxtFirstName.Left = CentroEcranX - TxtFirstName.Width - 5
-        TxtFirstName.Top = PnlMenuTop.Bottom + 150
-        TxtLastName.Font = Fonte.GetInstance(12, FontStyle.Bold)
-        TxtLastName.Left = CentroEcranX + 5
-        TxtLastName.Top = PnlMenuTop.Bottom + 150
-
         TxtUserReg.Font = Fonte.GetInstance(12, FontStyle.Bold)
         TxtUserReg.Left = CentroEcranX - TxtUserReg.Width - 5
-        TxtUserReg.Top = TxtFirstName.Bottom + 10
+        TxtUserReg.Top = PnlMenuTop.Bottom + 150
         TxtEmail.Font = Fonte.GetInstance(12, FontStyle.Bold)
         TxtEmail.Left = CentroEcranX + 5
-        TxtEmail.Top = TxtLastName.Bottom + 10
+        TxtEmail.Top = PnlMenuTop.Bottom + 150
+
 
         TxtPwdReg1.Font = Fonte.GetInstance(12, FontStyle.Bold)
         TxtPwdReg1.Left = CentroEcranX - TxtPwdReg1.Width - 5
@@ -83,7 +89,7 @@
         BtnImagem(2) = BtnImagem3
         BtnImagem(3) = BtnImagem4
 
-        LoadOrder.l1() 'é tipo o modulo aparencia
+        LoadOrder.LoginPage() 'é tipo o modulo aparencia
         Fade(0)
     End Sub
 
@@ -102,7 +108,7 @@
         check(3)
     End Sub
 
-    Private Sub TmrSlide1_Tick(sender As Object, e As EventArgs) Handles TmrSlide1.Tick
+    Private Sub TmrSlide1_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles TmrSlide1.Tick
         PnlMenu.Left = PnlMenu.Left - 2
         If PnlMenu.Right = 36 Then
             TmrSlide1.Enabled = False
@@ -113,7 +119,7 @@
         End If
     End Sub
 
-    Private Sub TmrSlide2_Tick(sender As Object, e As EventArgs) Handles TmrSlide2.Tick
+    Private Sub TmrSlide2_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles TmrSlide2.Tick
         PnlMenu.Left = PnlMenu.Left + 2
         If PnlMenu.Right = 200 Then
             TmrSlide2.Enabled = False
@@ -124,7 +130,7 @@
         End If
     End Sub
 
-    Private Sub BtnMenu1_Click(sender As Object, e As EventArgs) Handles BtnMenu1.Click
+    Private Sub BtnMenu1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BtnMenu1.Click
         If BtnMenu1.zEstadoBotao = True Then
             If PnlMenu.Right = 200 Then
                 TmrSlide1.Enabled = True
@@ -141,34 +147,91 @@
     End Sub
 
 
-    Private Sub BtnImagem5_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagem5.ButtonClickMasterRace
+    Private Sub BtnImagem5_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs)
         Close()
     End Sub
 
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Fechar.Click
+    Private Sub Label2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Fechar.Click
         Close()
     End Sub
 
-    Private Sub BtnImagemLogin_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemLogin.ButtonClickMasterRace
-        LoadOrder.l2()
+    Private Sub BtnImagemLogin_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs) Handles BtnImagemLogin.ButtonClickMasterRace
+        'If Login(TxtUser.Text, HashPassword(TxtPwd.Text)) = True Then
+        'LoadOrder.MenuPrincipalPage()
+        'End If
+
+
+        PnlUser.Left = LblUserName.Left
+        PnlUser.Top = LblUserName.Bottom + 7
+        PnlUser.Width = LblUserName.Width
+        PnlUser.BringToFront()
+        'LoadOrder.l2()
+    End Sub
+
+    Dim drag As Boolean
+    Dim mousex As Integer
+    Dim mousey As Integer
+    Private Sub Panel2_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PnlMenuTop.MouseDown
+        drag = True
+        mousex = Windows.Forms.Cursor.Position.X - Me.Left
+        mousey = Windows.Forms.Cursor.Position.Y - Me.Top
+    End Sub
+
+    Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PnlMenuTop.MouseMove
+        If drag Then
+            Me.Top = Windows.Forms.Cursor.Position.Y - mousey
+            Me.Left = Windows.Forms.Cursor.Position.X - mousex
+        End If
+    End Sub
+
+
+    Private Sub Panel2_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PnlMenuTop.MouseUp
+        drag = False
+    End Sub
+
+
+    Private Sub BtnImagemRegistarEntrar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemRegistarEntrar.ButtonClickMasterRace
+        LoadOrder.RegistarPage()
+    End Sub
+
+    Private Sub BtnImagemCancelar_ButtonClickMasterRace_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemCancelar.ButtonClickMasterRace
+        LoadOrder.LoginPage()
+        TxtEmail.Text = ""
+        TxtUserReg.Text = ""
+        TxtPwdReg1.Text = ""
+        TxtPwdReg2.Text = ""
+
 
     End Sub
 
-    Private Sub BtnImagemRegister_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemRegister.ButtonClickMasterRace
-        TxtFirstName.Show()
-        TxtLastName.Show()
-        TxtUserReg.Show()
-        TxtEmail.Show()
-        TxtPwdReg1.Show()
-        TxtPwdReg2.Show()
-        TxtUser.Hide()
-        TxtPwd.Hide()
-        'Mudar txt para as de registo
-        'mudar butoes registar e cancelar
-        'etc
+    Private Sub BtnImagemRegistar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemRegistar.ButtonClickMasterRace
+        'Por codigo
+        Registar(TxtUserReg.Text, TxtPwdReg1.Text, TxtPwdReg2.Text, TxtEmail.Text)
+
     End Sub
 
-    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles PnlMenuTop.Paint
-        'Por o programa a mexer pelo rato
+    Private Sub LblUserName_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LblUserName.Click
+        Label1.Top = (PnlUser.Height - PnlUser.Height) / 2 + 2 '
+        Label1.Left = (PnlUser.Width - PnlUser.Width) / 2 + 2
+        PnlUser.Show()
     End Sub
+
+    Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles PnlUser.Paint
+        PnlUser.BorderStyle = BorderStyle.None
+
+        e.Graphics.DrawRectangle(Pens.Black,
+                                 e.ClipRectangle.Left,
+                                 e.ClipRectangle.Top,
+                                 e.ClipRectangle.Width - 1,
+                                 e.ClipRectangle.Height - 1)
+    End Sub
+
+    Private Sub PnlMenu_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles PnlMenu.Paint
+
+    End Sub
+
+    Private Sub TxtEmail_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TxtEmail.TextChanged
+
+    End Sub
+
 End Class

@@ -69,18 +69,19 @@ Public Class BtnImagem
     Public Property zEstadoBotao As Boolean = False
 
     Private Sub BtnImagem_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        
         'TESTE
-        Dim p As New Drawing2D.GraphicsPath()
-        p.StartFigure()
-        p.AddArc(New Rectangle(0, 0, 5, 5), 180, 90)
-        p.AddLine(5, 0, Me.Width - 5, 0)
-        p.AddArc(New Rectangle(Me.Width - 5, 0, 5, 5), -90, 90)
-        p.AddLine(Me.Width, 5, Me.Width, Me.Height - 5)
-        p.AddArc(New Rectangle(Me.Width - 5, Me.Height - 5, 5, 5), 0, 90)
-        p.AddLine(Me.Width - 5, Me.Height, 5, Me.Height)
-        p.AddArc(New Rectangle(0, Me.Height - 5, 5, 5), 90, 90)
-        p.CloseFigure()
-        Me.Region = New Region(p)
+        'Dim p As New Drawing2D.GraphicsPath()
+        ' p.StartFigure()
+        'p.AddArc(New Rectangle(0, 0, 5, 5), 180, 90)
+        'p.AddLine(5, 0, Me.Width - 5, 0)
+        'p.AddArc(New Rectangle(Me.Width - 5, 0, 5, 5), -90, 90)
+        'p.AddLine(Me.Width, 5, Me.Width, Me.Height - 5)
+        ' p.AddArc(New Rectangle(Me.Width - 5, Me.Height - 5, 5, 5), 0, 90)
+        ' p.AddLine(Me.Width - 5, Me.Height, 5, Me.Height)
+        'p.AddArc(New Rectangle(0, Me.Height - 5, 5, 5), 90, 90)
+        ' p.CloseFigure()
+        'Me.Region = New Region(p)
         'TESTE
         LblTexto.Font = Fonte.GetInstance(zTamanhoLetra, FontStyle.Bold)
         If zEstadoBotao = False Then
