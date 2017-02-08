@@ -42,25 +42,6 @@ Public Class Form1
         Dim CentroEcranX As Integer = Me.Width / 2
         Dim CentroEcranY As Integer = Me.Height / 2
 
-        'Registar
-        'Talvez outro panel?
-        TxtUserReg.Font = Fonte.GetInstance(12, FontStyle.Bold)
-        TxtUserReg.Left = CentroEcranX - TxtUserReg.Width - 5
-        TxtUserReg.Top = PnlMenuTop.Bottom + 150
-        TxtEmail.Font = Fonte.GetInstance(12, FontStyle.Bold)
-        TxtEmail.Left = CentroEcranX + 5
-        TxtEmail.Top = PnlMenuTop.Bottom + 150
-
-
-        TxtPwdReg1.Font = Fonte.GetInstance(12, FontStyle.Bold)
-        TxtPwdReg1.Left = CentroEcranX - TxtPwdReg1.Width - 5
-        TxtPwdReg1.Top = TxtUserReg.Bottom + 10
-        TxtPwdReg2.Font = Fonte.GetInstance(12, FontStyle.Bold)
-        TxtPwdReg2.Left = CentroEcranX + 5
-        TxtPwdReg2.Top = TxtEmail.Bottom + 10
-
-
-
 
 
 
@@ -156,14 +137,14 @@ Public Class Form1
     End Sub
 
     Private Sub BtnImagemLogin_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs) Handles BtnImagemLogin.ButtonClickMasterRace
-        'If Login(TxtUser.Text, HashPassword(TxtPwd.Text)) = True Then
-        'LoadOrder.MenuPrincipalPage()
-        'End If
+        If Login(TxtUser.Text, HashPassword(TxtPwd.Text)) = True Then
+            LoadOrder.MenuPrincipalPage()
+        End If
 
 
-        PnlUser.Left = LblUserName.Left
-        PnlUser.Top = LblUserName.Bottom + 7
-        PnlUser.Width = LblUserName.Width
+        PnlUser.Left = LblUtilzadorMenu.Left
+        PnlUser.Top = LblUtilzadorMenu.Bottom + 7
+        PnlUser.Width = LblUtilzadorMenu.Width
         PnlUser.BringToFront()
         'LoadOrder.l2()
     End Sub
@@ -200,17 +181,22 @@ Public Class Form1
         TxtUserReg.Text = ""
         TxtPwdReg1.Text = ""
         TxtPwdReg2.Text = ""
+        LblEmailReg.Hide()
+        LblPasswordReg.Hide()
+        LblUtilizadorReg.Hide()
 
 
     End Sub
 
     Private Sub BtnImagemRegistar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemRegistar.ButtonClickMasterRace
         'Por codigo
-        Registar(TxtUserReg.Text, TxtPwdReg1.Text, TxtPwdReg2.Text, TxtEmail.Text)
+        If Registar(TxtUserReg.Text, TxtPwdReg1.Text, TxtPwdReg2.Text, TxtEmail.Text) = True Then
+            MsgBox("INSERIDO COM SUCESSO")
+        End If
 
     End Sub
 
-    Private Sub LblUserName_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LblUserName.Click
+    Private Sub LblUserName_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LblUtilzadorMenu.Click
         Label1.Top = (PnlUser.Height - PnlUser.Height) / 2 + 2 '
         Label1.Left = (PnlUser.Width - PnlUser.Width) / 2 + 2
         PnlUser.Show()
@@ -218,7 +204,6 @@ Public Class Form1
 
     Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles PnlUser.Paint
         PnlUser.BorderStyle = BorderStyle.None
-
         e.Graphics.DrawRectangle(Pens.Black,
                                  e.ClipRectangle.Left,
                                  e.ClipRectangle.Top,

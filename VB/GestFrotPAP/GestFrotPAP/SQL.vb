@@ -18,35 +18,32 @@ Module SQL
                     User = max.ExecuteScalar
                     str = CType(User, String)
                     ligacao.Close()
-                    If str = Password.ToLower Or str = Password.ToUpper Then
-                        MsgBox("Password correta")
+                    If str = Password Then
                         Return (True)
                         Exit Function
                     Else
-                        MsgBox("Password errada")
-                        Return (True)
+                        MsgBox("Password errada label")
+                        Return (False)
                         Exit Function
                     End If
                 End If
             Catch ex As Exception
                 MsgBox("ERRO 0")
+                Return (False)
             End Try
         Else
             Try 'Isto dáa
-                If Utilizador.ToString <> "" Or Password.ToString <> "" Then
+                If Utilizador.ToString <> "" Then
                     max = New MySqlCommand("select Senha from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
                     ligacao.Open()
                     User = max.ExecuteScalar
                     str = CType(User, String)
                     ligacao.Close()
                     If str = Password.ToLower Or str = Password.ToUpper Then
-                        MsgBox("Password correta")
-                        MsgBox(Password + "||||||||||" + str)
                         Return (True)
                         Exit Function
                     Else
-                        MsgBox("Password errada")
-
+                        MsgBox("Password errada label") 'Label
                         Return (False)
                         Exit Function
                     End If
@@ -65,84 +62,80 @@ Module SQL
         Dim Objecto As Object
         Dim UtilizadorBD As String = ""
         Dim EmailBD As String = ""
-
-        'Fazer isto para todos
+        Dim Validar(3) As Boolean
+        'Verificar Email
         If Email = "" Then
-            MsgBox("Necessita de um email")
-            Return False
-            Exit Function
+            Form1.LblEmailReg.Show()
+            Form1.LblEmailReg.Text = "*Necessita de um email"
+            Validar(1) = True
         Else
-            Try
+            Try 'Testa se o é email valido
                 Dim testAddress = New MailAddress(Email)
             Catch ex As FormatException
-                MsgBox("Email invalido")
+                Form1.LblEmailReg.Show()
+                Form1.LblEmailReg.Text = "*Email invalido"
+                Validar(1) = True
+            End Try
+            Try 'Vê se o email já exist
+                Comando = New MySqlCommand("select email from Utilizador where email='" + Email + "'", ligacao)
+                ligacao.Open()
+                Objecto = Comando.ExecuteScalar
+                EmailBD = CType(Objecto, String)
+                ligacao.Close()
+            Catch ex As Exception
+                MsgBox("ERRO SQL EMAIL 1")
                 Return False
                 Exit Function
             End Try
-        End If
-
-        'VEr?
-
-
-        'Procurar utilizador na base de dados
-        Try
-            Comando = New MySqlCommand("select Nome_Registo from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
-            ligacao.Open()
-            Objecto = Comando.ExecuteScalar
-            UtilizadorBD = CType(Objecto, String)
-            ligacao.Close()
-        Catch ex As Exception
-            MsgBox("ERRO UTILIZADOR 0")
-        End Try
-        'Procurar email na base de dados
-        Try
-            Comando = New MySqlCommand("select email from Utilizador where email='" + Email + "'", ligacao)
-            ligacao.Open()
-            Objecto = Comando.ExecuteScalar
-            EmailBD = CType(Objecto, String)
-            ligacao.Close()
-        Catch ex As Exception
-            MsgBox("ERRO UTILIZADOR 1")
-        End Try
-
-
-
-        If Password1 = "" Then
-            MsgBox("Necessita de Password")
-            Return False
-            Exit Function
-        End If
-
-        If Password1 <> Password2 Then
-            MsgBox("Passwords Não são iguais")
-            Return False
-            Exit Function
-        End If
-
-        'BUGS AHEAD
-        If EmailBD <> "" Then
             If Email = EmailBD Then 'IDK
-                MsgBox("Email já existe")
-                Return False
-                Exit Function
+                Form1.LblEmailReg.Show()
+                Form1.LblEmailReg.Text = "*Email já existe"
+                Validar(1) = True
             End If
+        End If
+
+        'Verificar Utilizador
+        If Utilizador = "" Then
+            Form1.LblUtilizadorReg.Show()
+            Form1.LblUtilizadorReg.Text = "*Necessita de um Utilizador"
+            Validar(2) = True
         Else
-        End If
-
-        If UtilizadorBD <> "" Then
-            If Utilizador = UtilizadorBD Then
-                MsgBox("Utilizador já existe")
+            Try
+                Comando = New MySqlCommand("select Nome_Registo from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+                ligacao.Open()
+                Objecto = Comando.ExecuteScalar
+                UtilizadorBD = CType(Objecto, String)
+                ligacao.Close()
+            Catch ex As Exception
+                MsgBox("ERRO SQL UTILIZADOR")
                 Return False
                 Exit Function
+            End Try
+            If Utilizador = UtilizadorBD Then
+                Form1.LblUtilizadorReg.Show()
+                Form1.LblUtilizadorReg.Text = "*Utilizador já existe"
+                Validar(2) = True
             End If
-
         End If
-        'BUGS AHEAD
+        
+        If Password1 = "" Then
 
+            Form1.LblPasswordReg.Show()
+            Form1.LblPasswordReg.Text = "*Necessita de Password"
+            Validar(3) = True
+        Else
+            If Password1 <> Password2 Then
+                'loadorderchangecolor???
+                Form1.LblPasswordReg.Show()
+                Form1.LblPasswordReg.Text = "*Passwords Não são iguais"
+                Validar(3) = True
+            End If
+        End If
 
-
-
-
+        If Validar(1) = True Or Validar(2) = True Or Validar(3) = True Then
+            Return False
+            Exit Function
+        End If
 
         Try
             Comando = New MySqlCommand("insert into utilizador (Nome_Registo, Senha,Email) values ('" + Utilizador + "', '" + HashPassword(Password1) + "', '" + Email + "')", ligacao)
@@ -151,7 +144,7 @@ Module SQL
             ligacao.Close()
             Return (True)
         Catch ex As Exception
-            MsgBox("ERRO INSERT 1")
+            MsgBox("ERRO SQL INSERT")
         End Try
         Return (False)
     End Function

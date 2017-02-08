@@ -50,11 +50,7 @@ Public Module LoadOrder
         Form1.TxtUser.ForeColor = Color.White
         Form1.TxtPwd.ForeColor = Color.White
 
-        Form1.TxtEmail.ForeColor = Color.White
-        Form1.TxtUserReg.ForeColor = Color.White
-        Form1.TxtPwdReg1.ForeColor = Color.White
-        Form1.TxtPwdReg2.ForeColor = Color.White
-
+        
 
         Form1.TxtUser.Left = CentroEcranX - (Form1.TxtUser.Width / 2)
         Form1.TxtPwd.Left = CentroEcranX - (Form1.TxtPwd.Width / 2)
@@ -63,13 +59,53 @@ Public Module LoadOrder
         SendMessage(Form1.TxtUser.Handle, &H1501, 0, "Utilizador ou Email")
         SendMessage(Form1.TxtPwd.Handle, &H1501, 0, "Password")
 
+        Form1.TxtEmail.ForeColor = Color.White
+        Form1.TxtUserReg.ForeColor = Color.White
+        Form1.TxtPwdReg1.ForeColor = Color.White
+        Form1.TxtPwdReg2.ForeColor = Color.White
 
         SendMessage(Form1.TxtEmail.Handle, &H1501, 0, "Email")
         SendMessage(Form1.TxtPwdReg1.Handle, &H1501, 0, "Password")
         SendMessage(Form1.TxtPwdReg2.Handle, &H1501, 0, "Repetir Password")
         SendMessage(Form1.TxtUserReg.Handle, &H1501, 0, "Utilizador")
 
+        'Registar
+        'Talvez outro panel?
 
+
+
+        Form1.TxtUserReg.Font = Fonte.GetInstance(12, FontStyle.Bold)
+        Form1.TxtUserReg.Left = CentroEcranX - Form1.TxtUserReg.Width - 5
+        Form1.TxtUserReg.Top = Form1.PnlMenuTop.Bottom + 150
+        Form1.TxtEmail.Font = Fonte.GetInstance(12, FontStyle.Bold)
+        Form1.TxtEmail.Left = CentroEcranX + 5
+        Form1.TxtEmail.Top = Form1.PnlMenuTop.Bottom + 150
+
+
+        Form1.TxtPwdReg1.Font = Fonte.GetInstance(12, FontStyle.Bold)
+        Form1.TxtPwdReg1.Left = CentroEcranX - Form1.TxtPwdReg1.Width - 5
+        Form1.TxtPwdReg1.Top = Form1.TxtUserReg.Bottom + 12
+        Form1.TxtPwdReg2.Font = Fonte.GetInstance(12, FontStyle.Bold)
+        Form1.TxtPwdReg2.Left = CentroEcranX + 5
+        Form1.TxtPwdReg2.Top = Form1.TxtEmail.Bottom + 12
+
+
+        Form1.LblUtilizadorReg.ForeColor = Color.Red
+        Form1.LblUtilizadorReg.Left = Form1.TxtUserReg.Left
+        Form1.LblUtilizadorReg.Top = Form1.TxtUserReg.Bottom
+
+        Form1.LblPasswordReg.ForeColor = Color.Red
+        Form1.LblPasswordReg.Left = Form1.TxtPwdReg1.Left
+        Form1.LblPasswordReg.Top = Form1.TxtPwdReg1.Bottom
+
+
+        Form1.LblEmailReg.ForeColor = Color.Red
+        Form1.LblEmailReg.Left = Form1.TxtEmail.Left
+        Form1.LblEmailReg.Top = Form1.TxtEmail.Bottom
+
+        Form1.LblUtilizadorReg.Hide()
+        Form1.LblPasswordReg.Hide()
+        Form1.LblEmailReg.Hide()
 
         Form1.BtnImagemCancelar.Hide()
         Form1.BtnImagemRegistar.Hide()
@@ -85,12 +121,12 @@ Public Module LoadOrder
 
     Public Sub MenuPrincipalPage() 'Depois do Login
         'User
-        Form1.LblUserName.Visible = True  'Ao clickar abre um menu??
-        Form1.LblUserName.Text = Form1.TxtUser.Text + "MUDAR" 'nome do Utilizador/ email/ idk possivelmente buscar nome e apelido á bd
-        Form1.LblUserName.Font = Fonte.GetInstance(9, FontStyle.Bold)
-        Form1.LblUserName.ForeColor = Color.White 'No futuro Opção para mudar?
-        Form1.LblUserName.Top = (Form1.PnlMenuTop.Height - Form1.LblUserName.Height) / 2
-        Form1.LblUserName.Left = Form1.Fechar.Right - Form1.LblUserName.Width - 20
+        Form1.LblUtilzadorMenu.Visible = True  'Ao clickar abre um menu??
+        Form1.LblUtilzadorMenu.Text = Form1.TxtUser.Text + "MUDAR" 'nome do Utilizador/ email/ idk possivelmente buscar nome e apelido á bd
+        Form1.LblUtilzadorMenu.Font = Fonte.GetInstance(9, FontStyle.Bold)
+        Form1.LblUtilzadorMenu.ForeColor = Color.White 'No futuro Opção para mudar?
+        Form1.LblUtilzadorMenu.Top = (Form1.PnlMenuTop.Height - Form1.LblUtilzadorMenu.Height) / 2
+        Form1.LblUtilzadorMenu.Left = Form1.Fechar.Right - Form1.LblUtilzadorMenu.Width - 20
         '
         'IDK
         Form1.LoginPanel.Hide()
@@ -112,11 +148,14 @@ Public Module LoadOrder
         Form1.BtnImagemCancelar.Top = CentroEcranY + Form1.BtnImagemCancelar.Height
 
 
+
         'Mudar txt para as de registo
         'mudar butoes registar e cancelar
         'etc
+    End Sub
 
 
+    Public Sub RegisterPageLbl()
 
     End Sub
 
