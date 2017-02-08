@@ -57,7 +57,7 @@
 		
 		if( !$error ) {
 			
-			$query = ("UPDATE users SET userPass='$password', userEmail='$email', userRua='$adress', userGenero='$gender'  WHERE userId=".$_SESSION['user']);
+			$query = ("UPDATE users SET userPass='$password', userEmail='$email', userRua='$adress', userGenero='$gender', userEdit = NOW()  WHERE userId=".$_SESSION['user']);
 			$res = mysql_query($query);
 				
 			if ($res) {

@@ -43,29 +43,16 @@
 <title>Coding Cage - Login & Registration System</title>
 <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css"  />
 <link rel="stylesheet" href="style.css" type="text/css" />
+
+       
+
 </head>
 <body>
 
 <div class="container">
 
-	<div id="login-form">
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off">
-    
-    	<div class="col-md-12">
-		<div class="form-group">
-           <div class="input-group" method ="post" action ="">
-		  <td><input type="radio" name="Gender" value="Masculino" checked="checked" />Masculino<input type="radio" name="Gender" value="Feminino" />Feminino</td>
-		</div>
-			<br>
-			<center><div class="form-group">
-            	<button type="submit" class="btnn" name="btn-signup">Actualizar</button>
-            </div></center>   
-        </div>
-   
-    </form>
-    </div>	
 
-</div>
+
 
 </body>
 </html>
