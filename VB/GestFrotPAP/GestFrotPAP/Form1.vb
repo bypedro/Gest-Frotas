@@ -2,6 +2,9 @@
 Imports System.Drawing.Drawing2D
 
 
+Imports System.Net.Mail
+
+
 Public Class Form1
     Dim N As Integer = 3 'Nº butões
     Dim BtnImagem(N) As BtnImagem
@@ -22,12 +25,13 @@ Public Class Form1
     End Sub
     ' VEr
 
-
+    Public bdpass As String
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+        bdpass = InputBox("PASS BASE DADOS")
         PnlUser.Width = 200 'Ver qual a label maior?
         PnlUser.Height = Label1.Height + Label2.Height + Label3.Height + 20
-        
 
+    
 
 
         PnlUser.Hide()
@@ -40,19 +44,13 @@ Public Class Form1
 
         'Registar
         'Talvez outro panel?
-        TxtFirstName.Font = Fonte.GetInstance(12, FontStyle.Bold)
-        TxtFirstName.Left = CentroEcranX - TxtFirstName.Width - 5
-        TxtFirstName.Top = PnlMenuTop.Bottom + 150
-        TxtLastName.Font = Fonte.GetInstance(12, FontStyle.Bold)
-        TxtLastName.Left = CentroEcranX + 5
-        TxtLastName.Top = PnlMenuTop.Bottom + 150
-
         TxtUserReg.Font = Fonte.GetInstance(12, FontStyle.Bold)
         TxtUserReg.Left = CentroEcranX - TxtUserReg.Width - 5
-        TxtUserReg.Top = TxtFirstName.Bottom + 10
+        TxtUserReg.Top = PnlMenuTop.Bottom + 150
         TxtEmail.Font = Fonte.GetInstance(12, FontStyle.Bold)
         TxtEmail.Left = CentroEcranX + 5
-        TxtEmail.Top = TxtLastName.Bottom + 10
+        TxtEmail.Top = PnlMenuTop.Bottom + 150
+
 
         TxtPwdReg1.Font = Fonte.GetInstance(12, FontStyle.Bold)
         TxtPwdReg1.Left = CentroEcranX - TxtPwdReg1.Width - 5
@@ -158,9 +156,11 @@ Public Class Form1
     End Sub
 
     Private Sub BtnImagemLogin_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs) Handles BtnImagemLogin.ButtonClickMasterRace
-        If Login(TxtUser.Text, HashPassword(TxtPwd.Text)) = True Then
-            LoadOrder.MenuPrincipalPage()
-        End If
+        'If Login(TxtUser.Text, HashPassword(TxtPwd.Text)) = True Then
+        'LoadOrder.MenuPrincipalPage()
+        'End If
+
+
         PnlUser.Left = LblUserName.Left
         PnlUser.Top = LblUserName.Bottom + 7
         PnlUser.Width = LblUserName.Width
@@ -168,10 +168,27 @@ Public Class Form1
         'LoadOrder.l2()
     End Sub
 
-
-    Private Sub Panel2_Paint(ByVal sender As Object, ByVal e As PaintEventArgs) Handles PnlMenuTop.Paint
-        'Por o programa a mexer pelo rato
+    Dim drag As Boolean
+    Dim mousex As Integer
+    Dim mousey As Integer
+    Private Sub Panel2_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PnlMenuTop.MouseDown
+        drag = True
+        mousex = Windows.Forms.Cursor.Position.X - Me.Left
+        mousey = Windows.Forms.Cursor.Position.Y - Me.Top
     End Sub
+
+    Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PnlMenuTop.MouseMove
+        If drag Then
+            Me.Top = Windows.Forms.Cursor.Position.Y - mousey
+            Me.Left = Windows.Forms.Cursor.Position.X - mousex
+        End If
+    End Sub
+
+
+    Private Sub Panel2_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PnlMenuTop.MouseUp
+        drag = False
+    End Sub
+
 
     Private Sub BtnImagemRegistarEntrar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemRegistarEntrar.ButtonClickMasterRace
         LoadOrder.RegistarPage()
@@ -179,8 +196,6 @@ Public Class Form1
 
     Private Sub BtnImagemCancelar_ButtonClickMasterRace_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemCancelar.ButtonClickMasterRace
         LoadOrder.LoginPage()
-        TxtFirstName.Text = ""
-        TxtLastName.Text = ""
         TxtEmail.Text = ""
         TxtUserReg.Text = ""
         TxtPwdReg1.Text = ""
@@ -191,7 +206,7 @@ Public Class Form1
 
     Private Sub BtnImagemRegistar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemRegistar.ButtonClickMasterRace
         'Por codigo
-        Registar(TxtUserReg.Text, TxtPwdReg1.Text, TxtPwdReg2.Text, TxtEmail.Text, "MORADA POR AQUI COISAS", TxtFirstName.Text, TxtLastName.Text)
+        Registar(TxtUserReg.Text, TxtPwdReg1.Text, TxtPwdReg2.Text, TxtEmail.Text)
 
     End Sub
 
@@ -214,4 +229,9 @@ Public Class Form1
     Private Sub PnlMenu_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles PnlMenu.Paint
 
     End Sub
+
+    Private Sub TxtEmail_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TxtEmail.TextChanged
+
+    End Sub
+
 End Class

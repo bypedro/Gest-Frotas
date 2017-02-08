@@ -29,6 +29,7 @@ Public Module LoadOrder
     Public Sub LoginPage()
         'Menu do topo com titulo / Por aqui o butão fechar
         Form1.LabelNomeProjeto.Text = "VecXP"
+        Form1.LabelNomeProjeto.ForeColor = Color.White
         Form1.LabelNomeProjeto.Font = Fonte.GetInstance(10, FontStyle.Bold)
         Form1.LabelNomeProjeto.Top = (Form1.PnlMenuTop.Height - Form1.LabelNomeProjeto.Height) / 2
         Form1.LabelNomeProjeto.Left = 5
@@ -43,10 +44,18 @@ Public Module LoadOrder
         Form1.BtnImagemRegistarEntrar.Left = CentroEcranX + 5
         Form1.BtnImagemLogin.Top = CentroEcranY + Form1.BtnImagemLogin.Height
         Form1.BtnImagemRegistarEntrar.Top = CentroEcranY + Form1.BtnImagemRegistarEntrar.Height
+
         Form1.TxtUser.Font = Fonte.GetInstance(12, FontStyle.Bold)
         Form1.TxtPwd.Font = Fonte.GetInstance(12, FontStyle.Bold)
         Form1.TxtUser.ForeColor = Color.White
         Form1.TxtPwd.ForeColor = Color.White
+
+        Form1.TxtEmail.ForeColor = Color.White
+        Form1.TxtUserReg.ForeColor = Color.White
+        Form1.TxtPwdReg1.ForeColor = Color.White
+        Form1.TxtPwdReg2.ForeColor = Color.White
+
+
         Form1.TxtUser.Left = CentroEcranX - (Form1.TxtUser.Width / 2)
         Form1.TxtPwd.Left = CentroEcranX - (Form1.TxtPwd.Width / 2)
         Form1.TxtUser.Top = Form1.PnlMenuTop.Bottom + 150
@@ -58,8 +67,6 @@ Public Module LoadOrder
         SendMessage(Form1.TxtEmail.Handle, &H1501, 0, "Email")
         SendMessage(Form1.TxtPwdReg1.Handle, &H1501, 0, "Password")
         SendMessage(Form1.TxtPwdReg2.Handle, &H1501, 0, "Repetir Password")
-        SendMessage(Form1.TxtFirstName.Handle, &H1501, 0, "Nome")
-        SendMessage(Form1.TxtLastName.Handle, &H1501, 0, "Apelido")
         SendMessage(Form1.TxtUserReg.Handle, &H1501, 0, "Utilizador")
 
 
@@ -70,8 +77,6 @@ Public Module LoadOrder
         Form1.TxtPwdReg1.Hide()
         Form1.TxtPwdReg2.Hide()
         Form1.TxtUserReg.Hide()
-        Form1.TxtFirstName.Hide()
-        Form1.TxtLastName.Hide()
         Form1.TxtUser.Show()
         Form1.TxtPwd.Show()
     End Sub
@@ -92,9 +97,6 @@ Public Module LoadOrder
     End Sub
 
     Public Sub RegistarPage()
-
-        Form1.TxtFirstName.Show()
-        Form1.TxtLastName.Show()
         Form1.TxtUserReg.Show()
         Form1.TxtEmail.Show()
         Form1.TxtPwdReg1.Show()

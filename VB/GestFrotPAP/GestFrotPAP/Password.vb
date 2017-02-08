@@ -6,6 +6,6 @@ Module Password
         Dim hasher As New Security.Cryptography.SHA256Managed()
         Dim pwdb As Byte() = System.Text.Encoding.ASCII.GetBytes(pwd)
         Dim pwdh As Byte() = hasher.ComputeHash(pwdb)
-        Return BitConverter.ToString(pwdh).Replace("-", "")
+        Return BitConverter.ToString(pwdh).Replace("-", "").ToLower
     End Function
 End Module

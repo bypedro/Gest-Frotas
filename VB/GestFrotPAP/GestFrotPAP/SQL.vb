@@ -1,7 +1,10 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.Net.Mail
+
 Module SQL
     Dim DB As String = "frotas"
-    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=0000;Connect timeout=30;") 'MUDAR TALVEZ
+
+    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=" + Form1.bdpass + ";Connect timeout=30;") 'MUDAR TALVEZ
     Dim adapter As New MySqlDataAdapter
     Public Function Login(ByVal Utilizador As String, ByVal Password As String) As Boolean
         Dim max As MySqlCommand
@@ -26,7 +29,7 @@ Module SQL
                     End If
                 End If
             Catch ex As Exception
-                MsgBox("ERRO")
+                MsgBox("ERRO 0")
             End Try
         Else
             Try 'Isto dáa
@@ -49,7 +52,7 @@ Module SQL
                     End If
                 End If
             Catch ex As Exception
-                MsgBox("ERRO")
+                MsgBox("ERRO 1")
             End Try
         End If
         Return (False)
@@ -57,14 +60,7 @@ Module SQL
 
 
 
-    Public Function Registar(ByVal Utilizador As String, ByVal Password1 As String, ByVal Password2 As String, ByVal Email As String, ByVal Morada As String, ByVal PrimeiroNome As String, ByVal Apelido As String) As Boolean
-        'MsgBox(Utilizador)
-        'MsgBox(Password1)
-        'MsgBox(Password2)
-        'MsgBox(Email)
-        'MsgBox(Morada)
-        'MsgBox(PrimeiroNome)
-        'MsgBox(Apelido)
+    Public Function Registar(ByVal Utilizador As String, ByVal Password1 As String, ByVal Password2 As String, ByVal Email As String) As Boolean
         Dim Comando As MySqlCommand
         Dim Objecto As Object
         Dim UtilizadorBD As String = ""
@@ -76,28 +72,17 @@ Module SQL
             Return False
             Exit Function
         Else
-            If LCase(Email).Contains(LCase("@")) Then
-
-            Else
+            Try
+                Dim testAddress = New MailAddress(Email)
+            Catch ex As FormatException
                 MsgBox("Email invalido")
                 Return False
                 Exit Function
-            End If
-        End If
-       
-        'VEr?
-        If Password1 = "" Then
-            MsgBox("Necessita de Password")
-            Return False
-            Exit Function
+            End Try
         End If
 
-        If Password1 <> Password2 Then
-            MsgBox("Passwords Não são iguais")
-            Return False
-            Exit Function
-        End If
-       
+        'VEr?
+
 
         'Procurar utilizador na base de dados
         Try
@@ -121,6 +106,19 @@ Module SQL
         End Try
 
 
+
+        If Password1 = "" Then
+            MsgBox("Necessita de Password")
+            Return False
+            Exit Function
+        End If
+
+        If Password1 <> Password2 Then
+            MsgBox("Passwords Não são iguais")
+            Return False
+            Exit Function
+        End If
+
         'BUGS AHEAD
         If EmailBD <> "" Then
             If Email = EmailBD Then 'IDK
@@ -139,8 +137,22 @@ Module SQL
             End If
 
         End If
-        MsgBox(Email + "," + PrimeiroNome + "," + Apelido + "," + Morada + "," + HashPassword(Password1))
+        'BUGS AHEAD
 
+
+
+
+
+
+        Try
+            Comando = New MySqlCommand("insert into utilizador (Nome_Registo, Senha,Email) values ('" + Utilizador + "', '" + HashPassword(Password1) + "', '" + Email + "')", ligacao)
+            ligacao.Open()
+            Comando.ExecuteNonQuery()
+            ligacao.Close()
+            Return (True)
+        Catch ex As Exception
+            MsgBox("ERRO INSERT 1")
+        End Try
         Return (False)
     End Function
 
