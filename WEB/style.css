@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400';
 
 *{
 	margin:0;
@@ -23,9 +23,10 @@ table {
 }
 
 th, td {
+	font-family: "Raleway";
      border-bottom: solid #949494 1px;
     text-align: left;
-    padding: 18px;
+    padding: 13px;
 }
 
 input, select {
@@ -93,6 +94,7 @@ font-size: 18px;
 
 
 .hover08 figure img {
+	margin:0 20px 10px 0;
 	width: 180px;
     height: 180px;
 	-webkit-filter: grayscale(0) blur(0);
@@ -383,6 +385,10 @@ h5 {
     color: white;
 	font: 500 15px 'Cabin', sans-serif;
 	}
+	
+h7 {
+	font: 400 12px 'Cabin', sans-serif;
+}
 
 
 img.bottom {
@@ -420,22 +426,58 @@ th {
 
  }
 
-        
+ ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.26)
+}
 
-        .direita {
-            float: right;
-            width:100%;
-			margin:0 20px 10px 0;
+/* Float the list items side by side */
+ul.tab li {float: left;}
 
-        }
+/* Style the links inside the list items */
+ul.tab li a {
+	font-family: "Montserrat";
+    font-size: 13px;
+    display: inline-block;
+    color: #616161;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+}
 
-        .esquerda {
-            float: left;
-            width:100%;
-			margin:0 20px 10px 0;
+/* Change background color of links on hover */
+ul.tab li a:hover {
+    color: #FF5252;
+}
 
-        }
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {
+	background-color: white;
+    color: #FF5252;
+}
 
-        
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
 
 tr:hover {background-color: #f5f5f5}

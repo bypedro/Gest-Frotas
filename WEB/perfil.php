@@ -35,7 +35,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Suporte</a></li>
+            <li class=""><a href="#">Suporte</a></li>
             <li><a href="#">texto</a></li>
             <li><a href="manageuser.php">Texto</a></li>
           </ul>
@@ -63,30 +63,56 @@
 	<div class="container">
     
     	<div class="page-header">
-    	<h3>Perfil</h3>
     	</div>
 		
-		
-	
-	<table cellspacing='0'>
-	<tr><th>ID</th><td><?php echo $userRow['CodUser']; ?></td></tr>
-	<tr><th>Utilizador</th><td><?php echo $userRow['Nome_Registo']; ?></td></tr>
-	<tr><th>Email</th><td><?php echo $userRow['Email']; ?></td></tr>
-	<tr><th>Endereço</th><td><?php echo $userRow['Rua']; ?></td></tr>
-	<tr><th>Género</th><td><?php echo $userRow['Genero']; ?></td></tr>
-	</table>
+	<ul class="tab">
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Geral')" id="defaultOpen">Dados Gerais</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Pessoal')">Dados Pessoais</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'historico')">Histórico</a></li>
+	</ul>
 
-		<br>
-		<p align="right">
+	
+	<div id="Geral" class="tabcontent">
+  <p><table cellspacing='0'>
+			<tr><th>ID</th><td><?php echo $userRow['CodUser']; ?></td></tr>
+			<tr><th>Utilizador</th><td><?php echo $userRow['Nome_Registo']; ?></td></tr>
+			<tr><th>Email</th><td><?php echo $userRow['Email']; ?></td></tr>
+			<tr><th>Endereço</th><td><?php echo $userRow['Rua']; ?></td></tr>
+			<tr><th>Género</th><td><?php echo $userRow['Genero']; ?></td></tr>
+			</table>
+			</p>
+	<br>
+	<p align="right">
 		<button class="btnnn" type=button onClick="parent.location='#.php'">?</button>
 		<button class="btnn" type=button onClick="parent.location='changepw.php'">Alterar</button>
-		</p>
+	</p>
+	</div>
+	<div id="Pessoal" class="tabcontent">
+  <p>XXXXXXXXXXXXXXXX</p>
+	</div>
+	<div id="historico" class="tabcontent">
+	<p>YYYYYYYYYYYYYY</p>
+	</div>
+	</div>
+	<script>
+	function openCity(evt, cityName) {
+		var i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+		tablinks = document.getElementsByClassName("tablinks");
+		for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+		}
+		document.getElementById(cityName).style.display = "block";
+		evt.currentTarget.className += " active";
+	}
 
-        <div class="row">
-        <div class="col-lg-12">
-
-        </div>
-        </div>
+	// Get the element with id="defaultOpen" and click on it
+	document.getElementById("defaultOpen").click();
+	</script>
+		
     
     </div>
     
