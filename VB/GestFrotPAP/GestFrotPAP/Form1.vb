@@ -15,6 +15,11 @@ Public Class Form1
             If BtnImagem(a).zEstadoBotao = True And a <> c Then
                 BtnImagem(a).zEstadoBotao = False
                 BtnImagem(a).VerificarEstadoBotao()
+                If c = 0 Then
+                    Panel1.Show()
+                Else
+                    Panel1.Hide()
+                End If
             End If
         Next
     End Sub
@@ -26,12 +31,47 @@ Public Class Form1
     ' VEr
 
     Public bdpass As String
+
+    Private Sub c_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs)
+        If sender Is LblUtilzadorMenu And PnlMenu.Visible = True Then
+            PnlUser.Hide()
+        Else
+            If sender Is LblUtilzadorMenu Or sender Is PnlUser Then
+                PnlUser.Show()
+            Else
+                PnlUser.Hide()
+            End If
+        End If
+        
+    End Sub
+
+
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+        AddHandler Me.MouseDown, AddressOf c_MouseDown
+
+        'TESTE Menu abrir e fechar
+        For Each c As Control In Me.Controls
+            AddHandler c.MouseDown, AddressOf c_MouseDown
+        Next
+
+        
+
+
+
+
+
+
+
+        'TESTE
+
+
+
+
         bdpass = InputBox("PASS BASE DADOS")
         PnlUser.Width = 200 'Ver qual a label maior?
         PnlUser.Height = Label1.Height + Label2.Height + Label3.Height + 20
 
-    
+
 
 
         PnlUser.Hide()
@@ -139,7 +179,14 @@ Public Class Form1
     Private Sub BtnImagemLogin_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs) Handles BtnImagemLogin.ButtonClickMasterRace
         If Login(TxtUser.Text, HashPassword(TxtPwd.Text)) = True Then
             LoadOrder.MenuPrincipalPage()
+            For a = 0 To N 'Para dar o evento ao usercontrols
+                AddHandler BtnImagem(a).MouseDown, AddressOf c_MouseDown
+            Next
+
+        Else
+            MsgBox("FALHA")
         End If
+
 
 
         PnlUser.Left = LblUtilzadorMenu.Left
@@ -200,9 +247,10 @@ Public Class Form1
         Label1.Top = (PnlUser.Height - PnlUser.Height) / 2 + 2 '
         Label1.Left = (PnlUser.Width - PnlUser.Width) / 2 + 2
         PnlUser.Show()
+        PnlUser.BringToFront()
     End Sub
 
-    Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles PnlUser.Paint
+    Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs)
         PnlUser.BorderStyle = BorderStyle.None
         e.Graphics.DrawRectangle(Pens.Black,
                                  e.ClipRectangle.Left,

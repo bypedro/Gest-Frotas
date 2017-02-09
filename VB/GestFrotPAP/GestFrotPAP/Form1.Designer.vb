@@ -32,6 +32,9 @@ Partial Class Form1
         Me.Fechar = New System.Windows.Forms.Label()
         Me.LabelNomeProjeto = New System.Windows.Forms.Label()
         Me.LoginPanel = New System.Windows.Forms.Panel()
+        Me.LblUtilizadorReg = New System.Windows.Forms.Label()
+        Me.LblEmailReg = New System.Windows.Forms.Label()
+        Me.LblPasswordReg = New System.Windows.Forms.Label()
         Me.TxtPwdReg2 = New System.Windows.Forms.TextBox()
         Me.TxtPwdReg1 = New System.Windows.Forms.TextBox()
         Me.TxtEmail = New System.Windows.Forms.TextBox()
@@ -42,9 +45,7 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.LblPasswordReg = New System.Windows.Forms.Label()
-        Me.LblEmailReg = New System.Windows.Forms.Label()
-        Me.LblUtilizadorReg = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.BtnImagemCancelar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemRegistar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemRegistarEntrar = New GestFrotPAP.BtnImagem()
@@ -54,10 +55,14 @@ Partial Class Form1
         Me.BtnImagem2 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem4 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem3 = New GestFrotPAP.BtnImagem()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.PnlMenu.SuspendLayout()
         Me.PnlMenuTop.SuspendLayout()
         Me.LoginPanel.SuspendLayout()
         Me.PnlUser.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'PnlMenu
@@ -123,7 +128,6 @@ Partial Class Form1
         '
         'LoginPanel
         '
-        Me.LoginPanel.Controls.Add(Me.PnlUser)
         Me.LoginPanel.Controls.Add(Me.LblUtilizadorReg)
         Me.LoginPanel.Controls.Add(Me.LblEmailReg)
         Me.LoginPanel.Controls.Add(Me.LblPasswordReg)
@@ -138,10 +142,43 @@ Partial Class Form1
         Me.LoginPanel.Controls.Add(Me.BtnImagemRegistarEntrar)
         Me.LoginPanel.Controls.Add(Me.BtnImagemLogin)
         Me.LoginPanel.ForeColor = System.Drawing.Color.White
-        Me.LoginPanel.Location = New System.Drawing.Point(305, 36)
+        Me.LoginPanel.Location = New System.Drawing.Point(325, 138)
         Me.LoginPanel.Name = "LoginPanel"
-        Me.LoginPanel.Size = New System.Drawing.Size(643, 434)
+        Me.LoginPanel.Size = New System.Drawing.Size(320, 178)
         Me.LoginPanel.TabIndex = 7
+        '
+        'LblUtilizadorReg
+        '
+        Me.LblUtilizadorReg.AutoSize = True
+        Me.LblUtilizadorReg.BackColor = System.Drawing.Color.Transparent
+        Me.LblUtilizadorReg.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblUtilizadorReg.Location = New System.Drawing.Point(399, 230)
+        Me.LblUtilizadorReg.Name = "LblUtilizadorReg"
+        Me.LblUtilizadorReg.Size = New System.Drawing.Size(80, 12)
+        Me.LblUtilizadorReg.TabIndex = 20
+        Me.LblUtilizadorReg.Text = "*Utilizador em uso"
+        '
+        'LblEmailReg
+        '
+        Me.LblEmailReg.AutoSize = True
+        Me.LblEmailReg.BackColor = System.Drawing.Color.Transparent
+        Me.LblEmailReg.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblEmailReg.Location = New System.Drawing.Point(415, 192)
+        Me.LblEmailReg.Name = "LblEmailReg"
+        Me.LblEmailReg.Size = New System.Drawing.Size(64, 12)
+        Me.LblEmailReg.TabIndex = 22
+        Me.LblEmailReg.Text = "*Email em uso"
+        '
+        'LblPasswordReg
+        '
+        Me.LblPasswordReg.AutoSize = True
+        Me.LblPasswordReg.BackColor = System.Drawing.Color.Transparent
+        Me.LblPasswordReg.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblPasswordReg.Location = New System.Drawing.Point(207, 218)
+        Me.LblPasswordReg.Name = "LblPasswordReg"
+        Me.LblPasswordReg.Size = New System.Drawing.Size(111, 12)
+        Me.LblPasswordReg.TabIndex = 21
+        Me.LblPasswordReg.Text = "*Password não são iguais"
         '
         'TxtPwdReg2
         '
@@ -208,10 +245,10 @@ Partial Class Form1
         Me.PnlUser.Controls.Add(Me.Label3)
         Me.PnlUser.Controls.Add(Me.Label2)
         Me.PnlUser.Controls.Add(Me.Label1)
-        Me.PnlUser.Location = New System.Drawing.Point(483, 96)
+        Me.PnlUser.Location = New System.Drawing.Point(772, 46)
         Me.PnlUser.Name = "PnlUser"
         Me.PnlUser.Size = New System.Drawing.Size(200, 100)
-        Me.PnlUser.TabIndex = 8
+        Me.PnlUser.TabIndex = 9
         '
         'Label3
         '
@@ -243,38 +280,15 @@ Partial Class Form1
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "LOLZ"
         '
-        'LblPasswordReg
+        'Panel1
         '
-        Me.LblPasswordReg.AutoSize = True
-        Me.LblPasswordReg.BackColor = System.Drawing.Color.Transparent
-        Me.LblPasswordReg.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblPasswordReg.Location = New System.Drawing.Point(207, 218)
-        Me.LblPasswordReg.Name = "LblPasswordReg"
-        Me.LblPasswordReg.Size = New System.Drawing.Size(111, 12)
-        Me.LblPasswordReg.TabIndex = 21
-        Me.LblPasswordReg.Text = "*Password não são iguais"
-        '
-        'LblEmailReg
-        '
-        Me.LblEmailReg.AutoSize = True
-        Me.LblEmailReg.BackColor = System.Drawing.Color.Transparent
-        Me.LblEmailReg.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblEmailReg.Location = New System.Drawing.Point(415, 192)
-        Me.LblEmailReg.Name = "LblEmailReg"
-        Me.LblEmailReg.Size = New System.Drawing.Size(64, 12)
-        Me.LblEmailReg.TabIndex = 22
-        Me.LblEmailReg.Text = "*Email em uso"
-        '
-        'LblUtilizadorReg
-        '
-        Me.LblUtilizadorReg.AutoSize = True
-        Me.LblUtilizadorReg.BackColor = System.Drawing.Color.Transparent
-        Me.LblUtilizadorReg.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblUtilizadorReg.Location = New System.Drawing.Point(399, 230)
-        Me.LblUtilizadorReg.Name = "LblUtilizadorReg"
-        Me.LblUtilizadorReg.Size = New System.Drawing.Size(80, 12)
-        Me.LblUtilizadorReg.TabIndex = 20
-        Me.LblUtilizadorReg.Text = "*Utilizador em uso"
+        Me.Panel1.BackColor = System.Drawing.Color.Red
+        Me.Panel1.Controls.Add(Me.Panel2)
+        Me.Panel1.Location = New System.Drawing.Point(622, 104)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(799, 471)
+        Me.Panel1.TabIndex = 10
+        Me.Panel1.Visible = False
         '
         'BtnImagemCancelar
         '
@@ -423,12 +437,33 @@ Partial Class Form1
         Me.BtnImagem3.zTamanhoLetra = 10
         Me.BtnImagem3.zTexto = "COISA"
         '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.Lime
+        Me.Panel2.Controls.Add(Me.Panel3)
+        Me.Panel2.Location = New System.Drawing.Point(8, 8)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(799, 471)
+        Me.Panel2.TabIndex = 11
+        Me.Panel2.Visible = False
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Panel3.Location = New System.Drawing.Point(8, 8)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(799, 471)
+        Me.Panel3.TabIndex = 11
+        Me.Panel3.Visible = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1000, 500)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.PnlUser)
         Me.Controls.Add(Me.LoginPanel)
         Me.Controls.Add(Me.PnlMenuTop)
         Me.Controls.Add(Me.PnlMenu)
@@ -443,6 +478,8 @@ Partial Class Form1
         Me.LoginPanel.PerformLayout()
         Me.PnlUser.ResumeLayout(False)
         Me.PnlUser.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -469,12 +506,15 @@ Partial Class Form1
     Friend WithEvents TxtPwdReg1 As System.Windows.Forms.TextBox
     Friend WithEvents BtnImagemCancelar As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagemRegistar As GestFrotPAP.BtnImagem
+    Friend WithEvents LblPasswordReg As System.Windows.Forms.Label
+    Friend WithEvents LblEmailReg As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizadorReg As System.Windows.Forms.Label
     Friend WithEvents PnlUser As System.Windows.Forms.Panel
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents LblPasswordReg As System.Windows.Forms.Label
-    Friend WithEvents LblEmailReg As System.Windows.Forms.Label
-    Friend WithEvents LblUtilizadorReg As System.Windows.Forms.Label
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
 
 End Class
