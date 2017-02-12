@@ -3,16 +3,16 @@ Imports System.Net.Mail
 
 Module SQL
     Dim DB As String = "frotas"
-
-    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=" + Form1.bdpass + ";Connect timeout=30;") 'MUDAR TALVEZ
+    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=0000;Connect timeout=30;") 'MUDAR TALVEZ
     Dim adapter As New MySqlDataAdapter
+
     Public Function Login(ByVal Utilizador As String, ByVal Password As String) As Boolean
         Dim max As MySqlCommand
         Dim User As Object
         Dim str As String
         If LCase(Utilizador).Contains(LCase("@")) Then
             Try 'Isto dáa
-                If Utilizador.ToString <> "" Or Password.ToString <> "" Then
+                If Utilizador.ToString <> "" Then
                     max = New MySqlCommand("select Senha from Utilizador where Email='" + Utilizador + "'", ligacao)
                     ligacao.Open()
                     User = max.ExecuteScalar
@@ -54,8 +54,6 @@ Module SQL
         End If
         Return (False)
     End Function
-
-
 
     Public Function Registar(ByVal Utilizador As String, ByVal Password1 As String, ByVal Password2 As String, ByVal Email As String) As Boolean
         Dim Comando As MySqlCommand
@@ -119,7 +117,6 @@ Module SQL
         End If
         
         If Password1 = "" Then
-
             Form1.LblPasswordReg.Show()
             Form1.LblPasswordReg.Text = "*Necessita de Password"
             Validar(3) = True
@@ -143,6 +140,7 @@ Module SQL
             Comando.ExecuteNonQuery()
             ligacao.Close()
             Return (True)
+            Exit Function
         Catch ex As Exception
             MsgBox("ERRO SQL INSERT")
         End Try

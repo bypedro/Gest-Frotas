@@ -2,25 +2,23 @@
 Imports System.Drawing.Drawing2D
 
 
-Imports System.Net.Mail
+
 
 
 Public Class Form1
     Dim N As Integer = 3 'Nº butões
     Dim BtnImagem(N) As BtnImagem
+    Dim panel(N) As Panel
 
     Private Sub check(ByVal c As Integer)
         Dim a As Integer
         For a = 0 To N
-            If BtnImagem(a).zEstadoBotao = True And a <> c Then
-                BtnImagem(a).zEstadoBotao = False
+            If BtnImagem(a).EstadoBotao = True And a <> c Then
+                BtnImagem(a).EstadoBotao = False
                 BtnImagem(a).VerificarEstadoBotao()
-                If c = 0 Then
-                    Panel1.Show()
-                Else
-                    Panel1.Hide()
-                End If
+                panel(a).Hide()
             End If
+            Panel(c).Show()
         Next
     End Sub
 
@@ -30,10 +28,8 @@ Public Class Form1
     End Sub
     ' VEr
 
-    Public bdpass As String
-
-    Private Sub c_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs)
-        If sender Is LblUtilzadorMenu And PnlMenu.Visible = True Then
+    Public Sub c_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs)
+        If sender Is LblUtilzadorMenu And PnlUser.Visible = True Then
             PnlUser.Hide()
         Else
             If sender Is LblUtilzadorMenu Or sender Is PnlUser Then
@@ -42,19 +38,29 @@ Public Class Form1
                 PnlUser.Hide()
             End If
         End If
-        
+
     End Sub
 
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+        'Adiciona evento a todos os objetos do programa(Só os da microsoft)
         AddHandler Me.MouseDown, AddressOf c_MouseDown
-
-        'TESTE Menu abrir e fechar
         For Each c As Control In Me.Controls
             AddHandler c.MouseDown, AddressOf c_MouseDown
         Next
+        AddHandler LblNomeProjeto.MouseDown, AddressOf c_MouseDown
+        'Adiciona evento a todos os objetos do programa(Só os da microsoft)
 
-        
+        'Arrays de Objetos
+        panel(0) = PnlHome
+        panel(1) = Panel2
+        panel(2) = Panel3
+        panel(3) = Panel4
+        BtnImagem(0) = BtnImagem1
+        BtnImagem(1) = BtnImagem2
+        BtnImagem(2) = BtnImagem3
+        BtnImagem(3) = BtnImagem4
+        'Arrays de Objetos
 
 
 
@@ -62,12 +68,11 @@ Public Class Form1
 
 
 
-        'TESTE
 
 
 
 
-        bdpass = InputBox("PASS BASE DADOS")
+
         PnlUser.Width = 200 'Ver qual a label maior?
         PnlUser.Height = Label1.Height + Label2.Height + Label3.Height + 20
 
@@ -75,6 +80,8 @@ Public Class Form1
 
 
         PnlUser.Hide()
+
+
 
 
 
@@ -87,12 +94,7 @@ Public Class Form1
 
 
 
-        'MENU e Barra
-        PnlMenu.Left = 0
-        PnlMenu.Top = PnlMenuTop.Bottom
-        PnlMenu.Height = Me.Height - PnlMenuTop.Height
-        PnlMenu.Width = 200
-        BtnMenu1.Left = PnlMenu.Right - 36
+        
 
 
 
@@ -101,14 +103,8 @@ Public Class Form1
         Fechar.Font = Fonte.GetInstance(12, FontStyle.Bold)
         Fechar.Text = "X"
         Fechar.ForeColor = Color.White
-        Fechar.Left = PnlMenuTop.Right - 25
-        Fechar.Top = (PnlMenuTop.Height - Fechar.Height) / 2
-
-        '???? automatização?
-        BtnImagem(0) = BtnImagem1
-        BtnImagem(1) = BtnImagem2
-        BtnImagem(2) = BtnImagem3
-        BtnImagem(3) = BtnImagem4
+        Fechar.Left = PnlBarraTop.Right - 25
+        Fechar.Top = (PnlBarraTop.Height - Fechar.Height) / 2
 
         LoadOrder.LoginPage() 'é tipo o modulo aparencia
         Fade(0)
@@ -179,19 +175,16 @@ Public Class Form1
     Private Sub BtnImagemLogin_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs) Handles BtnImagemLogin.ButtonClickMasterRace
         If Login(TxtUser.Text, HashPassword(TxtPwd.Text)) = True Then
             LoadOrder.MenuPrincipalPage()
-            For a = 0 To N 'Para dar o evento ao usercontrols
-                AddHandler BtnImagem(a).MouseDown, AddressOf c_MouseDown
-            Next
-
+            check(0)
         Else
-            MsgBox("FALHA")
-        End If
 
+        End If
+        
 
 
         PnlUser.Left = LblUtilzadorMenu.Left
         PnlUser.Top = LblUtilzadorMenu.Bottom + 7
-        PnlUser.Width = LblUtilzadorMenu.Width
+        PnlUser.Width = 90
         PnlUser.BringToFront()
         'LoadOrder.l2()
     End Sub
@@ -199,13 +192,13 @@ Public Class Form1
     Dim drag As Boolean
     Dim mousex As Integer
     Dim mousey As Integer
-    Private Sub Panel2_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PnlMenuTop.MouseDown
+    Private Sub Panel2_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PnlBarraTop.MouseDown
         drag = True
         mousex = Windows.Forms.Cursor.Position.X - Me.Left
         mousey = Windows.Forms.Cursor.Position.Y - Me.Top
     End Sub
 
-    Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PnlMenuTop.MouseMove
+    Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PnlBarraTop.MouseMove
         If drag Then
             Me.Top = Windows.Forms.Cursor.Position.Y - mousey
             Me.Left = Windows.Forms.Cursor.Position.X - mousex
@@ -213,7 +206,7 @@ Public Class Form1
     End Sub
 
 
-    Private Sub Panel2_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PnlMenuTop.MouseUp
+    Private Sub Panel2_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PnlBarraTop.MouseUp
         drag = False
     End Sub
 
@@ -244,19 +237,32 @@ Public Class Form1
     End Sub
 
     Private Sub LblUserName_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LblUtilzadorMenu.Click
-        Label1.Top = (PnlUser.Height - PnlUser.Height) / 2 + 2 '
-        Label1.Left = (PnlUser.Width - PnlUser.Width) / 2 + 2
-        PnlUser.Show()
         PnlUser.BringToFront()
+        Label1.Top = (PnlUser.Height - PnlUser.Height)
+        Label1.Left = (PnlUser.Width - PnlUser.Width) / 2 + 2
+
+        Label2.Top = (PnlUser.Height - PnlUser.Height) + Label2.Height
+        Label2.Left = (PnlUser.Width - PnlUser.Width) / 2 + 2
+
+        Label3.Top = (PnlUser.Height - PnlUser.Height) + Label2.Height + Label3.Height
+        Label3.Left = (PnlUser.Width - PnlUser.Width) / 2 + 2
+
+        PnlUser.Height = (PnlUser.Height - PnlUser.Height) + Label1.Height + Label2.Height + Label3.Height
+
+        If PnlUser.Visible = True Then
+            PnlUser.Hide()
+        Else
+            PnlUser.Show()
+        End If
+
     End Sub
 
-    Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs)
-        PnlUser.BorderStyle = BorderStyle.None
-        e.Graphics.DrawRectangle(Pens.Black,
-                                 e.ClipRectangle.Left,
-                                 e.ClipRectangle.Top,
-                                 e.ClipRectangle.Width - 1,
-                                 e.ClipRectangle.Height - 1)
+    Private Sub LblUserName_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LblUtilzadorMenu.MouseEnter
+        LblUtilzadorMenu.ForeColor = Color.White 'No futuro Opção para mudar?
+    End Sub
+
+    Private Sub LblUserName_MouseLeave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LblUtilzadorMenu.MouseLeave
+        LblUtilzadorMenu.ForeColor = Color.DarkGray 'No futuro Opção para mudar?
     End Sub
 
     Private Sub PnlMenu_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles PnlMenu.Paint
@@ -267,4 +273,20 @@ Public Class Form1
 
     End Sub
 
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+        MsgBox("LOL")
+    End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        LoadOrder.LoginPage()
+        LoginPanel.Show()
+        PnlHome.Hide()
+        LblUtilzadorMenu.Hide()
+        PnlUser.Hide()
+
+    End Sub
+
+    Private Sub LoginPanel_Paint(sender As Object, e As PaintEventArgs) Handles LoginPanel.Paint
+
+    End Sub
 End Class

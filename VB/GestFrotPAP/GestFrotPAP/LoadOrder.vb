@@ -27,17 +27,24 @@ Public Module LoadOrder
 
 
     Public Sub LoginPage()
-        'Menu do topo com titulo / Por aqui o butão fechar
-        Form1.LabelNomeProjeto.Text = "VecXP"
-        Form1.LabelNomeProjeto.ForeColor = Color.White
-        Form1.LabelNomeProjeto.Font = Fonte.GetInstance(10, FontStyle.Bold)
-        Form1.LabelNomeProjeto.Top = (Form1.PnlMenuTop.Height - Form1.LabelNomeProjeto.Height) / 2
-        Form1.LabelNomeProjeto.Left = 5
+        'MENU
+        Form1.PnlMenu.Left = 0
+        Form1.PnlMenu.Top = Form1.PnlBarraTop.Bottom
+        Form1.PnlMenu.Height = Form1.Height - Form1.PnlBarraTop.Height
+        Form1.PnlMenu.Width = 200
+        Form1.BtnMenu1.Left = Form1.PnlMenu.Right - 36
+
+        'Barra do topo com titulo / Por aqui o butão fechar
+        Form1.LblNomeProjeto.Text = "VecXP"
+        Form1.LblNomeProjeto.ForeColor = Color.White
+        Form1.LblNomeProjeto.Font = Fonte.GetInstance(10, FontStyle.Bold)
+        Form1.LblNomeProjeto.Top = (Form1.PnlBarraTop.Height - Form1.LblNomeProjeto.Height) / 2
+        Form1.LblNomeProjeto.Left = 5
 
         'Login
         Form1.LoginPanel.Left = 0
-        Form1.LoginPanel.Top = Form1.PnlMenuTop.Bottom
-        Form1.LoginPanel.Height = Form1.Height - Form1.PnlMenuTop.Height
+        Form1.LoginPanel.Top = Form1.PnlBarraTop.Bottom
+        Form1.LoginPanel.Height = Form1.Height - Form1.PnlBarraTop.Height
         Form1.LoginPanel.Width = Form1.Width
         'Talvez Criar outro botão ou mudar o atual
         Form1.BtnImagemLogin.Left = CentroEcranX - Form1.BtnImagemLogin.Width - 5
@@ -50,11 +57,11 @@ Public Module LoadOrder
         Form1.TxtUser.ForeColor = Color.White
         Form1.TxtPwd.ForeColor = Color.White
 
-        
+
 
         Form1.TxtUser.Left = CentroEcranX - (Form1.TxtUser.Width / 2)
         Form1.TxtPwd.Left = CentroEcranX - (Form1.TxtPwd.Width / 2)
-        Form1.TxtUser.Top = Form1.PnlMenuTop.Bottom + 150
+        Form1.TxtUser.Top = Form1.PnlBarraTop.Bottom + 150
         Form1.TxtPwd.Top = Form1.TxtUser.Bottom + 10
         SendMessage(Form1.TxtUser.Handle, &H1501, 0, "Utilizador ou Email")
         SendMessage(Form1.TxtPwd.Handle, &H1501, 0, "Password")
@@ -76,10 +83,10 @@ Public Module LoadOrder
 
         Form1.TxtUserReg.Font = Fonte.GetInstance(12, FontStyle.Bold)
         Form1.TxtUserReg.Left = CentroEcranX - Form1.TxtUserReg.Width - 5
-        Form1.TxtUserReg.Top = Form1.PnlMenuTop.Bottom + 150
+        Form1.TxtUserReg.Top = Form1.PnlBarraTop.Bottom + 150
         Form1.TxtEmail.Font = Fonte.GetInstance(12, FontStyle.Bold)
         Form1.TxtEmail.Left = CentroEcranX + 5
-        Form1.TxtEmail.Top = Form1.PnlMenuTop.Bottom + 150
+        Form1.TxtEmail.Top = Form1.PnlBarraTop.Bottom + 150
 
 
         Form1.TxtPwdReg1.Font = Fonte.GetInstance(12, FontStyle.Bold)
@@ -120,16 +127,49 @@ Public Module LoadOrder
 
 
     Public Sub MenuPrincipalPage() 'Depois do Login
-        'User
-        Form1.LblUtilzadorMenu.Visible = True  'Ao clickar abre um menu??
+        'Utilizador(Label)
+        Form1.LblUtilzadorMenu.Visible = True
         Form1.LblUtilzadorMenu.Text = Form1.TxtUser.Text + "MUDAR" 'nome do Utilizador/ email/ idk possivelmente buscar nome e apelido á bd
         Form1.LblUtilzadorMenu.Font = Fonte.GetInstance(9, FontStyle.Bold)
-        Form1.LblUtilzadorMenu.ForeColor = Color.White 'No futuro Opção para mudar?
-        Form1.LblUtilzadorMenu.Top = (Form1.PnlMenuTop.Height - Form1.LblUtilzadorMenu.Height) / 2
+        Form1.LblUtilzadorMenu.ForeColor = Color.DarkGray 'No futuro Opção para mudar?
+
+        Form1.LblUtilzadorMenu.Top = (Form1.PnlBarraTop.Height - Form1.LblUtilzadorMenu.Height) / 2
         Form1.LblUtilzadorMenu.Left = Form1.Fechar.Right - Form1.LblUtilzadorMenu.Width - 20
-        '
+
+        'Esconde Pagina de Login
+        Form1.LoginPanel.Hide()
+
+        'Mostra Pagina Principal
+        Form1.PnlHome.Show()
+
+        'Paginas
+        Form1.PnlHome.Left = Form1.PnlMenu.Right
+        Form1.PnlHome.Top = Form1.PnlBarraTop.Bottom
+        Form1.PnlHome.Width = Form1.Width - Form1.PnlMenu.Width
+        Form1.PnlHome.Height = Form1.Height - Form1.PnlBarraTop.Height
+
+        Form1.Panel2.Left = Form1.PnlMenu.Right - 164
+        Form1.Panel2.Top = Form1.PnlBarraTop.Bottom
+        Form1.Panel2.Width = Form1.Width - Form1.PnlMenu.Width + 164
+        Form1.Panel2.Height = Form1.Height - Form1.PnlBarraTop.Height
+        Form1.Panel2.SendToBack()
+
+        Form1.Panel3.Left = Form1.PnlMenu.Right - 164
+        Form1.Panel3.Top = Form1.PnlBarraTop.Bottom
+        Form1.Panel3.Width = Form1.Width - Form1.PnlMenu.Width + 164
+        Form1.Panel3.Height = Form1.Height - Form1.PnlBarraTop.Height
+        Form1.Panel3.SendToBack()
+
+        Form1.Panel4.Left = Form1.PnlMenu.Right - 164
+        Form1.Panel4.Top = Form1.PnlBarraTop.Bottom
+        Form1.Panel4.Width = Form1.Width - Form1.PnlMenu.Width + 164
+        Form1.Panel4.Height = Form1.Height - Form1.PnlBarraTop.Height
+        Form1.Panel4.SendToBack()
+
+
         'IDK
         Form1.LoginPanel.Hide()
+
     End Sub
 
     Public Sub RegistarPage()
@@ -153,10 +193,4 @@ Public Module LoadOrder
         'mudar butoes registar e cancelar
         'etc
     End Sub
-
-
-    Public Sub RegisterPageLbl()
-
-    End Sub
-
 End Module

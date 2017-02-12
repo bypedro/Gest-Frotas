@@ -23,8 +23,8 @@ Partial Class BtnImagem
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.LblTexto = New System.Windows.Forms.Label()
-        Me.Imagem = New System.Windows.Forms.PictureBox()
-        CType(Me.Imagem, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PctImagem = New System.Windows.Forms.PictureBox()
+        CType(Me.PctImagem, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LblTexto
@@ -37,30 +37,30 @@ Partial Class BtnImagem
         Me.LblTexto.TabIndex = 0
         Me.LblTexto.Text = "Texto"
         '
-        'Imagem
+        'PctImagem
         '
-        Me.Imagem.BackColor = System.Drawing.Color.Transparent
-        Me.Imagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Imagem.Location = New System.Drawing.Point(3, 3)
-        Me.Imagem.Name = "Imagem"
-        Me.Imagem.Size = New System.Drawing.Size(38, 38)
-        Me.Imagem.TabIndex = 1
-        Me.Imagem.TabStop = False
+        Me.PctImagem.BackColor = System.Drawing.Color.Transparent
+        Me.PctImagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PctImagem.Location = New System.Drawing.Point(3, 3)
+        Me.PctImagem.Name = "PctImagem"
+        Me.PctImagem.Size = New System.Drawing.Size(38, 38)
+        Me.PctImagem.TabIndex = 1
+        Me.PctImagem.TabStop = False
         '
         'BtnImagem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.Imagem)
+        Me.Controls.Add(Me.PctImagem)
         Me.Controls.Add(Me.LblTexto)
         Me.Name = "BtnImagem"
         Me.Size = New System.Drawing.Size(200, 44)
-        CType(Me.Imagem, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PctImagem, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Public WithEvents LblTexto As System.Windows.Forms.Label
-    Public WithEvents Imagem As System.Windows.Forms.PictureBox
+    Public WithEvents PctImagem As System.Windows.Forms.PictureBox
 
 End Class

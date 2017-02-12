@@ -27,10 +27,10 @@ Partial Class Form1
         Me.PnlMenu = New System.Windows.Forms.Panel()
         Me.TmrSlide1 = New System.Windows.Forms.Timer(Me.components)
         Me.TmrSlide2 = New System.Windows.Forms.Timer(Me.components)
-        Me.PnlMenuTop = New System.Windows.Forms.Panel()
+        Me.PnlBarraTop = New System.Windows.Forms.Panel()
         Me.LblUtilzadorMenu = New System.Windows.Forms.Label()
         Me.Fechar = New System.Windows.Forms.Label()
-        Me.LabelNomeProjeto = New System.Windows.Forms.Label()
+        Me.LblNomeProjeto = New System.Windows.Forms.Label()
         Me.LoginPanel = New System.Windows.Forms.Panel()
         Me.LblUtilizadorReg = New System.Windows.Forms.Label()
         Me.LblEmailReg = New System.Windows.Forms.Label()
@@ -45,7 +45,10 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PnlHome = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
         Me.BtnImagemCancelar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemRegistar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemRegistarEntrar = New GestFrotPAP.BtnImagem()
@@ -55,14 +58,10 @@ Partial Class Form1
         Me.BtnImagem2 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem4 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem3 = New GestFrotPAP.BtnImagem()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.PnlMenu.SuspendLayout()
-        Me.PnlMenuTop.SuspendLayout()
+        Me.PnlBarraTop.SuspendLayout()
         Me.LoginPanel.SuspendLayout()
         Me.PnlUser.SuspendLayout()
-        Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'PnlMenu
@@ -73,6 +72,7 @@ Partial Class Form1
         Me.PnlMenu.Controls.Add(Me.BtnImagem2)
         Me.PnlMenu.Controls.Add(Me.BtnImagem4)
         Me.PnlMenu.Controls.Add(Me.BtnImagem3)
+        Me.PnlMenu.ForeColor = System.Drawing.Color.Silver
         Me.PnlMenu.Location = New System.Drawing.Point(0, 24)
         Me.PnlMenu.Name = "PnlMenu"
         Me.PnlMenu.Size = New System.Drawing.Size(201, 476)
@@ -86,17 +86,17 @@ Partial Class Form1
         '
         Me.TmrSlide2.Interval = 10
         '
-        'PnlMenuTop
+        'PnlBarraTop
         '
-        Me.PnlMenuTop.BackColor = System.Drawing.Color.SlateGray
-        Me.PnlMenuTop.Controls.Add(Me.LblUtilzadorMenu)
-        Me.PnlMenuTop.Controls.Add(Me.Fechar)
-        Me.PnlMenuTop.Controls.Add(Me.LabelNomeProjeto)
-        Me.PnlMenuTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PnlMenuTop.Location = New System.Drawing.Point(0, 0)
-        Me.PnlMenuTop.Name = "PnlMenuTop"
-        Me.PnlMenuTop.Size = New System.Drawing.Size(1000, 30)
-        Me.PnlMenuTop.TabIndex = 6
+        Me.PnlBarraTop.BackColor = System.Drawing.Color.SlateGray
+        Me.PnlBarraTop.Controls.Add(Me.LblUtilzadorMenu)
+        Me.PnlBarraTop.Controls.Add(Me.Fechar)
+        Me.PnlBarraTop.Controls.Add(Me.LblNomeProjeto)
+        Me.PnlBarraTop.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PnlBarraTop.Location = New System.Drawing.Point(0, 0)
+        Me.PnlBarraTop.Name = "PnlBarraTop"
+        Me.PnlBarraTop.Size = New System.Drawing.Size(1000, 30)
+        Me.PnlBarraTop.TabIndex = 6
         '
         'LblUtilzadorMenu
         '
@@ -117,14 +117,14 @@ Partial Class Form1
         Me.Fechar.TabIndex = 1
         Me.Fechar.Text = "Label2"
         '
-        'LabelNomeProjeto
+        'LblNomeProjeto
         '
-        Me.LabelNomeProjeto.AutoSize = True
-        Me.LabelNomeProjeto.Location = New System.Drawing.Point(12, 8)
-        Me.LabelNomeProjeto.Name = "LabelNomeProjeto"
-        Me.LabelNomeProjeto.Size = New System.Drawing.Size(71, 13)
-        Me.LabelNomeProjeto.TabIndex = 0
-        Me.LabelNomeProjeto.Text = "Nome Projeto"
+        Me.LblNomeProjeto.AutoSize = True
+        Me.LblNomeProjeto.Location = New System.Drawing.Point(12, 8)
+        Me.LblNomeProjeto.Name = "LblNomeProjeto"
+        Me.LblNomeProjeto.Size = New System.Drawing.Size(71, 13)
+        Me.LblNomeProjeto.TabIndex = 0
+        Me.LblNomeProjeto.Text = "Nome Projeto"
         '
         'LoginPanel
         '
@@ -141,10 +141,10 @@ Partial Class Form1
         Me.LoginPanel.Controls.Add(Me.TxtUser)
         Me.LoginPanel.Controls.Add(Me.BtnImagemRegistarEntrar)
         Me.LoginPanel.Controls.Add(Me.BtnImagemLogin)
-        Me.LoginPanel.ForeColor = System.Drawing.Color.White
-        Me.LoginPanel.Location = New System.Drawing.Point(325, 138)
+        Me.LoginPanel.ForeColor = System.Drawing.Color.Silver
+        Me.LoginPanel.Location = New System.Drawing.Point(226, 125)
         Me.LoginPanel.Name = "LoginPanel"
-        Me.LoginPanel.Size = New System.Drawing.Size(320, 178)
+        Me.LoginPanel.Size = New System.Drawing.Size(746, 375)
         Me.LoginPanel.TabIndex = 7
         '
         'LblUtilizadorReg
@@ -227,6 +227,7 @@ Partial Class Form1
         Me.TxtPwd.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TxtPwd.Size = New System.Drawing.Size(200, 13)
         Me.TxtPwd.TabIndex = 11
+        Me.TxtPwd.Text = "admin"
         Me.TxtPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'TxtUser
@@ -237,6 +238,7 @@ Partial Class Form1
         Me.TxtUser.Name = "TxtUser"
         Me.TxtUser.Size = New System.Drawing.Size(200, 13)
         Me.TxtUser.TabIndex = 9
+        Me.TxtUser.Text = "admin"
         Me.TxtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'PnlUser
@@ -245,16 +247,17 @@ Partial Class Form1
         Me.PnlUser.Controls.Add(Me.Label3)
         Me.PnlUser.Controls.Add(Me.Label2)
         Me.PnlUser.Controls.Add(Me.Label1)
-        Me.PnlUser.Location = New System.Drawing.Point(772, 46)
+        Me.PnlUser.ForeColor = System.Drawing.Color.Silver
+        Me.PnlUser.Location = New System.Drawing.Point(876, 46)
         Me.PnlUser.Name = "PnlUser"
-        Me.PnlUser.Size = New System.Drawing.Size(200, 100)
+        Me.PnlUser.Size = New System.Drawing.Size(96, 40)
         Me.PnlUser.TabIndex = 9
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(16, 31)
+        Me.Label3.ForeColor = System.Drawing.Color.Silver
+        Me.Label3.Location = New System.Drawing.Point(3, 26)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(48, 13)
         Me.Label3.TabIndex = 2
@@ -263,8 +266,8 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(16, 17)
+        Me.Label2.ForeColor = System.Drawing.Color.Silver
+        Me.Label2.Location = New System.Drawing.Point(3, 13)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(77, 13)
         Me.Label2.TabIndex = 1
@@ -273,90 +276,108 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(16, 4)
+        Me.Label1.ForeColor = System.Drawing.Color.Silver
+        Me.Label1.Location = New System.Drawing.Point(3, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(34, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "LOLZ"
         '
-        'Panel1
+        'PnlHome
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Red
-        Me.Panel1.Controls.Add(Me.Panel2)
-        Me.Panel1.Location = New System.Drawing.Point(622, 104)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(799, 471)
-        Me.Panel1.TabIndex = 10
-        Me.Panel1.Visible = False
+        Me.PnlHome.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.PnlHome.Location = New System.Drawing.Point(532, 36)
+        Me.PnlHome.Name = "PnlHome"
+        Me.PnlHome.Size = New System.Drawing.Size(50, 50)
+        Me.PnlHome.TabIndex = 10
+        Me.PnlHome.Visible = False
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.Panel2.Location = New System.Drawing.Point(588, 36)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(50, 50)
+        Me.Panel2.TabIndex = 11
+        Me.Panel2.Visible = False
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.Panel3.Location = New System.Drawing.Point(644, 36)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(50, 50)
+        Me.Panel3.TabIndex = 11
+        Me.Panel3.Visible = False
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.Panel4.Location = New System.Drawing.Point(700, 36)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(50, 50)
+        Me.Panel4.TabIndex = 12
+        Me.Panel4.Visible = False
         '
         'BtnImagemCancelar
         '
         Me.BtnImagemCancelar.BackColor = System.Drawing.Color.SlateGray
+        Me.BtnImagemCancelar.CorFundo = System.Drawing.Color.SlateGray
+        Me.BtnImagemCancelar.CorHover = System.Drawing.Color.LightSlateGray
+        Me.BtnImagemCancelar.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemCancelar.EstadoBotao = False
+        Me.BtnImagemCancelar.Imagem = Nothing
         Me.BtnImagemCancelar.Location = New System.Drawing.Point(333, 327)
         Me.BtnImagemCancelar.Name = "BtnImagemCancelar"
         Me.BtnImagemCancelar.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagemCancelar.TabIndex = 19
-        Me.BtnImagemCancelar.zAlturaImagem = 38
-        Me.BtnImagemCancelar.zComprimentoImagem = 38
-        Me.BtnImagemCancelar.zCorFundo = System.Drawing.Color.SlateGray
-        Me.BtnImagemCancelar.zCorHover = System.Drawing.Color.LightSlateGray
-        Me.BtnImagemCancelar.zCorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagemCancelar.zEstadoBotao = False
-        Me.BtnImagemCancelar.zImagem = Nothing
-        Me.BtnImagemCancelar.zTamanhoLetra = 10
-        Me.BtnImagemCancelar.zTexto = "Cancelar"
+        Me.BtnImagemCancelar.TamanhoLetra = 10
+        Me.BtnImagemCancelar.Texto = "Cancelar"
         '
         'BtnImagemRegistar
         '
         Me.BtnImagemRegistar.BackColor = System.Drawing.Color.SlateGray
+        Me.BtnImagemRegistar.CorFundo = System.Drawing.Color.SlateGray
+        Me.BtnImagemRegistar.CorHover = System.Drawing.Color.LightSlateGray
+        Me.BtnImagemRegistar.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemRegistar.EstadoBotao = False
+        Me.BtnImagemRegistar.Imagem = Nothing
         Me.BtnImagemRegistar.Location = New System.Drawing.Point(106, 327)
         Me.BtnImagemRegistar.Name = "BtnImagemRegistar"
         Me.BtnImagemRegistar.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagemRegistar.TabIndex = 18
-        Me.BtnImagemRegistar.zAlturaImagem = 38
-        Me.BtnImagemRegistar.zComprimentoImagem = 38
-        Me.BtnImagemRegistar.zCorFundo = System.Drawing.Color.SlateGray
-        Me.BtnImagemRegistar.zCorHover = System.Drawing.Color.LightSlateGray
-        Me.BtnImagemRegistar.zCorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagemRegistar.zEstadoBotao = False
-        Me.BtnImagemRegistar.zImagem = Nothing
-        Me.BtnImagemRegistar.zTamanhoLetra = 10
-        Me.BtnImagemRegistar.zTexto = "Registar"
+        Me.BtnImagemRegistar.TamanhoLetra = 10
+        Me.BtnImagemRegistar.Texto = "Registar"
         '
         'BtnImagemRegistarEntrar
         '
         Me.BtnImagemRegistarEntrar.BackColor = System.Drawing.Color.SlateGray
-        Me.BtnImagemRegistarEntrar.Location = New System.Drawing.Point(209, 0)
+        Me.BtnImagemRegistarEntrar.CorFundo = System.Drawing.Color.SlateGray
+        Me.BtnImagemRegistarEntrar.CorHover = System.Drawing.Color.LightSlateGray
+        Me.BtnImagemRegistarEntrar.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemRegistarEntrar.EstadoBotao = False
+        Me.BtnImagemRegistarEntrar.Imagem = Nothing
+        Me.BtnImagemRegistarEntrar.Location = New System.Drawing.Point(209, 3)
         Me.BtnImagemRegistarEntrar.Name = "BtnImagemRegistarEntrar"
         Me.BtnImagemRegistarEntrar.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagemRegistarEntrar.TabIndex = 6
-        Me.BtnImagemRegistarEntrar.zAlturaImagem = 38
-        Me.BtnImagemRegistarEntrar.zComprimentoImagem = 38
-        Me.BtnImagemRegistarEntrar.zCorFundo = System.Drawing.Color.SlateGray
-        Me.BtnImagemRegistarEntrar.zCorHover = System.Drawing.Color.LightSlateGray
-        Me.BtnImagemRegistarEntrar.zCorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagemRegistarEntrar.zEstadoBotao = False
-        Me.BtnImagemRegistarEntrar.zImagem = Nothing
-        Me.BtnImagemRegistarEntrar.zTamanhoLetra = 10
-        Me.BtnImagemRegistarEntrar.zTexto = "Registar"
+        Me.BtnImagemRegistarEntrar.TamanhoLetra = 10
+        Me.BtnImagemRegistarEntrar.Texto = "Registar"
         '
         'BtnImagemLogin
         '
         Me.BtnImagemLogin.BackColor = System.Drawing.Color.SlateGray
+        Me.BtnImagemLogin.CorFundo = System.Drawing.Color.SlateGray
+        Me.BtnImagemLogin.CorHover = System.Drawing.Color.LightSlateGray
+        Me.BtnImagemLogin.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemLogin.EstadoBotao = False
+        Me.BtnImagemLogin.Imagem = Nothing
         Me.BtnImagemLogin.Location = New System.Drawing.Point(3, 3)
         Me.BtnImagemLogin.Name = "BtnImagemLogin"
         Me.BtnImagemLogin.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagemLogin.TabIndex = 5
-        Me.BtnImagemLogin.zAlturaImagem = 38
-        Me.BtnImagemLogin.zComprimentoImagem = 38
-        Me.BtnImagemLogin.zCorFundo = System.Drawing.Color.SlateGray
-        Me.BtnImagemLogin.zCorHover = System.Drawing.Color.LightSlateGray
-        Me.BtnImagemLogin.zCorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagemLogin.zEstadoBotao = False
-        Me.BtnImagemLogin.zImagem = Nothing
-        Me.BtnImagemLogin.zTamanhoLetra = 10
-        Me.BtnImagemLogin.zTexto = "Entrar"
+        Me.BtnImagemLogin.TamanhoLetra = 10
+        Me.BtnImagemLogin.Texto = "Entrar"
         '
         'BtnMenu1
         '
@@ -371,90 +392,63 @@ Partial Class Form1
         '
         'BtnImagem1
         '
-        Me.BtnImagem1.BackColor = System.Drawing.Color.SteelBlue
+        Me.BtnImagem1.BackColor = System.Drawing.Color.Transparent
+        Me.BtnImagem1.CorFundo = System.Drawing.Color.Black
+        Me.BtnImagem1.CorHover = System.Drawing.Color.DimGray
+        Me.BtnImagem1.CorSelecionado = System.Drawing.Color.Transparent
+        Me.BtnImagem1.EstadoBotao = True
+        Me.BtnImagem1.Imagem = Nothing
         Me.BtnImagem1.Location = New System.Drawing.Point(0, 56)
         Me.BtnImagem1.Name = "BtnImagem1"
         Me.BtnImagem1.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagem1.TabIndex = 0
-        Me.BtnImagem1.zAlturaImagem = 38
-        Me.BtnImagem1.zComprimentoImagem = 38
-        Me.BtnImagem1.zCorFundo = System.Drawing.Color.SlateGray
-        Me.BtnImagem1.zCorHover = System.Drawing.Color.LightSlateGray
-        Me.BtnImagem1.zCorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagem1.zEstadoBotao = True
-        Me.BtnImagem1.zImagem = Nothing
-        Me.BtnImagem1.zTamanhoLetra = 10
-        Me.BtnImagem1.zTexto = "Home"
+        Me.BtnImagem1.TamanhoLetra = 10
+        Me.BtnImagem1.Texto = "Home"
         '
         'BtnImagem2
         '
-        Me.BtnImagem2.BackColor = System.Drawing.Color.SlateGray
+        Me.BtnImagem2.BackColor = System.Drawing.Color.White
+        Me.BtnImagem2.CorFundo = System.Drawing.Color.White
+        Me.BtnImagem2.CorHover = System.Drawing.Color.DimGray
+        Me.BtnImagem2.CorSelecionado = System.Drawing.Color.LightGray
+        Me.BtnImagem2.EstadoBotao = False
+        Me.BtnImagem2.Imagem = Nothing
         Me.BtnImagem2.Location = New System.Drawing.Point(0, 101)
         Me.BtnImagem2.Name = "BtnImagem2"
         Me.BtnImagem2.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagem2.TabIndex = 1
-        Me.BtnImagem2.zAlturaImagem = 38
-        Me.BtnImagem2.zComprimentoImagem = 38
-        Me.BtnImagem2.zCorFundo = System.Drawing.Color.SlateGray
-        Me.BtnImagem2.zCorHover = System.Drawing.Color.LightSlateGray
-        Me.BtnImagem2.zCorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagem2.zEstadoBotao = False
-        Me.BtnImagem2.zImagem = Nothing
-        Me.BtnImagem2.zTamanhoLetra = 10
-        Me.BtnImagem2.zTexto = "COISA"
+        Me.BtnImagem2.TamanhoLetra = 10
+        Me.BtnImagem2.Texto = "COISA"
         '
         'BtnImagem4
         '
-        Me.BtnImagem4.BackColor = System.Drawing.Color.SlateGray
+        Me.BtnImagem4.BackColor = System.Drawing.Color.ForestGreen
+        Me.BtnImagem4.CorFundo = System.Drawing.Color.ForestGreen
+        Me.BtnImagem4.CorHover = System.Drawing.Color.LightSlateGray
+        Me.BtnImagem4.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagem4.EstadoBotao = False
+        Me.BtnImagem4.Imagem = Nothing
         Me.BtnImagem4.Location = New System.Drawing.Point(0, 191)
         Me.BtnImagem4.Name = "BtnImagem4"
         Me.BtnImagem4.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagem4.TabIndex = 3
-        Me.BtnImagem4.zAlturaImagem = 38
-        Me.BtnImagem4.zComprimentoImagem = 38
-        Me.BtnImagem4.zCorFundo = System.Drawing.Color.SlateGray
-        Me.BtnImagem4.zCorHover = System.Drawing.Color.LightSlateGray
-        Me.BtnImagem4.zCorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagem4.zEstadoBotao = False
-        Me.BtnImagem4.zImagem = Nothing
-        Me.BtnImagem4.zTamanhoLetra = 10
-        Me.BtnImagem4.zTexto = "COISA"
+        Me.BtnImagem4.TamanhoLetra = 10
+        Me.BtnImagem4.Texto = "COISA"
         '
         'BtnImagem3
         '
-        Me.BtnImagem3.BackColor = System.Drawing.Color.SlateGray
+        Me.BtnImagem3.BackColor = System.Drawing.Color.SpringGreen
+        Me.BtnImagem3.CorFundo = System.Drawing.Color.SpringGreen
+        Me.BtnImagem3.CorHover = System.Drawing.Color.LightSlateGray
+        Me.BtnImagem3.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagem3.EstadoBotao = False
+        Me.BtnImagem3.Imagem = Nothing
         Me.BtnImagem3.Location = New System.Drawing.Point(0, 146)
         Me.BtnImagem3.Name = "BtnImagem3"
         Me.BtnImagem3.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagem3.TabIndex = 2
-        Me.BtnImagem3.zAlturaImagem = 38
-        Me.BtnImagem3.zComprimentoImagem = 38
-        Me.BtnImagem3.zCorFundo = System.Drawing.Color.SlateGray
-        Me.BtnImagem3.zCorHover = System.Drawing.Color.LightSlateGray
-        Me.BtnImagem3.zCorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagem3.zEstadoBotao = False
-        Me.BtnImagem3.zImagem = Nothing
-        Me.BtnImagem3.zTamanhoLetra = 10
-        Me.BtnImagem3.zTexto = "COISA"
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.Lime
-        Me.Panel2.Controls.Add(Me.Panel3)
-        Me.Panel2.Location = New System.Drawing.Point(8, 8)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(799, 471)
-        Me.Panel2.TabIndex = 11
-        Me.Panel2.Visible = False
-        '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Panel3.Location = New System.Drawing.Point(8, 8)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(799, 471)
-        Me.Panel3.TabIndex = 11
-        Me.Panel3.Visible = False
+        Me.BtnImagem3.TamanhoLetra = 10
+        Me.BtnImagem3.Texto = "COISA"
         '
         'Form1
         '
@@ -462,24 +456,25 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1000, 500)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Panel4)
+        Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.PnlHome)
         Me.Controls.Add(Me.PnlUser)
         Me.Controls.Add(Me.LoginPanel)
-        Me.Controls.Add(Me.PnlMenuTop)
+        Me.Controls.Add(Me.PnlBarraTop)
         Me.Controls.Add(Me.PnlMenu)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "GestFrot"
         Me.PnlMenu.ResumeLayout(False)
-        Me.PnlMenuTop.ResumeLayout(False)
-        Me.PnlMenuTop.PerformLayout()
+        Me.PnlBarraTop.ResumeLayout(False)
+        Me.PnlBarraTop.PerformLayout()
         Me.LoginPanel.ResumeLayout(False)
         Me.LoginPanel.PerformLayout()
         Me.PnlUser.ResumeLayout(False)
         Me.PnlUser.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -491,8 +486,8 @@ Partial Class Form1
     Friend WithEvents TmrSlide1 As System.Windows.Forms.Timer
     Friend WithEvents TmrSlide2 As System.Windows.Forms.Timer
     Friend WithEvents BtnMenu1 As GestFrotPAP.BtnMenu
-    Friend WithEvents PnlMenuTop As System.Windows.Forms.Panel
-    Friend WithEvents LabelNomeProjeto As System.Windows.Forms.Label
+    Friend WithEvents PnlBarraTop As System.Windows.Forms.Panel
+    Friend WithEvents LblNomeProjeto As System.Windows.Forms.Label
     Friend WithEvents Fechar As System.Windows.Forms.Label
     Friend WithEvents LoginPanel As System.Windows.Forms.Panel
     Friend WithEvents BtnImagemRegistarEntrar As GestFrotPAP.BtnImagem
@@ -513,8 +508,9 @@ Partial Class Form1
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents PnlHome As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents Panel4 As System.Windows.Forms.Panel
 
 End Class
