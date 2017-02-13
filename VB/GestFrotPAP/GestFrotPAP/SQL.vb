@@ -5,6 +5,10 @@ Module SQL
     Dim DB As String = "frotas"
     Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=0000;Connect timeout=30;") 'MUDAR TALVEZ
     Dim adapter As New MySqlDataAdapter
+    Public DetalhesUtilizador As New UtilizadorDetalhes
+
+
+
 
     Public Function Login(ByVal Utilizador As String, ByVal Password As String) As Boolean
         Dim max As MySqlCommand
@@ -13,7 +17,7 @@ Module SQL
         If LCase(Utilizador).Contains(LCase("@")) Then
             Try 'Isto dáa
                 If Utilizador.ToString <> "" Then
-                    max = New MySqlCommand("select Senha from Utilizador where Email='" + Utilizador + "'", ligacao)
+                    max = New MySqlCommand("select Senha from Utilizador where Email ='" + Utilizador + "'", ligacao)
                     ligacao.Open()
                     User = max.ExecuteScalar
                     str = CType(User, String)
@@ -26,6 +30,10 @@ Module SQL
                         Return (False)
                         Exit Function
                     End If
+                Else
+                    MsgBox("Falta Utilizador")
+                    Return (False)
+                    Exit Function
                 End If
             Catch ex As Exception
                 MsgBox("ERRO 0")
@@ -39,7 +47,7 @@ Module SQL
                     User = max.ExecuteScalar
                     str = CType(User, String)
                     ligacao.Close()
-                    If str = Password.ToLower Or str = Password.ToUpper Then
+                    If str = Password Then
                         Return (True)
                         Exit Function
                     Else
@@ -47,6 +55,10 @@ Module SQL
                         Return (False)
                         Exit Function
                     End If
+                Else
+                    MsgBox("Falta Utilizador")
+                    Return (False)
+                    Exit Function
                 End If
             Catch ex As Exception
                 MsgBox("ERRO 1")
@@ -146,5 +158,7 @@ Module SQL
         End Try
         Return (False)
     End Function
+
+
 
 End Module

@@ -63,6 +63,7 @@ Public Class Form1
         'Arrays de Objetos
 
 
+        'Panel1.Location = New Point((Me.DisplayRectangle.Width - Panel1.Width) / 2 + 100, (Me.DisplayRectangle.Height - Panel1.Height) / 2) 'Código para por no centro do ecrâ
 
 
 
@@ -71,27 +72,11 @@ Public Class Form1
 
 
 
-
-
+        'PNLUSER TEST
         PnlUser.Width = 200 'Ver qual a label maior?
         PnlUser.Height = Label1.Height + Label2.Height + Label3.Height + 20
-
-
-
-
         PnlUser.Hide()
-
-
-
-
-
-        '???? modulo aparencia?   
-        Dim CentroEcranX As Integer = Me.Width / 2
-        Dim CentroEcranY As Integer = Me.Height / 2
-
-
-
-
+        'PNLUSER TEST
 
 
         
@@ -117,6 +102,7 @@ Public Class Form1
     End Sub
     Private Sub BtnImagem2_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem2.ButtonClickMasterRace
         check(1)
+        MsgBox(DetalhesUtilizador.NomeRegisto)
     End Sub
     Private Sub BtnImagem3_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem3.ButtonClickMasterRace
         check(2)

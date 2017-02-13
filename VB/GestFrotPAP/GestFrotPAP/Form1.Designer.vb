@@ -142,9 +142,9 @@ Partial Class Form1
         Me.LoginPanel.Controls.Add(Me.BtnImagemRegistarEntrar)
         Me.LoginPanel.Controls.Add(Me.BtnImagemLogin)
         Me.LoginPanel.ForeColor = System.Drawing.Color.Silver
-        Me.LoginPanel.Location = New System.Drawing.Point(226, 125)
+        Me.LoginPanel.Location = New System.Drawing.Point(532, 92)
         Me.LoginPanel.Name = "LoginPanel"
-        Me.LoginPanel.Size = New System.Drawing.Size(746, 375)
+        Me.LoginPanel.Size = New System.Drawing.Size(59, 50)
         Me.LoginPanel.TabIndex = 7
         '
         'LblUtilizadorReg
@@ -325,6 +325,7 @@ Partial Class Form1
         Me.BtnImagemCancelar.CorFundo = System.Drawing.Color.SlateGray
         Me.BtnImagemCancelar.CorHover = System.Drawing.Color.LightSlateGray
         Me.BtnImagemCancelar.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemCancelar.CorTexto = System.Drawing.Color.White
         Me.BtnImagemCancelar.EstadoBotao = False
         Me.BtnImagemCancelar.Imagem = Nothing
         Me.BtnImagemCancelar.Location = New System.Drawing.Point(333, 327)
@@ -340,6 +341,7 @@ Partial Class Form1
         Me.BtnImagemRegistar.CorFundo = System.Drawing.Color.SlateGray
         Me.BtnImagemRegistar.CorHover = System.Drawing.Color.LightSlateGray
         Me.BtnImagemRegistar.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemRegistar.CorTexto = System.Drawing.Color.White
         Me.BtnImagemRegistar.EstadoBotao = False
         Me.BtnImagemRegistar.Imagem = Nothing
         Me.BtnImagemRegistar.Location = New System.Drawing.Point(106, 327)
@@ -355,6 +357,7 @@ Partial Class Form1
         Me.BtnImagemRegistarEntrar.CorFundo = System.Drawing.Color.SlateGray
         Me.BtnImagemRegistarEntrar.CorHover = System.Drawing.Color.LightSlateGray
         Me.BtnImagemRegistarEntrar.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemRegistarEntrar.CorTexto = System.Drawing.Color.White
         Me.BtnImagemRegistarEntrar.EstadoBotao = False
         Me.BtnImagemRegistarEntrar.Imagem = Nothing
         Me.BtnImagemRegistarEntrar.Location = New System.Drawing.Point(209, 3)
@@ -370,6 +373,7 @@ Partial Class Form1
         Me.BtnImagemLogin.CorFundo = System.Drawing.Color.SlateGray
         Me.BtnImagemLogin.CorHover = System.Drawing.Color.LightSlateGray
         Me.BtnImagemLogin.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemLogin.CorTexto = System.Drawing.Color.Red
         Me.BtnImagemLogin.EstadoBotao = False
         Me.BtnImagemLogin.Imagem = Nothing
         Me.BtnImagemLogin.Location = New System.Drawing.Point(3, 3)
@@ -392,10 +396,11 @@ Partial Class Form1
         '
         'BtnImagem1
         '
-        Me.BtnImagem1.BackColor = System.Drawing.Color.Transparent
+        Me.BtnImagem1.BackColor = System.Drawing.Color.DimGray
         Me.BtnImagem1.CorFundo = System.Drawing.Color.Black
-        Me.BtnImagem1.CorHover = System.Drawing.Color.DimGray
-        Me.BtnImagem1.CorSelecionado = System.Drawing.Color.Transparent
+        Me.BtnImagem1.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagem1.CorSelecionado = System.Drawing.Color.DimGray
+        Me.BtnImagem1.CorTexto = System.Drawing.Color.White
         Me.BtnImagem1.EstadoBotao = True
         Me.BtnImagem1.Imagem = Nothing
         Me.BtnImagem1.Location = New System.Drawing.Point(0, 56)
@@ -411,6 +416,7 @@ Partial Class Form1
         Me.BtnImagem2.CorFundo = System.Drawing.Color.White
         Me.BtnImagem2.CorHover = System.Drawing.Color.DimGray
         Me.BtnImagem2.CorSelecionado = System.Drawing.Color.LightGray
+        Me.BtnImagem2.CorTexto = System.Drawing.Color.White
         Me.BtnImagem2.EstadoBotao = False
         Me.BtnImagem2.Imagem = Nothing
         Me.BtnImagem2.Location = New System.Drawing.Point(0, 101)
@@ -426,6 +432,7 @@ Partial Class Form1
         Me.BtnImagem4.CorFundo = System.Drawing.Color.ForestGreen
         Me.BtnImagem4.CorHover = System.Drawing.Color.LightSlateGray
         Me.BtnImagem4.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagem4.CorTexto = System.Drawing.Color.White
         Me.BtnImagem4.EstadoBotao = False
         Me.BtnImagem4.Imagem = Nothing
         Me.BtnImagem4.Location = New System.Drawing.Point(0, 191)
@@ -441,6 +448,7 @@ Partial Class Form1
         Me.BtnImagem3.CorFundo = System.Drawing.Color.SpringGreen
         Me.BtnImagem3.CorHover = System.Drawing.Color.LightSlateGray
         Me.BtnImagem3.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagem3.CorTexto = System.Drawing.Color.White
         Me.BtnImagem3.EstadoBotao = False
         Me.BtnImagem3.Imagem = Nothing
         Me.BtnImagem3.Location = New System.Drawing.Point(0, 146)

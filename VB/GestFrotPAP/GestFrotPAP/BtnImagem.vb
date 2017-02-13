@@ -6,6 +6,7 @@ Public Class BtnImagem
     Private _CorSelecionado As Color = Color.SteelBlue
     Private _CorFundo As Color = Color.SlateGray
     Private _CorHover As Color = Color.LightSlateGray
+    Private _CorTexto As Color = Color.White
     Private _TamanhoLetra As Integer
     Private _Texto As String = "Teste"
     Private _Imagem As System.Drawing.Bitmap
@@ -47,6 +48,16 @@ Public Class BtnImagem
         End Get
         Set(ByVal value As Color)
             _CorHover = value
+        End Set
+    End Property
+    <System.ComponentModel.Category("BtnImagem")> _
+    Public Property CorTexto As Color
+        Get
+            Return _CorTexto
+        End Get
+        Set(ByVal value As Color)
+            _CorTexto = value
+            LblTexto.ForeColor = _CorTexto
         End Set
     End Property
     <System.ComponentModel.Category("BtnImagem")> _
@@ -93,6 +104,7 @@ Public Class BtnImagem
             LblTexto.Text = _Texto
         End Set
     End Property
+
 
 
 

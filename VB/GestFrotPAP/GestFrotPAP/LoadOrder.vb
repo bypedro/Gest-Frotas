@@ -28,6 +28,7 @@ Public Module LoadOrder
 
     Public Sub LoginPage()
         'MENU
+
         Form1.PnlMenu.Left = 0
         Form1.PnlMenu.Top = Form1.PnlBarraTop.Bottom
         Form1.PnlMenu.Height = Form1.Height - Form1.PnlBarraTop.Height
@@ -42,10 +43,13 @@ Public Module LoadOrder
         Form1.LblNomeProjeto.Left = 5
 
         'Login
+
         Form1.LoginPanel.Left = 0
+
         Form1.LoginPanel.Top = Form1.PnlBarraTop.Bottom
         Form1.LoginPanel.Height = Form1.Height - Form1.PnlBarraTop.Height
         Form1.LoginPanel.Width = Form1.Width
+
         'Talvez Criar outro botão ou mudar o atual
         Form1.BtnImagemLogin.Left = CentroEcranX - Form1.BtnImagemLogin.Width - 5
         Form1.BtnImagemRegistarEntrar.Left = CentroEcranX + 5
