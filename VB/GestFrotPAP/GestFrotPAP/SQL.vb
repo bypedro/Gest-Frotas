@@ -2,7 +2,7 @@
 Imports System.Net.Mail
 Module SQL
     Dim DB As String = "frotas"
-    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=;Connect timeout=30;") 'MUDAR TALVEZ
+    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=0000;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
     Dim adapter As New MySqlDataAdapter
     Public DetalhesUtilizador As New UtilizadorDetalhes
 
@@ -34,6 +34,7 @@ Module SQL
                             ligacao.Open()
                             User = max.ExecuteScalar
                             str = CType(User, String)
+                            ligacao.Close()
                             BuscarDadosUtilizador(str)
                             Return (True)
                             Exit Function
@@ -52,39 +53,39 @@ Module SQL
                     Return (False)
                 End Try
             Else
-                Try 'Isto dáa
-                    max = New MySqlCommand("select Nome_Registo from Utilizador where Nome_Registo ='" + Utilizador + "'", ligacao)
+                'Try 'Isto dáa
+                max = New MySqlCommand("select Nome_Registo from Utilizador where Nome_Registo ='" + Utilizador + "'", ligacao)
+                ligacao.Open()
+                User = max.ExecuteScalar
+                str = CType(User, String)
+                ligacao.Close()
+                If str <> "" Then
+                    max = New MySqlCommand("select Senha from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
                     ligacao.Open()
                     User = max.ExecuteScalar
                     str = CType(User, String)
                     ligacao.Close()
-                    If str <> "" Then
-                        max = New MySqlCommand("select Senha from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
-                        ligacao.Open()
-                        User = max.ExecuteScalar
-                        str = CType(User, String)
-                        ligacao.Close()
-                        If str = Password Then
-                            BuscarDadosUtilizador(Utilizador)
-                            Return (True)
-                            Exit Function
-                        Else
-                            MsgBox("Password errada label") 'Label
-                            Return (False)
-                            Exit Function
-                        End If
+                    If str = Password Then
+                        BuscarDadosUtilizador(Utilizador)
+                        Return (True)
+                        Exit Function
                     Else
-                        MsgBox("Utilizador não existe")
+                        MsgBox("Password errada label") 'Label
                         Return (False)
                         Exit Function
                     End If
-                Catch ex As Exception
-                    MsgBox("ERRO 1")
-                End Try
+                Else
+                    MsgBox("Utilizador não existe")
+                    Return (False)
+                    Exit Function
+                End If
+                'Catch ex As Exception
+                MsgBox("ERRO 1")
+                'End Try
             End If
             Return (False)
         End If
-        
+
     End Function
 
     Public Function Registar(ByVal Utilizador As String, ByVal Password1 As String, ByVal Password2 As String, ByVal Email As String) As Boolean
@@ -147,7 +148,7 @@ Module SQL
                 Validar(2) = True
             End If
         End If
-        
+
         If Password1 = "" Then
             Form1.LblPasswordReg.Show()
             Form1.LblPasswordReg.Text = "*Necessita de Password"
@@ -183,100 +184,268 @@ Module SQL
     Public Sub BuscarDadosUtilizador(ByVal Utilizador As String)
         Dim Comando As MySqlCommand
         Dim Objecto As Object
+
+
+
         Try
             Comando = New MySqlCommand("select CodUser from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
             Objecto = Comando.ExecuteScalar
-            DetalhesUtilizador.CodUser = CType(Objecto, String)
-            ligacao.Close()
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.CodUser = "Não tem" 'Mudar
+                MsgBox("ERRO CODUSER")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.CodUser = CType(Objecto, String)
+                ligacao.Close()
+            End If
         Catch ex As Exception
-
+            ligacao.Close()
         End Try
-        
+
 
         Try
             Comando = New MySqlCommand("select Nome_Registo from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
             Objecto = Comando.ExecuteScalar
-            DetalhesUtilizador.NomeRegisto = CType(Objecto, String)
-            ligacao.Close()
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.NomeRegisto = "Não tem" 'Mudar
+                MsgBox("ERRO Nome Registo")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.NomeRegisto = CType(Objecto, String)
+                ligacao.Close()
+            End If
         Catch ex As Exception
-
+            ligacao.Close()
         End Try
-       
+
         Try
             Comando = New MySqlCommand("select Senha from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
             Objecto = Comando.ExecuteScalar
-            DetalhesUtilizador.Senha = CType(Objecto, String)
-            ligacao.Close()
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.Senha = "Não tem" 'Mudar
+                MsgBox("ERRO Senha")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.Senha = CType(Objecto, String)
+                ligacao.Close()
+            End If
         Catch ex As Exception
-
+            ligacao.Close()
         End Try
-        
+
         Try
             Comando = New MySqlCommand("select Nome_Proprio from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
             Objecto = Comando.ExecuteScalar
-            DetalhesUtilizador.NomeProprio = CType(Objecto, String)
-            ligacao.Close()
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.NomeProprio = "Não tem" 'Mudar
+                MsgBox("ERRO Nome_Proprio")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.NomeProprio = CType(Objecto, String)
+                ligacao.Close()
+            End If
         Catch ex As Exception
-
+            ligacao.Close()
         End Try
-        
+
         Try
             Comando = New MySqlCommand("select Apelido from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
             Objecto = Comando.ExecuteScalar
-            DetalhesUtilizador.Apelido = CType(Objecto, String)
-            ligacao.Close()
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.Apelido = "Não tem" 'Mudar
+                MsgBox("ERRO Apelido")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.Apelido = CType(Objecto, String)
+                ligacao.Close()
+            End If
         Catch ex As Exception
-
+            ligacao.Close()
         End Try
-        
+
         Try
             Comando = New MySqlCommand("select Genero from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
             Objecto = Comando.ExecuteScalar
-            DetalhesUtilizador.Genero = CType(Objecto, String)
-            ligacao.Close()
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.Genero = "Não tem"
+                MsgBox("ERRO Genero")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.Genero = CType(Objecto, String)
+                ligacao.Close()
+            End If
         Catch ex As Exception
-
+            ligacao.Close()
         End Try
-        
 
-        'Comando = New MySqlCommand("select Data_Nascimento from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
-        'ligacao.Open()
-        'Objecto = Comando.ExecuteScalar
-        'DetalhesUtilizador.DataNasc = CType(Objecto, String)
-        'ligacao.Close()
+        Try
+            Comando = New MySqlCommand("select Data_Nascimento from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.DataNasc = "Não tem"
+                MsgBox("ERRO Data Nascimento")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.DataNasc = CType(Objecto, String)
+                ligacao.Close()
+            End If
+        Catch ex As Exception
+            ligacao.Close()
+        End Try
 
-        ' Comando = New MySqlCommand("select Data_Contratacao from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
-        'ligacao.Open()
-        'Objecto = Comando.ExecuteScalar
-        'DetalhesUtilizador.DataContrat = CType(Objecto, String)
-        'ligacao.Close()
+        Try
+            Comando = New MySqlCommand("select Data_Contratacao from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.DataContrat = "Não tem"
+                MsgBox("ERRO Data Contratacao")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.DataContrat = CType(Objecto, String)
+                ligacao.Close()
+            End If
+        Catch ex As Exception
+            ligacao.Close()
+        End Try
 
         Try
             Comando = New MySqlCommand("select Pagamentos_Hora from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
             Objecto = Comando.ExecuteScalar
-            DetalhesUtilizador.PagamentoHora = CType(Objecto, String)
-            ligacao.Close()
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.PagamentoHora = "Não tem"
+                MsgBox("ERRO Pagamentos Hora")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.PagamentoHora = CType(Objecto, String)
+                ligacao.Close()
+            End If
         Catch ex As Exception
-
+            ligacao.Close()
         End Try
-        
+
         Try
             Comando = New MySqlCommand("select Habilitacoes from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
             Objecto = Comando.ExecuteScalar
-            DetalhesUtilizador.Habilitações = CType(Objecto, String)
-            ligacao.Close()
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.Habilitações = "Não tem"
+                MsgBox("ERRO Habilitacoes")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.Habilitações = CType(Objecto, String)
+                ligacao.Close()
+            End If
         Catch ex As Exception
-
+            ligacao.Close()
         End Try
-        
+
+        Try
+            Comando = New MySqlCommand("select Rua from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.Rua = "Não tem"
+                MsgBox("ERRO Rua")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.Rua = CType(Objecto, String)
+                ligacao.Close()
+            End If
+        Catch ex As Exception
+            ligacao.Close()
+        End Try
+
+        Try
+            Comando = New MySqlCommand("select N_Telemovel from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.NTelemovel = "Não tem"
+                MsgBox("ERRO N_Telemovel")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.NTelemovel = CType(Objecto, String)
+                ligacao.Close()
+            End If
+        Catch ex As Exception
+            ligacao.Close()
+        End Try
+
+        Try
+            Comando = New MySqlCommand("select N_Telefone from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.NTelefone = "Não tem"
+                MsgBox("ERRO N_Telefone")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.NTelefone = CType(Objecto, String)
+                ligacao.Close()
+            End If
+        Catch ex As Exception
+            ligacao.Close()
+        End Try
+
+        Try
+            Comando = New MySqlCommand("select Email from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.Email = "Não tem"
+                MsgBox("ERRO Email")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.Email = CType(Objecto, String)
+                ligacao.Close()
+            End If
+        Catch ex As Exception
+            ligacao.Close()
+        End Try
+
+        Try
+            Comando = New MySqlCommand("select Notas_Contacto from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.NotasContacto = "Não tem"
+                MsgBox("ERRO Notas Contacto")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.NotasContacto = CType(Objecto, String)
+                ligacao.Close()
+            End If
+        Catch ex As Exception
+            ligacao.Close()
+        End Try
+        Try
+            Comando = New MySqlCommand("select Notas_Contracto from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.NotasContrato = "Não tem"
+                MsgBox("ERRO Notas Contracto")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.NotasContrato = CType(Objecto, String)
+                ligacao.Close()
+            End If
+        Catch ex As Exception
+            ligacao.Close()
+        End Try
+
+
+
+
 
 
 

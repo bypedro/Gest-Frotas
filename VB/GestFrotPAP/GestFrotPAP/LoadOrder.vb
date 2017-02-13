@@ -28,12 +28,11 @@ Public Module LoadOrder
 
     Public Sub LoginPage()
         'MENU
-
         Form1.PnlMenu.Left = 0
         Form1.PnlMenu.Top = Form1.PnlBarraTop.Bottom
         Form1.PnlMenu.Height = Form1.Height - Form1.PnlBarraTop.Height
         Form1.PnlMenu.Width = 200
-        Form1.BtnMenu1.Left = Form1.PnlMenu.Right - 36
+        Form1.BtnMenu1.Left = Form1.PnlMenu.Right - 35
 
         'Barra do topo com titulo / Por aqui o butão fechar
         Form1.LblNomeProjeto.Text = "VecXP"
@@ -132,13 +131,7 @@ Public Module LoadOrder
 
     Public Sub MenuPrincipalPage() 'Depois do Login
         'Utilizador(Label)
-        Form1.LblUtilzadorMenu.Visible = True
-        Form1.LblUtilzadorMenu.Text = DetalhesUtilizador.NomeRegisto 'Form1.TxtUser.Text + "MUDAR" 'nome do Utilizador/ email/ idk possivelmente buscar nome e apelido á bd
-        Form1.LblUtilzadorMenu.Font = Fonte.GetInstance(9, FontStyle.Bold)
-        Form1.LblUtilzadorMenu.ForeColor = Color.DarkGray 'No futuro Opção para mudar?
 
-        Form1.LblUtilzadorMenu.Top = (Form1.PnlBarraTop.Height - Form1.LblUtilzadorMenu.Height) / 2
-        Form1.LblUtilzadorMenu.Left = Form1.Fechar.Right - Form1.LblUtilzadorMenu.Width - 20
 
         'Esconde Pagina de Login
         Form1.LoginPanel.Hide()
@@ -173,6 +166,35 @@ Public Module LoadOrder
 
         'IDK
         Form1.LoginPanel.Hide()
+
+        'Menu Utilizador
+        Form1.LblUtilzadorMenu.Text = DetalhesUtilizador.NomeRegisto 'Form1.TxtUser.Text + "MUDAR" 'nome do Utilizador/ email/ idk possivelmente buscar nome e apelido á bd
+        Form1.LblUtilzadorMenu.Visible = True
+        Form1.LblUtilzadorMenu.Font = Fonte.GetInstance(9, FontStyle.Bold)
+        Form1.LblUtilzadorMenu.ForeColor = Color.DarkGray 'No futuro Opção para mudar?
+        Form1.LblUtilzadorMenu.Top = (Form1.PnlBarraTop.Height - Form1.LblUtilzadorMenu.Height) / 2
+        Form1.LblUtilzadorMenu.Left = Form1.Fechar.Right - Form1.LblUtilzadorMenu.Width - 20
+        Form1.Label1.Top = (Form1.PnlUser.Height - Form1.PnlUser.Height)
+        Form1.Label1.Left = (Form1.PnlUser.Width - Form1.PnlUser.Width) / 2 + 2
+        Form1.Label2.Top = (Form1.PnlUser.Height - Form1.PnlUser.Height) + Form1.Label2.Height
+        Form1.Label2.Left = (Form1.PnlUser.Width - Form1.PnlUser.Width) / 2 + 2
+        Form1.Label3.Top = (Form1.PnlUser.Height - Form1.PnlUser.Height) + Form1.Label2.Height + Form1.Label3.Height
+        Form1.Label3.Left = (Form1.PnlUser.Width - Form1.PnlUser.Width) / 2 + 2
+        Form1.PnlUser.Height = (Form1.PnlUser.Height - Form1.PnlUser.Height) + Form1.Label1.Height + Form1.Label2.Height + Form1.Label3.Height
+        Form1.PnlUser.Left = Form1.LblUtilzadorMenu.Left - Form1.PnlUser.Width + Form1.LblUtilzadorMenu.Width
+        Form1.PnlUser.Top = Form1.LblUtilzadorMenu.Bottom + 7
+        Form1.PnlUser.Width = 200 'Ver qual a label maior?
+        Form1.PnlUser.Height = Form1.Label1.Height + Form1.Label2.Height + Form1.Label3.Height
+        Form1.PnlUser.Width = 90
+
+
+
+        'Panel utilizador
+        Form1.PnlDefUtilizador.Left = 0
+        Form1.PnlDefUtilizador.Top = Form1.PnlBarraTop.Bottom
+        Form1.PnlDefUtilizador.Height = Form1.Height - Form1.PnlBarraTop.Height
+        Form1.PnlDefUtilizador.Width = Form1.Width
+
 
     End Sub
 

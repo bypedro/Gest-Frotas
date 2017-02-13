@@ -16,9 +16,10 @@
     Private _NotasContacto As String
     Private _NotasContrato As String
     Private _TipoUtilizador As Integer
+    Private _TipoUtilizadorCod As Integer
     Private _Cidade As String
+    Private _CidadeCod As String
     Private _Pais As String
-
 
     Public Property CodUser As String
         Get
@@ -163,7 +164,35 @@
         End Set
     End Property
 
-    Public Property TipoUtilizador As Integer 'Talvez Mudar para string
+    Public Property TipoUtilizador As String 'Talvez Mudar para string
+        Get
+            Return _TipoUtilizador
+        End Get
+        Set(ByVal value As String)
+            _TipoUtilizador = value
+        End Set
+    End Property
+
+    Public Property Cidade As String
+        Get
+            Return _Cidade
+        End Get
+        Set(ByVal value As String)
+            _Cidade = value
+        End Set
+    End Property
+
+    Public Property Pais As String
+        Get
+            Return _Pais
+        End Get
+        Set(ByVal value As String)
+            _Pais = value
+        End Set
+    End Property
+
+    'Não sei ainda
+    Public Property TipoUtilizadorCod As Integer
         Get
             Return _NotasContrato
         End Get
@@ -172,21 +201,12 @@
         End Set
     End Property
 
-    Public Property Cidade As Integer
+    Public Property CidadeCod As Integer
         Get
-            Return _Cidade
+            Return _CidadeCod
         End Get
         Set(ByVal value As Integer)
-            _Cidade = value
-        End Set
-    End Property
-
-    Public Property Pais As Integer
-        Get
-            Return _Pais
-        End Get
-        Set(ByVal value As Integer)
-            _Pais = value
+            _CidadeCod = value
         End Set
     End Property
 

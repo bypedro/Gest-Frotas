@@ -72,14 +72,8 @@ Public Class Form1
 
 
 
-        'PNLUSER TEST
-        PnlUser.Width = 200 'Ver qual a label maior?
-        PnlUser.Height = Label1.Height + Label2.Height + Label3.Height + 20
-        PnlUser.Hide()
-        'PNLUSER TEST
 
 
-        
 
 
 
@@ -99,11 +93,9 @@ Public Class Form1
 
     Private Sub BtnImagem1_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem1.ButtonClickMasterRace
         check(0)
-        MsgBox(DetalhesUtilizador.NomeRegisto)
     End Sub
     Private Sub BtnImagem2_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem2.ButtonClickMasterRace
         check(1)
-        MsgBox(DetalhesUtilizador.NomeRegisto)
     End Sub
     Private Sub BtnImagem3_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem3.ButtonClickMasterRace
         check(2)
@@ -114,37 +106,42 @@ Public Class Form1
 
     Private Sub TmrSlide1_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles TmrSlide1.Tick
         PnlMenu.Left = PnlMenu.Left - 2
+        For a = 0 To N
+            BtnImagem(a).Left = BtnImagem(a).Left + 2
+        Next
         If PnlMenu.Right = 36 Then
             TmrSlide1.Enabled = False
-            BtnImagem1.Hide()
-            BtnImagem2.Hide()
-            BtnImagem3.Hide()
-            BtnImagem4.Hide()
+            For a = 0 To N
+                BtnImagem(a).Show()
+            Next
         End If
+
     End Sub
 
     Private Sub TmrSlide2_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles TmrSlide2.Tick
         PnlMenu.Left = PnlMenu.Left + 2
+        Dim a As Integer
+        For a = 0 To N
+            BtnImagem(a).Left = BtnImagem(a).Left - 2
+        Next
         If PnlMenu.Right = 200 Then
             TmrSlide2.Enabled = False
-            BtnImagem1.Show()
-            BtnImagem2.Show()
-            BtnImagem3.Show()
-            BtnImagem4.Show()
+            For a = 0 To N
+                BtnImagem(a).Show()
+            Next
         End If
     End Sub
 
     Private Sub BtnMenu1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BtnMenu1.Click
+        For a = 0 To N
+            BtnImagem(a).Hide()
+        Next
         If BtnMenu1.zEstadoBotao = True Then
             If PnlMenu.Right = 200 Then
                 TmrSlide1.Enabled = True
-            ElseIf PnlMenu.Right = 36 Then
-                TmrSlide2.Enabled = True
             End If
         ElseIf BtnMenu1.zEstadoBotao = False Then
-            If PnlMenu.Right = 200 Then
-                TmrSlide1.Enabled = True
-            ElseIf PnlMenu.Right = 36 Then
+            If PnlMenu.Right = 36 Then
                 TmrSlide2.Enabled = True
             End If
         End If
@@ -155,24 +152,19 @@ Public Class Form1
         Close()
     End Sub
 
-    Private Sub Label2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Fechar.Click
+    Private Sub fechar_click(ByVal sender As Object, ByVal e As EventArgs) Handles Fechar.Click
         Close()
     End Sub
 
     Private Sub BtnImagemLogin_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs) Handles BtnImagemLogin.ButtonClickMasterRace
         If Login(TxtUser.Text, HashPassword(TxtPwd.Text)) = True Then
+
             LoadOrder.MenuPrincipalPage()
             check(0)
         Else
 
         End If
 
-
-
-        PnlUser.Left = LblUtilzadorMenu.Left
-        PnlUser.Top = LblUtilzadorMenu.Bottom + 7
-        PnlUser.Width = 90
-        PnlUser.BringToFront()
         'LoadOrder.l2()
     End Sub
 
@@ -184,15 +176,12 @@ Public Class Form1
         mousex = Windows.Forms.Cursor.Position.X - Me.Left
         mousey = Windows.Forms.Cursor.Position.Y - Me.Top
     End Sub
-
-    Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PnlBarraTop.MouseMove
+    Private Sub Panel2_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PnlBarraTop.MouseMove
         If drag Then
             Me.Top = Windows.Forms.Cursor.Position.Y - mousey
             Me.Left = Windows.Forms.Cursor.Position.X - mousex
         End If
     End Sub
-
-
     Private Sub Panel2_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PnlBarraTop.MouseUp
         drag = False
     End Sub
@@ -224,22 +213,11 @@ Public Class Form1
     End Sub
 
     Private Sub LblUserName_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LblUtilzadorMenu.Click
-        PnlUser.BringToFront()
-        Label1.Top = (PnlUser.Height - PnlUser.Height)
-        Label1.Left = (PnlUser.Width - PnlUser.Width) / 2 + 2
-
-        Label2.Top = (PnlUser.Height - PnlUser.Height) + Label2.Height
-        Label2.Left = (PnlUser.Width - PnlUser.Width) / 2 + 2
-
-        Label3.Top = (PnlUser.Height - PnlUser.Height) + Label2.Height + Label3.Height
-        Label3.Left = (PnlUser.Width - PnlUser.Width) / 2 + 2
-
-        PnlUser.Height = (PnlUser.Height - PnlUser.Height) + Label1.Height + Label2.Height + Label3.Height
-
         If PnlUser.Visible = True Then
             PnlUser.Hide()
         Else
             PnlUser.Show()
+            PnlUser.BringToFront()
         End If
 
     End Sub
@@ -270,10 +248,17 @@ Public Class Form1
         PnlHome.Hide()
         LblUtilzadorMenu.Hide()
         PnlUser.Hide()
-
+        PnlDefUtilizador.Hide()
     End Sub
 
-    Private Sub LoginPanel_Paint(sender As Object, e As PaintEventArgs) Handles LoginPanel.Paint
-
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+        If PnlDefUtilizador.Visible = False Then
+            PnlDefUtilizador.Visible = True
+            PnlDefUtilizador.BringToFront()
+            PnlUser.Hide()
+        Else
+            PnlDefUtilizador.Visible = False
+        End If
     End Sub
+
 End Class
