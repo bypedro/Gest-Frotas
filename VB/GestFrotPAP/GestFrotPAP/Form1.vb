@@ -99,6 +99,7 @@ Public Class Form1
 
     Private Sub BtnImagem1_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem1.ButtonClickMasterRace
         check(0)
+        MsgBox(DetalhesUtilizador.NomeRegisto)
     End Sub
     Private Sub BtnImagem2_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem2.ButtonClickMasterRace
         check(1)
@@ -165,7 +166,7 @@ Public Class Form1
         Else
 
         End If
-        
+
 
 
         PnlUser.Left = LblUtilzadorMenu.Left

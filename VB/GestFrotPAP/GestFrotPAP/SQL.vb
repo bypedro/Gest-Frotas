@@ -1,70 +1,90 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Net.Mail
-
 Module SQL
     Dim DB As String = "frotas"
-    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=0000;Connect timeout=30;") 'MUDAR TALVEZ
+    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=;Connect timeout=30;") 'MUDAR TALVEZ
     Dim adapter As New MySqlDataAdapter
     Public DetalhesUtilizador As New UtilizadorDetalhes
-
-
-
 
     Public Function Login(ByVal Utilizador As String, ByVal Password As String) As Boolean
         Dim max As MySqlCommand
         Dim User As Object
         Dim str As String
-        If LCase(Utilizador).Contains(LCase("@")) Then
-            Try 'Isto dáa
-                If Utilizador.ToString <> "" Then
-                    max = New MySqlCommand("select Senha from Utilizador where Email ='" + Utilizador + "'", ligacao)
-                    ligacao.Open()
-                    User = max.ExecuteScalar
-                    str = CType(User, String)
-                    ligacao.Close()
-                    If str = Password Then
-                        Return (True)
-                        Exit Function
-                    Else
-                        MsgBox("Password errada label")
-                        Return (False)
-                        Exit Function
-                    End If
-                Else
-                    MsgBox("Falta Utilizador")
-                    Return (False)
-                    Exit Function
-                End If
-            Catch ex As Exception
-                MsgBox("ERRO 0")
-                Return (False)
-            End Try
+        Dim str1 As String = ""
+        If Utilizador = "" Then
+            MsgBox("FALTA UTILIZADOR")
+            Return False
+            Exit Function
         Else
-            Try 'Isto dáa
-                If Utilizador.ToString <> "" Then
-                    max = New MySqlCommand("select Senha from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            If LCase(Utilizador).Contains(LCase("@")) Then
+                Try 'Isto dáa
+                    max = New MySqlCommand("select Email from Utilizador where Email ='" + Utilizador + "'", ligacao)
                     ligacao.Open()
                     User = max.ExecuteScalar
                     str = CType(User, String)
                     ligacao.Close()
-                    If str = Password Then
-                        Return (True)
-                        Exit Function
+                    If str <> "" Then
+                        max = New MySqlCommand("select Senha from Utilizador where Email ='" + Utilizador + "'", ligacao)
+                        ligacao.Open()
+                        User = max.ExecuteScalar
+                        str = CType(User, String)
+                        ligacao.Close()
+                        If str = Password Then
+                            max = New MySqlCommand("select Nome_Registo from Utilizador where Email ='" + Utilizador + "'", ligacao)
+                            ligacao.Open()
+                            User = max.ExecuteScalar
+                            str = CType(User, String)
+                            BuscarDadosUtilizador(str)
+                            Return (True)
+                            Exit Function
+                        Else
+                            MsgBox("Password errada label")
+                            Return (False)
+                            Exit Function
+                        End If
                     Else
-                        MsgBox("Password errada label") 'Label
+                        MsgBox("Utilizador não existe")
                         Return (False)
                         Exit Function
                     End If
-                Else
-                    MsgBox("Falta Utilizador")
+                Catch ex As Exception
+                    MsgBox("ERRO 0")
                     Return (False)
-                    Exit Function
-                End If
-            Catch ex As Exception
-                MsgBox("ERRO 1")
-            End Try
+                End Try
+            Else
+                Try 'Isto dáa
+                    max = New MySqlCommand("select Nome_Registo from Utilizador where Nome_Registo ='" + Utilizador + "'", ligacao)
+                    ligacao.Open()
+                    User = max.ExecuteScalar
+                    str = CType(User, String)
+                    ligacao.Close()
+                    If str <> "" Then
+                        max = New MySqlCommand("select Senha from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+                        ligacao.Open()
+                        User = max.ExecuteScalar
+                        str = CType(User, String)
+                        ligacao.Close()
+                        If str = Password Then
+                            BuscarDadosUtilizador(Utilizador)
+                            Return (True)
+                            Exit Function
+                        Else
+                            MsgBox("Password errada label") 'Label
+                            Return (False)
+                            Exit Function
+                        End If
+                    Else
+                        MsgBox("Utilizador não existe")
+                        Return (False)
+                        Exit Function
+                    End If
+                Catch ex As Exception
+                    MsgBox("ERRO 1")
+                End Try
+            End If
+            Return (False)
         End If
-        Return (False)
+        
     End Function
 
     Public Function Registar(ByVal Utilizador As String, ByVal Password1 As String, ByVal Password2 As String, ByVal Email As String) As Boolean
@@ -158,6 +178,111 @@ Module SQL
         End Try
         Return (False)
     End Function
+
+
+    Public Sub BuscarDadosUtilizador(ByVal Utilizador As String)
+        Dim Comando As MySqlCommand
+        Dim Objecto As Object
+        Try
+            Comando = New MySqlCommand("select CodUser from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            DetalhesUtilizador.CodUser = CType(Objecto, String)
+            ligacao.Close()
+        Catch ex As Exception
+
+        End Try
+        
+
+        Try
+            Comando = New MySqlCommand("select Nome_Registo from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            DetalhesUtilizador.NomeRegisto = CType(Objecto, String)
+            ligacao.Close()
+        Catch ex As Exception
+
+        End Try
+       
+        Try
+            Comando = New MySqlCommand("select Senha from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            DetalhesUtilizador.Senha = CType(Objecto, String)
+            ligacao.Close()
+        Catch ex As Exception
+
+        End Try
+        
+        Try
+            Comando = New MySqlCommand("select Nome_Proprio from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            DetalhesUtilizador.NomeProprio = CType(Objecto, String)
+            ligacao.Close()
+        Catch ex As Exception
+
+        End Try
+        
+        Try
+            Comando = New MySqlCommand("select Apelido from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            DetalhesUtilizador.Apelido = CType(Objecto, String)
+            ligacao.Close()
+        Catch ex As Exception
+
+        End Try
+        
+        Try
+            Comando = New MySqlCommand("select Genero from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            DetalhesUtilizador.Genero = CType(Objecto, String)
+            ligacao.Close()
+        Catch ex As Exception
+
+        End Try
+        
+
+        'Comando = New MySqlCommand("select Data_Nascimento from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+        'ligacao.Open()
+        'Objecto = Comando.ExecuteScalar
+        'DetalhesUtilizador.DataNasc = CType(Objecto, String)
+        'ligacao.Close()
+
+        ' Comando = New MySqlCommand("select Data_Contratacao from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+        'ligacao.Open()
+        'Objecto = Comando.ExecuteScalar
+        'DetalhesUtilizador.DataContrat = CType(Objecto, String)
+        'ligacao.Close()
+
+        Try
+            Comando = New MySqlCommand("select Pagamentos_Hora from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            DetalhesUtilizador.PagamentoHora = CType(Objecto, String)
+            ligacao.Close()
+        Catch ex As Exception
+
+        End Try
+        
+        Try
+            Comando = New MySqlCommand("select Habilitacoes from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            DetalhesUtilizador.Habilitações = CType(Objecto, String)
+            ligacao.Close()
+        Catch ex As Exception
+
+        End Try
+        
+
+
+
+    End Sub
+
+
 
 
 

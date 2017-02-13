@@ -133,7 +133,7 @@ Public Module LoadOrder
     Public Sub MenuPrincipalPage() 'Depois do Login
         'Utilizador(Label)
         Form1.LblUtilzadorMenu.Visible = True
-        Form1.LblUtilzadorMenu.Text = Form1.TxtUser.Text + "MUDAR" 'nome do Utilizador/ email/ idk possivelmente buscar nome e apelido á bd
+        Form1.LblUtilzadorMenu.Text = DetalhesUtilizador.NomeRegisto 'Form1.TxtUser.Text + "MUDAR" 'nome do Utilizador/ email/ idk possivelmente buscar nome e apelido á bd
         Form1.LblUtilzadorMenu.Font = Fonte.GetInstance(9, FontStyle.Bold)
         Form1.LblUtilzadorMenu.ForeColor = Color.DarkGray 'No futuro Opção para mudar?
 

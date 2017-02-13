@@ -49,6 +49,8 @@ Partial Class Form1
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.BtnImagemCancelar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemRegistar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemRegistarEntrar = New GestFrotPAP.BtnImagem()
@@ -128,6 +130,8 @@ Partial Class Form1
         '
         'LoginPanel
         '
+        Me.LoginPanel.Controls.Add(Me.Label5)
+        Me.LoginPanel.Controls.Add(Me.Label4)
         Me.LoginPanel.Controls.Add(Me.LblUtilizadorReg)
         Me.LoginPanel.Controls.Add(Me.LblEmailReg)
         Me.LoginPanel.Controls.Add(Me.LblPasswordReg)
@@ -142,9 +146,9 @@ Partial Class Form1
         Me.LoginPanel.Controls.Add(Me.BtnImagemRegistarEntrar)
         Me.LoginPanel.Controls.Add(Me.BtnImagemLogin)
         Me.LoginPanel.ForeColor = System.Drawing.Color.Silver
-        Me.LoginPanel.Location = New System.Drawing.Point(532, 92)
+        Me.LoginPanel.Location = New System.Drawing.Point(218, 125)
         Me.LoginPanel.Name = "LoginPanel"
-        Me.LoginPanel.Size = New System.Drawing.Size(59, 50)
+        Me.LoginPanel.Size = New System.Drawing.Size(686, 285)
         Me.LoginPanel.TabIndex = 7
         '
         'LblUtilizadorReg
@@ -285,7 +289,7 @@ Partial Class Form1
         '
         'PnlHome
         '
-        Me.PnlHome.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.PnlHome.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.PnlHome.Location = New System.Drawing.Point(532, 36)
         Me.PnlHome.Name = "PnlHome"
         Me.PnlHome.Size = New System.Drawing.Size(50, 50)
@@ -294,7 +298,7 @@ Partial Class Form1
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Panel2.Location = New System.Drawing.Point(588, 36)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(50, 50)
@@ -303,7 +307,7 @@ Partial Class Form1
         '
         'Panel3
         '
-        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Panel3.Location = New System.Drawing.Point(644, 36)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(50, 50)
@@ -312,12 +316,34 @@ Partial Class Form1
         '
         'Panel4
         '
-        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Panel4.Location = New System.Drawing.Point(700, 36)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(50, 50)
         Me.Panel4.TabIndex = 12
         Me.Panel4.Visible = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(3, 73)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(64, 12)
+        Me.Label4.TabIndex = 23
+        Me.Label4.Text = "*Email em uso"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(207, 73)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(64, 12)
+        Me.Label5.TabIndex = 24
+        Me.Label5.Text = "*Email em uso"
         '
         'BtnImagemCancelar
         '
@@ -428,11 +454,11 @@ Partial Class Form1
         '
         'BtnImagem4
         '
-        Me.BtnImagem4.BackColor = System.Drawing.Color.ForestGreen
-        Me.BtnImagem4.CorFundo = System.Drawing.Color.ForestGreen
-        Me.BtnImagem4.CorHover = System.Drawing.Color.LightSlateGray
-        Me.BtnImagem4.CorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagem4.CorTexto = System.Drawing.Color.White
+        Me.BtnImagem4.BackColor = System.Drawing.Color.LightYellow
+        Me.BtnImagem4.CorFundo = System.Drawing.Color.LightYellow
+        Me.BtnImagem4.CorHover = System.Drawing.Color.CadetBlue
+        Me.BtnImagem4.CorSelecionado = System.Drawing.Color.PowderBlue
+        Me.BtnImagem4.CorTexto = System.Drawing.Color.DarkRed
         Me.BtnImagem4.EstadoBotao = False
         Me.BtnImagem4.Imagem = Nothing
         Me.BtnImagem4.Location = New System.Drawing.Point(0, 191)
@@ -520,5 +546,7 @@ Partial Class Form1
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
 
 End Class
