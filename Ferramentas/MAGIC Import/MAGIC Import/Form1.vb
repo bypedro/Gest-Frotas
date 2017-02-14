@@ -47,13 +47,13 @@ Public Class Form1
         Dim ler As New StreamReader(fich)
 
         Dim str As String
-
+        Dim str1 As String = 194
 
         While (ler.Peek >= 0)
             'Metodo readline serve para ler uma linha de texto do ficheiro
             str = ler.ReadLine()
             Comando.Connection = ligacao
-            Comando.CommandText = "insert into pais (nome) values ('" + str + "')"
+            Comando.CommandText = "insert into cidade (nome, codpais) values ('" + str + "', '" + str1 + "')"
             ligacao.Open()
             Comando.ExecuteNonQuery()
             ligacao.Close()

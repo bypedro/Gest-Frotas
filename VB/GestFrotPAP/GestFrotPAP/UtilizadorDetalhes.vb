@@ -15,11 +15,12 @@
     Private _Email As String
     Private _NotasContacto As String
     Private _NotasContrato As String
-    Private _TipoUtilizador As Integer
-    Private _TipoUtilizadorCod As Integer
+    Private _TipoUtilizador As String
+    Private _TipoUtilizadorCod As String
     Private _Cidade As String
     Private _CidadeCod As String
     Private _Pais As String
+    Private _PaisCod As String
 
     Public Property CodUser As String
         Get
@@ -191,6 +192,15 @@
         End Set
     End Property
 
+    Public Property PaisCod As String
+        Get
+            Return _PaisCod
+        End Get
+        Set(ByVal value As String)
+            _PaisCod = value
+        End Set
+    End Property
+
     'Não sei ainda
     Public Property TipoUtilizadorCod As Integer
         Get
@@ -209,7 +219,4 @@
             _CidadeCod = value
         End Set
     End Property
-
-
-
 End Class

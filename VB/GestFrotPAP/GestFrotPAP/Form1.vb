@@ -158,9 +158,20 @@ Public Class Form1
 
     Private Sub BtnImagemLogin_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs) Handles BtnImagemLogin.ButtonClickMasterRace
         If Login(TxtUser.Text, HashPassword(TxtPwd.Text)) = True Then
+            If DetalhesUtilizador.TipoUtilizadorCod = 1 Then
+                MsgBox("ADMIN")
+                LoadOrder.MenuPrincipalPage()
+                check(0)
+                MsgBox(DetalhesUtilizador.NomeRegisto)
+                MsgBox(DetalhesUtilizador.NomeProprio)
+                MsgBox(DetalhesUtilizador.Apelido)
+                MsgBox(DetalhesUtilizador.Rua)
+                MsgBox(DetalhesUtilizador.Cidade)
+                MsgBox(DetalhesUtilizador.Pais)
+                MsgBox(DetalhesUtilizador.DataNasc)
+            End If
 
-            LoadOrder.MenuPrincipalPage()
-            check(0)
+            
         Else
 
         End If

@@ -2,7 +2,7 @@
 Imports System.Net.Mail
 Module SQL
     Dim DB As String = "frotas"
-    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=0000;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
+    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
     Dim adapter As New MySqlDataAdapter
     Public DetalhesUtilizador As New UtilizadorDetalhes
 
@@ -184,9 +184,6 @@ Module SQL
     Public Sub BuscarDadosUtilizador(ByVal Utilizador As String)
         Dim Comando As MySqlCommand
         Dim Objecto As Object
-
-
-
         Try
             Comando = New MySqlCommand("select CodUser from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -200,10 +197,9 @@ Module SQL
                 ligacao.Close()
             End If
         Catch ex As Exception
+            MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
-
         Try
             Comando = New MySqlCommand("select Nome_Registo from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -217,9 +213,9 @@ Module SQL
                 ligacao.Close()
             End If
         Catch ex As Exception
+            MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         Try
             Comando = New MySqlCommand("select Senha from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -233,9 +229,9 @@ Module SQL
                 ligacao.Close()
             End If
         Catch ex As Exception
+            MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         Try
             Comando = New MySqlCommand("select Nome_Proprio from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -249,9 +245,9 @@ Module SQL
                 ligacao.Close()
             End If
         Catch ex As Exception
+            MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         Try
             Comando = New MySqlCommand("select Apelido from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -265,9 +261,9 @@ Module SQL
                 ligacao.Close()
             End If
         Catch ex As Exception
+            MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         Try
             Comando = New MySqlCommand("select Genero from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -281,9 +277,9 @@ Module SQL
                 ligacao.Close()
             End If
         Catch ex As Exception
+            MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         Try
             Comando = New MySqlCommand("select Data_Nascimento from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -297,9 +293,9 @@ Module SQL
                 ligacao.Close()
             End If
         Catch ex As Exception
+            MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         Try
             Comando = New MySqlCommand("select Data_Contratacao from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -313,9 +309,9 @@ Module SQL
                 ligacao.Close()
             End If
         Catch ex As Exception
+            MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         Try
             Comando = New MySqlCommand("select Pagamentos_Hora from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -329,9 +325,9 @@ Module SQL
                 ligacao.Close()
             End If
         Catch ex As Exception
+            MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         Try
             Comando = New MySqlCommand("select Habilitacoes from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -345,9 +341,9 @@ Module SQL
                 ligacao.Close()
             End If
         Catch ex As Exception
+            MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         Try
             Comando = New MySqlCommand("select Rua from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -361,9 +357,9 @@ Module SQL
                 ligacao.Close()
             End If
         Catch ex As Exception
+            MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         Try
             Comando = New MySqlCommand("select N_Telemovel from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -377,9 +373,9 @@ Module SQL
                 ligacao.Close()
             End If
         Catch ex As Exception
+            MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         Try
             Comando = New MySqlCommand("select N_Telefone from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -393,9 +389,9 @@ Module SQL
                 ligacao.Close()
             End If
         Catch ex As Exception
+            MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         Try
             Comando = New MySqlCommand("select Email from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -409,9 +405,9 @@ Module SQL
                 ligacao.Close()
             End If
         Catch ex As Exception
+            MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         Try
             Comando = New MySqlCommand("select Notas_Contacto from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -440,14 +436,106 @@ Module SQL
                 ligacao.Close()
             End If
         Catch ex As Exception
+            MsgBox(ex.ToString)
+            ligacao.Close()
+        End Try
+        Try
+            Comando = New MySqlCommand("select CodTipoU from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.TipoUtilizadorCod = 0
+                MsgBox("ERRO Tipo Utilizador Cod")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.TipoUtilizadorCod = CType(Objecto, Integer)
+                ligacao.Close()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            ligacao.Close()
+        End Try
+        Try
+            Comando = New MySqlCommand("select Codci from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.CidadeCod = 0
+                MsgBox("ERRO Cidade Cod")
+                ligacao.Close()
+            Else
+                DetalhesUtilizador.CidadeCod = CType(Objecto, Integer)
+                ligacao.Close()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            ligacao.Close()
+        End Try
+        Try
+            If DetalhesUtilizador.CidadeCod <> 0 Then
+                Comando = New MySqlCommand("select nome from cidade where codci='" + DetalhesUtilizador.CidadeCod.ToString + "'", ligacao)
+                ligacao.Open()
+                Objecto = Comando.ExecuteScalar
+                If IsDBNull(Objecto) Then
+                    DetalhesUtilizador.Cidade = "Não tem"
+                    MsgBox("ERRO Cidade nome")
+                    ligacao.Close()
+                Else
+                    DetalhesUtilizador.Cidade = CType(Objecto, String)
+                    ligacao.Close()
+                End If
+            Else
+                DetalhesUtilizador.Cidade = "Não tem"
+                MsgBox("ERRO Cidade nome")
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
             ligacao.Close()
         End Try
 
-
-
-
-
-
+        Try
+            If DetalhesUtilizador.CidadeCod <> 0 Then
+                Comando = New MySqlCommand("select codpais from cidade where codci='" + DetalhesUtilizador.CidadeCod.ToString + "'", ligacao)
+                ligacao.Open()
+                Objecto = Comando.ExecuteScalar
+                If IsDBNull(Objecto) Then
+                    DetalhesUtilizador.PaisCod = "Não tem"
+                    MsgBox("ERRO Cidade nome")
+                    ligacao.Close()
+                Else
+                    DetalhesUtilizador.PaisCod = CType(Objecto, String)
+                    ligacao.Close()
+                End If
+            Else
+                DetalhesUtilizador.PaisCod = "Não tem"
+                MsgBox("ERRO Cidade nome")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            ligacao.Close()
+        End Try
+        Try
+            If DetalhesUtilizador.CidadeCod <> 0 Then
+                Comando = New MySqlCommand("select nome from pais where codpais='" + DetalhesUtilizador.PaisCod + "'", ligacao)
+                ligacao.Open()
+                Objecto = Comando.ExecuteScalar
+                If IsDBNull(Objecto) Then
+                    DetalhesUtilizador.Pais = "Não tem"
+                    MsgBox("ERRO Cidade nome")
+                    ligacao.Close()
+                Else
+                    DetalhesUtilizador.Pais = CType(Objecto, String)
+                    ligacao.Close()
+                End If
+            Else
+                DetalhesUtilizador.Pais = "Não tem"
+                MsgBox("ERRO Cidade nome")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            ligacao.Close()
+        End Try
 
     End Sub
 
