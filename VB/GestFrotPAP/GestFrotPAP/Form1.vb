@@ -18,9 +18,19 @@ Public Class Form1
                 BtnImagem(a).VerificarEstadoBotao()
                 panel(a).Hide()
             End If
-            Panel(c).Show()
+            panel(c).Show()
         Next
     End Sub
+
+    Private Sub Botao(ByVal c As BtnImagem)
+        If c.EstadoBotao = True Then
+            c.EstadoBotao = False
+            c.VerificarEstadoBotao()
+        End If
+    End Sub
+
+
+   
 
 
     Private Sub Form1_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
@@ -46,6 +56,12 @@ Public Class Form1
         'Adiciona evento a todos os objetos do programa(Só os da microsoft)
         AddHandler Me.MouseDown, AddressOf c_MouseDown
         For Each c As Control In Me.Controls
+            AddHandler c.MouseDown, AddressOf c_MouseDown
+        Next
+        For Each c As Control In LoginPanel.Controls
+            AddHandler c.MouseDown, AddressOf c_MouseDown
+        Next
+        For Each c As Control In PnlMenu.Controls
             AddHandler c.MouseDown, AddressOf c_MouseDown
         Next
         AddHandler LblNomeProjeto.MouseDown, AddressOf c_MouseDown
@@ -133,17 +149,14 @@ Public Class Form1
     End Sub
 
     Private Sub BtnMenu1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BtnMenu1.Click
+        BtnMenu1.resetbtn()
         For a = 0 To N
             BtnImagem(a).Hide()
         Next
-        If BtnMenu1.zEstadoBotao = True Then
-            If PnlMenu.Right = 200 Then
-                TmrSlide1.Enabled = True
-            End If
-        ElseIf BtnMenu1.zEstadoBotao = False Then
-            If PnlMenu.Right = 36 Then
-                TmrSlide2.Enabled = True
-            End If
+        If PnlMenu.Right = 200 Then
+            TmrSlide1.Enabled = True
+        ElseIf PnlMenu.Right = 36 Then
+            TmrSlide2.Enabled = True
         End If
     End Sub
 
@@ -157,9 +170,9 @@ Public Class Form1
     End Sub
 
     Private Sub BtnImagemLogin_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs) Handles BtnImagemLogin.ButtonClickMasterRace
+        Botao(BtnImagemLogin)
         If Login(TxtUser.Text, HashPassword(TxtPwd.Text)) = True Then
-            If DetalhesUtilizador.TipoUtilizadorCod = 1 Then
-                MsgBox("ADMIN")
+            If DetalhesUtilizador.TipoUtilizadorCod = 1 Then 'Só Admin
                 LoadOrder.MenuPrincipalPage()
                 check(0)
                 MsgBox(DetalhesUtilizador.NomeRegisto)
@@ -171,7 +184,7 @@ Public Class Form1
                 MsgBox(DetalhesUtilizador.DataNasc)
             End If
 
-            
+
         Else
 
         End If
@@ -199,24 +212,25 @@ Public Class Form1
 
 
     Private Sub BtnImagemRegistarEntrar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemRegistarEntrar.ButtonClickMasterRace
+        Botao(BtnImagemRegistarEntrar)
         LoadOrder.RegistarPage()
     End Sub
 
     Private Sub BtnImagemCancelar_ButtonClickMasterRace_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemCancelar.ButtonClickMasterRace
+        Botao(BtnImagemCancelar)
         LoadOrder.LoginPage()
         TxtEmail.Text = ""
         TxtUserReg.Text = ""
         TxtPwdReg1.Text = ""
         TxtPwdReg2.Text = ""
-        LblEmailReg.Hide()
-        LblPasswordReg.Hide()
-        LblUtilizadorReg.Hide()
 
 
     End Sub
 
     Private Sub BtnImagemRegistar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemRegistar.ButtonClickMasterRace
+        Botao(BtnImagemRegistar)
         'Por codigo
+
         If Registar(TxtUserReg.Text, TxtPwdReg1.Text, TxtPwdReg2.Text, TxtEmail.Text) = True Then
             MsgBox("INSERIDO COM SUCESSO")
         End If
@@ -272,4 +286,7 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub PnlBarraTop_Paint(sender As Object, e As PaintEventArgs) Handles PnlBarraTop.Paint
+
+    End Sub
 End Class

@@ -14,6 +14,7 @@ Public Module LoadOrder
                 Form1.Opacity = fade
                 Form1.Refresh()
                 Threading.Thread.Sleep(50)
+
             Next
         ElseIf Tipo = 1 Then
             For fade = 1.1 To 0.0 Step -0.3
@@ -44,7 +45,6 @@ Public Module LoadOrder
         'Login
 
         Form1.LoginPanel.Left = 0
-
         Form1.LoginPanel.Top = Form1.PnlBarraTop.Bottom
         Form1.LoginPanel.Height = Form1.Height - Form1.PnlBarraTop.Height
         Form1.LoginPanel.Width = Form1.Width
@@ -65,9 +65,19 @@ Public Module LoadOrder
         Form1.TxtUser.Left = CentroEcranX - (Form1.TxtUser.Width / 2)
         Form1.TxtPwd.Left = CentroEcranX - (Form1.TxtPwd.Width / 2)
         Form1.TxtUser.Top = Form1.PnlBarraTop.Bottom + 150
-        Form1.TxtPwd.Top = Form1.TxtUser.Bottom + 10
+        Form1.TxtPwd.Top = Form1.TxtUser.Bottom + 12
         SendMessage(Form1.TxtUser.Handle, &H1501, 0, "Utilizador ou Email")
         SendMessage(Form1.TxtPwd.Handle, &H1501, 0, "Password")
+
+        Form1.LblUtilizador.Left = Form1.TxtUser.Left
+        Form1.LblPassword.Left = Form1.TxtPwd.Left
+        Form1.LblUtilizador.Top = Form1.TxtUser.Bottom
+        Form1.LblPassword.Top = Form1.TxtPwd.Bottom
+        Form1.LblUtilizador.ForeColor = Color.Red
+        Form1.LblPassword.ForeColor = Color.Red
+        Form1.LblUtilizador.Hide()
+        Form1.LblPassword.Hide()
+
 
         Form1.TxtEmail.ForeColor = Color.White
         Form1.TxtUserReg.ForeColor = Color.White
@@ -107,12 +117,9 @@ Public Module LoadOrder
         Form1.LblPasswordReg.ForeColor = Color.Red
         Form1.LblPasswordReg.Left = Form1.TxtPwdReg1.Left
         Form1.LblPasswordReg.Top = Form1.TxtPwdReg1.Bottom
-
-
         Form1.LblEmailReg.ForeColor = Color.Red
         Form1.LblEmailReg.Left = Form1.TxtEmail.Left
         Form1.LblEmailReg.Top = Form1.TxtEmail.Bottom
-
         Form1.LblUtilizadorReg.Hide()
         Form1.LblPasswordReg.Hide()
         Form1.LblEmailReg.Hide()
@@ -123,8 +130,14 @@ Public Module LoadOrder
         Form1.TxtPwdReg1.Hide()
         Form1.TxtPwdReg2.Hide()
         Form1.TxtUserReg.Hide()
+        Form1.LblEmailReg.Hide()
+        Form1.LblPasswordReg.Hide()
+        Form1.LblUtilizadorReg.Hide()
+
         Form1.TxtUser.Show()
         Form1.TxtPwd.Show()
+      
+
     End Sub
 
 
@@ -205,6 +218,8 @@ Public Module LoadOrder
         Form1.TxtPwdReg2.Show()
         Form1.TxtUser.Hide()
         Form1.TxtPwd.Hide()
+        Form1.LblUtilizador.Hide()
+        Form1.LblPassword.Hide()
         Form1.BtnImagemCancelar.Show()
         Form1.BtnImagemRegistar.Show()
 

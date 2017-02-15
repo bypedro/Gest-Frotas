@@ -2,7 +2,7 @@
 Imports System.Net.Mail
 Module SQL
     Dim DB As String = "frotas"
-    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
+    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=0000;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
     Dim adapter As New MySqlDataAdapter
     Public DetalhesUtilizador As New UtilizadorDetalhes
 
@@ -12,7 +12,9 @@ Module SQL
         Dim str As String
         Dim str1 As String = ""
         If Utilizador = "" Then
-            MsgBox("FALTA UTILIZADOR")
+            Form1.LblUtilizador.Show()
+            Form1.LblUtilizador.Text = "*Necessita  de Utilizador"
+            'MsgBox("FALTA UTILIZADOR")
             Return False
             Exit Function
         Else
@@ -39,12 +41,16 @@ Module SQL
                             Return (True)
                             Exit Function
                         Else
-                            MsgBox("Password errada label")
+                            Form1.LblPassword.Show()
+                            Form1.LblPassword.Text = "*Password Incorreta"
+                            ' MsgBox("Password errada label")
                             Return (False)
                             Exit Function
                         End If
                     Else
-                        MsgBox("Utilizador não existe")
+                        Form1.LblUtilizador.Show()
+                        Form1.LblUtilizador.Text = "*Utilizador Inválido"
+                        ' MsgBox("Utilizador não existe")
                         Return (False)
                         Exit Function
                     End If
@@ -53,35 +59,39 @@ Module SQL
                     Return (False)
                 End Try
             Else
-                'Try 'Isto dáa
-                max = New MySqlCommand("select Nome_Registo from Utilizador where Nome_Registo ='" + Utilizador + "'", ligacao)
-                ligacao.Open()
-                User = max.ExecuteScalar
-                str = CType(User, String)
-                ligacao.Close()
-                If str <> "" Then
-                    max = New MySqlCommand("select Senha from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+                Try 'Isto dáa
+                    max = New MySqlCommand("select Nome_Registo from Utilizador where Nome_Registo ='" + Utilizador + "'", ligacao)
                     ligacao.Open()
                     User = max.ExecuteScalar
                     str = CType(User, String)
                     ligacao.Close()
-                    If str = Password Then
-                        BuscarDadosUtilizador(Utilizador)
-                        Return (True)
-                        Exit Function
+                    If str <> "" Then
+                        max = New MySqlCommand("select Senha from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+                        ligacao.Open()
+                        User = max.ExecuteScalar
+                        str = CType(User, String)
+                        ligacao.Close()
+                        If str = Password Then
+                            BuscarDadosUtilizador(Utilizador)
+                            Return (True)
+                            Exit Function
+                        Else
+                            Form1.LblPassword.Show()
+                            Form1.LblPassword.Text = "*Password Incorreta"
+                            'MsgBox("Password errada label") 'Label
+                            Return (False)
+                            Exit Function
+                        End If
                     Else
-                        MsgBox("Password errada label") 'Label
+                        Form1.LblUtilizador.Show()
+                        Form1.LblUtilizador.Text = "*Utilizador Inválido"
+                        'MsgBox("Utilizador não existe")
                         Return (False)
                         Exit Function
                     End If
-                Else
-                    MsgBox("Utilizador não existe")
-                    Return (False)
-                    Exit Function
-                End If
-                'Catch ex As Exception
-                MsgBox("ERRO 1")
-                'End Try
+                Catch ex As Exception
+                    MsgBox("ERRO 1")
+                End Try
             End If
             Return (False)
         End If
@@ -501,7 +511,7 @@ Module SQL
                 Objecto = Comando.ExecuteScalar
                 If IsDBNull(Objecto) Then
                     DetalhesUtilizador.PaisCod = "Não tem"
-                    MsgBox("ERRO Cidade nome")
+                    MsgBox("ERRO codpais")
                     ligacao.Close()
                 Else
                     DetalhesUtilizador.PaisCod = CType(Objecto, String)
@@ -509,7 +519,7 @@ Module SQL
                 End If
             Else
                 DetalhesUtilizador.PaisCod = "Não tem"
-                MsgBox("ERRO Cidade nome")
+                MsgBox("ERRO codpais")
             End If
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -522,7 +532,7 @@ Module SQL
                 Objecto = Comando.ExecuteScalar
                 If IsDBNull(Objecto) Then
                     DetalhesUtilizador.Pais = "Não tem"
-                    MsgBox("ERRO Cidade nome")
+                    MsgBox("ERRO Pais nome")
                     ligacao.Close()
                 Else
                     DetalhesUtilizador.Pais = CType(Objecto, String)
@@ -530,7 +540,7 @@ Module SQL
                 End If
             Else
                 DetalhesUtilizador.Pais = "Não tem"
-                MsgBox("ERRO Cidade nome")
+                MsgBox("ERRO Pais nome")
             End If
         Catch ex As Exception
             MsgBox(ex.ToString)

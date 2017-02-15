@@ -123,9 +123,6 @@ Public Class BtnImagem
         ' p.CloseFigure()
         'Me.Region = New Region(p)
         'TESTE
-        AddHandler Me.MouseDown, AddressOf Form1.c_MouseDown
-        AddHandler LblTexto.MouseDown, AddressOf Form1.c_MouseDown
-        AddHandler PctImagem.MouseDown, AddressOf Form1.c_MouseDown
     End Sub
 
     Public Sub VerificarEstadoBotao()

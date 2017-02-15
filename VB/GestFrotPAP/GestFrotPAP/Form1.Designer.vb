@@ -32,8 +32,8 @@ Partial Class Form1
         Me.Fechar = New System.Windows.Forms.Label()
         Me.LblNomeProjeto = New System.Windows.Forms.Label()
         Me.LoginPanel = New System.Windows.Forms.Panel()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.LblPassword = New System.Windows.Forms.Label()
+        Me.LblUtilizador = New System.Windows.Forms.Label()
         Me.LblUtilizadorReg = New System.Windows.Forms.Label()
         Me.LblEmailReg = New System.Windows.Forms.Label()
         Me.LblPasswordReg = New System.Windows.Forms.Label()
@@ -52,6 +52,7 @@ Partial Class Form1
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.PnlDefUtilizador = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BtnImagemCancelar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemRegistar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemRegistarEntrar = New GestFrotPAP.BtnImagem()
@@ -65,11 +66,13 @@ Partial Class Form1
         Me.PnlBarraTop.SuspendLayout()
         Me.LoginPanel.SuspendLayout()
         Me.PnlUser.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PnlMenu
         '
         Me.PnlMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.PnlMenu.Controls.Add(Me.PictureBox1)
         Me.PnlMenu.Controls.Add(Me.BtnMenu1)
         Me.PnlMenu.Controls.Add(Me.BtnImagem1)
         Me.PnlMenu.Controls.Add(Me.BtnImagem2)
@@ -106,9 +109,9 @@ Partial Class Form1
         Me.LblUtilzadorMenu.AutoSize = True
         Me.LblUtilzadorMenu.Location = New System.Drawing.Point(854, 8)
         Me.LblUtilzadorMenu.Name = "LblUtilzadorMenu"
-        Me.LblUtilzadorMenu.Size = New System.Drawing.Size(39, 13)
+        Me.LblUtilzadorMenu.Size = New System.Drawing.Size(80, 13)
         Me.LblUtilzadorMenu.TabIndex = 2
-        Me.LblUtilzadorMenu.Text = "Label3"
+        Me.LblUtilzadorMenu.Text = "Menu Utilizador"
         Me.LblUtilzadorMenu.Visible = False
         '
         'Fechar
@@ -116,9 +119,9 @@ Partial Class Form1
         Me.Fechar.AutoSize = True
         Me.Fechar.Location = New System.Drawing.Point(949, 8)
         Me.Fechar.Name = "Fechar"
-        Me.Fechar.Size = New System.Drawing.Size(39, 13)
+        Me.Fechar.Size = New System.Drawing.Size(40, 13)
         Me.Fechar.TabIndex = 1
-        Me.Fechar.Text = "Label2"
+        Me.Fechar.Text = "Fechar"
         '
         'LblNomeProjeto
         '
@@ -131,8 +134,8 @@ Partial Class Form1
         '
         'LoginPanel
         '
-        Me.LoginPanel.Controls.Add(Me.Label5)
-        Me.LoginPanel.Controls.Add(Me.Label4)
+        Me.LoginPanel.Controls.Add(Me.LblPassword)
+        Me.LoginPanel.Controls.Add(Me.LblUtilizador)
         Me.LoginPanel.Controls.Add(Me.LblUtilizadorReg)
         Me.LoginPanel.Controls.Add(Me.LblEmailReg)
         Me.LoginPanel.Controls.Add(Me.LblPasswordReg)
@@ -147,32 +150,32 @@ Partial Class Form1
         Me.LoginPanel.Controls.Add(Me.BtnImagemRegistarEntrar)
         Me.LoginPanel.Controls.Add(Me.BtnImagemLogin)
         Me.LoginPanel.ForeColor = System.Drawing.Color.Silver
-        Me.LoginPanel.Location = New System.Drawing.Point(218, 125)
+        Me.LoginPanel.Location = New System.Drawing.Point(206, 36)
         Me.LoginPanel.Name = "LoginPanel"
-        Me.LoginPanel.Size = New System.Drawing.Size(138, 285)
+        Me.LoginPanel.Size = New System.Drawing.Size(707, 412)
         Me.LoginPanel.TabIndex = 7
         '
-        'Label5
+        'LblPassword
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(207, 73)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(64, 12)
-        Me.Label5.TabIndex = 24
-        Me.Label5.Text = "*Email em uso"
+        Me.LblPassword.AutoSize = True
+        Me.LblPassword.BackColor = System.Drawing.Color.Transparent
+        Me.LblPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblPassword.Location = New System.Drawing.Point(207, 73)
+        Me.LblPassword.Name = "LblPassword"
+        Me.LblPassword.Size = New System.Drawing.Size(64, 12)
+        Me.LblPassword.TabIndex = 24
+        Me.LblPassword.Text = "*Email em uso"
         '
-        'Label4
+        'LblUtilizador
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(3, 73)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(64, 12)
-        Me.Label4.TabIndex = 23
-        Me.Label4.Text = "*Email em uso"
+        Me.LblUtilizador.AutoSize = True
+        Me.LblUtilizador.BackColor = System.Drawing.Color.Transparent
+        Me.LblUtilizador.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblUtilizador.Location = New System.Drawing.Point(3, 73)
+        Me.LblUtilizador.Name = "LblUtilizador"
+        Me.LblUtilizador.Size = New System.Drawing.Size(64, 12)
+        Me.LblUtilizador.TabIndex = 23
+        Me.LblUtilizador.Text = "*Email em uso"
         '
         'LblUtilizadorReg
         '
@@ -356,12 +359,21 @@ Partial Class Form1
         Me.PnlDefUtilizador.TabIndex = 14
         Me.PnlDefUtilizador.Visible = False
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Location = New System.Drawing.Point(4, 8)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(158, 38)
+        Me.PictureBox1.TabIndex = 5
+        Me.PictureBox1.TabStop = False
+        '
         'BtnImagemCancelar
         '
-        Me.BtnImagemCancelar.BackColor = System.Drawing.Color.SlateGray
-        Me.BtnImagemCancelar.CorFundo = System.Drawing.Color.SlateGray
-        Me.BtnImagemCancelar.CorHover = System.Drawing.Color.LightSlateGray
-        Me.BtnImagemCancelar.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemCancelar.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemCancelar.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemCancelar.CorSelecionado = System.Drawing.Color.Black
         Me.BtnImagemCancelar.CorTexto = System.Drawing.Color.White
         Me.BtnImagemCancelar.EstadoBotao = False
         Me.BtnImagemCancelar.Imagem = Nothing
@@ -374,10 +386,10 @@ Partial Class Form1
         '
         'BtnImagemRegistar
         '
-        Me.BtnImagemRegistar.BackColor = System.Drawing.Color.SlateGray
-        Me.BtnImagemRegistar.CorFundo = System.Drawing.Color.SlateGray
-        Me.BtnImagemRegistar.CorHover = System.Drawing.Color.LightSlateGray
-        Me.BtnImagemRegistar.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemRegistar.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemRegistar.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemRegistar.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemRegistar.CorSelecionado = System.Drawing.Color.Black
         Me.BtnImagemRegistar.CorTexto = System.Drawing.Color.White
         Me.BtnImagemRegistar.EstadoBotao = False
         Me.BtnImagemRegistar.Imagem = Nothing
@@ -390,10 +402,10 @@ Partial Class Form1
         '
         'BtnImagemRegistarEntrar
         '
-        Me.BtnImagemRegistarEntrar.BackColor = System.Drawing.Color.SlateGray
-        Me.BtnImagemRegistarEntrar.CorFundo = System.Drawing.Color.SlateGray
-        Me.BtnImagemRegistarEntrar.CorHover = System.Drawing.Color.LightSlateGray
-        Me.BtnImagemRegistarEntrar.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemRegistarEntrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemRegistarEntrar.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemRegistarEntrar.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemRegistarEntrar.CorSelecionado = System.Drawing.Color.Black
         Me.BtnImagemRegistarEntrar.CorTexto = System.Drawing.Color.White
         Me.BtnImagemRegistarEntrar.EstadoBotao = False
         Me.BtnImagemRegistarEntrar.Imagem = Nothing
@@ -406,11 +418,11 @@ Partial Class Form1
         '
         'BtnImagemLogin
         '
-        Me.BtnImagemLogin.BackColor = System.Drawing.Color.SlateGray
-        Me.BtnImagemLogin.CorFundo = System.Drawing.Color.SlateGray
-        Me.BtnImagemLogin.CorHover = System.Drawing.Color.LightSlateGray
-        Me.BtnImagemLogin.CorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagemLogin.CorTexto = System.Drawing.Color.Red
+        Me.BtnImagemLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemLogin.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemLogin.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemLogin.CorSelecionado = System.Drawing.Color.Black
+        Me.BtnImagemLogin.CorTexto = System.Drawing.Color.White
         Me.BtnImagemLogin.EstadoBotao = False
         Me.BtnImagemLogin.Imagem = Nothing
         Me.BtnImagemLogin.Location = New System.Drawing.Point(3, 3)
@@ -429,7 +441,7 @@ Partial Class Form1
         Me.BtnMenu1.Name = "BtnMenu1"
         Me.BtnMenu1.Size = New System.Drawing.Size(32, 32)
         Me.BtnMenu1.TabIndex = 4
-        Me.BtnMenu1.zEstadoBotao = False
+        Me.BtnMenu1.zEstadoBotao = True
         '
         'BtnImagem1
         '
@@ -521,6 +533,7 @@ Partial Class Form1
         Me.LoginPanel.PerformLayout()
         Me.PnlUser.ResumeLayout(False)
         Me.PnlUser.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -558,8 +571,9 @@ Partial Class Form1
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
-    Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents LblPassword As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizador As System.Windows.Forms.Label
     Friend WithEvents PnlDefUtilizador As System.Windows.Forms.Panel
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 
 End Class
