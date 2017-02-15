@@ -16,7 +16,7 @@
     Private _NotasContacto As String
     Private _NotasContrato As String
     Private _TipoUtilizador As String
-    Private _TipoUtilizadorCod As String
+    Private _TipoUtilizadorCod As Integer
     Private _Cidade As String
     Private _CidadeCod As String
     Private _Pais As String
@@ -204,10 +204,10 @@
     'Não sei ainda
     Public Property TipoUtilizadorCod As Integer
         Get
-            Return _NotasContrato
+            Return _TipoUtilizadorCod
         End Get
         Set(ByVal value As Integer)
-            _NotasContrato = value
+            _TipoUtilizadorCod = value
         End Set
     End Property
 

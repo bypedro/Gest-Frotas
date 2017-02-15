@@ -23,6 +23,7 @@ Public Module LoadOrder
                 Threading.Thread.Sleep(50)
             Next
         End If
+
     End Sub
 
 
@@ -44,10 +45,10 @@ Public Module LoadOrder
 
         'Login
 
-        Form1.LoginPanel.Left = 0
-        Form1.LoginPanel.Top = Form1.PnlBarraTop.Bottom
-        Form1.LoginPanel.Height = Form1.Height - Form1.PnlBarraTop.Height
-        Form1.LoginPanel.Width = Form1.Width
+        Form1.PnlLogin.Left = 0
+        Form1.PnlLogin.Top = Form1.PnlBarraTop.Bottom
+        Form1.PnlLogin.Height = Form1.Height - Form1.PnlBarraTop.Height
+        Form1.PnlLogin.Width = Form1.Width
 
         'Talvez Criar outro botão ou mudar o atual
         Form1.BtnImagemLogin.Left = CentroEcranX - Form1.BtnImagemLogin.Width - 5
@@ -55,36 +56,36 @@ Public Module LoadOrder
         Form1.BtnImagemLogin.Top = CentroEcranY + Form1.BtnImagemLogin.Height
         Form1.BtnImagemRegistarEntrar.Top = CentroEcranY + Form1.BtnImagemRegistarEntrar.Height
 
-        Form1.TxtUser.Font = Fonte.GetInstance(12, FontStyle.Bold)
-        Form1.TxtPwd.Font = Fonte.GetInstance(12, FontStyle.Bold)
-        Form1.TxtUser.ForeColor = Color.White
-        Form1.TxtPwd.ForeColor = Color.White
+        Form1.TxtUserLogin.Font = Fonte.GetInstance(12, FontStyle.Bold)
+        Form1.TxtPwdLogin.Font = Fonte.GetInstance(12, FontStyle.Bold)
+        Form1.TxtUserLogin.ForeColor = Color.White
+        Form1.TxtPwdLogin.ForeColor = Color.White
 
 
 
-        Form1.TxtUser.Left = CentroEcranX - (Form1.TxtUser.Width / 2)
-        Form1.TxtPwd.Left = CentroEcranX - (Form1.TxtPwd.Width / 2)
-        Form1.TxtUser.Top = Form1.PnlBarraTop.Bottom + 150
-        Form1.TxtPwd.Top = Form1.TxtUser.Bottom + 12
-        SendMessage(Form1.TxtUser.Handle, &H1501, 0, "Utilizador ou Email")
-        SendMessage(Form1.TxtPwd.Handle, &H1501, 0, "Password")
+        Form1.TxtUserLogin.Left = CentroEcranX - (Form1.TxtUserLogin.Width / 2)
+        Form1.TxtPwdLogin.Left = CentroEcranX - (Form1.TxtPwdLogin.Width / 2)
+        Form1.TxtUserLogin.Top = Form1.PnlBarraTop.Bottom + 150
+        Form1.TxtPwdLogin.Top = Form1.TxtUserLogin.Bottom + 12
+        SendMessage(Form1.TxtUserLogin.Handle, &H1501, 0, "Utilizador ou Email")
+        SendMessage(Form1.TxtPwdLogin.Handle, &H1501, 0, "Password")
 
-        Form1.LblUtilizador.Left = Form1.TxtUser.Left
-        Form1.LblPassword.Left = Form1.TxtPwd.Left
-        Form1.LblUtilizador.Top = Form1.TxtUser.Bottom
-        Form1.LblPassword.Top = Form1.TxtPwd.Bottom
-        Form1.LblUtilizador.ForeColor = Color.Red
-        Form1.LblPassword.ForeColor = Color.Red
-        Form1.LblUtilizador.Hide()
-        Form1.LblPassword.Hide()
+        Form1.LblUtilizadorLogin.Left = Form1.TxtUserLogin.Left
+        Form1.LblPasswordLogin.Left = Form1.TxtPwdLogin.Left
+        Form1.LblUtilizadorLogin.Top = Form1.TxtUserLogin.Bottom
+        Form1.LblPasswordLogin.Top = Form1.TxtPwdLogin.Bottom
+        Form1.LblUtilizadorLogin.ForeColor = Color.Red
+        Form1.LblPasswordLogin.ForeColor = Color.Red
+        Form1.LblUtilizadorLogin.Hide()
+        Form1.LblPasswordLogin.Hide()
 
 
-        Form1.TxtEmail.ForeColor = Color.White
+        Form1.TxtEmailReg.ForeColor = Color.White
         Form1.TxtUserReg.ForeColor = Color.White
         Form1.TxtPwdReg1.ForeColor = Color.White
         Form1.TxtPwdReg2.ForeColor = Color.White
 
-        SendMessage(Form1.TxtEmail.Handle, &H1501, 0, "Email")
+        SendMessage(Form1.TxtEmailReg.Handle, &H1501, 0, "Email")
         SendMessage(Form1.TxtPwdReg1.Handle, &H1501, 0, "Password")
         SendMessage(Form1.TxtPwdReg2.Handle, &H1501, 0, "Repetir Password")
         SendMessage(Form1.TxtUserReg.Handle, &H1501, 0, "Utilizador")
@@ -97,9 +98,9 @@ Public Module LoadOrder
         Form1.TxtUserReg.Font = Fonte.GetInstance(12, FontStyle.Bold)
         Form1.TxtUserReg.Left = CentroEcranX - Form1.TxtUserReg.Width - 5
         Form1.TxtUserReg.Top = Form1.PnlBarraTop.Bottom + 150
-        Form1.TxtEmail.Font = Fonte.GetInstance(12, FontStyle.Bold)
-        Form1.TxtEmail.Left = CentroEcranX + 5
-        Form1.TxtEmail.Top = Form1.PnlBarraTop.Bottom + 150
+        Form1.TxtEmailReg.Font = Fonte.GetInstance(12, FontStyle.Bold)
+        Form1.TxtEmailReg.Left = CentroEcranX + 5
+        Form1.TxtEmailReg.Top = Form1.PnlBarraTop.Bottom + 150
 
 
         Form1.TxtPwdReg1.Font = Fonte.GetInstance(12, FontStyle.Bold)
@@ -107,7 +108,7 @@ Public Module LoadOrder
         Form1.TxtPwdReg1.Top = Form1.TxtUserReg.Bottom + 12
         Form1.TxtPwdReg2.Font = Fonte.GetInstance(12, FontStyle.Bold)
         Form1.TxtPwdReg2.Left = CentroEcranX + 5
-        Form1.TxtPwdReg2.Top = Form1.TxtEmail.Bottom + 12
+        Form1.TxtPwdReg2.Top = Form1.TxtEmailReg.Bottom + 12
 
 
         Form1.LblUtilizadorReg.ForeColor = Color.Red
@@ -118,15 +119,15 @@ Public Module LoadOrder
         Form1.LblPasswordReg.Left = Form1.TxtPwdReg1.Left
         Form1.LblPasswordReg.Top = Form1.TxtPwdReg1.Bottom
         Form1.LblEmailReg.ForeColor = Color.Red
-        Form1.LblEmailReg.Left = Form1.TxtEmail.Left
-        Form1.LblEmailReg.Top = Form1.TxtEmail.Bottom
+        Form1.LblEmailReg.Left = Form1.TxtEmailReg.Left
+        Form1.LblEmailReg.Top = Form1.TxtEmailReg.Bottom
         Form1.LblUtilizadorReg.Hide()
         Form1.LblPasswordReg.Hide()
         Form1.LblEmailReg.Hide()
 
         Form1.BtnImagemCancelar.Hide()
         Form1.BtnImagemRegistar.Hide()
-        Form1.TxtEmail.Hide()
+        Form1.TxtEmailReg.Hide()
         Form1.TxtPwdReg1.Hide()
         Form1.TxtPwdReg2.Hide()
         Form1.TxtUserReg.Hide()
@@ -134,9 +135,9 @@ Public Module LoadOrder
         Form1.LblPasswordReg.Hide()
         Form1.LblUtilizadorReg.Hide()
 
-        Form1.TxtUser.Show()
-        Form1.TxtPwd.Show()
-      
+        Form1.TxtUserLogin.Show()
+        Form1.TxtPwdLogin.Show()
+
 
     End Sub
 
@@ -144,10 +145,8 @@ Public Module LoadOrder
 
     Public Sub MenuPrincipalPage() 'Depois do Login
         'Utilizador(Label)
-
-
         'Esconde Pagina de Login
-        Form1.LoginPanel.Hide()
+        Form1.PnlLogin.Hide()
 
         'Mostra Pagina Principal
         Form1.PnlHome.Show()
@@ -178,7 +177,7 @@ Public Module LoadOrder
 
 
         'IDK
-        Form1.LoginPanel.Hide()
+        Form1.PnlLogin.Hide()
 
         'Menu Utilizador
         Form1.LblUtilzadorMenu.Text = DetalhesUtilizador.NomeRegisto 'Form1.TxtUser.Text + "MUDAR" 'nome do Utilizador/ email/ idk possivelmente buscar nome e apelido á bd
@@ -213,13 +212,13 @@ Public Module LoadOrder
 
     Public Sub RegistarPage()
         Form1.TxtUserReg.Show()
-        Form1.TxtEmail.Show()
+        Form1.TxtEmailReg.Show()
         Form1.TxtPwdReg1.Show()
         Form1.TxtPwdReg2.Show()
-        Form1.TxtUser.Hide()
-        Form1.TxtPwd.Hide()
-        Form1.LblUtilizador.Hide()
-        Form1.LblPassword.Hide()
+        Form1.TxtUserLogin.Hide()
+        Form1.TxtPwdLogin.Hide()
+        Form1.LblUtilizadorLogin.Hide()
+        Form1.LblPasswordLogin.Hide()
         Form1.BtnImagemCancelar.Show()
         Form1.BtnImagemRegistar.Show()
 
@@ -234,4 +233,21 @@ Public Module LoadOrder
         'mudar butoes registar e cancelar
         'etc
     End Sub
+
+    Public Sub MenuUtilizador()
+        If DetalhesUtilizador.TipoUtilizadorCod <> 1 Then
+
+        Else
+            Form1.TxtUtilizadorUserDef.Text = DetalhesUtilizador.NomeRegisto
+            Form1.TxtUtilizadorNomePDef.Text = DetalhesUtilizador.NomeProprio
+            Form1.TxtUtilizadorApelidoDef.Text = DetalhesUtilizador.Apelido
+            Form1.TxtUtilizadorDataNascDef.Text = DetalhesUtilizador.DataNasc
+            Form1.TxtUtilizadorDataContratDef.Text = DetalhesUtilizador.DataContrat
+            Form1.TxtUtilizadorHabilitacoesDef.Text = DetalhesUtilizador.Habilitações
+            Form1.TxtUtilizadorNotasDef.Text = DetalhesUtilizador.NotasContrato
+            Form1.TxtUtilizadorPagmentoDef.Text = DetalhesUtilizador.PagamentoHora
+            Form1.TxtUtilizadorGeneroDef.Text = DetalhesUtilizador.Genero
+        End If
+    End Sub
+
 End Module

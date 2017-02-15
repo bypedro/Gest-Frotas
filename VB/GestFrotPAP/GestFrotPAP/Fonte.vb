@@ -33,6 +33,7 @@ Module Fonte
             Marshal.FreeCoTaskMem(fontMemPointer)
         Catch ex As Exception
             'ERROR LOADING FONT. HANDLE EXCEPTION HERE
+            MsgBox(ex.ToString)
         End Try
     End Sub
 End Module

@@ -10,7 +10,7 @@ Public Class Form1
     Dim BtnImagem(N) As BtnImagem
     Dim panel(N) As Panel
 
-    Private Sub check(ByVal c As Integer)
+    Private Sub check(ByVal c As Integer, Optional ByVal MenuDefault As Boolean = False, Optional ByVal MenuHome As Boolean = False)
         Dim a As Integer
         For a = 0 To N
             If BtnImagem(a).EstadoBotao = True And a <> c Then
@@ -20,6 +20,25 @@ Public Class Form1
             End If
             panel(c).Show()
         Next
+        If MenuDefault = True Then
+            If PnlMenu.Right = 200 Then
+                BtnMenu1.resetbtn()
+                For a = 0 To N
+                    BtnImagem(a).Hide()
+                Next
+
+                TmrSlide1.Enabled = True
+            End If
+        End If
+        If MenuHome = True Then
+            If PnlMenu.Right = 36 Then
+                BtnMenu1.resetbtn()
+                For a = 0 To N
+                    BtnImagem(a).Hide()
+                Next
+                TmrSlide2.Enabled = True
+            End If
+        End If
     End Sub
 
     Private Sub Botao(ByVal c As BtnImagem)
@@ -58,7 +77,7 @@ Public Class Form1
         For Each c As Control In Me.Controls
             AddHandler c.MouseDown, AddressOf c_MouseDown
         Next
-        For Each c As Control In LoginPanel.Controls
+        For Each c As Control In PnlLogin.Controls
             AddHandler c.MouseDown, AddressOf c_MouseDown
         Next
         For Each c As Control In PnlMenu.Controls
@@ -108,16 +127,16 @@ Public Class Form1
 
 
     Private Sub BtnImagem1_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem1.ButtonClickMasterRace
-        check(0)
+        check(0, False, True)
     End Sub
     Private Sub BtnImagem2_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem2.ButtonClickMasterRace
-        check(1)
+        check(1, True)
     End Sub
     Private Sub BtnImagem3_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem3.ButtonClickMasterRace
-        check(2)
+        check(2, True)
     End Sub
     Private Sub BtnImagem4_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem4.ButtonClickMasterRace
-        check(3)
+        check(3, True)
     End Sub
 
     Private Sub TmrSlide1_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles TmrSlide1.Tick
@@ -160,29 +179,24 @@ Public Class Form1
         End If
     End Sub
 
-
-    Private Sub BtnImagem5_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs)
-        Close()
-    End Sub
-
     Private Sub fechar_click(ByVal sender As Object, ByVal e As EventArgs) Handles Fechar.Click
         Close()
     End Sub
 
     Private Sub BtnImagemLogin_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs) Handles BtnImagemLogin.ButtonClickMasterRace
         Botao(BtnImagemLogin)
-        If Login(TxtUser.Text, HashPassword(TxtPwd.Text)) = True Then
-            If DetalhesUtilizador.TipoUtilizadorCod = 1 Then 'Só Admin
-                LoadOrder.MenuPrincipalPage()
-                check(0)
-                MsgBox(DetalhesUtilizador.NomeRegisto)
-                MsgBox(DetalhesUtilizador.NomeProprio)
-                MsgBox(DetalhesUtilizador.Apelido)
-                MsgBox(DetalhesUtilizador.Rua)
-                MsgBox(DetalhesUtilizador.Cidade)
-                MsgBox(DetalhesUtilizador.Pais)
-                MsgBox(DetalhesUtilizador.DataNasc)
-            End If
+        If Login(TxtUserLogin.Text, HashPassword(TxtPwdLogin.Text)) = True Then
+            'If DetalhesUtilizador.TipoUtilizadorCod = 1 Then 'Só Admin
+            LoadOrder.MenuPrincipalPage()
+            check(0)
+            MsgBox(DetalhesUtilizador.NomeRegisto)
+            MsgBox(DetalhesUtilizador.NomeProprio)
+            MsgBox(DetalhesUtilizador.Apelido)
+            MsgBox(DetalhesUtilizador.Rua)
+            MsgBox(DetalhesUtilizador.Cidade)
+            MsgBox(DetalhesUtilizador.Pais)
+            MsgBox(DetalhesUtilizador.DataNasc)
+            ' If
 
 
         Else
@@ -219,7 +233,7 @@ Public Class Form1
     Private Sub BtnImagemCancelar_ButtonClickMasterRace_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemCancelar.ButtonClickMasterRace
         Botao(BtnImagemCancelar)
         LoadOrder.LoginPage()
-        TxtEmail.Text = ""
+        TxtEmailReg.Text = ""
         TxtUserReg.Text = ""
         TxtPwdReg1.Text = ""
         TxtPwdReg2.Text = ""
@@ -231,7 +245,7 @@ Public Class Form1
         Botao(BtnImagemRegistar)
         'Por codigo
 
-        If Registar(TxtUserReg.Text, TxtPwdReg1.Text, TxtPwdReg2.Text, TxtEmail.Text) = True Then
+        If Registar(TxtUserReg.Text, TxtPwdReg1.Text, TxtPwdReg2.Text, TxtEmailReg.Text) = True Then
             MsgBox("INSERIDO COM SUCESSO")
         End If
 
@@ -259,17 +273,17 @@ Public Class Form1
 
     End Sub
 
-    Private Sub TxtEmail_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TxtEmail.TextChanged
+    Private Sub TxtEmail_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TxtEmailReg.TextChanged
 
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+    Private Sub Label1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label1.Click
         MsgBox("LOL")
     End Sub
 
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+    Private Sub Label3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label3.Click
         LoadOrder.LoginPage()
-        LoginPanel.Show()
+        PnlLogin.Show()
         PnlHome.Hide()
         LblUtilzadorMenu.Hide()
         PnlUser.Hide()
@@ -278,15 +292,23 @@ Public Class Form1
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
         If PnlDefUtilizador.Visible = False Then
+            MenuUtilizador()
             PnlDefUtilizador.Visible = True
             PnlDefUtilizador.BringToFront()
             PnlUser.Hide()
+
         Else
             PnlDefUtilizador.Visible = False
         End If
     End Sub
 
-    Private Sub PnlBarraTop_Paint(sender As Object, e As PaintEventArgs) Handles PnlBarraTop.Paint
+
+    Private Sub BtnImagem5_ButtonClickMasterRace_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem5.ButtonClickMasterRace
+        Botao(BtnImagem5)
+        'Editar Perfil
+    End Sub
+
+    Private Sub TxtUtilizadorNotasDef_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TxtUtilizadorNotasDef.TextChanged
 
     End Sub
 End Class

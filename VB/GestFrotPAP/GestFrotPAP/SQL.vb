@@ -2,7 +2,7 @@
 Imports System.Net.Mail
 Module SQL
     Dim DB As String = "frotas"
-    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=0000;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
+    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
     Dim adapter As New MySqlDataAdapter
     Public DetalhesUtilizador As New UtilizadorDetalhes
 
@@ -12,8 +12,8 @@ Module SQL
         Dim str As String
         Dim str1 As String = ""
         If Utilizador = "" Then
-            Form1.LblUtilizador.Show()
-            Form1.LblUtilizador.Text = "*Necessita  de Utilizador"
+            Form1.LblUtilizadorLogin.Show()
+            Form1.LblUtilizadorLogin.Text = "*Necessita  de Utilizador"
             'MsgBox("FALTA UTILIZADOR")
             Return False
             Exit Function
@@ -41,15 +41,15 @@ Module SQL
                             Return (True)
                             Exit Function
                         Else
-                            Form1.LblPassword.Show()
-                            Form1.LblPassword.Text = "*Password Incorreta"
+                            Form1.LblPasswordLogin.Show()
+                            Form1.LblPasswordLogin.Text = "*Password Incorreta"
                             ' MsgBox("Password errada label")
                             Return (False)
                             Exit Function
                         End If
                     Else
-                        Form1.LblUtilizador.Show()
-                        Form1.LblUtilizador.Text = "*Utilizador Inválido"
+                        Form1.LblUtilizadorLogin.Show()
+                        Form1.LblUtilizadorLogin.Text = "*Utilizador Inválido"
                         ' MsgBox("Utilizador não existe")
                         Return (False)
                         Exit Function
@@ -76,15 +76,15 @@ Module SQL
                             Return (True)
                             Exit Function
                         Else
-                            Form1.LblPassword.Show()
-                            Form1.LblPassword.Text = "*Password Incorreta"
+                            Form1.LblPasswordLogin.Show()
+                            Form1.LblPasswordLogin.Text = "*Password Incorreta"
                             'MsgBox("Password errada label") 'Label
                             Return (False)
                             Exit Function
                         End If
                     Else
-                        Form1.LblUtilizador.Show()
-                        Form1.LblUtilizador.Text = "*Utilizador Inválido"
+                        Form1.LblUtilizadorLogin.Show()
+                        Form1.LblUtilizadorLogin.Text = "*Utilizador Inválido"
                         'MsgBox("Utilizador não existe")
                         Return (False)
                         Exit Function
@@ -101,9 +101,11 @@ Module SQL
     Public Function Registar(ByVal Utilizador As String, ByVal Password1 As String, ByVal Password2 As String, ByVal Email As String) As Boolean
         Dim Comando As MySqlCommand
         Dim Objecto As Object
+
         Dim UtilizadorBD As String = ""
         Dim EmailBD As String = ""
         Dim Validar(3) As Boolean
+
         'Verificar Email
         If Email = "" Then
             Form1.LblEmailReg.Show()
@@ -457,14 +459,16 @@ Module SQL
                 DetalhesUtilizador.TipoUtilizadorCod = 0
                 MsgBox("ERRO Tipo Utilizador Cod")
                 ligacao.Close()
+
             Else
-                DetalhesUtilizador.TipoUtilizadorCod = CType(Objecto, Integer)
+                DetalhesUtilizador.TipoUtilizadorCod = CType(Objecto, String)
                 ligacao.Close()
             End If
         Catch ex As Exception
             MsgBox(ex.ToString)
             ligacao.Close()
         End Try
+
         Try
             Comando = New MySqlCommand("select Codci from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -546,7 +550,6 @@ Module SQL
             MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
     End Sub
 
 

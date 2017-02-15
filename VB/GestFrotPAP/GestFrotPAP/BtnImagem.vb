@@ -7,7 +7,7 @@ Public Class BtnImagem
     Private _CorFundo As Color = Color.SlateGray
     Private _CorHover As Color = Color.LightSlateGray
     Private _CorTexto As Color = Color.White
-    Private _TamanhoLetra As Integer
+    Private _TamanhoLetra As Integer = 10
     Private _Texto As String = "Teste"
     Private _Imagem As System.Drawing.Bitmap
     Private _EstadoBotao As Boolean = False
@@ -110,6 +110,7 @@ Public Class BtnImagem
 
 
     Private Sub BtnImagem_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
         'TESTE
         'Dim p As New Drawing2D.GraphicsPath()
         ' p.StartFigure()

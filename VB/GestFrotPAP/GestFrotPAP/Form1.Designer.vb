@@ -25,24 +25,25 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.PnlMenu = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TmrSlide1 = New System.Windows.Forms.Timer(Me.components)
         Me.TmrSlide2 = New System.Windows.Forms.Timer(Me.components)
         Me.PnlBarraTop = New System.Windows.Forms.Panel()
         Me.LblUtilzadorMenu = New System.Windows.Forms.Label()
         Me.Fechar = New System.Windows.Forms.Label()
         Me.LblNomeProjeto = New System.Windows.Forms.Label()
-        Me.LoginPanel = New System.Windows.Forms.Panel()
-        Me.LblPassword = New System.Windows.Forms.Label()
-        Me.LblUtilizador = New System.Windows.Forms.Label()
+        Me.PnlLogin = New System.Windows.Forms.Panel()
+        Me.LblPasswordLogin = New System.Windows.Forms.Label()
+        Me.LblUtilizadorLogin = New System.Windows.Forms.Label()
         Me.LblUtilizadorReg = New System.Windows.Forms.Label()
         Me.LblEmailReg = New System.Windows.Forms.Label()
         Me.LblPasswordReg = New System.Windows.Forms.Label()
         Me.TxtPwdReg2 = New System.Windows.Forms.TextBox()
         Me.TxtPwdReg1 = New System.Windows.Forms.TextBox()
-        Me.TxtEmail = New System.Windows.Forms.TextBox()
+        Me.TxtEmailReg = New System.Windows.Forms.TextBox()
         Me.TxtUserReg = New System.Windows.Forms.TextBox()
-        Me.TxtPwd = New System.Windows.Forms.TextBox()
-        Me.TxtUser = New System.Windows.Forms.TextBox()
+        Me.TxtPwdLogin = New System.Windows.Forms.TextBox()
+        Me.TxtUserLogin = New System.Windows.Forms.TextBox()
         Me.PnlUser = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -52,7 +53,25 @@ Partial Class Form1
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.PnlDefUtilizador = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.LblUtilizadorNotasDef = New System.Windows.Forms.Label()
+        Me.LblUtilizadorHabilitacoesDef = New System.Windows.Forms.Label()
+        Me.TxtUtilizadorHabilitacoesDef = New System.Windows.Forms.TextBox()
+        Me.LblUtilizadorGeneroDef = New System.Windows.Forms.Label()
+        Me.LblUtilizadorPagmentoDef = New System.Windows.Forms.Label()
+        Me.LblUtilizadorDataContratDef = New System.Windows.Forms.Label()
+        Me.LblUtilizadorDataNascDef = New System.Windows.Forms.Label()
+        Me.LblUtilizadorApelidoDef = New System.Windows.Forms.Label()
+        Me.LblUtilizadorNomePDef = New System.Windows.Forms.Label()
+        Me.LblUtilizadorUserDef = New System.Windows.Forms.Label()
+        Me.TxtUtilizadorNotasDef = New System.Windows.Forms.TextBox()
+        Me.TxtUtilizadorUserDef = New System.Windows.Forms.TextBox()
+        Me.TxtUtilizadorNomePDef = New System.Windows.Forms.TextBox()
+        Me.TxtUtilizadorApelidoDef = New System.Windows.Forms.TextBox()
+        Me.TxtUtilizadorDataNascDef = New System.Windows.Forms.TextBox()
+        Me.TxtUtilizadorDataContratDef = New System.Windows.Forms.TextBox()
+        Me.TxtUtilizadorPagmentoDef = New System.Windows.Forms.TextBox()
+        Me.TxtUtilizadorGeneroDef = New System.Windows.Forms.TextBox()
+        Me.BtnImagem5 = New GestFrotPAP.BtnImagem()
         Me.BtnImagemCancelar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemRegistar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemRegistarEntrar = New GestFrotPAP.BtnImagem()
@@ -63,10 +82,11 @@ Partial Class Form1
         Me.BtnImagem4 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem3 = New GestFrotPAP.BtnImagem()
         Me.PnlMenu.SuspendLayout()
-        Me.PnlBarraTop.SuspendLayout()
-        Me.LoginPanel.SuspendLayout()
-        Me.PnlUser.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PnlBarraTop.SuspendLayout()
+        Me.PnlLogin.SuspendLayout()
+        Me.PnlUser.SuspendLayout()
+        Me.PnlDefUtilizador.SuspendLayout()
         Me.SuspendLayout()
         '
         'PnlMenu
@@ -83,6 +103,15 @@ Partial Class Form1
         Me.PnlMenu.Name = "PnlMenu"
         Me.PnlMenu.Size = New System.Drawing.Size(201, 476)
         Me.PnlMenu.TabIndex = 5
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Location = New System.Drawing.Point(4, 8)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(158, 38)
+        Me.PictureBox1.TabIndex = 5
+        Me.PictureBox1.TabStop = False
         '
         'TmrSlide1
         '
@@ -132,50 +161,50 @@ Partial Class Form1
         Me.LblNomeProjeto.TabIndex = 0
         Me.LblNomeProjeto.Text = "Nome Projeto"
         '
-        'LoginPanel
+        'PnlLogin
         '
-        Me.LoginPanel.Controls.Add(Me.LblPassword)
-        Me.LoginPanel.Controls.Add(Me.LblUtilizador)
-        Me.LoginPanel.Controls.Add(Me.LblUtilizadorReg)
-        Me.LoginPanel.Controls.Add(Me.LblEmailReg)
-        Me.LoginPanel.Controls.Add(Me.LblPasswordReg)
-        Me.LoginPanel.Controls.Add(Me.BtnImagemCancelar)
-        Me.LoginPanel.Controls.Add(Me.BtnImagemRegistar)
-        Me.LoginPanel.Controls.Add(Me.TxtPwdReg2)
-        Me.LoginPanel.Controls.Add(Me.TxtPwdReg1)
-        Me.LoginPanel.Controls.Add(Me.TxtEmail)
-        Me.LoginPanel.Controls.Add(Me.TxtUserReg)
-        Me.LoginPanel.Controls.Add(Me.TxtPwd)
-        Me.LoginPanel.Controls.Add(Me.TxtUser)
-        Me.LoginPanel.Controls.Add(Me.BtnImagemRegistarEntrar)
-        Me.LoginPanel.Controls.Add(Me.BtnImagemLogin)
-        Me.LoginPanel.ForeColor = System.Drawing.Color.Silver
-        Me.LoginPanel.Location = New System.Drawing.Point(206, 36)
-        Me.LoginPanel.Name = "LoginPanel"
-        Me.LoginPanel.Size = New System.Drawing.Size(707, 412)
-        Me.LoginPanel.TabIndex = 7
+        Me.PnlLogin.Controls.Add(Me.LblPasswordLogin)
+        Me.PnlLogin.Controls.Add(Me.LblUtilizadorLogin)
+        Me.PnlLogin.Controls.Add(Me.LblUtilizadorReg)
+        Me.PnlLogin.Controls.Add(Me.LblEmailReg)
+        Me.PnlLogin.Controls.Add(Me.LblPasswordReg)
+        Me.PnlLogin.Controls.Add(Me.BtnImagemCancelar)
+        Me.PnlLogin.Controls.Add(Me.BtnImagemRegistar)
+        Me.PnlLogin.Controls.Add(Me.TxtPwdReg2)
+        Me.PnlLogin.Controls.Add(Me.TxtPwdReg1)
+        Me.PnlLogin.Controls.Add(Me.TxtEmailReg)
+        Me.PnlLogin.Controls.Add(Me.TxtUserReg)
+        Me.PnlLogin.Controls.Add(Me.TxtPwdLogin)
+        Me.PnlLogin.Controls.Add(Me.TxtUserLogin)
+        Me.PnlLogin.Controls.Add(Me.BtnImagemRegistarEntrar)
+        Me.PnlLogin.Controls.Add(Me.BtnImagemLogin)
+        Me.PnlLogin.ForeColor = System.Drawing.Color.Silver
+        Me.PnlLogin.Location = New System.Drawing.Point(206, 36)
+        Me.PnlLogin.Name = "PnlLogin"
+        Me.PnlLogin.Size = New System.Drawing.Size(655, 424)
+        Me.PnlLogin.TabIndex = 7
         '
-        'LblPassword
+        'LblPasswordLogin
         '
-        Me.LblPassword.AutoSize = True
-        Me.LblPassword.BackColor = System.Drawing.Color.Transparent
-        Me.LblPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblPassword.Location = New System.Drawing.Point(207, 73)
-        Me.LblPassword.Name = "LblPassword"
-        Me.LblPassword.Size = New System.Drawing.Size(64, 12)
-        Me.LblPassword.TabIndex = 24
-        Me.LblPassword.Text = "*Email em uso"
+        Me.LblPasswordLogin.AutoSize = True
+        Me.LblPasswordLogin.BackColor = System.Drawing.Color.Transparent
+        Me.LblPasswordLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblPasswordLogin.Location = New System.Drawing.Point(207, 73)
+        Me.LblPasswordLogin.Name = "LblPasswordLogin"
+        Me.LblPasswordLogin.Size = New System.Drawing.Size(64, 12)
+        Me.LblPasswordLogin.TabIndex = 24
+        Me.LblPasswordLogin.Text = "*Email em uso"
         '
-        'LblUtilizador
+        'LblUtilizadorLogin
         '
-        Me.LblUtilizador.AutoSize = True
-        Me.LblUtilizador.BackColor = System.Drawing.Color.Transparent
-        Me.LblUtilizador.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblUtilizador.Location = New System.Drawing.Point(3, 73)
-        Me.LblUtilizador.Name = "LblUtilizador"
-        Me.LblUtilizador.Size = New System.Drawing.Size(64, 12)
-        Me.LblUtilizador.TabIndex = 23
-        Me.LblUtilizador.Text = "*Email em uso"
+        Me.LblUtilizadorLogin.AutoSize = True
+        Me.LblUtilizadorLogin.BackColor = System.Drawing.Color.Transparent
+        Me.LblUtilizadorLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblUtilizadorLogin.Location = New System.Drawing.Point(3, 73)
+        Me.LblUtilizadorLogin.Name = "LblUtilizadorLogin"
+        Me.LblUtilizadorLogin.Size = New System.Drawing.Size(64, 12)
+        Me.LblUtilizadorLogin.TabIndex = 23
+        Me.LblUtilizadorLogin.Text = "*Email em uso"
         '
         'LblUtilizadorReg
         '
@@ -230,14 +259,14 @@ Partial Class Form1
         Me.TxtPwdReg1.Size = New System.Drawing.Size(200, 13)
         Me.TxtPwdReg1.TabIndex = 16
         '
-        'TxtEmail
+        'TxtEmailReg
         '
-        Me.TxtEmail.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.TxtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtEmail.Location = New System.Drawing.Point(415, 183)
-        Me.TxtEmail.Name = "TxtEmail"
-        Me.TxtEmail.Size = New System.Drawing.Size(200, 13)
-        Me.TxtEmail.TabIndex = 15
+        Me.TxtEmailReg.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtEmailReg.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtEmailReg.Location = New System.Drawing.Point(415, 183)
+        Me.TxtEmailReg.Name = "TxtEmailReg"
+        Me.TxtEmailReg.Size = New System.Drawing.Size(200, 13)
+        Me.TxtEmailReg.TabIndex = 15
         '
         'TxtUserReg
         '
@@ -248,28 +277,28 @@ Partial Class Form1
         Me.TxtUserReg.Size = New System.Drawing.Size(200, 13)
         Me.TxtUserReg.TabIndex = 14
         '
-        'TxtPwd
+        'TxtPwdLogin
         '
-        Me.TxtPwd.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.TxtPwd.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtPwd.Location = New System.Drawing.Point(209, 57)
-        Me.TxtPwd.Name = "TxtPwd"
-        Me.TxtPwd.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TxtPwd.Size = New System.Drawing.Size(200, 13)
-        Me.TxtPwd.TabIndex = 11
-        Me.TxtPwd.Text = "admin"
-        Me.TxtPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.TxtPwdLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtPwdLogin.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtPwdLogin.Location = New System.Drawing.Point(209, 57)
+        Me.TxtPwdLogin.Name = "TxtPwdLogin"
+        Me.TxtPwdLogin.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TxtPwdLogin.Size = New System.Drawing.Size(200, 13)
+        Me.TxtPwdLogin.TabIndex = 11
+        Me.TxtPwdLogin.Text = "admin"
+        Me.TxtPwdLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'TxtUser
+        'TxtUserLogin
         '
-        Me.TxtUser.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.TxtUser.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtUser.Location = New System.Drawing.Point(3, 57)
-        Me.TxtUser.Name = "TxtUser"
-        Me.TxtUser.Size = New System.Drawing.Size(200, 13)
-        Me.TxtUser.TabIndex = 9
-        Me.TxtUser.Text = "admin"
-        Me.TxtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.TxtUserLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtUserLogin.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtUserLogin.Location = New System.Drawing.Point(3, 57)
+        Me.TxtUserLogin.Name = "TxtUserLogin"
+        Me.TxtUserLogin.Size = New System.Drawing.Size(200, 13)
+        Me.TxtUserLogin.TabIndex = 9
+        Me.TxtUserLogin.Text = "admin"
+        Me.TxtUserLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'PnlUser
         '
@@ -278,7 +307,7 @@ Partial Class Form1
         Me.PnlUser.Controls.Add(Me.Label2)
         Me.PnlUser.Controls.Add(Me.Label1)
         Me.PnlUser.ForeColor = System.Drawing.Color.Silver
-        Me.PnlUser.Location = New System.Drawing.Point(876, 46)
+        Me.PnlUser.Location = New System.Drawing.Point(876, 65)
         Me.PnlUser.Name = "PnlUser"
         Me.PnlUser.Size = New System.Drawing.Size(96, 40)
         Me.PnlUser.TabIndex = 9
@@ -352,21 +381,222 @@ Partial Class Form1
         '
         'PnlDefUtilizador
         '
-        Me.PnlDefUtilizador.BackColor = System.Drawing.Color.Lime
-        Me.PnlDefUtilizador.Location = New System.Drawing.Point(644, 92)
+        Me.PnlDefUtilizador.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorGeneroDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorPagmentoDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorDataContratDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorDataNascDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorApelidoDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorNomePDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorUserDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorNotasDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorNotasDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorHabilitacoesDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorHabilitacoesDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorGeneroDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorPagmentoDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorDataContratDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorDataNascDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorApelidoDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorNomePDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorUserDef)
+        Me.PnlDefUtilizador.Controls.Add(Me.BtnImagem5)
+        Me.PnlDefUtilizador.Location = New System.Drawing.Point(0, 30)
         Me.PnlDefUtilizador.Name = "PnlDefUtilizador"
-        Me.PnlDefUtilizador.Size = New System.Drawing.Size(35, 49)
+        Me.PnlDefUtilizador.Size = New System.Drawing.Size(1000, 470)
         Me.PnlDefUtilizador.TabIndex = 14
         Me.PnlDefUtilizador.Visible = False
         '
-        'PictureBox1
+        'LblUtilizadorNotasDef
         '
-        Me.PictureBox1.BackColor = System.Drawing.Color.White
-        Me.PictureBox1.Location = New System.Drawing.Point(4, 8)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(158, 38)
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
+        Me.LblUtilizadorNotasDef.AutoSize = True
+        Me.LblUtilizadorNotasDef.Location = New System.Drawing.Point(12, 274)
+        Me.LblUtilizadorNotasDef.Name = "LblUtilizadorNotasDef"
+        Me.LblUtilizadorNotasDef.Size = New System.Drawing.Size(35, 13)
+        Me.LblUtilizadorNotasDef.TabIndex = 11
+        Me.LblUtilizadorNotasDef.Text = "Notas"
+        '
+        'LblUtilizadorHabilitacoesDef
+        '
+        Me.LblUtilizadorHabilitacoesDef.AutoSize = True
+        Me.LblUtilizadorHabilitacoesDef.Location = New System.Drawing.Point(15, 124)
+        Me.LblUtilizadorHabilitacoesDef.Name = "LblUtilizadorHabilitacoesDef"
+        Me.LblUtilizadorHabilitacoesDef.Size = New System.Drawing.Size(42, 13)
+        Me.LblUtilizadorHabilitacoesDef.TabIndex = 10
+        Me.LblUtilizadorHabilitacoesDef.Text = "Genero"
+        '
+        'TxtUtilizadorHabilitacoesDef
+        '
+        Me.TxtUtilizadorHabilitacoesDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtUtilizadorHabilitacoesDef.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtUtilizadorHabilitacoesDef.Enabled = False
+        Me.TxtUtilizadorHabilitacoesDef.Location = New System.Drawing.Point(12, 140)
+        Me.TxtUtilizadorHabilitacoesDef.Multiline = True
+        Me.TxtUtilizadorHabilitacoesDef.Name = "TxtUtilizadorHabilitacoesDef"
+        Me.TxtUtilizadorHabilitacoesDef.Size = New System.Drawing.Size(325, 118)
+        Me.TxtUtilizadorHabilitacoesDef.TabIndex = 8
+        Me.TxtUtilizadorHabilitacoesDef.Text = "Isto Serve para Habilitações" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Tipo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Mestrado em Nadas" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Curso de Nada" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'LblUtilizadorGeneroDef
+        '
+        Me.LblUtilizadorGeneroDef.AutoSize = True
+        Me.LblUtilizadorGeneroDef.Location = New System.Drawing.Point(352, 34)
+        Me.LblUtilizadorGeneroDef.Name = "LblUtilizadorGeneroDef"
+        Me.LblUtilizadorGeneroDef.Size = New System.Drawing.Size(42, 13)
+        Me.LblUtilizadorGeneroDef.TabIndex = 7
+        Me.LblUtilizadorGeneroDef.Text = "Genero"
+        '
+        'LblUtilizadorPagmentoDef
+        '
+        Me.LblUtilizadorPagmentoDef.AutoSize = True
+        Me.LblUtilizadorPagmentoDef.Location = New System.Drawing.Point(289, 6)
+        Me.LblUtilizadorPagmentoDef.Name = "LblUtilizadorPagmentoDef"
+        Me.LblUtilizadorPagmentoDef.Size = New System.Drawing.Size(105, 13)
+        Me.LblUtilizadorPagmentoDef.TabIndex = 6
+        Me.LblUtilizadorPagmentoDef.Text = "Pagamento por Hora"
+        '
+        'LblUtilizadorDataContratDef
+        '
+        Me.LblUtilizadorDataContratDef.AutoSize = True
+        Me.LblUtilizadorDataContratDef.Location = New System.Drawing.Point(43, 112)
+        Me.LblUtilizadorDataContratDef.Name = "LblUtilizadorDataContratDef"
+        Me.LblUtilizadorDataContratDef.Size = New System.Drawing.Size(106, 13)
+        Me.LblUtilizadorDataContratDef.TabIndex = 5
+        Me.LblUtilizadorDataContratDef.Text = "Data de Contratação"
+        '
+        'LblUtilizadorDataNascDef
+        '
+        Me.LblUtilizadorDataNascDef.AutoSize = True
+        Me.LblUtilizadorDataNascDef.Location = New System.Drawing.Point(60, 86)
+        Me.LblUtilizadorDataNascDef.Name = "LblUtilizadorDataNascDef"
+        Me.LblUtilizadorDataNascDef.Size = New System.Drawing.Size(89, 13)
+        Me.LblUtilizadorDataNascDef.TabIndex = 4
+        Me.LblUtilizadorDataNascDef.Text = "Data Nascimento"
+        '
+        'LblUtilizadorApelidoDef
+        '
+        Me.LblUtilizadorApelidoDef.AutoSize = True
+        Me.LblUtilizadorApelidoDef.Location = New System.Drawing.Point(107, 61)
+        Me.LblUtilizadorApelidoDef.Name = "LblUtilizadorApelidoDef"
+        Me.LblUtilizadorApelidoDef.Size = New System.Drawing.Size(42, 13)
+        Me.LblUtilizadorApelidoDef.TabIndex = 3
+        Me.LblUtilizadorApelidoDef.Text = "Apelido"
+        '
+        'LblUtilizadorNomePDef
+        '
+        Me.LblUtilizadorNomePDef.AutoSize = True
+        Me.LblUtilizadorNomePDef.Location = New System.Drawing.Point(78, 35)
+        Me.LblUtilizadorNomePDef.Name = "LblUtilizadorNomePDef"
+        Me.LblUtilizadorNomePDef.Size = New System.Drawing.Size(71, 13)
+        Me.LblUtilizadorNomePDef.TabIndex = 2
+        Me.LblUtilizadorNomePDef.Text = "Nome Proprio"
+        '
+        'LblUtilizadorUserDef
+        '
+        Me.LblUtilizadorUserDef.AutoSize = True
+        Me.LblUtilizadorUserDef.Location = New System.Drawing.Point(99, 10)
+        Me.LblUtilizadorUserDef.Name = "LblUtilizadorUserDef"
+        Me.LblUtilizadorUserDef.Size = New System.Drawing.Size(50, 13)
+        Me.LblUtilizadorUserDef.TabIndex = 1
+        Me.LblUtilizadorUserDef.Text = "Utilizador"
+        '
+        'TxtUtilizadorNotasDef
+        '
+        Me.TxtUtilizadorNotasDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtUtilizadorNotasDef.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtUtilizadorNotasDef.Enabled = False
+        Me.TxtUtilizadorNotasDef.Location = New System.Drawing.Point(12, 290)
+        Me.TxtUtilizadorNotasDef.Multiline = True
+        Me.TxtUtilizadorNotasDef.Name = "TxtUtilizadorNotasDef"
+        Me.TxtUtilizadorNotasDef.Size = New System.Drawing.Size(325, 118)
+        Me.TxtUtilizadorNotasDef.TabIndex = 12
+        Me.TxtUtilizadorNotasDef.Text = "Isto Serve para Habilitações" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Tipo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Mestrado em Nadas" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Curso de Nada" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'TxtUtilizadorUserDef
+        '
+        Me.TxtUtilizadorUserDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtUtilizadorUserDef.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtUtilizadorUserDef.Enabled = False
+        Me.TxtUtilizadorUserDef.Location = New System.Drawing.Point(155, 3)
+        Me.TxtUtilizadorUserDef.Name = "TxtUtilizadorUserDef"
+        Me.TxtUtilizadorUserDef.Size = New System.Drawing.Size(100, 13)
+        Me.TxtUtilizadorUserDef.TabIndex = 13
+        '
+        'TxtUtilizadorNomePDef
+        '
+        Me.TxtUtilizadorNomePDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtUtilizadorNomePDef.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtUtilizadorNomePDef.Enabled = False
+        Me.TxtUtilizadorNomePDef.Location = New System.Drawing.Point(155, 27)
+        Me.TxtUtilizadorNomePDef.Name = "TxtUtilizadorNomePDef"
+        Me.TxtUtilizadorNomePDef.Size = New System.Drawing.Size(100, 13)
+        Me.TxtUtilizadorNomePDef.TabIndex = 14
+        '
+        'TxtUtilizadorApelidoDef
+        '
+        Me.TxtUtilizadorApelidoDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtUtilizadorApelidoDef.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtUtilizadorApelidoDef.Enabled = False
+        Me.TxtUtilizadorApelidoDef.Location = New System.Drawing.Point(155, 53)
+        Me.TxtUtilizadorApelidoDef.Name = "TxtUtilizadorApelidoDef"
+        Me.TxtUtilizadorApelidoDef.Size = New System.Drawing.Size(100, 13)
+        Me.TxtUtilizadorApelidoDef.TabIndex = 15
+        '
+        'TxtUtilizadorDataNascDef
+        '
+        Me.TxtUtilizadorDataNascDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtUtilizadorDataNascDef.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtUtilizadorDataNascDef.Enabled = False
+        Me.TxtUtilizadorDataNascDef.Location = New System.Drawing.Point(155, 79)
+        Me.TxtUtilizadorDataNascDef.Name = "TxtUtilizadorDataNascDef"
+        Me.TxtUtilizadorDataNascDef.Size = New System.Drawing.Size(100, 13)
+        Me.TxtUtilizadorDataNascDef.TabIndex = 16
+        '
+        'TxtUtilizadorDataContratDef
+        '
+        Me.TxtUtilizadorDataContratDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtUtilizadorDataContratDef.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtUtilizadorDataContratDef.Enabled = False
+        Me.TxtUtilizadorDataContratDef.Location = New System.Drawing.Point(155, 105)
+        Me.TxtUtilizadorDataContratDef.Name = "TxtUtilizadorDataContratDef"
+        Me.TxtUtilizadorDataContratDef.Size = New System.Drawing.Size(100, 13)
+        Me.TxtUtilizadorDataContratDef.TabIndex = 17
+        '
+        'TxtUtilizadorPagmentoDef
+        '
+        Me.TxtUtilizadorPagmentoDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtUtilizadorPagmentoDef.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtUtilizadorPagmentoDef.Enabled = False
+        Me.TxtUtilizadorPagmentoDef.Location = New System.Drawing.Point(400, 2)
+        Me.TxtUtilizadorPagmentoDef.Name = "TxtUtilizadorPagmentoDef"
+        Me.TxtUtilizadorPagmentoDef.Size = New System.Drawing.Size(100, 13)
+        Me.TxtUtilizadorPagmentoDef.TabIndex = 18
+        '
+        'TxtUtilizadorGeneroDef
+        '
+        Me.TxtUtilizadorGeneroDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtUtilizadorGeneroDef.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtUtilizadorGeneroDef.Enabled = False
+        Me.TxtUtilizadorGeneroDef.Location = New System.Drawing.Point(400, 27)
+        Me.TxtUtilizadorGeneroDef.Name = "TxtUtilizadorGeneroDef"
+        Me.TxtUtilizadorGeneroDef.Size = New System.Drawing.Size(100, 13)
+        Me.TxtUtilizadorGeneroDef.TabIndex = 19
+        '
+        'BtnImagem5
+        '
+        Me.BtnImagem5.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem5.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem5.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagem5.CorSelecionado = System.Drawing.Color.Black
+        Me.BtnImagem5.CorTexto = System.Drawing.Color.White
+        Me.BtnImagem5.EstadoBotao = False
+        Me.BtnImagem5.Imagem = Nothing
+        Me.BtnImagem5.Location = New System.Drawing.Point(788, 414)
+        Me.BtnImagem5.Name = "BtnImagem5"
+        Me.BtnImagem5.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagem5.TabIndex = 0
+        Me.BtnImagem5.TamanhoLetra = 10
+        Me.BtnImagem5.Texto = "Editar"
         '
         'BtnImagemCancelar
         '
@@ -519,7 +749,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PnlHome)
         Me.Controls.Add(Me.PnlUser)
-        Me.Controls.Add(Me.LoginPanel)
+        Me.Controls.Add(Me.PnlLogin)
         Me.Controls.Add(Me.PnlBarraTop)
         Me.Controls.Add(Me.PnlMenu)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -527,13 +757,15 @@ Partial Class Form1
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "GestFrot"
         Me.PnlMenu.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PnlBarraTop.ResumeLayout(False)
         Me.PnlBarraTop.PerformLayout()
-        Me.LoginPanel.ResumeLayout(False)
-        Me.LoginPanel.PerformLayout()
+        Me.PnlLogin.ResumeLayout(False)
+        Me.PnlLogin.PerformLayout()
         Me.PnlUser.ResumeLayout(False)
         Me.PnlUser.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PnlDefUtilizador.ResumeLayout(False)
+        Me.PnlDefUtilizador.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -548,13 +780,13 @@ Partial Class Form1
     Friend WithEvents PnlBarraTop As System.Windows.Forms.Panel
     Friend WithEvents LblNomeProjeto As System.Windows.Forms.Label
     Friend WithEvents Fechar As System.Windows.Forms.Label
-    Friend WithEvents LoginPanel As System.Windows.Forms.Panel
+    Friend WithEvents PnlLogin As System.Windows.Forms.Panel
     Friend WithEvents BtnImagemRegistarEntrar As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagemLogin As GestFrotPAP.BtnImagem
     Friend WithEvents LblUtilzadorMenu As System.Windows.Forms.Label
-    Friend WithEvents TxtUser As System.Windows.Forms.TextBox
-    Friend WithEvents TxtPwd As System.Windows.Forms.TextBox
-    Friend WithEvents TxtEmail As System.Windows.Forms.TextBox
+    Friend WithEvents TxtUserLogin As System.Windows.Forms.TextBox
+    Friend WithEvents TxtPwdLogin As System.Windows.Forms.TextBox
+    Friend WithEvents TxtEmailReg As System.Windows.Forms.TextBox
     Friend WithEvents TxtUserReg As System.Windows.Forms.TextBox
     Friend WithEvents TxtPwdReg2 As System.Windows.Forms.TextBox
     Friend WithEvents TxtPwdReg1 As System.Windows.Forms.TextBox
@@ -571,9 +803,28 @@ Partial Class Form1
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
-    Friend WithEvents LblPassword As System.Windows.Forms.Label
-    Friend WithEvents LblUtilizador As System.Windows.Forms.Label
+    Friend WithEvents LblPasswordLogin As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizadorLogin As System.Windows.Forms.Label
     Friend WithEvents PnlDefUtilizador As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents BtnImagem5 As GestFrotPAP.BtnImagem
+    Friend WithEvents LblUtilizadorGeneroDef As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizadorPagmentoDef As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizadorDataContratDef As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizadorDataNascDef As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizadorApelidoDef As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizadorNomePDef As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizadorUserDef As System.Windows.Forms.Label
+    Friend WithEvents TxtUtilizadorHabilitacoesDef As System.Windows.Forms.TextBox
+    Friend WithEvents LblUtilizadorNotasDef As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizadorHabilitacoesDef As System.Windows.Forms.Label
+    Friend WithEvents TxtUtilizadorNotasDef As System.Windows.Forms.TextBox
+    Friend WithEvents TxtUtilizadorGeneroDef As System.Windows.Forms.TextBox
+    Friend WithEvents TxtUtilizadorPagmentoDef As System.Windows.Forms.TextBox
+    Friend WithEvents TxtUtilizadorDataContratDef As System.Windows.Forms.TextBox
+    Friend WithEvents TxtUtilizadorDataNascDef As System.Windows.Forms.TextBox
+    Friend WithEvents TxtUtilizadorApelidoDef As System.Windows.Forms.TextBox
+    Friend WithEvents TxtUtilizadorNomePDef As System.Windows.Forms.TextBox
+    Friend WithEvents TxtUtilizadorUserDef As System.Windows.Forms.TextBox
 
 End Class
