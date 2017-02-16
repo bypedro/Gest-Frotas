@@ -26,7 +26,6 @@ Public Class Form1
                 For a = 0 To N
                     BtnImagem(a).Hide()
                 Next
-
                 TmrSlide1.Enabled = True
             End If
         End If
@@ -37,6 +36,8 @@ Public Class Form1
                     BtnImagem(a).Hide()
                 Next
                 TmrSlide2.Enabled = True
+                BtnMenu1.zEstadoBotao = False
+                BtnMenu1.resetbtn()
             End If
         End If
     End Sub
@@ -150,7 +151,8 @@ Public Class Form1
                 BtnImagem(a).Show()
             Next
         End If
-
+        BtnMenu1.zEstadoBotao = True
+        BtnMenu1.resetbtn()
     End Sub
 
     Private Sub TmrSlide2_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles TmrSlide2.Tick
@@ -165,17 +167,22 @@ Public Class Form1
                 BtnImagem(a).Show()
             Next
         End If
+        BtnMenu1.zEstadoBotao = False
+        BtnMenu1.resetbtn()
     End Sub
 
     Private Sub BtnMenu1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BtnMenu1.Click
-        BtnMenu1.resetbtn()
-        For a = 0 To N
-            BtnImagem(a).Hide()
-        Next
-        If PnlMenu.Right = 200 Then
-            TmrSlide1.Enabled = True
-        ElseIf PnlMenu.Right = 36 Then
-            TmrSlide2.Enabled = True
+
+        If BtnImagem(0).EstadoBotao <> True Then
+            BtnMenu1.resetbtn()
+            For a = 0 To N
+                BtnImagem(a).Hide()
+            Next
+            If PnlMenu.Right = 200 Then
+                TmrSlide1.Enabled = True
+            ElseIf PnlMenu.Right = 36 Then
+                TmrSlide2.Enabled = True
+            End If
         End If
     End Sub
 
@@ -189,13 +196,6 @@ Public Class Form1
             'If DetalhesUtilizador.TipoUtilizadorCod = 1 Then 'Só Admin
             LoadOrder.MenuPrincipalPage()
             check(0)
-            MsgBox(DetalhesUtilizador.NomeRegisto)
-            MsgBox(DetalhesUtilizador.NomeProprio)
-            MsgBox(DetalhesUtilizador.Apelido)
-            MsgBox(DetalhesUtilizador.Rua)
-            MsgBox(DetalhesUtilizador.Cidade)
-            MsgBox(DetalhesUtilizador.Pais)
-            MsgBox(DetalhesUtilizador.DataNasc)
             ' If
 
 
@@ -244,8 +244,7 @@ Public Class Form1
     Private Sub BtnImagemRegistar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemRegistar.ButtonClickMasterRace
         Botao(BtnImagemRegistar)
         'Por codigo
-
-        If Registar(TxtUserReg.Text, TxtPwdReg1.Text, TxtPwdReg2.Text, TxtEmailReg.Text) = True Then
+        If RegistarUtilizador(TxtUserReg.Text, TxtPwdReg1.Text, TxtPwdReg2.Text, TxtEmailReg.Text) = True Then
             MsgBox("INSERIDO COM SUCESSO")
         End If
 
@@ -258,7 +257,6 @@ Public Class Form1
             PnlUser.Show()
             PnlUser.BringToFront()
         End If
-
     End Sub
 
     Private Sub LblUserName_MouseEnter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LblUtilzadorMenu.MouseEnter
@@ -269,15 +267,7 @@ Public Class Form1
         LblUtilzadorMenu.ForeColor = Color.DarkGray 'No futuro Opção para mudar?
     End Sub
 
-    Private Sub PnlMenu_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles PnlMenu.Paint
-
-    End Sub
-
-    Private Sub TxtEmail_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TxtEmailReg.TextChanged
-
-    End Sub
-
-    Private Sub Label1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label1.Click
+    Sub Label1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label1.Click
         MsgBox("LOL")
     End Sub
 
@@ -296,19 +286,44 @@ Public Class Form1
             PnlDefUtilizador.Visible = True
             PnlDefUtilizador.BringToFront()
             PnlUser.Hide()
-
         Else
             PnlDefUtilizador.Visible = False
         End If
     End Sub
 
-
     Private Sub BtnImagem5_ButtonClickMasterRace_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem5.ButtonClickMasterRace
         Botao(BtnImagem5)
+
+        If TxtUtilizadorUserDef.Enabled = False Then
+            TxtUtilizadorUserDef.Enabled = True
+            TxtUtilizadorNomePDef.Enabled = True
+            TxtUtilizadorApelidoDef.Enabled = True
+            TxtUtilizadorDataNascDef.Enabled = True
+            TxtUtilizadorDataContratDef.Enabled = True
+            TxtUtilizadorGeneroDef.Enabled = True
+            TxtUtilizadorPagmentoDef.Enabled = True
+            TxtUtilizadorHabilitacoesDef.Enabled = True
+            TxtUtilizadorNotasDef.Enabled = True
+            BtnImagem5.Texto = "Guardar"
+        Else
+            TxtUtilizadorUserDef.Enabled = False
+            TxtUtilizadorNomePDef.Enabled = False
+            TxtUtilizadorApelidoDef.Enabled = False
+            TxtUtilizadorDataNascDef.Enabled = False
+            TxtUtilizadorDataContratDef.Enabled = False
+            TxtUtilizadorGeneroDef.Enabled = False
+            TxtUtilizadorPagmentoDef.Enabled = False
+            TxtUtilizadorHabilitacoesDef.Enabled = False
+            TxtUtilizadorNotasDef.Enabled = False
+            EditarUtilizador(TxtUtilizadorUserDef.Text.ToString)
+            LoadOrder.MenuPrincipalPage()
+            BtnImagem5.Texto = "Editar"
+        End If
+
+
+
         'Editar Perfil
     End Sub
 
-    Private Sub TxtUtilizadorNotasDef_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TxtUtilizadorNotasDef.TextChanged
 
-    End Sub
 End Class

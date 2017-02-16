@@ -98,7 +98,7 @@ Module SQL
 
     End Function
 
-    Public Function Registar(ByVal Utilizador As String, ByVal Password1 As String, ByVal Password2 As String, ByVal Email As String) As Boolean
+    Public Function RegistarUtilizador(ByVal Utilizador As String, ByVal Password1 As String, ByVal Password2 As String, ByVal Email As String) As Boolean
         Dim Comando As MySqlCommand
         Dim Objecto As Object
 
@@ -193,6 +193,31 @@ Module SQL
     End Function
 
 
+    Public Function EditarUtilizador(ByVal Utilizador As String) As Boolean ', ByVal NomeProprio As String, ByVal Apelido As String, ByVal DataNasc As String, ByVal DataContrat As String, ByVal PagamentoHora As String, ByVal Genero As String, ByVal Habilitacoes As String, ByVal Notas As String) 
+        Dim Comando As MySqlCommand
+        Try
+            Comando = New MySqlCommand("update Utilizador set Nome_Registo='" + Utilizador + "'where CodUser='" + DetalhesUtilizador.CodUser + "'", ligacao)
+            ligacao.Open()
+            Comando.ExecuteNonQuery()
+            ligacao.Close()
+            BuscarDadosUtilizador(Utilizador)
+            Return (True)
+            Exit Function
+        Catch ex As Exception
+            MsgBox("ERRO SQL INSERT")
+            Return (False)
+            Exit Function
+        End Try
+    End Function
+
+
+
+
+
+
+
+
+    'Buscar Dados
     Public Sub BuscarDadosUtilizador(ByVal Utilizador As String)
         Dim Comando As MySqlCommand
         Dim Objecto As Object
