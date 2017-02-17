@@ -235,19 +235,63 @@ Public Module LoadOrder
     End Sub
 
     Public Sub MenuUtilizador()
-        If DetalhesUtilizador.TipoUtilizadorCod <> 1 Then
 
-        Else
-            Form1.TxtUtilizadorUserDef.Text = DetalhesUtilizador.NomeRegisto
-            Form1.TxtUtilizadorNomePDef.Text = DetalhesUtilizador.NomeProprio
-            Form1.TxtUtilizadorApelidoDef.Text = DetalhesUtilizador.Apelido
-            Form1.TxtUtilizadorDataNascDef.Text = DetalhesUtilizador.DataNasc
-            Form1.TxtUtilizadorDataContratDef.Text = DetalhesUtilizador.DataContrat
-            Form1.TxtUtilizadorHabilitacoesDef.Text = DetalhesUtilizador.Habilitações
-            Form1.TxtUtilizadorNotasDef.Text = DetalhesUtilizador.NotasContrato
-            Form1.TxtUtilizadorPagmentoDef.Text = DetalhesUtilizador.PagamentoHora
-            Form1.TxtUtilizadorGeneroDef.Text = DetalhesUtilizador.Genero
-        End If
+        Form1.TxtUtilizadorUserDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.TxtUtilizadorNomePDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.TxtUtilizadorApelidoDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.TxtUtilizadorDataNascDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.TxtUtilizadorDataContratDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.TxtUtilizadorHabilitacoesDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.TxtUtilizadorNotasDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.TxtUtilizadorPagmentoDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.TxtUtilizadorGeneroDef.Font = GetInstance(10, FontStyle.Bold)
+
+        Form1.TxtUtilizadorUserDef.ForeColor = Color.White
+        Form1.TxtUtilizadorNomePDef.ForeColor = Color.White
+        Form1.TxtUtilizadorApelidoDef.ForeColor = Color.White
+        Form1.TxtUtilizadorDataNascDef.ForeColor = Color.White
+        Form1.TxtUtilizadorDataContratDef.ForeColor = Color.White
+        Form1.TxtUtilizadorHabilitacoesDef.ForeColor = Color.White
+        Form1.TxtUtilizadorNotasDef.ForeColor = Color.White
+        Form1.TxtUtilizadorPagmentoDef.ForeColor = Color.White
+        Form1.TxtUtilizadorGeneroDef.ForeColor = Color.White
+
+
+
+        Form1.LblUtilizadorUserDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.LblUtilizadorNomePDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.LblUtilizadorApelidoDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.LblUtilizadorDataNascDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.LblUtilizadorDataContratDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.LblUtilizadorHabilitacoesDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.LblUtilizadorNotasDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.LblUtilizadorPagmentoDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.LblUtilizadorGeneroDef.Font = GetInstance(10, FontStyle.Bold)
+
+        Form1.LblUtilizadorUserDef.ForeColor = Color.White
+        Form1.LblUtilizadorNomePDef.ForeColor = Color.White
+        Form1.LblUtilizadorApelidoDef.ForeColor = Color.White
+        Form1.LblUtilizadorDataNascDef.ForeColor = Color.White
+        Form1.LblUtilizadorDataContratDef.ForeColor = Color.White
+        Form1.LblUtilizadorHabilitacoesDef.ForeColor = Color.White
+        Form1.LblUtilizadorNotasDef.ForeColor = Color.White
+        Form1.LblUtilizadorPagmentoDef.ForeColor = Color.White
+        Form1.LblUtilizadorGeneroDef.ForeColor = Color.White
+
+
+
+
+        'DADOS Utilizador
+        Form1.TxtUtilizadorUserDef.Text = DetalhesUtilizador.NomeRegisto
+        Form1.TxtUtilizadorNomePDef.Text = DetalhesUtilizador.NomeProprio
+        Form1.TxtUtilizadorApelidoDef.Text = DetalhesUtilizador.Apelido
+        Form1.TxtUtilizadorDataNascDef.Text = DetalhesUtilizador.DataNasc
+        Form1.TxtUtilizadorDataContratDef.Text = DetalhesUtilizador.DataContrat
+        Form1.TxtUtilizadorHabilitacoesDef.Text = DetalhesUtilizador.Habilitações
+        Form1.TxtUtilizadorNotasDef.Text = DetalhesUtilizador.NotasContrato
+        Form1.TxtUtilizadorPagmentoDef.Text = DetalhesUtilizador.PagamentoHora
+        Form1.TxtUtilizadorGeneroDef.Text = DetalhesUtilizador.Genero
+
     End Sub
 
 End Module

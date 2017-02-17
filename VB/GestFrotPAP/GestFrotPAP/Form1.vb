@@ -315,7 +315,7 @@ Public Class Form1
             TxtUtilizadorPagmentoDef.Enabled = False
             TxtUtilizadorHabilitacoesDef.Enabled = False
             TxtUtilizadorNotasDef.Enabled = False
-            EditarUtilizador(TxtUtilizadorUserDef.Text.ToString)
+            EditarUtilizador(TxtUtilizadorUserDef.Text.ToString, TxtUtilizadorNomePDef.Text.ToString, TxtUtilizadorApelidoDef.Text.ToString, TxtUtilizadorDataNascDef.Text.ToString, TxtUtilizadorDataContratDef.Text.ToString, TxtUtilizadorPagmentoDef.Text.ToString, TxtUtilizadorGeneroDef.Text.ToString, TxtUtilizadorHabilitacoesDef.Text.ToString, TxtUtilizadorNotasDef.Text.ToString)
             LoadOrder.MenuPrincipalPage()
             BtnImagem5.Texto = "Editar"
         End If
