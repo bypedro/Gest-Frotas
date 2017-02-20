@@ -291,8 +291,8 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub BtnImagem5_ButtonClickMasterRace_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem5.ButtonClickMasterRace
-        Botao(BtnImagem5)
+    Private Sub BtnDefUtilizadorInfoEdit_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDefUtilizadorInfoEdit.ButtonClickMasterRace
+        Botao(BtnDefUtilizadorInfoEdit)
 
         If TxtUtilizadorUserDef.Enabled = False Then
             TxtUtilizadorUserDef.Enabled = True
@@ -304,7 +304,7 @@ Public Class Form1
             TxtUtilizadorPagmentoDef.Enabled = True
             TxtUtilizadorHabilitacoesDef.Enabled = True
             TxtUtilizadorNotasDef.Enabled = True
-            BtnImagem5.Texto = "Guardar"
+            BtnDefUtilizadorInfoEdit.Texto = "Guardar"
         Else
             TxtUtilizadorUserDef.Enabled = False
             TxtUtilizadorNomePDef.Enabled = False
@@ -317,13 +317,8 @@ Public Class Form1
             TxtUtilizadorNotasDef.Enabled = False
             EditarUtilizador(TxtUtilizadorUserDef.Text.ToString, TxtUtilizadorNomePDef.Text.ToString, TxtUtilizadorApelidoDef.Text.ToString, TxtUtilizadorDataNascDef.Text.ToString, TxtUtilizadorDataContratDef.Text.ToString, TxtUtilizadorPagmentoDef.Text.ToString, TxtUtilizadorGeneroDef.Text.ToString, TxtUtilizadorHabilitacoesDef.Text.ToString, TxtUtilizadorNotasDef.Text.ToString)
             LoadOrder.MenuPrincipalPage()
-            BtnImagem5.Texto = "Editar"
+            BtnDefUtilizadorInfoEdit.Texto = "Editar"
         End If
 
-
-
-        'Editar Perfil
     End Sub
-
-
 End Class

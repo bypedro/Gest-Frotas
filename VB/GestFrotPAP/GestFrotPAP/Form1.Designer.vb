@@ -53,6 +53,7 @@ Partial Class Form1
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.PnlDefUtilizador = New System.Windows.Forms.Panel()
+        Me.PnlDefUtilizadorInfo = New System.Windows.Forms.Panel()
         Me.TxtUtilizadorGeneroDef = New System.Windows.Forms.TextBox()
         Me.TxtUtilizadorPagmentoDef = New System.Windows.Forms.TextBox()
         Me.TxtUtilizadorDataContratDef = New System.Windows.Forms.TextBox()
@@ -72,6 +73,7 @@ Partial Class Form1
         Me.LblUtilizadorNomePDef = New System.Windows.Forms.Label()
         Me.LblUtilizadorUserDef = New System.Windows.Forms.Label()
         Me.BtnImagem5 = New GestFrotPAP.BtnImagem()
+        Me.BtnDefUtilizadorInfoEdit = New GestFrotPAP.BtnImagem()
         Me.BtnImagemCancelar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemRegistar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemRegistarEntrar = New GestFrotPAP.BtnImagem()
@@ -87,6 +89,7 @@ Partial Class Form1
         Me.PnlLogin.SuspendLayout()
         Me.PnlUser.SuspendLayout()
         Me.PnlDefUtilizador.SuspendLayout()
+        Me.PnlDefUtilizadorInfo.SuspendLayout()
         Me.SuspendLayout()
         '
         'PnlMenu
@@ -382,129 +385,147 @@ Partial Class Form1
         'PnlDefUtilizador
         '
         Me.PnlDefUtilizador.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorGeneroDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorPagmentoDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorDataContratDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorDataNascDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorApelidoDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorNomePDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorUserDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorNotasDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorNotasDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorHabilitacoesDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.TxtUtilizadorHabilitacoesDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorGeneroDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorPagmentoDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorDataContratDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorDataNascDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorApelidoDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorNomePDef)
-        Me.PnlDefUtilizador.Controls.Add(Me.LblUtilizadorUserDef)
         Me.PnlDefUtilizador.Controls.Add(Me.BtnImagem5)
+        Me.PnlDefUtilizador.Controls.Add(Me.PnlDefUtilizadorInfo)
         Me.PnlDefUtilizador.Location = New System.Drawing.Point(0, 30)
         Me.PnlDefUtilizador.Name = "PnlDefUtilizador"
         Me.PnlDefUtilizador.Size = New System.Drawing.Size(1000, 470)
         Me.PnlDefUtilizador.TabIndex = 14
         Me.PnlDefUtilizador.Visible = False
         '
+        'PnlDefUtilizadorInfo
+        '
+        Me.PnlDefUtilizadorInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.TxtUtilizadorGeneroDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.TxtUtilizadorPagmentoDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.TxtUtilizadorDataContratDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.TxtUtilizadorDataNascDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.TxtUtilizadorApelidoDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.TxtUtilizadorNomePDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.TxtUtilizadorUserDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.TxtUtilizadorNotasDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.LblUtilizadorNotasDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.LblUtilizadorHabilitacoesDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.TxtUtilizadorHabilitacoesDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.LblUtilizadorGeneroDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.LblUtilizadorPagmentoDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.LblUtilizadorDataContratDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.LblUtilizadorDataNascDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.LblUtilizadorApelidoDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.LblUtilizadorNomePDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.LblUtilizadorUserDef)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.BtnDefUtilizadorInfoEdit)
+        Me.PnlDefUtilizadorInfo.Location = New System.Drawing.Point(0, 44)
+        Me.PnlDefUtilizadorInfo.Name = "PnlDefUtilizadorInfo"
+        Me.PnlDefUtilizadorInfo.Size = New System.Drawing.Size(1000, 425)
+        Me.PnlDefUtilizadorInfo.TabIndex = 0
+        '
         'TxtUtilizadorGeneroDef
         '
         Me.TxtUtilizadorGeneroDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.TxtUtilizadorGeneroDef.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtUtilizadorGeneroDef.Enabled = False
-        Me.TxtUtilizadorGeneroDef.Location = New System.Drawing.Point(400, 27)
+        Me.TxtUtilizadorGeneroDef.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUtilizadorGeneroDef.Location = New System.Drawing.Point(399, 29)
         Me.TxtUtilizadorGeneroDef.Name = "TxtUtilizadorGeneroDef"
-        Me.TxtUtilizadorGeneroDef.Size = New System.Drawing.Size(100, 13)
-        Me.TxtUtilizadorGeneroDef.TabIndex = 19
+        Me.TxtUtilizadorGeneroDef.Size = New System.Drawing.Size(130, 15)
+        Me.TxtUtilizadorGeneroDef.TabIndex = 38
         '
         'TxtUtilizadorPagmentoDef
         '
         Me.TxtUtilizadorPagmentoDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.TxtUtilizadorPagmentoDef.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtUtilizadorPagmentoDef.Enabled = False
-        Me.TxtUtilizadorPagmentoDef.Location = New System.Drawing.Point(400, 2)
+        Me.TxtUtilizadorPagmentoDef.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUtilizadorPagmentoDef.Location = New System.Drawing.Point(399, 4)
         Me.TxtUtilizadorPagmentoDef.Name = "TxtUtilizadorPagmentoDef"
-        Me.TxtUtilizadorPagmentoDef.Size = New System.Drawing.Size(100, 13)
-        Me.TxtUtilizadorPagmentoDef.TabIndex = 18
+        Me.TxtUtilizadorPagmentoDef.Size = New System.Drawing.Size(130, 15)
+        Me.TxtUtilizadorPagmentoDef.TabIndex = 37
         '
         'TxtUtilizadorDataContratDef
         '
         Me.TxtUtilizadorDataContratDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.TxtUtilizadorDataContratDef.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtUtilizadorDataContratDef.Enabled = False
-        Me.TxtUtilizadorDataContratDef.Location = New System.Drawing.Point(155, 105)
+        Me.TxtUtilizadorDataContratDef.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUtilizadorDataContratDef.Location = New System.Drawing.Point(154, 107)
         Me.TxtUtilizadorDataContratDef.Name = "TxtUtilizadorDataContratDef"
-        Me.TxtUtilizadorDataContratDef.Size = New System.Drawing.Size(100, 13)
-        Me.TxtUtilizadorDataContratDef.TabIndex = 17
+        Me.TxtUtilizadorDataContratDef.Size = New System.Drawing.Size(130, 15)
+        Me.TxtUtilizadorDataContratDef.TabIndex = 36
         '
         'TxtUtilizadorDataNascDef
         '
         Me.TxtUtilizadorDataNascDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.TxtUtilizadorDataNascDef.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtUtilizadorDataNascDef.Enabled = False
-        Me.TxtUtilizadorDataNascDef.Location = New System.Drawing.Point(155, 79)
+        Me.TxtUtilizadorDataNascDef.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUtilizadorDataNascDef.Location = New System.Drawing.Point(154, 81)
         Me.TxtUtilizadorDataNascDef.Name = "TxtUtilizadorDataNascDef"
-        Me.TxtUtilizadorDataNascDef.Size = New System.Drawing.Size(100, 13)
-        Me.TxtUtilizadorDataNascDef.TabIndex = 16
+        Me.TxtUtilizadorDataNascDef.Size = New System.Drawing.Size(130, 15)
+        Me.TxtUtilizadorDataNascDef.TabIndex = 35
         '
         'TxtUtilizadorApelidoDef
         '
         Me.TxtUtilizadorApelidoDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.TxtUtilizadorApelidoDef.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtUtilizadorApelidoDef.Enabled = False
-        Me.TxtUtilizadorApelidoDef.Location = New System.Drawing.Point(155, 53)
+        Me.TxtUtilizadorApelidoDef.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUtilizadorApelidoDef.Location = New System.Drawing.Point(154, 55)
         Me.TxtUtilizadorApelidoDef.Name = "TxtUtilizadorApelidoDef"
-        Me.TxtUtilizadorApelidoDef.Size = New System.Drawing.Size(100, 13)
-        Me.TxtUtilizadorApelidoDef.TabIndex = 15
+        Me.TxtUtilizadorApelidoDef.Size = New System.Drawing.Size(130, 15)
+        Me.TxtUtilizadorApelidoDef.TabIndex = 34
         '
         'TxtUtilizadorNomePDef
         '
         Me.TxtUtilizadorNomePDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.TxtUtilizadorNomePDef.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtUtilizadorNomePDef.Enabled = False
-        Me.TxtUtilizadorNomePDef.Location = New System.Drawing.Point(155, 27)
+        Me.TxtUtilizadorNomePDef.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUtilizadorNomePDef.Location = New System.Drawing.Point(154, 29)
         Me.TxtUtilizadorNomePDef.Name = "TxtUtilizadorNomePDef"
-        Me.TxtUtilizadorNomePDef.Size = New System.Drawing.Size(100, 13)
-        Me.TxtUtilizadorNomePDef.TabIndex = 14
+        Me.TxtUtilizadorNomePDef.Size = New System.Drawing.Size(130, 15)
+        Me.TxtUtilizadorNomePDef.TabIndex = 33
         '
         'TxtUtilizadorUserDef
         '
         Me.TxtUtilizadorUserDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.TxtUtilizadorUserDef.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtUtilizadorUserDef.Enabled = False
-        Me.TxtUtilizadorUserDef.Location = New System.Drawing.Point(155, 3)
+        Me.TxtUtilizadorUserDef.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUtilizadorUserDef.Location = New System.Drawing.Point(154, 5)
         Me.TxtUtilizadorUserDef.Name = "TxtUtilizadorUserDef"
-        Me.TxtUtilizadorUserDef.Size = New System.Drawing.Size(100, 13)
-        Me.TxtUtilizadorUserDef.TabIndex = 13
+        Me.TxtUtilizadorUserDef.Size = New System.Drawing.Size(130, 15)
+        Me.TxtUtilizadorUserDef.TabIndex = 32
         '
         'TxtUtilizadorNotasDef
         '
         Me.TxtUtilizadorNotasDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.TxtUtilizadorNotasDef.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtUtilizadorNotasDef.Enabled = False
-        Me.TxtUtilizadorNotasDef.Location = New System.Drawing.Point(12, 290)
+        Me.TxtUtilizadorNotasDef.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUtilizadorNotasDef.Location = New System.Drawing.Point(314, 155)
         Me.TxtUtilizadorNotasDef.Multiline = True
         Me.TxtUtilizadorNotasDef.Name = "TxtUtilizadorNotasDef"
-        Me.TxtUtilizadorNotasDef.Size = New System.Drawing.Size(325, 118)
-        Me.TxtUtilizadorNotasDef.TabIndex = 12
-        Me.TxtUtilizadorNotasDef.Text = "Isto Serve para Habilitações" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Tipo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Mestrado em Nadas" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Curso de Nada" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.TxtUtilizadorNotasDef.Size = New System.Drawing.Size(265, 150)
+        Me.TxtUtilizadorNotasDef.TabIndex = 31
+        Me.TxtUtilizadorNotasDef.Text = "Isto Serve para Notas" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Tipo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Informação Util sobre o utilizador" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'LblUtilizadorNotasDef
         '
         Me.LblUtilizadorNotasDef.AutoSize = True
-        Me.LblUtilizadorNotasDef.Location = New System.Drawing.Point(12, 274)
+        Me.LblUtilizadorNotasDef.Location = New System.Drawing.Point(351, 126)
         Me.LblUtilizadorNotasDef.Name = "LblUtilizadorNotasDef"
         Me.LblUtilizadorNotasDef.Size = New System.Drawing.Size(35, 13)
-        Me.LblUtilizadorNotasDef.TabIndex = 11
+        Me.LblUtilizadorNotasDef.TabIndex = 30
         Me.LblUtilizadorNotasDef.Text = "Notas"
         '
         'LblUtilizadorHabilitacoesDef
         '
         Me.LblUtilizadorHabilitacoesDef.AutoSize = True
-        Me.LblUtilizadorHabilitacoesDef.Location = New System.Drawing.Point(15, 124)
+        Me.LblUtilizadorHabilitacoesDef.Location = New System.Drawing.Point(14, 126)
         Me.LblUtilizadorHabilitacoesDef.Name = "LblUtilizadorHabilitacoesDef"
         Me.LblUtilizadorHabilitacoesDef.Size = New System.Drawing.Size(69, 13)
-        Me.LblUtilizadorHabilitacoesDef.TabIndex = 10
+        Me.LblUtilizadorHabilitacoesDef.TabIndex = 29
         Me.LblUtilizadorHabilitacoesDef.Text = "Habolitações"
         '
         'TxtUtilizadorHabilitacoesDef
@@ -512,91 +533,108 @@ Partial Class Form1
         Me.TxtUtilizadorHabilitacoesDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.TxtUtilizadorHabilitacoesDef.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtUtilizadorHabilitacoesDef.Enabled = False
-        Me.TxtUtilizadorHabilitacoesDef.Location = New System.Drawing.Point(12, 140)
+        Me.TxtUtilizadorHabilitacoesDef.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUtilizadorHabilitacoesDef.Location = New System.Drawing.Point(12, 155)
         Me.TxtUtilizadorHabilitacoesDef.Multiline = True
         Me.TxtUtilizadorHabilitacoesDef.Name = "TxtUtilizadorHabilitacoesDef"
-        Me.TxtUtilizadorHabilitacoesDef.Size = New System.Drawing.Size(325, 118)
-        Me.TxtUtilizadorHabilitacoesDef.TabIndex = 8
+        Me.TxtUtilizadorHabilitacoesDef.Size = New System.Drawing.Size(265, 150)
+        Me.TxtUtilizadorHabilitacoesDef.TabIndex = 28
         Me.TxtUtilizadorHabilitacoesDef.Text = "Isto Serve para Habilitações" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Tipo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Mestrado em Nadas" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Curso de Nada" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'LblUtilizadorGeneroDef
         '
         Me.LblUtilizadorGeneroDef.AutoSize = True
-        Me.LblUtilizadorGeneroDef.Location = New System.Drawing.Point(352, 34)
+        Me.LblUtilizadorGeneroDef.Location = New System.Drawing.Point(351, 36)
         Me.LblUtilizadorGeneroDef.Name = "LblUtilizadorGeneroDef"
         Me.LblUtilizadorGeneroDef.Size = New System.Drawing.Size(42, 13)
-        Me.LblUtilizadorGeneroDef.TabIndex = 7
+        Me.LblUtilizadorGeneroDef.TabIndex = 27
         Me.LblUtilizadorGeneroDef.Text = "Genero"
         '
         'LblUtilizadorPagmentoDef
         '
         Me.LblUtilizadorPagmentoDef.AutoSize = True
-        Me.LblUtilizadorPagmentoDef.Location = New System.Drawing.Point(289, 6)
+        Me.LblUtilizadorPagmentoDef.Location = New System.Drawing.Point(288, 8)
         Me.LblUtilizadorPagmentoDef.Name = "LblUtilizadorPagmentoDef"
         Me.LblUtilizadorPagmentoDef.Size = New System.Drawing.Size(105, 13)
-        Me.LblUtilizadorPagmentoDef.TabIndex = 6
+        Me.LblUtilizadorPagmentoDef.TabIndex = 26
         Me.LblUtilizadorPagmentoDef.Text = "Pagamento por Hora"
         '
         'LblUtilizadorDataContratDef
         '
         Me.LblUtilizadorDataContratDef.AutoSize = True
-        Me.LblUtilizadorDataContratDef.Location = New System.Drawing.Point(43, 112)
+        Me.LblUtilizadorDataContratDef.Location = New System.Drawing.Point(42, 114)
         Me.LblUtilizadorDataContratDef.Name = "LblUtilizadorDataContratDef"
         Me.LblUtilizadorDataContratDef.Size = New System.Drawing.Size(106, 13)
-        Me.LblUtilizadorDataContratDef.TabIndex = 5
+        Me.LblUtilizadorDataContratDef.TabIndex = 25
         Me.LblUtilizadorDataContratDef.Text = "Data de Contratação"
         '
         'LblUtilizadorDataNascDef
         '
         Me.LblUtilizadorDataNascDef.AutoSize = True
-        Me.LblUtilizadorDataNascDef.Location = New System.Drawing.Point(60, 86)
+        Me.LblUtilizadorDataNascDef.Location = New System.Drawing.Point(59, 88)
         Me.LblUtilizadorDataNascDef.Name = "LblUtilizadorDataNascDef"
         Me.LblUtilizadorDataNascDef.Size = New System.Drawing.Size(89, 13)
-        Me.LblUtilizadorDataNascDef.TabIndex = 4
+        Me.LblUtilizadorDataNascDef.TabIndex = 24
         Me.LblUtilizadorDataNascDef.Text = "Data Nascimento"
         '
         'LblUtilizadorApelidoDef
         '
         Me.LblUtilizadorApelidoDef.AutoSize = True
-        Me.LblUtilizadorApelidoDef.Location = New System.Drawing.Point(107, 61)
+        Me.LblUtilizadorApelidoDef.Location = New System.Drawing.Point(106, 63)
         Me.LblUtilizadorApelidoDef.Name = "LblUtilizadorApelidoDef"
         Me.LblUtilizadorApelidoDef.Size = New System.Drawing.Size(42, 13)
-        Me.LblUtilizadorApelidoDef.TabIndex = 3
+        Me.LblUtilizadorApelidoDef.TabIndex = 23
         Me.LblUtilizadorApelidoDef.Text = "Apelido"
         '
         'LblUtilizadorNomePDef
         '
         Me.LblUtilizadorNomePDef.AutoSize = True
-        Me.LblUtilizadorNomePDef.Location = New System.Drawing.Point(78, 35)
+        Me.LblUtilizadorNomePDef.Location = New System.Drawing.Point(77, 37)
         Me.LblUtilizadorNomePDef.Name = "LblUtilizadorNomePDef"
         Me.LblUtilizadorNomePDef.Size = New System.Drawing.Size(71, 13)
-        Me.LblUtilizadorNomePDef.TabIndex = 2
+        Me.LblUtilizadorNomePDef.TabIndex = 22
         Me.LblUtilizadorNomePDef.Text = "Nome Proprio"
         '
         'LblUtilizadorUserDef
         '
         Me.LblUtilizadorUserDef.AutoSize = True
-        Me.LblUtilizadorUserDef.Location = New System.Drawing.Point(99, 10)
+        Me.LblUtilizadorUserDef.Location = New System.Drawing.Point(98, 12)
         Me.LblUtilizadorUserDef.Name = "LblUtilizadorUserDef"
         Me.LblUtilizadorUserDef.Size = New System.Drawing.Size(50, 13)
-        Me.LblUtilizadorUserDef.TabIndex = 1
+        Me.LblUtilizadorUserDef.TabIndex = 21
         Me.LblUtilizadorUserDef.Text = "Utilizador"
         '
         'BtnImagem5
         '
-        Me.BtnImagem5.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagem5.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagem5.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagem5.CorSelecionado = System.Drawing.Color.Black
+        Me.BtnImagem5.BackColor = System.Drawing.Color.SlateGray
+        Me.BtnImagem5.CorFundo = System.Drawing.Color.SlateGray
+        Me.BtnImagem5.CorHover = System.Drawing.Color.LightSlateGray
+        Me.BtnImagem5.CorSelecionado = System.Drawing.Color.SteelBlue
         Me.BtnImagem5.CorTexto = System.Drawing.Color.White
         Me.BtnImagem5.EstadoBotao = False
         Me.BtnImagem5.Imagem = Nothing
-        Me.BtnImagem5.Location = New System.Drawing.Point(788, 414)
+        Me.BtnImagem5.Location = New System.Drawing.Point(0, 0)
         Me.BtnImagem5.Name = "BtnImagem5"
-        Me.BtnImagem5.Size = New System.Drawing.Size(200, 44)
-        Me.BtnImagem5.TabIndex = 0
+        Me.BtnImagem5.Size = New System.Drawing.Size(260, 44)
+        Me.BtnImagem5.TabIndex = 1
         Me.BtnImagem5.TamanhoLetra = 10
-        Me.BtnImagem5.Texto = "Editar"
+        Me.BtnImagem5.Texto = "Informação Utilizador"
+        '
+        'BtnDefUtilizadorInfoEdit
+        '
+        Me.BtnDefUtilizadorInfoEdit.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnDefUtilizadorInfoEdit.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnDefUtilizadorInfoEdit.CorHover = System.Drawing.Color.Gray
+        Me.BtnDefUtilizadorInfoEdit.CorSelecionado = System.Drawing.Color.Black
+        Me.BtnDefUtilizadorInfoEdit.CorTexto = System.Drawing.Color.White
+        Me.BtnDefUtilizadorInfoEdit.EstadoBotao = False
+        Me.BtnDefUtilizadorInfoEdit.Imagem = Nothing
+        Me.BtnDefUtilizadorInfoEdit.Location = New System.Drawing.Point(787, 374)
+        Me.BtnDefUtilizadorInfoEdit.Name = "BtnDefUtilizadorInfoEdit"
+        Me.BtnDefUtilizadorInfoEdit.Size = New System.Drawing.Size(200, 44)
+        Me.BtnDefUtilizadorInfoEdit.TabIndex = 20
+        Me.BtnDefUtilizadorInfoEdit.TamanhoLetra = 10
+        Me.BtnDefUtilizadorInfoEdit.Texto = "Editar"
         '
         'BtnImagemCancelar
         '
@@ -765,7 +803,8 @@ Partial Class Form1
         Me.PnlUser.ResumeLayout(False)
         Me.PnlUser.PerformLayout()
         Me.PnlDefUtilizador.ResumeLayout(False)
-        Me.PnlDefUtilizador.PerformLayout()
+        Me.PnlDefUtilizadorInfo.ResumeLayout(False)
+        Me.PnlDefUtilizadorInfo.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -807,18 +846,7 @@ Partial Class Form1
     Friend WithEvents LblUtilizadorLogin As System.Windows.Forms.Label
     Friend WithEvents PnlDefUtilizador As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents BtnImagem5 As GestFrotPAP.BtnImagem
-    Friend WithEvents LblUtilizadorGeneroDef As System.Windows.Forms.Label
-    Friend WithEvents LblUtilizadorPagmentoDef As System.Windows.Forms.Label
-    Friend WithEvents LblUtilizadorDataContratDef As System.Windows.Forms.Label
-    Friend WithEvents LblUtilizadorDataNascDef As System.Windows.Forms.Label
-    Friend WithEvents LblUtilizadorApelidoDef As System.Windows.Forms.Label
-    Friend WithEvents LblUtilizadorNomePDef As System.Windows.Forms.Label
-    Friend WithEvents LblUtilizadorUserDef As System.Windows.Forms.Label
-    Friend WithEvents TxtUtilizadorHabilitacoesDef As System.Windows.Forms.TextBox
-    Friend WithEvents LblUtilizadorNotasDef As System.Windows.Forms.Label
-    Friend WithEvents LblUtilizadorHabilitacoesDef As System.Windows.Forms.Label
-    Friend WithEvents TxtUtilizadorNotasDef As System.Windows.Forms.TextBox
+    Friend WithEvents PnlDefUtilizadorInfo As System.Windows.Forms.Panel
     Friend WithEvents TxtUtilizadorGeneroDef As System.Windows.Forms.TextBox
     Friend WithEvents TxtUtilizadorPagmentoDef As System.Windows.Forms.TextBox
     Friend WithEvents TxtUtilizadorDataContratDef As System.Windows.Forms.TextBox
@@ -826,5 +854,18 @@ Partial Class Form1
     Friend WithEvents TxtUtilizadorApelidoDef As System.Windows.Forms.TextBox
     Friend WithEvents TxtUtilizadorNomePDef As System.Windows.Forms.TextBox
     Friend WithEvents TxtUtilizadorUserDef As System.Windows.Forms.TextBox
+    Friend WithEvents TxtUtilizadorNotasDef As System.Windows.Forms.TextBox
+    Friend WithEvents LblUtilizadorNotasDef As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizadorHabilitacoesDef As System.Windows.Forms.Label
+    Friend WithEvents TxtUtilizadorHabilitacoesDef As System.Windows.Forms.TextBox
+    Friend WithEvents LblUtilizadorGeneroDef As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizadorPagmentoDef As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizadorDataContratDef As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizadorDataNascDef As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizadorApelidoDef As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizadorNomePDef As System.Windows.Forms.Label
+    Friend WithEvents LblUtilizadorUserDef As System.Windows.Forms.Label
+    Friend WithEvents BtnDefUtilizadorInfoEdit As GestFrotPAP.BtnImagem
+    Friend WithEvents BtnImagem5 As GestFrotPAP.BtnImagem
 
 End Class

@@ -235,6 +235,16 @@ Public Module LoadOrder
     End Sub
 
     Public Sub MenuUtilizador()
+        'Fonte
+        Form1.LblUtilizadorUserDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.LblUtilizadorNomePDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.LblUtilizadorApelidoDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.LblUtilizadorDataNascDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.LblUtilizadorDataContratDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.LblUtilizadorHabilitacoesDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.LblUtilizadorNotasDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.LblUtilizadorPagmentoDef.Font = GetInstance(10, FontStyle.Bold)
+        Form1.LblUtilizadorGeneroDef.Font = GetInstance(10, FontStyle.Bold)
 
         Form1.TxtUtilizadorUserDef.Font = GetInstance(10, FontStyle.Bold)
         Form1.TxtUtilizadorNomePDef.Font = GetInstance(10, FontStyle.Bold)
@@ -245,6 +255,18 @@ Public Module LoadOrder
         Form1.TxtUtilizadorNotasDef.Font = GetInstance(10, FontStyle.Bold)
         Form1.TxtUtilizadorPagmentoDef.Font = GetInstance(10, FontStyle.Bold)
         Form1.TxtUtilizadorGeneroDef.Font = GetInstance(10, FontStyle.Bold)
+
+        'Cor
+
+        Form1.LblUtilizadorUserDef.ForeColor = Color.White
+        Form1.LblUtilizadorNomePDef.ForeColor = Color.White
+        Form1.LblUtilizadorApelidoDef.ForeColor = Color.White
+        Form1.LblUtilizadorDataNascDef.ForeColor = Color.White
+        Form1.LblUtilizadorDataContratDef.ForeColor = Color.White
+        Form1.LblUtilizadorHabilitacoesDef.ForeColor = Color.White
+        Form1.LblUtilizadorNotasDef.ForeColor = Color.White
+        Form1.LblUtilizadorPagmentoDef.ForeColor = Color.White
+        Form1.LblUtilizadorGeneroDef.ForeColor = Color.White
 
         Form1.TxtUtilizadorUserDef.ForeColor = Color.White
         Form1.TxtUtilizadorNomePDef.ForeColor = Color.White
@@ -258,27 +280,62 @@ Public Module LoadOrder
 
 
 
-        Form1.LblUtilizadorUserDef.Font = GetInstance(10, FontStyle.Bold)
-        Form1.LblUtilizadorNomePDef.Font = GetInstance(10, FontStyle.Bold)
-        Form1.LblUtilizadorApelidoDef.Font = GetInstance(10, FontStyle.Bold)
-        Form1.LblUtilizadorDataNascDef.Font = GetInstance(10, FontStyle.Bold)
-        Form1.LblUtilizadorDataContratDef.Font = GetInstance(10, FontStyle.Bold)
-        Form1.LblUtilizadorHabilitacoesDef.Font = GetInstance(10, FontStyle.Bold)
-        Form1.LblUtilizadorNotasDef.Font = GetInstance(10, FontStyle.Bold)
-        Form1.LblUtilizadorPagmentoDef.Font = GetInstance(10, FontStyle.Bold)
-        Form1.LblUtilizadorGeneroDef.Font = GetInstance(10, FontStyle.Bold)
+        'Lado Esquerdo
+        Form1.LblUtilizadorUserDef.Left = Form1.PnlDefUtilizadorInfo.Left + 10
+        Form1.LblUtilizadorNomePDef.Left = Form1.PnlDefUtilizadorInfo.Left + 10
+        Form1.LblUtilizadorApelidoDef.Left = Form1.PnlDefUtilizadorInfo.Left + 10
+        Form1.LblUtilizadorDataNascDef.Left = Form1.PnlDefUtilizadorInfo.Left + 10
 
-        Form1.LblUtilizadorUserDef.ForeColor = Color.White
-        Form1.LblUtilizadorNomePDef.ForeColor = Color.White
-        Form1.LblUtilizadorApelidoDef.ForeColor = Color.White
-        Form1.LblUtilizadorDataNascDef.ForeColor = Color.White
-        Form1.LblUtilizadorDataContratDef.ForeColor = Color.White
-        Form1.LblUtilizadorHabilitacoesDef.ForeColor = Color.White
-        Form1.LblUtilizadorNotasDef.ForeColor = Color.White
-        Form1.LblUtilizadorPagmentoDef.ForeColor = Color.White
-        Form1.LblUtilizadorGeneroDef.ForeColor = Color.White
+        Form1.LblUtilizadorUserDef.Top = Form1.PnlDefUtilizadorInfo.Top + 5
+        Form1.LblUtilizadorNomePDef.Top = Form1.LblUtilizadorUserDef.Bottom + 5
+        Form1.LblUtilizadorApelidoDef.Top = Form1.LblUtilizadorNomePDef.Bottom + 5
+        Form1.LblUtilizadorDataNascDef.Top = Form1.LblUtilizadorApelidoDef.Bottom + 5
+
+        Form1.TxtUtilizadorUserDef.Left = Form1.LblUtilizadorDataNascDef.Right + 10
+        Form1.TxtUtilizadorNomePDef.Left = Form1.LblUtilizadorDataNascDef.Right + 10
+        Form1.TxtUtilizadorApelidoDef.Left = Form1.LblUtilizadorDataNascDef.Right + 10
+        Form1.TxtUtilizadorDataNascDef.Left = Form1.LblUtilizadorDataNascDef.Right + 10
+
+        Form1.TxtUtilizadorUserDef.Top = Form1.PnlDefUtilizadorInfo.Top + 5
+        Form1.TxtUtilizadorNomePDef.Top = Form1.LblUtilizadorUserDef.Bottom + 5
+        Form1.TxtUtilizadorApelidoDef.Top = Form1.LblUtilizadorNomePDef.Bottom + 5
+        Form1.TxtUtilizadorDataNascDef.Top = Form1.LblUtilizadorApelidoDef.Bottom + 5
+
+        'Lado Direito
+        Form1.LblUtilizadorGeneroDef.Left = Form1.TxtUtilizadorUserDef.Right + 10
+        Form1.LblUtilizadorDataContratDef.Left = Form1.TxtUtilizadorUserDef.Right + 10
+        Form1.LblUtilizadorPagmentoDef.Left = Form1.TxtUtilizadorUserDef.Right + 10
+
+        Form1.LblUtilizadorDataContratDef.Top = Form1.PnlDefUtilizadorInfo.Top + 5
+        Form1.LblUtilizadorPagmentoDef.Top = Form1.LblUtilizadorDataContratDef.Bottom + 5
+        Form1.LblUtilizadorGeneroDef.Top = Form1.LblUtilizadorPagmentoDef.Bottom + 5
 
 
+        Form1.TxtUtilizadorDataContratDef.Left = Form1.LblUtilizadorDataContratDef.Right + 10
+        Form1.TxtUtilizadorPagmentoDef.Left = Form1.LblUtilizadorDataContratDef.Right + 10
+        Form1.TxtUtilizadorGeneroDef.Left = Form1.LblUtilizadorDataContratDef.Right + 10
+
+        Form1.TxtUtilizadorDataContratDef.Top = Form1.PnlDefUtilizadorInfo.Top + 5
+        Form1.TxtUtilizadorPagmentoDef.Top = Form1.TxtUtilizadorDataContratDef.Bottom + 5
+        Form1.TxtUtilizadorGeneroDef.Top = Form1.TxtUtilizadorPagmentoDef.Bottom + 5
+
+
+
+
+
+        Form1.LblUtilizadorHabilitacoesDef.Left = Form1.PnlDefUtilizadorInfo.Left + 10
+        Form1.LblUtilizadorHabilitacoesDef.Top = Form1.TxtUtilizadorDataNascDef.Bottom + 25
+
+        Form1.TxtUtilizadorHabilitacoesDef.Left = Form1.PnlDefUtilizadorInfo.Left + 10
+        Form1.TxtUtilizadorHabilitacoesDef.Top = Form1.LblUtilizadorHabilitacoesDef.Bottom + 5
+
+
+
+        Form1.LblUtilizadorNotasDef.Left = Form1.TxtUtilizadorHabilitacoesDef.Right + 10
+        Form1.LblUtilizadorNotasDef.Top = Form1.TxtUtilizadorDataNascDef.Bottom + 25
+
+        Form1.TxtUtilizadorNotasDef.Left = Form1.TxtUtilizadorHabilitacoesDef.Right + 10
+        Form1.TxtUtilizadorNotasDef.Top = Form1.LblUtilizadorNotasDef.Bottom + 5
 
 
         'DADOS Utilizador
