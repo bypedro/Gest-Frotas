@@ -286,7 +286,7 @@ Public Module LoadOrder
         Form1.LblUtilizadorApelidoDef.Left = Form1.PnlDefUtilizadorInfo.Left + 10
         Form1.LblUtilizadorDataNascDef.Left = Form1.PnlDefUtilizadorInfo.Left + 10
 
-        Form1.LblUtilizadorUserDef.Top = Form1.PnlDefUtilizadorInfo.Top + 5
+        Form1.LblUtilizadorUserDef.Top = 5
         Form1.LblUtilizadorNomePDef.Top = Form1.LblUtilizadorUserDef.Bottom + 5
         Form1.LblUtilizadorApelidoDef.Top = Form1.LblUtilizadorNomePDef.Bottom + 5
         Form1.LblUtilizadorDataNascDef.Top = Form1.LblUtilizadorApelidoDef.Bottom + 5
@@ -296,7 +296,7 @@ Public Module LoadOrder
         Form1.TxtUtilizadorApelidoDef.Left = Form1.LblUtilizadorDataNascDef.Right + 10
         Form1.TxtUtilizadorDataNascDef.Left = Form1.LblUtilizadorDataNascDef.Right + 10
 
-        Form1.TxtUtilizadorUserDef.Top = Form1.PnlDefUtilizadorInfo.Top + 5
+        Form1.TxtUtilizadorUserDef.Top = 5
         Form1.TxtUtilizadorNomePDef.Top = Form1.LblUtilizadorUserDef.Bottom + 5
         Form1.TxtUtilizadorApelidoDef.Top = Form1.LblUtilizadorNomePDef.Bottom + 5
         Form1.TxtUtilizadorDataNascDef.Top = Form1.LblUtilizadorApelidoDef.Bottom + 5
@@ -306,7 +306,7 @@ Public Module LoadOrder
         Form1.LblUtilizadorDataContratDef.Left = Form1.TxtUtilizadorUserDef.Right + 10
         Form1.LblUtilizadorPagmentoDef.Left = Form1.TxtUtilizadorUserDef.Right + 10
 
-        Form1.LblUtilizadorDataContratDef.Top = Form1.PnlDefUtilizadorInfo.Top + 5
+        Form1.LblUtilizadorDataContratDef.Top = 5
         Form1.LblUtilizadorPagmentoDef.Top = Form1.LblUtilizadorDataContratDef.Bottom + 5
         Form1.LblUtilizadorGeneroDef.Top = Form1.LblUtilizadorPagmentoDef.Bottom + 5
 
@@ -315,7 +315,7 @@ Public Module LoadOrder
         Form1.TxtUtilizadorPagmentoDef.Left = Form1.LblUtilizadorDataContratDef.Right + 10
         Form1.TxtUtilizadorGeneroDef.Left = Form1.LblUtilizadorDataContratDef.Right + 10
 
-        Form1.TxtUtilizadorDataContratDef.Top = Form1.PnlDefUtilizadorInfo.Top + 5
+        Form1.TxtUtilizadorDataContratDef.Top = 5
         Form1.TxtUtilizadorPagmentoDef.Top = Form1.TxtUtilizadorDataContratDef.Bottom + 5
         Form1.TxtUtilizadorGeneroDef.Top = Form1.TxtUtilizadorPagmentoDef.Bottom + 5
 

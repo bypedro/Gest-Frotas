@@ -6,25 +6,29 @@ Imports System.Drawing.Drawing2D
 
 
 Public Class Form1
-    Dim N As Integer = 3 'Nº butões
-    Dim BtnImagem(N) As BtnImagem
-    Dim panel(N) As Panel
+    Dim NMenuPrincipal As Integer = 3 'Nº butões
+    Dim BtnImagemMenuPrincipal(NMenuPrincipal) As BtnImagem
+    Dim panelMenuPrincipal(NMenuPrincipal) As Panel
 
-    Private Sub check(ByVal c As Integer, Optional ByVal MenuDefault As Boolean = False, Optional ByVal MenuHome As Boolean = False)
+    Dim NMenuDefutilizador As Integer = 1 '  'Nº butões
+    Dim BtnImagemMenuDefUtilizador1(NMenuDefutilizador) As BtnImagem
+    Dim panelMenuDefUtilizador(NMenuDefutilizador) As Panel
+
+    Private Sub MenuPrincipal(ByVal c As Integer, Optional ByVal MenuDefault As Boolean = False, Optional ByVal MenuHome As Boolean = False)
         Dim a As Integer
-        For a = 0 To N
-            If BtnImagem(a).EstadoBotao = True And a <> c Then
-                BtnImagem(a).EstadoBotao = False
-                BtnImagem(a).VerificarEstadoBotao()
-                panel(a).Hide()
+        For a = 0 To NMenuPrincipal
+            If BtnImagemMenuPrincipal(a).EstadoBotao = True And a <> c Then
+                BtnImagemMenuPrincipal(a).EstadoBotao = False
+                BtnImagemMenuPrincipal(a).VerificarEstadoBotao()
+                panelMenuPrincipal(a).Hide()
             End If
-            panel(c).Show()
+            panelMenuPrincipal(c).Show()
         Next
         If MenuDefault = True Then
             If PnlMenu.Right = 200 Then
                 BtnMenu1.resetbtn()
-                For a = 0 To N
-                    BtnImagem(a).Hide()
+                For a = 0 To NMenuPrincipal
+                    BtnImagemMenuPrincipal(a).Hide()
                 Next
                 TmrSlide1.Enabled = True
             End If
@@ -32,14 +36,28 @@ Public Class Form1
         If MenuHome = True Then
             If PnlMenu.Right = 36 Then
                 BtnMenu1.resetbtn()
-                For a = 0 To N
-                    BtnImagem(a).Hide()
+                For a = 0 To NMenuPrincipal
+                    BtnImagemMenuPrincipal(a).Hide()
                 Next
                 TmrSlide2.Enabled = True
                 BtnMenu1.zEstadoBotao = False
                 BtnMenu1.resetbtn()
             End If
         End If
+    End Sub
+
+   
+
+    Private Sub MenuDefUtilizador(ByVal d As Integer)
+        Dim a As Integer
+        For a = 0 To NMenuDefutilizador
+            If BtnImagemMenuDefUtilizador1(a).EstadoBotao = True And a <> d Then
+                BtnImagemMenuDefUtilizador1(a).EstadoBotao = False
+                BtnImagemMenuDefUtilizador1(a).VerificarEstadoBotao()
+                panelMenuDefUtilizador(a).Hide()
+            End If
+                panelMenuDefUtilizador(d).Show()
+        Next
     End Sub
 
     Private Sub Botao(ByVal c As BtnImagem)
@@ -50,7 +68,7 @@ Public Class Form1
     End Sub
 
 
-   
+
 
 
     Private Sub Form1_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
@@ -68,7 +86,6 @@ Public Class Form1
                 PnlUser.Hide()
             End If
         End If
-
     End Sub
 
 
@@ -88,16 +105,27 @@ Public Class Form1
         'Adiciona evento a todos os objetos do programa(Só os da microsoft)
 
         'Arrays de Objetos
-        panel(0) = PnlHome
-        panel(1) = Panel2
-        panel(2) = Panel3
-        panel(3) = Panel4
-        BtnImagem(0) = BtnImagem1
-        BtnImagem(1) = BtnImagem2
-        BtnImagem(2) = BtnImagem3
-        BtnImagem(3) = BtnImagem4
-        'Arrays de Objetos
+        panelMenuDefUtilizador(0) = PnlDefUtilizadorInfo
+        panelMenuDefUtilizador(1) = PnlDefUtilizadorContato
 
+        BtnImagemMenuDefUtilizador1(0) = BtnImagemDefUtilizadorInfo
+        BtnImagemMenuDefUtilizador1(1) = BtnImagemDefUtilizadorContato
+        
+
+
+        panelMenuPrincipal(0) = PnlHome
+        panelMenuPrincipal(1) = Panel2
+        panelMenuPrincipal(2) = Panel3
+        panelMenuPrincipal(3) = Panel4
+        BtnImagemMenuPrincipal(0) = BtnImagem1
+        BtnImagemMenuPrincipal(1) = BtnImagem2
+        BtnImagemMenuPrincipal(2) = BtnImagem3
+        BtnImagemMenuPrincipal(3) = BtnImagem4
+
+
+     
+        
+        'Arrays de Objetos
 
         'Panel1.Location = New Point((Me.DisplayRectangle.Width - Panel1.Width) / 2 + 100, (Me.DisplayRectangle.Height - Panel1.Height) / 2) 'Código para por no centro do ecrâ
 
@@ -128,27 +156,27 @@ Public Class Form1
 
 
     Private Sub BtnImagem1_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem1.ButtonClickMasterRace
-        check(0, False, True)
+        MenuPrincipal(0, False, True)
     End Sub
     Private Sub BtnImagem2_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem2.ButtonClickMasterRace
-        check(1, True)
+        MenuPrincipal(1, True)
     End Sub
     Private Sub BtnImagem3_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem3.ButtonClickMasterRace
-        check(2, True)
+        MenuPrincipal(2, True)
     End Sub
     Private Sub BtnImagem4_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem4.ButtonClickMasterRace
-        check(3, True)
+        MenuPrincipal(3, True)
     End Sub
 
     Private Sub TmrSlide1_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles TmrSlide1.Tick
         PnlMenu.Left = PnlMenu.Left - 2
-        For a = 0 To N
-            BtnImagem(a).Left = BtnImagem(a).Left + 2
+        For a = 0 To NMenuPrincipal
+            BtnImagemMenuPrincipal(a).Left = BtnImagemMenuPrincipal(a).Left + 2
         Next
         If PnlMenu.Right = 36 Then
             TmrSlide1.Enabled = False
-            For a = 0 To N
-                BtnImagem(a).Show()
+            For a = 0 To NMenuPrincipal
+                BtnImagemMenuPrincipal(a).Show()
             Next
         End If
         BtnMenu1.zEstadoBotao = True
@@ -158,13 +186,13 @@ Public Class Form1
     Private Sub TmrSlide2_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles TmrSlide2.Tick
         PnlMenu.Left = PnlMenu.Left + 2
         Dim a As Integer
-        For a = 0 To N
-            BtnImagem(a).Left = BtnImagem(a).Left - 2
+        For a = 0 To NMenuPrincipal
+            BtnImagemMenuPrincipal(a).Left = BtnImagemMenuPrincipal(a).Left - 2
         Next
         If PnlMenu.Right = 200 Then
             TmrSlide2.Enabled = False
-            For a = 0 To N
-                BtnImagem(a).Show()
+            For a = 0 To NMenuPrincipal
+                BtnImagemMenuPrincipal(a).Show()
             Next
         End If
         BtnMenu1.zEstadoBotao = False
@@ -173,10 +201,10 @@ Public Class Form1
 
     Private Sub BtnMenu1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BtnMenu1.Click
 
-        If BtnImagem(0).EstadoBotao <> True Then
+        If BtnImagemMenuPrincipal(0).EstadoBotao <> True Then
             BtnMenu1.resetbtn()
-            For a = 0 To N
-                BtnImagem(a).Hide()
+            For a = 0 To NMenuPrincipal
+                BtnImagemMenuPrincipal(a).Hide()
             Next
             If PnlMenu.Right = 200 Then
                 TmrSlide1.Enabled = True
@@ -195,10 +223,8 @@ Public Class Form1
         If Login(TxtUserLogin.Text, HashPassword(TxtPwdLogin.Text)) = True Then
             'If DetalhesUtilizador.TipoUtilizadorCod = 1 Then 'Só Admin
             LoadOrder.MenuPrincipalPage()
-            check(0)
+            MenuPrincipal(0)
             ' If
-
-
         Else
 
         End If
@@ -320,5 +346,14 @@ Public Class Form1
             BtnDefUtilizadorInfoEdit.Texto = "Editar"
         End If
 
+    End Sub
+
+    Private Sub BtnImagemDefUtilizadorInfo_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemDefUtilizadorInfo.ButtonClickMasterRace
+        MenuDefUtilizador(0)
+
+    End Sub
+
+    Private Sub BtnImagemDefUtilizadorContato_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemDefUtilizadorContato.ButtonClickMasterRace
+        MenuDefUtilizador(1)
     End Sub
 End Class
