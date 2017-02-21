@@ -68,9 +68,6 @@ Public Class Form1
     End Sub
 
 
-
-
-
     Private Sub Form1_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
         Fade(1) 'VEr
     End Sub
@@ -356,4 +353,5 @@ Public Class Form1
     Private Sub BtnImagemDefUtilizadorContato_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemDefUtilizadorContato.ButtonClickMasterRace
         MenuDefUtilizador(1)
     End Sub
+
 End Class

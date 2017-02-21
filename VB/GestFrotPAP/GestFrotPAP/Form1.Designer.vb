@@ -73,6 +73,26 @@ Partial Class Form1
         Me.LblUtilizadorHabilitacoesDef = New System.Windows.Forms.Label()
         Me.TxtUtilizadorDataContratDef = New System.Windows.Forms.TextBox()
         Me.LblUtilizadorNomePDef = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
+        Me.TxtTelemovelUserCon = New System.Windows.Forms.TextBox()
+        Me.LblTelemovelUserCon = New System.Windows.Forms.Label()
+        Me.LblNotasUserCon = New System.Windows.Forms.Label()
+        Me.LblEmailUserCon = New System.Windows.Forms.Label()
+        Me.TxtEmailUserCon = New System.Windows.Forms.TextBox()
+        Me.TxtTelefoneUserCon = New System.Windows.Forms.TextBox()
+        Me.TxtNotasUserCon = New System.Windows.Forms.TextBox()
+        Me.LblTelefoneUserCon = New System.Windows.Forms.Label()
+        Me.TxtCidadeUserCon = New System.Windows.Forms.TextBox()
+        Me.LblCidadeUserCon = New System.Windows.Forms.Label()
+        Me.LblPaisUserCon = New System.Windows.Forms.Label()
+        Me.TxtPaisUserCon = New System.Windows.Forms.TextBox()
+        Me.TxtRuaUserCon = New System.Windows.Forms.TextBox()
+        Me.LblRuaUserCon = New System.Windows.Forms.Label()
         Me.BtnImagemDefUtilizadorContato = New GestFrotPAP.BtnImagem()
         Me.BtnImagemDefUtilizadorInfo = New GestFrotPAP.BtnImagem()
         Me.BtnDefUtilizadorInfoEdit = New GestFrotPAP.BtnImagem()
@@ -91,6 +111,7 @@ Partial Class Form1
         Me.PnlLogin.SuspendLayout()
         Me.PnlUser.SuspendLayout()
         Me.PnlDefUtilizador.SuspendLayout()
+        Me.PnlDefUtilizadorContato.SuspendLayout()
         Me.PnlDefUtilizadorInfo.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -386,28 +407,49 @@ Partial Class Form1
         '
         'PnlDefUtilizador
         '
-        Me.PnlDefUtilizador.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.PnlDefUtilizador.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.PnlDefUtilizador.Controls.Add(Me.PnlDefUtilizadorContato)
         Me.PnlDefUtilizador.Controls.Add(Me.BtnImagemDefUtilizadorContato)
         Me.PnlDefUtilizador.Controls.Add(Me.BtnImagemDefUtilizadorInfo)
         Me.PnlDefUtilizador.Controls.Add(Me.PnlDefUtilizadorInfo)
-        Me.PnlDefUtilizador.Location = New System.Drawing.Point(0, 30)
+        Me.PnlDefUtilizador.Location = New System.Drawing.Point(0, 29)
         Me.PnlDefUtilizador.Name = "PnlDefUtilizador"
-        Me.PnlDefUtilizador.Size = New System.Drawing.Size(1000, 470)
+        Me.PnlDefUtilizador.Size = New System.Drawing.Size(1000, 471)
         Me.PnlDefUtilizador.TabIndex = 14
         Me.PnlDefUtilizador.Visible = False
         '
         'PnlDefUtilizadorContato
         '
         Me.PnlDefUtilizadorContato.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.PnlDefUtilizadorContato.Location = New System.Drawing.Point(532, 44)
+        Me.PnlDefUtilizadorContato.Controls.Add(Me.TxtCidadeUserCon)
+        Me.PnlDefUtilizadorContato.Controls.Add(Me.LblCidadeUserCon)
+        Me.PnlDefUtilizadorContato.Controls.Add(Me.LblPaisUserCon)
+        Me.PnlDefUtilizadorContato.Controls.Add(Me.TxtPaisUserCon)
+        Me.PnlDefUtilizadorContato.Controls.Add(Me.TxtRuaUserCon)
+        Me.PnlDefUtilizadorContato.Controls.Add(Me.LblRuaUserCon)
+        Me.PnlDefUtilizadorContato.Controls.Add(Me.TxtTelemovelUserCon)
+        Me.PnlDefUtilizadorContato.Controls.Add(Me.LblTelemovelUserCon)
+        Me.PnlDefUtilizadorContato.Controls.Add(Me.LblNotasUserCon)
+        Me.PnlDefUtilizadorContato.Controls.Add(Me.LblEmailUserCon)
+        Me.PnlDefUtilizadorContato.Controls.Add(Me.TxtEmailUserCon)
+        Me.PnlDefUtilizadorContato.Controls.Add(Me.TxtTelefoneUserCon)
+        Me.PnlDefUtilizadorContato.Controls.Add(Me.TxtNotasUserCon)
+        Me.PnlDefUtilizadorContato.Controls.Add(Me.LblTelefoneUserCon)
+        Me.PnlDefUtilizadorContato.Location = New System.Drawing.Point(0, 44)
         Me.PnlDefUtilizadorContato.Name = "PnlDefUtilizadorContato"
-        Me.PnlDefUtilizadorContato.Size = New System.Drawing.Size(461, 425)
+        Me.PnlDefUtilizadorContato.Size = New System.Drawing.Size(1000, 425)
         Me.PnlDefUtilizadorContato.TabIndex = 3
+        Me.PnlDefUtilizadorContato.Visible = False
         '
         'PnlDefUtilizadorInfo
         '
-        Me.PnlDefUtilizadorInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.PnlDefUtilizadorInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.ComboBox4)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.ComboBox5)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.ComboBox6)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.ComboBox3)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.ComboBox2)
+        Me.PnlDefUtilizadorInfo.Controls.Add(Me.ComboBox1)
         Me.PnlDefUtilizadorInfo.Controls.Add(Me.TxtUtilizadorGeneroDef)
         Me.PnlDefUtilizadorInfo.Controls.Add(Me.BtnDefUtilizadorInfoEdit)
         Me.PnlDefUtilizadorInfo.Controls.Add(Me.TxtUtilizadorUserDef)
@@ -429,7 +471,7 @@ Partial Class Form1
         Me.PnlDefUtilizadorInfo.Controls.Add(Me.LblUtilizadorNomePDef)
         Me.PnlDefUtilizadorInfo.Location = New System.Drawing.Point(0, 44)
         Me.PnlDefUtilizadorInfo.Name = "PnlDefUtilizadorInfo"
-        Me.PnlDefUtilizadorInfo.Size = New System.Drawing.Size(615, 425)
+        Me.PnlDefUtilizadorInfo.Size = New System.Drawing.Size(1000, 425)
         Me.PnlDefUtilizadorInfo.TabIndex = 0
         '
         'TxtUtilizadorGeneroDef
@@ -616,6 +658,216 @@ Partial Class Form1
         Me.LblUtilizadorNomePDef.TabIndex = 22
         Me.LblUtilizadorNomePDef.Text = "Nome Proprio"
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ComboBox1.DropDownHeight = 50
+        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox1.ForeColor = System.Drawing.Color.White
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.IntegralHeight = False
+        Me.ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"})
+        Me.ComboBox1.Location = New System.Drawing.Point(143, 107)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(49, 21)
+        Me.ComboBox1.TabIndex = 40
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(198, 107)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(49, 21)
+        Me.ComboBox2.TabIndex = 41
+        '
+        'ComboBox3
+        '
+        Me.ComboBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ComboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Location = New System.Drawing.Point(252, 107)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(49, 21)
+        Me.ComboBox3.TabIndex = 42
+        '
+        'ComboBox4
+        '
+        Me.ComboBox4.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ComboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox4.FormattingEnabled = True
+        Me.ComboBox4.Location = New System.Drawing.Point(252, 81)
+        Me.ComboBox4.Name = "ComboBox4"
+        Me.ComboBox4.Size = New System.Drawing.Size(49, 21)
+        Me.ComboBox4.TabIndex = 45
+        '
+        'ComboBox5
+        '
+        Me.ComboBox5.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ComboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox5.FormattingEnabled = True
+        Me.ComboBox5.Location = New System.Drawing.Point(198, 81)
+        Me.ComboBox5.Name = "ComboBox5"
+        Me.ComboBox5.Size = New System.Drawing.Size(49, 21)
+        Me.ComboBox5.TabIndex = 44
+        '
+        'ComboBox6
+        '
+        Me.ComboBox6.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ComboBox6.DropDownHeight = 50
+        Me.ComboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox6.ForeColor = System.Drawing.Color.White
+        Me.ComboBox6.FormattingEnabled = True
+        Me.ComboBox6.IntegralHeight = False
+        Me.ComboBox6.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"})
+        Me.ComboBox6.Location = New System.Drawing.Point(143, 81)
+        Me.ComboBox6.Name = "ComboBox6"
+        Me.ComboBox6.Size = New System.Drawing.Size(49, 21)
+        Me.ComboBox6.TabIndex = 43
+        '
+        'TxtTelemovelUserCon
+        '
+        Me.TxtTelemovelUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtTelemovelUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtTelemovelUserCon.Enabled = False
+        Me.TxtTelemovelUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtTelemovelUserCon.Location = New System.Drawing.Point(79, 38)
+        Me.TxtTelemovelUserCon.Name = "TxtTelemovelUserCon"
+        Me.TxtTelemovelUserCon.Size = New System.Drawing.Size(130, 15)
+        Me.TxtTelemovelUserCon.TabIndex = 57
+        '
+        'LblTelemovelUserCon
+        '
+        Me.LblTelemovelUserCon.AutoSize = True
+        Me.LblTelemovelUserCon.Location = New System.Drawing.Point(12, 38)
+        Me.LblTelemovelUserCon.Name = "LblTelemovelUserCon"
+        Me.LblTelemovelUserCon.Size = New System.Drawing.Size(56, 13)
+        Me.LblTelemovelUserCon.TabIndex = 46
+        Me.LblTelemovelUserCon.Text = "Telemóvel"
+        '
+        'LblNotasUserCon
+        '
+        Me.LblNotasUserCon.AutoSize = True
+        Me.LblNotasUserCon.Location = New System.Drawing.Point(12, 84)
+        Me.LblNotasUserCon.Name = "LblNotasUserCon"
+        Me.LblNotasUserCon.Size = New System.Drawing.Size(35, 13)
+        Me.LblNotasUserCon.TabIndex = 55
+        Me.LblNotasUserCon.Text = "Notas"
+        '
+        'LblEmailUserCon
+        '
+        Me.LblEmailUserCon.AutoSize = True
+        Me.LblEmailUserCon.Location = New System.Drawing.Point(12, 16)
+        Me.LblEmailUserCon.Name = "LblEmailUserCon"
+        Me.LblEmailUserCon.Size = New System.Drawing.Size(32, 13)
+        Me.LblEmailUserCon.TabIndex = 48
+        Me.LblEmailUserCon.Text = "Email"
+        '
+        'TxtEmailUserCon
+        '
+        Me.TxtEmailUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtEmailUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtEmailUserCon.Enabled = False
+        Me.TxtEmailUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtEmailUserCon.Location = New System.Drawing.Point(79, 16)
+        Me.TxtEmailUserCon.Name = "TxtEmailUserCon"
+        Me.TxtEmailUserCon.Size = New System.Drawing.Size(130, 15)
+        Me.TxtEmailUserCon.TabIndex = 59
+        '
+        'TxtTelefoneUserCon
+        '
+        Me.TxtTelefoneUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtTelefoneUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtTelefoneUserCon.Enabled = False
+        Me.TxtTelefoneUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtTelefoneUserCon.Location = New System.Drawing.Point(79, 59)
+        Me.TxtTelefoneUserCon.Name = "TxtTelefoneUserCon"
+        Me.TxtTelefoneUserCon.Size = New System.Drawing.Size(130, 15)
+        Me.TxtTelefoneUserCon.TabIndex = 58
+        '
+        'TxtNotasUserCon
+        '
+        Me.TxtNotasUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtNotasUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtNotasUserCon.Enabled = False
+        Me.TxtNotasUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtNotasUserCon.Location = New System.Drawing.Point(15, 111)
+        Me.TxtNotasUserCon.Multiline = True
+        Me.TxtNotasUserCon.Name = "TxtNotasUserCon"
+        Me.TxtNotasUserCon.Size = New System.Drawing.Size(265, 150)
+        Me.TxtNotasUserCon.TabIndex = 56
+        Me.TxtNotasUserCon.Text = "Isto Serve para Notas" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Tipo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Informação Util sobre o utilizador" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'LblTelefoneUserCon
+        '
+        Me.LblTelefoneUserCon.AutoSize = True
+        Me.LblTelefoneUserCon.Location = New System.Drawing.Point(12, 59)
+        Me.LblTelefoneUserCon.Name = "LblTelefoneUserCon"
+        Me.LblTelefoneUserCon.Size = New System.Drawing.Size(49, 13)
+        Me.LblTelefoneUserCon.TabIndex = 47
+        Me.LblTelefoneUserCon.Text = "Telefone"
+        '
+        'TxtCidadeUserCon
+        '
+        Me.TxtCidadeUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtCidadeUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtCidadeUserCon.Enabled = False
+        Me.TxtCidadeUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCidadeUserCon.Location = New System.Drawing.Point(291, 39)
+        Me.TxtCidadeUserCon.Name = "TxtCidadeUserCon"
+        Me.TxtCidadeUserCon.Size = New System.Drawing.Size(130, 15)
+        Me.TxtCidadeUserCon.TabIndex = 63
+        '
+        'LblCidadeUserCon
+        '
+        Me.LblCidadeUserCon.AutoSize = True
+        Me.LblCidadeUserCon.Location = New System.Drawing.Point(224, 39)
+        Me.LblCidadeUserCon.Name = "LblCidadeUserCon"
+        Me.LblCidadeUserCon.Size = New System.Drawing.Size(40, 13)
+        Me.LblCidadeUserCon.TabIndex = 60
+        Me.LblCidadeUserCon.Text = "Cidade"
+        '
+        'LblPaisUserCon
+        '
+        Me.LblPaisUserCon.AutoSize = True
+        Me.LblPaisUserCon.Location = New System.Drawing.Point(224, 17)
+        Me.LblPaisUserCon.Name = "LblPaisUserCon"
+        Me.LblPaisUserCon.Size = New System.Drawing.Size(29, 13)
+        Me.LblPaisUserCon.TabIndex = 62
+        Me.LblPaisUserCon.Text = "País"
+        '
+        'TxtPaisUserCon
+        '
+        Me.TxtPaisUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtPaisUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtPaisUserCon.Enabled = False
+        Me.TxtPaisUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtPaisUserCon.Location = New System.Drawing.Point(291, 17)
+        Me.TxtPaisUserCon.Name = "TxtPaisUserCon"
+        Me.TxtPaisUserCon.Size = New System.Drawing.Size(130, 15)
+        Me.TxtPaisUserCon.TabIndex = 65
+        '
+        'TxtRuaUserCon
+        '
+        Me.TxtRuaUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtRuaUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtRuaUserCon.Enabled = False
+        Me.TxtRuaUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtRuaUserCon.Location = New System.Drawing.Point(291, 60)
+        Me.TxtRuaUserCon.Name = "TxtRuaUserCon"
+        Me.TxtRuaUserCon.Size = New System.Drawing.Size(130, 15)
+        Me.TxtRuaUserCon.TabIndex = 64
+        '
+        'LblRuaUserCon
+        '
+        Me.LblRuaUserCon.AutoSize = True
+        Me.LblRuaUserCon.Location = New System.Drawing.Point(224, 60)
+        Me.LblRuaUserCon.Name = "LblRuaUserCon"
+        Me.LblRuaUserCon.Size = New System.Drawing.Size(27, 13)
+        Me.LblRuaUserCon.TabIndex = 61
+        Me.LblRuaUserCon.Text = "Rua"
+        '
         'BtnImagemDefUtilizadorContato
         '
         Me.BtnImagemDefUtilizadorContato.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
@@ -769,7 +1021,7 @@ Partial Class Form1
         Me.BtnImagem2.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagem2.TabIndex = 1
         Me.BtnImagem2.TamanhoLetra = 10
-        Me.BtnImagem2.Texto = "COISA"
+        Me.BtnImagem2.Texto = "Abastecimento"
         '
         'BtnImagem4
         '
@@ -785,7 +1037,7 @@ Partial Class Form1
         Me.BtnImagem4.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagem4.TabIndex = 3
         Me.BtnImagem4.TamanhoLetra = 10
-        Me.BtnImagem4.Texto = "COISA"
+        Me.BtnImagem4.Texto = "Veiculo"
         '
         'BtnImagem3
         '
@@ -801,7 +1053,7 @@ Partial Class Form1
         Me.BtnImagem3.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagem3.TabIndex = 2
         Me.BtnImagem3.TamanhoLetra = 10
-        Me.BtnImagem3.Texto = "COISA"
+        Me.BtnImagem3.Texto = "Manutenção"
         '
         'Form1
         '
@@ -831,6 +1083,8 @@ Partial Class Form1
         Me.PnlUser.ResumeLayout(False)
         Me.PnlUser.PerformLayout()
         Me.PnlDefUtilizador.ResumeLayout(False)
+        Me.PnlDefUtilizadorContato.ResumeLayout(False)
+        Me.PnlDefUtilizadorContato.PerformLayout()
         Me.PnlDefUtilizadorInfo.ResumeLayout(False)
         Me.PnlDefUtilizadorInfo.PerformLayout()
         Me.ResumeLayout(False)
@@ -897,5 +1151,25 @@ Partial Class Form1
     Friend WithEvents BtnImagemDefUtilizadorInfo As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagemDefUtilizadorContato As GestFrotPAP.BtnImagem
     Friend WithEvents PnlDefUtilizadorContato As System.Windows.Forms.Panel
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBox4 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBox5 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBox6 As System.Windows.Forms.ComboBox
+    Friend WithEvents TxtTelemovelUserCon As System.Windows.Forms.TextBox
+    Friend WithEvents LblTelemovelUserCon As System.Windows.Forms.Label
+    Friend WithEvents LblNotasUserCon As System.Windows.Forms.Label
+    Friend WithEvents LblEmailUserCon As System.Windows.Forms.Label
+    Friend WithEvents TxtEmailUserCon As System.Windows.Forms.TextBox
+    Friend WithEvents TxtTelefoneUserCon As System.Windows.Forms.TextBox
+    Friend WithEvents TxtNotasUserCon As System.Windows.Forms.TextBox
+    Friend WithEvents LblTelefoneUserCon As System.Windows.Forms.Label
+    Friend WithEvents TxtCidadeUserCon As System.Windows.Forms.TextBox
+    Friend WithEvents LblCidadeUserCon As System.Windows.Forms.Label
+    Friend WithEvents LblPaisUserCon As System.Windows.Forms.Label
+    Friend WithEvents TxtPaisUserCon As System.Windows.Forms.TextBox
+    Friend WithEvents TxtRuaUserCon As System.Windows.Forms.TextBox
+    Friend WithEvents LblRuaUserCon As System.Windows.Forms.Label
 
 End Class
