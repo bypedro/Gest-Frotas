@@ -1,6 +1,6 @@
 ﻿Imports System.Drawing
 Imports System.Drawing.Drawing2D
-
+Imports System.Drawing.Text
 
 
 
@@ -46,7 +46,7 @@ Public Class Form1
         End If
     End Sub
 
-   
+
 
     Private Sub MenuDefUtilizador(ByVal d As Integer)
         Dim a As Integer
@@ -56,7 +56,7 @@ Public Class Form1
                 BtnImagemMenuDefUtilizador1(a).VerificarEstadoBotao()
                 panelMenuDefUtilizador(a).Hide()
             End If
-                panelMenuDefUtilizador(d).Show()
+            panelMenuDefUtilizador(d).Show()
         Next
     End Sub
 
@@ -107,7 +107,7 @@ Public Class Form1
 
         BtnImagemMenuDefUtilizador1(0) = BtnImagemDefUtilizadorInfo
         BtnImagemMenuDefUtilizador1(1) = BtnImagemDefUtilizadorContato
-        
+
 
 
         panelMenuPrincipal(0) = PnlHome
@@ -120,22 +120,16 @@ Public Class Form1
         BtnImagemMenuPrincipal(3) = BtnImagem4
 
 
-     
-        
+
+
         'Arrays de Objetos
 
         'Panel1.Location = New Point((Me.DisplayRectangle.Width - Panel1.Width) / 2 + 100, (Me.DisplayRectangle.Height - Panel1.Height) / 2) 'Código para por no centro do ecrâ
 
 
 
-
-
-
-
-
-
-
-
+        LblPnlHome.Font = Fonte.GetInstance(15, FontStyle.Bold)
+        LblPnlHome.ForeColor = Color.White
 
 
 
@@ -148,6 +142,7 @@ Public Class Form1
 
         LoadOrder.LoginPage() 'é tipo o modulo aparencia
         Fade(0)
+
     End Sub
 
 
@@ -303,7 +298,7 @@ Public Class Form1
         PnlDefUtilizador.Hide()
     End Sub
 
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+    Private Sub Label2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label2.Click
         If PnlDefUtilizador.Visible = False Then
             MenuUtilizador()
             PnlDefUtilizador.Visible = True
@@ -345,13 +340,17 @@ Public Class Form1
 
     End Sub
 
-    Private Sub BtnImagemDefUtilizadorInfo_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemDefUtilizadorInfo.ButtonClickMasterRace
+    Private Sub BtnImagemDefUtilizadorInfo_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs) Handles BtnImagemDefUtilizadorInfo.ButtonClickMasterRace
         MenuDefUtilizador(0)
 
     End Sub
 
-    Private Sub BtnImagemDefUtilizadorContato_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemDefUtilizadorContato.ButtonClickMasterRace
+    Private Sub BtnImagemDefUtilizadorContato_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs) Handles BtnImagemDefUtilizadorContato.ButtonClickMasterRace
         MenuDefUtilizador(1)
+    End Sub
+
+    Private Sub PnlBarraTop_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles PnlBarraTop.Paint
+
     End Sub
 
 End Class

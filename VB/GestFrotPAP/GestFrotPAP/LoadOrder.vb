@@ -384,35 +384,29 @@ Public Module LoadOrder
         Form1.TxtTelefoneUserCon.Top = Form1.LblUtilizadorNomePDef.Bottom + 5
 
         'Lado Direito
-        Form1.LblUtilizadorGeneroDef.Left = Form1.TxtUtilizadorUserDef.Right + 10
-        Form1.LblUtilizadorDataContratDef.Left = Form1.TxtUtilizadorUserDef.Right + 10
-        Form1.LblUtilizadorPagmentoDef.Left = Form1.TxtUtilizadorUserDef.Right + 10
+        Form1.LblPaisUserCon.Left = Form1.TxtEmailUserCon.Right + 10
+        Form1.LblCidadeUserCon.Left = Form1.TxtEmailUserCon.Right + 10
+        Form1.LblRuaUserCon.Left = Form1.TxtEmailUserCon.Right + 10
 
-        Form1.LblUtilizadorDataContratDef.Top = 5
-        Form1.LblUtilizadorPagmentoDef.Top = Form1.LblUtilizadorDataContratDef.Bottom + 5
-        Form1.LblUtilizadorGeneroDef.Top = Form1.LblUtilizadorPagmentoDef.Bottom + 5
+        Form1.LblPaisUserCon.Top = 5
+        Form1.LblCidadeUserCon.Top = Form1.LblPaisUserCon.Bottom + 5
+        Form1.LblRuaUserCon.Top = Form1.LblCidadeUserCon.Bottom + 5
 
-        Form1.TxtUtilizadorDataContratDef.Left = Form1.LblUtilizadorDataContratDef.Right + 10
-        Form1.TxtUtilizadorPagmentoDef.Left = Form1.LblUtilizadorDataContratDef.Right + 10
-        Form1.TxtUtilizadorGeneroDef.Left = Form1.LblUtilizadorDataContratDef.Right + 10
+        Form1.TxtPaisUserCon.Left = Form1.LblCidadeUserCon.Right + 10
+        Form1.TxtCidadeUserCon.Left = Form1.LblCidadeUserCon.Right + 10
+        Form1.TxtRuaUserCon.Left = Form1.LblCidadeUserCon.Right + 10
 
-        Form1.TxtUtilizadorDataContratDef.Top = 5
-        Form1.TxtUtilizadorPagmentoDef.Top = Form1.TxtUtilizadorDataContratDef.Bottom + 5
-        Form1.TxtUtilizadorGeneroDef.Top = Form1.TxtUtilizadorPagmentoDef.Bottom + 5
+        Form1.TxtPaisUserCon.Top = 5
+        Form1.TxtCidadeUserCon.Top = Form1.TxtUtilizadorDataContratDef.Bottom + 5
+        Form1.TxtRuaUserCon.Top = Form1.TxtUtilizadorPagmentoDef.Bottom + 5
 
 
         '
-        Form1.LblUtilizadorHabilitacoesDef.Left = Form1.PnlDefUtilizadorInfo.Left + 10
-        Form1.LblUtilizadorHabilitacoesDef.Top = Form1.TxtUtilizadorDataNascDef.Bottom + 25
+        Form1.LblNotasUserCon.Left = Form1.PnlDefUtilizadorContato.Left + 10
+        Form1.LblNotasUserCon.Top = Form1.LblTelefoneUserCon.Bottom + 25
 
-        Form1.TxtUtilizadorHabilitacoesDef.Left = Form1.PnlDefUtilizadorInfo.Left + 10
-        Form1.TxtUtilizadorHabilitacoesDef.Top = Form1.LblUtilizadorHabilitacoesDef.Bottom + 5
-
-        Form1.LblUtilizadorNotasDef.Left = Form1.TxtUtilizadorHabilitacoesDef.Right + 10
-        Form1.LblUtilizadorNotasDef.Top = Form1.TxtUtilizadorDataNascDef.Bottom + 25
-
-        Form1.TxtUtilizadorNotasDef.Left = Form1.TxtUtilizadorHabilitacoesDef.Right + 10
-        Form1.TxtUtilizadorNotasDef.Top = Form1.LblUtilizadorNotasDef.Bottom + 5
+        Form1.TxtNotasUserCon.Left = Form1.PnlDefUtilizadorContato.Left + 10
+        Form1.TxtNotasUserCon.Top = Form1.LblNotasUserCon.Bottom + 5
 
 
 
@@ -427,6 +421,15 @@ Public Module LoadOrder
         Form1.TxtUtilizadorNotasDef.Text = DetalhesUtilizador.NotasContrato
         Form1.TxtUtilizadorPagmentoDef.Text = DetalhesUtilizador.PagamentoHora
         Form1.TxtUtilizadorGeneroDef.Text = DetalhesUtilizador.Genero
+
+
+        Form1.TxtEmailUserCon.Text = DetalhesUtilizador.Email
+        Form1.TxtTelemovelUserCon.Text = DetalhesUtilizador.NTelemovel
+        Form1.TxtTelefoneUserCon.Text = DetalhesUtilizador.NTelefone
+        Form1.TxtPaisUserCon.Text = DetalhesUtilizador.Pais
+        Form1.TxtCidadeUserCon.Text = DetalhesUtilizador.Cidade
+        Form1.TxtRuaUserCon.Text = DetalhesUtilizador.Rua
+        Form1.TxtNotasUserCon.Text = DetalhesUtilizador.NotasContacto
 
     End Sub
 

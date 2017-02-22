@@ -26,9 +26,15 @@ Partial Class Form1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.PnlMenu = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.BtnMenu1 = New GestFrotPAP.BtnMenu()
+        Me.BtnImagem1 = New GestFrotPAP.BtnImagem()
+        Me.BtnImagem2 = New GestFrotPAP.BtnImagem()
+        Me.BtnImagem4 = New GestFrotPAP.BtnImagem()
+        Me.BtnImagem3 = New GestFrotPAP.BtnImagem()
         Me.TmrSlide1 = New System.Windows.Forms.Timer(Me.components)
         Me.TmrSlide2 = New System.Windows.Forms.Timer(Me.components)
         Me.PnlBarraTop = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.LblUtilzadorMenu = New System.Windows.Forms.Label()
         Me.Fechar = New System.Windows.Forms.Label()
         Me.LblNomeProjeto = New System.Windows.Forms.Label()
@@ -38,24 +44,67 @@ Partial Class Form1
         Me.LblUtilizadorReg = New System.Windows.Forms.Label()
         Me.LblEmailReg = New System.Windows.Forms.Label()
         Me.LblPasswordReg = New System.Windows.Forms.Label()
+        Me.BtnImagemCancelar = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemRegistar = New GestFrotPAP.BtnImagem()
         Me.TxtPwdReg2 = New System.Windows.Forms.TextBox()
         Me.TxtPwdReg1 = New System.Windows.Forms.TextBox()
         Me.TxtEmailReg = New System.Windows.Forms.TextBox()
         Me.TxtUserReg = New System.Windows.Forms.TextBox()
         Me.TxtPwdLogin = New System.Windows.Forms.TextBox()
         Me.TxtUserLogin = New System.Windows.Forms.TextBox()
+        Me.BtnImagemRegistarEntrar = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemLogin = New GestFrotPAP.BtnImagem()
         Me.PnlUser = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PnlHome = New System.Windows.Forms.Panel()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.LblPnlHome = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.PnlDefUtilizador = New System.Windows.Forms.Panel()
         Me.PnlDefUtilizadorContato = New System.Windows.Forms.Panel()
+        Me.TxtCidadeUserCon = New System.Windows.Forms.TextBox()
+        Me.LblCidadeUserCon = New System.Windows.Forms.Label()
+        Me.LblPaisUserCon = New System.Windows.Forms.Label()
+        Me.TxtPaisUserCon = New System.Windows.Forms.TextBox()
+        Me.TxtRuaUserCon = New System.Windows.Forms.TextBox()
+        Me.LblRuaUserCon = New System.Windows.Forms.Label()
+        Me.TxtTelemovelUserCon = New System.Windows.Forms.TextBox()
+        Me.LblTelemovelUserCon = New System.Windows.Forms.Label()
+        Me.LblNotasUserCon = New System.Windows.Forms.Label()
+        Me.LblEmailUserCon = New System.Windows.Forms.Label()
+        Me.TxtEmailUserCon = New System.Windows.Forms.TextBox()
+        Me.TxtTelefoneUserCon = New System.Windows.Forms.TextBox()
+        Me.TxtNotasUserCon = New System.Windows.Forms.TextBox()
+        Me.LblTelefoneUserCon = New System.Windows.Forms.Label()
+        Me.BtnImagemDefUtilizadorContato = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemDefUtilizadorInfo = New GestFrotPAP.BtnImagem()
         Me.PnlDefUtilizadorInfo = New System.Windows.Forms.Panel()
+        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.TxtUtilizadorGeneroDef = New System.Windows.Forms.TextBox()
+        Me.BtnDefUtilizadorInfoEdit = New GestFrotPAP.BtnImagem()
         Me.TxtUtilizadorUserDef = New System.Windows.Forms.TextBox()
         Me.LblUtilizadorUserDef = New System.Windows.Forms.Label()
         Me.LblUtilizadorNotasDef = New System.Windows.Forms.Label()
@@ -73,43 +122,18 @@ Partial Class Form1
         Me.LblUtilizadorHabilitacoesDef = New System.Windows.Forms.Label()
         Me.TxtUtilizadorDataContratDef = New System.Windows.Forms.TextBox()
         Me.LblUtilizadorNomePDef = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
-        Me.TxtTelemovelUserCon = New System.Windows.Forms.TextBox()
-        Me.LblTelemovelUserCon = New System.Windows.Forms.Label()
-        Me.LblNotasUserCon = New System.Windows.Forms.Label()
-        Me.LblEmailUserCon = New System.Windows.Forms.Label()
-        Me.TxtEmailUserCon = New System.Windows.Forms.TextBox()
-        Me.TxtTelefoneUserCon = New System.Windows.Forms.TextBox()
-        Me.TxtNotasUserCon = New System.Windows.Forms.TextBox()
-        Me.LblTelefoneUserCon = New System.Windows.Forms.Label()
-        Me.TxtCidadeUserCon = New System.Windows.Forms.TextBox()
-        Me.LblCidadeUserCon = New System.Windows.Forms.Label()
-        Me.LblPaisUserCon = New System.Windows.Forms.Label()
-        Me.TxtPaisUserCon = New System.Windows.Forms.TextBox()
-        Me.TxtRuaUserCon = New System.Windows.Forms.TextBox()
-        Me.LblRuaUserCon = New System.Windows.Forms.Label()
-        Me.BtnImagemDefUtilizadorContato = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemDefUtilizadorInfo = New GestFrotPAP.BtnImagem()
-        Me.BtnDefUtilizadorInfoEdit = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemCancelar = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemRegistar = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemRegistarEntrar = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemLogin = New GestFrotPAP.BtnImagem()
-        Me.BtnMenu1 = New GestFrotPAP.BtnMenu()
-        Me.BtnImagem1 = New GestFrotPAP.BtnImagem()
-        Me.BtnImagem2 = New GestFrotPAP.BtnImagem()
-        Me.BtnImagem4 = New GestFrotPAP.BtnImagem()
-        Me.BtnImagem3 = New GestFrotPAP.BtnImagem()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.PnlMenu.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlBarraTop.SuspendLayout()
         Me.PnlLogin.SuspendLayout()
         Me.PnlUser.SuspendLayout()
+        Me.PnlHome.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.PnlDefUtilizador.SuspendLayout()
         Me.PnlDefUtilizadorContato.SuspendLayout()
         Me.PnlDefUtilizadorInfo.SuspendLayout()
@@ -139,6 +163,81 @@ Partial Class Form1
         Me.PictureBox1.TabIndex = 5
         Me.PictureBox1.TabStop = False
         '
+        'BtnMenu1
+        '
+        Me.BtnMenu1.BackColor = System.Drawing.Color.Transparent
+        Me.BtnMenu1.BackgroundImage = CType(resources.GetObject("BtnMenu1.BackgroundImage"), System.Drawing.Image)
+        Me.BtnMenu1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnMenu1.Location = New System.Drawing.Point(168, 3)
+        Me.BtnMenu1.Name = "BtnMenu1"
+        Me.BtnMenu1.Size = New System.Drawing.Size(32, 32)
+        Me.BtnMenu1.TabIndex = 4
+        Me.BtnMenu1.zEstadoBotao = True
+        '
+        'BtnImagem1
+        '
+        Me.BtnImagem1.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.BtnImagem1.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem1.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagem1.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.BtnImagem1.CorTexto = System.Drawing.Color.White
+        Me.BtnImagem1.EstadoBotao = True
+        Me.BtnImagem1.Imagem = Global.GestFrotPAP.My.Resources.Resources.home
+        Me.BtnImagem1.Location = New System.Drawing.Point(0, 56)
+        Me.BtnImagem1.Name = "BtnImagem1"
+        Me.BtnImagem1.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagem1.TabIndex = 0
+        Me.BtnImagem1.TamanhoLetra = 10
+        Me.BtnImagem1.Texto = "Home"
+        '
+        'BtnImagem2
+        '
+        Me.BtnImagem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem2.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem2.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagem2.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.BtnImagem2.CorTexto = System.Drawing.Color.White
+        Me.BtnImagem2.EstadoBotao = False
+        Me.BtnImagem2.Imagem = Nothing
+        Me.BtnImagem2.Location = New System.Drawing.Point(0, 101)
+        Me.BtnImagem2.Name = "BtnImagem2"
+        Me.BtnImagem2.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagem2.TabIndex = 1
+        Me.BtnImagem2.TamanhoLetra = 10
+        Me.BtnImagem2.Texto = "Abastecimento"
+        '
+        'BtnImagem4
+        '
+        Me.BtnImagem4.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem4.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem4.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagem4.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.BtnImagem4.CorTexto = System.Drawing.Color.White
+        Me.BtnImagem4.EstadoBotao = False
+        Me.BtnImagem4.Imagem = Nothing
+        Me.BtnImagem4.Location = New System.Drawing.Point(0, 191)
+        Me.BtnImagem4.Name = "BtnImagem4"
+        Me.BtnImagem4.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagem4.TabIndex = 3
+        Me.BtnImagem4.TamanhoLetra = 10
+        Me.BtnImagem4.Texto = "Veiculo"
+        '
+        'BtnImagem3
+        '
+        Me.BtnImagem3.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem3.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem3.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagem3.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.BtnImagem3.CorTexto = System.Drawing.Color.White
+        Me.BtnImagem3.EstadoBotao = False
+        Me.BtnImagem3.Imagem = Nothing
+        Me.BtnImagem3.Location = New System.Drawing.Point(0, 146)
+        Me.BtnImagem3.Name = "BtnImagem3"
+        Me.BtnImagem3.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagem3.TabIndex = 2
+        Me.BtnImagem3.TamanhoLetra = 10
+        Me.BtnImagem3.Texto = "Manutenção"
+        '
         'TmrSlide1
         '
         Me.TmrSlide1.Interval = 10
@@ -150,6 +249,7 @@ Partial Class Form1
         'PnlBarraTop
         '
         Me.PnlBarraTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.PnlBarraTop.Controls.Add(Me.Label4)
         Me.PnlBarraTop.Controls.Add(Me.LblUtilzadorMenu)
         Me.PnlBarraTop.Controls.Add(Me.Fechar)
         Me.PnlBarraTop.Controls.Add(Me.LblNomeProjeto)
@@ -158,6 +258,15 @@ Partial Class Form1
         Me.PnlBarraTop.Name = "PnlBarraTop"
         Me.PnlBarraTop.Size = New System.Drawing.Size(1000, 30)
         Me.PnlBarraTop.TabIndex = 6
+        '
+        'Label4
+        '
+        Me.Label4.BackColor = System.Drawing.Color.Silver
+        Me.Label4.Location = New System.Drawing.Point(0, 28)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(1000, 2)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "Label4"
         '
         'LblUtilzadorMenu
         '
@@ -265,6 +374,38 @@ Partial Class Form1
         Me.LblPasswordReg.TabIndex = 21
         Me.LblPasswordReg.Text = "*Password não são iguais"
         '
+        'BtnImagemCancelar
+        '
+        Me.BtnImagemCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemCancelar.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemCancelar.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemCancelar.CorSelecionado = System.Drawing.Color.Black
+        Me.BtnImagemCancelar.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemCancelar.EstadoBotao = False
+        Me.BtnImagemCancelar.Imagem = Nothing
+        Me.BtnImagemCancelar.Location = New System.Drawing.Point(333, 327)
+        Me.BtnImagemCancelar.Name = "BtnImagemCancelar"
+        Me.BtnImagemCancelar.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagemCancelar.TabIndex = 19
+        Me.BtnImagemCancelar.TamanhoLetra = 10
+        Me.BtnImagemCancelar.Texto = "Cancelar"
+        '
+        'BtnImagemRegistar
+        '
+        Me.BtnImagemRegistar.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemRegistar.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemRegistar.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemRegistar.CorSelecionado = System.Drawing.Color.Black
+        Me.BtnImagemRegistar.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemRegistar.EstadoBotao = False
+        Me.BtnImagemRegistar.Imagem = Nothing
+        Me.BtnImagemRegistar.Location = New System.Drawing.Point(106, 327)
+        Me.BtnImagemRegistar.Name = "BtnImagemRegistar"
+        Me.BtnImagemRegistar.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagemRegistar.TabIndex = 18
+        Me.BtnImagemRegistar.TamanhoLetra = 10
+        Me.BtnImagemRegistar.Texto = "Registar"
+        '
         'TxtPwdReg2
         '
         Me.TxtPwdReg2.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
@@ -326,6 +467,38 @@ Partial Class Form1
         Me.TxtUserLogin.Text = "admin"
         Me.TxtUserLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'BtnImagemRegistarEntrar
+        '
+        Me.BtnImagemRegistarEntrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemRegistarEntrar.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemRegistarEntrar.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemRegistarEntrar.CorSelecionado = System.Drawing.Color.Black
+        Me.BtnImagemRegistarEntrar.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemRegistarEntrar.EstadoBotao = False
+        Me.BtnImagemRegistarEntrar.Imagem = Nothing
+        Me.BtnImagemRegistarEntrar.Location = New System.Drawing.Point(209, 3)
+        Me.BtnImagemRegistarEntrar.Name = "BtnImagemRegistarEntrar"
+        Me.BtnImagemRegistarEntrar.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagemRegistarEntrar.TabIndex = 6
+        Me.BtnImagemRegistarEntrar.TamanhoLetra = 10
+        Me.BtnImagemRegistarEntrar.Texto = "Registar"
+        '
+        'BtnImagemLogin
+        '
+        Me.BtnImagemLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemLogin.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemLogin.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemLogin.CorSelecionado = System.Drawing.Color.Black
+        Me.BtnImagemLogin.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemLogin.EstadoBotao = False
+        Me.BtnImagemLogin.Imagem = Nothing
+        Me.BtnImagemLogin.Location = New System.Drawing.Point(3, 3)
+        Me.BtnImagemLogin.Name = "BtnImagemLogin"
+        Me.BtnImagemLogin.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagemLogin.TabIndex = 5
+        Me.BtnImagemLogin.TamanhoLetra = 10
+        Me.BtnImagemLogin.Texto = "Entrar"
+        '
         'PnlUser
         '
         Me.PnlUser.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer))
@@ -371,19 +544,184 @@ Partial Class Form1
         '
         'PnlHome
         '
-        Me.PnlHome.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.PnlHome.Location = New System.Drawing.Point(532, 36)
+        Me.PnlHome.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.PnlHome.Controls.Add(Me.GroupBox4)
+        Me.PnlHome.Controls.Add(Me.GroupBox3)
+        Me.PnlHome.Controls.Add(Me.GroupBox2)
+        Me.PnlHome.Controls.Add(Me.GroupBox1)
+        Me.PnlHome.Controls.Add(Me.LblPnlHome)
+        Me.PnlHome.Location = New System.Drawing.Point(200, 30)
         Me.PnlHome.Name = "PnlHome"
-        Me.PnlHome.Size = New System.Drawing.Size(50, 50)
+        Me.PnlHome.Size = New System.Drawing.Size(800, 29)
         Me.PnlHome.TabIndex = 10
         Me.PnlHome.Visible = False
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.Label13)
+        Me.GroupBox4.Controls.Add(Me.Label14)
+        Me.GroupBox4.Controls.Add(Me.Label15)
+        Me.GroupBox4.ForeColor = System.Drawing.Color.White
+        Me.GroupBox4.Location = New System.Drawing.Point(235, 127)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(200, 83)
+        Me.GroupBox4.TabIndex = 4
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Notas"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(7, 44)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(99, 13)
+        Me.Label13.TabIndex = 2
+        Me.Label13.Text = "Ultimo Manutenção"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(7, 29)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(99, 13)
+        Me.Label14.TabIndex = 1
+        Me.Label14.Text = "Ultima Manutenção"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(7, 16)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(109, 13)
+        Me.Label15.TabIndex = 0
+        Me.Label15.Text = "Ultimo Abastecimento"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Label12)
+        Me.GroupBox3.Controls.Add(Me.Label11)
+        Me.GroupBox3.Controls.Add(Me.Label10)
+        Me.GroupBox3.ForeColor = System.Drawing.Color.White
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 127)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(200, 83)
+        Me.GroupBox3.TabIndex = 3
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "O que fez"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(7, 44)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(81, 13)
+        Me.Label12.TabIndex = 2
+        Me.Label12.Text = "Ultimo Despesa"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(7, 29)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(99, 13)
+        Me.Label11.TabIndex = 1
+        Me.Label11.Text = "Ultima Manutenção"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(7, 16)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(109, 13)
+        Me.Label10.TabIndex = 0
+        Me.Label10.Text = "Ultimo Abastecimento"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Label8)
+        Me.GroupBox2.Controls.Add(Me.Label9)
+        Me.GroupBox2.ForeColor = System.Drawing.Color.White
+        Me.GroupBox2.Location = New System.Drawing.Point(235, 35)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(200, 83)
+        Me.GroupBox2.TabIndex = 2
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Sua Agenda"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(6, 31)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(91, 13)
+        Me.Label8.TabIndex = 3
+        Me.Label8.Text = "Proxima Inspeção"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(6, 16)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(107, 13)
+        Me.Label9.TabIndex = 4
+        Me.Label9.Text = "Proxima Manutenção"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.ForeColor = System.Drawing.Color.White
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 35)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(200, 83)
+        Me.GroupBox1.TabIndex = 1
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Seu Veiculo"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(7, 46)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(50, 13)
+        Me.Label7.TabIndex = 2
+        Me.Label7.Text = "Matricula"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(7, 31)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(42, 13)
+        Me.Label6.TabIndex = 1
+        Me.Label6.Text = "Modelo"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(7, 15)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(37, 13)
+        Me.Label5.TabIndex = 0
+        Me.Label5.Text = "Marca"
+        '
+        'LblPnlHome
+        '
+        Me.LblPnlHome.AutoSize = True
+        Me.LblPnlHome.Location = New System.Drawing.Point(9, 9)
+        Me.LblPnlHome.Name = "LblPnlHome"
+        Me.LblPnlHome.Size = New System.Drawing.Size(35, 13)
+        Me.LblPnlHome.TabIndex = 0
+        Me.LblPnlHome.Text = "Home"
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Panel2.Location = New System.Drawing.Point(588, 36)
+        Me.Panel2.Controls.Add(Me.Label16)
+        Me.Panel2.Location = New System.Drawing.Point(200, 30)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(50, 50)
+        Me.Panel2.Size = New System.Drawing.Size(800, 5000)
         Me.Panel2.TabIndex = 11
         Me.Panel2.Visible = False
         '
@@ -412,9 +750,9 @@ Partial Class Form1
         Me.PnlDefUtilizador.Controls.Add(Me.BtnImagemDefUtilizadorContato)
         Me.PnlDefUtilizador.Controls.Add(Me.BtnImagemDefUtilizadorInfo)
         Me.PnlDefUtilizador.Controls.Add(Me.PnlDefUtilizadorInfo)
-        Me.PnlDefUtilizador.Location = New System.Drawing.Point(0, 29)
+        Me.PnlDefUtilizador.Location = New System.Drawing.Point(882, 186)
         Me.PnlDefUtilizador.Name = "PnlDefUtilizador"
-        Me.PnlDefUtilizador.Size = New System.Drawing.Size(1000, 471)
+        Me.PnlDefUtilizador.Size = New System.Drawing.Size(145, 46)
         Me.PnlDefUtilizador.TabIndex = 14
         Me.PnlDefUtilizador.Visible = False
         '
@@ -440,6 +778,180 @@ Partial Class Form1
         Me.PnlDefUtilizadorContato.Size = New System.Drawing.Size(1000, 425)
         Me.PnlDefUtilizadorContato.TabIndex = 3
         Me.PnlDefUtilizadorContato.Visible = False
+        '
+        'TxtCidadeUserCon
+        '
+        Me.TxtCidadeUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtCidadeUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtCidadeUserCon.Enabled = False
+        Me.TxtCidadeUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCidadeUserCon.Location = New System.Drawing.Point(291, 39)
+        Me.TxtCidadeUserCon.Name = "TxtCidadeUserCon"
+        Me.TxtCidadeUserCon.Size = New System.Drawing.Size(130, 15)
+        Me.TxtCidadeUserCon.TabIndex = 63
+        '
+        'LblCidadeUserCon
+        '
+        Me.LblCidadeUserCon.AutoSize = True
+        Me.LblCidadeUserCon.Location = New System.Drawing.Point(224, 39)
+        Me.LblCidadeUserCon.Name = "LblCidadeUserCon"
+        Me.LblCidadeUserCon.Size = New System.Drawing.Size(40, 13)
+        Me.LblCidadeUserCon.TabIndex = 60
+        Me.LblCidadeUserCon.Text = "Cidade"
+        '
+        'LblPaisUserCon
+        '
+        Me.LblPaisUserCon.AutoSize = True
+        Me.LblPaisUserCon.Location = New System.Drawing.Point(224, 17)
+        Me.LblPaisUserCon.Name = "LblPaisUserCon"
+        Me.LblPaisUserCon.Size = New System.Drawing.Size(29, 13)
+        Me.LblPaisUserCon.TabIndex = 62
+        Me.LblPaisUserCon.Text = "País"
+        '
+        'TxtPaisUserCon
+        '
+        Me.TxtPaisUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtPaisUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtPaisUserCon.Enabled = False
+        Me.TxtPaisUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtPaisUserCon.Location = New System.Drawing.Point(291, 17)
+        Me.TxtPaisUserCon.Name = "TxtPaisUserCon"
+        Me.TxtPaisUserCon.Size = New System.Drawing.Size(130, 15)
+        Me.TxtPaisUserCon.TabIndex = 65
+        '
+        'TxtRuaUserCon
+        '
+        Me.TxtRuaUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtRuaUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtRuaUserCon.Enabled = False
+        Me.TxtRuaUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtRuaUserCon.Location = New System.Drawing.Point(291, 60)
+        Me.TxtRuaUserCon.Name = "TxtRuaUserCon"
+        Me.TxtRuaUserCon.Size = New System.Drawing.Size(130, 15)
+        Me.TxtRuaUserCon.TabIndex = 64
+        '
+        'LblRuaUserCon
+        '
+        Me.LblRuaUserCon.AutoSize = True
+        Me.LblRuaUserCon.Location = New System.Drawing.Point(224, 60)
+        Me.LblRuaUserCon.Name = "LblRuaUserCon"
+        Me.LblRuaUserCon.Size = New System.Drawing.Size(27, 13)
+        Me.LblRuaUserCon.TabIndex = 61
+        Me.LblRuaUserCon.Text = "Rua"
+        '
+        'TxtTelemovelUserCon
+        '
+        Me.TxtTelemovelUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtTelemovelUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtTelemovelUserCon.Enabled = False
+        Me.TxtTelemovelUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtTelemovelUserCon.Location = New System.Drawing.Point(79, 38)
+        Me.TxtTelemovelUserCon.Name = "TxtTelemovelUserCon"
+        Me.TxtTelemovelUserCon.Size = New System.Drawing.Size(130, 15)
+        Me.TxtTelemovelUserCon.TabIndex = 57
+        '
+        'LblTelemovelUserCon
+        '
+        Me.LblTelemovelUserCon.AutoSize = True
+        Me.LblTelemovelUserCon.Location = New System.Drawing.Point(12, 38)
+        Me.LblTelemovelUserCon.Name = "LblTelemovelUserCon"
+        Me.LblTelemovelUserCon.Size = New System.Drawing.Size(56, 13)
+        Me.LblTelemovelUserCon.TabIndex = 46
+        Me.LblTelemovelUserCon.Text = "Telemóvel"
+        '
+        'LblNotasUserCon
+        '
+        Me.LblNotasUserCon.AutoSize = True
+        Me.LblNotasUserCon.Location = New System.Drawing.Point(12, 84)
+        Me.LblNotasUserCon.Name = "LblNotasUserCon"
+        Me.LblNotasUserCon.Size = New System.Drawing.Size(35, 13)
+        Me.LblNotasUserCon.TabIndex = 55
+        Me.LblNotasUserCon.Text = "Notas"
+        '
+        'LblEmailUserCon
+        '
+        Me.LblEmailUserCon.AutoSize = True
+        Me.LblEmailUserCon.Location = New System.Drawing.Point(12, 16)
+        Me.LblEmailUserCon.Name = "LblEmailUserCon"
+        Me.LblEmailUserCon.Size = New System.Drawing.Size(32, 13)
+        Me.LblEmailUserCon.TabIndex = 48
+        Me.LblEmailUserCon.Text = "Email"
+        '
+        'TxtEmailUserCon
+        '
+        Me.TxtEmailUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtEmailUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtEmailUserCon.Enabled = False
+        Me.TxtEmailUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtEmailUserCon.Location = New System.Drawing.Point(79, 16)
+        Me.TxtEmailUserCon.Name = "TxtEmailUserCon"
+        Me.TxtEmailUserCon.Size = New System.Drawing.Size(130, 15)
+        Me.TxtEmailUserCon.TabIndex = 59
+        '
+        'TxtTelefoneUserCon
+        '
+        Me.TxtTelefoneUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtTelefoneUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtTelefoneUserCon.Enabled = False
+        Me.TxtTelefoneUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtTelefoneUserCon.Location = New System.Drawing.Point(79, 59)
+        Me.TxtTelefoneUserCon.Name = "TxtTelefoneUserCon"
+        Me.TxtTelefoneUserCon.Size = New System.Drawing.Size(130, 15)
+        Me.TxtTelefoneUserCon.TabIndex = 58
+        '
+        'TxtNotasUserCon
+        '
+        Me.TxtNotasUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.TxtNotasUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtNotasUserCon.Enabled = False
+        Me.TxtNotasUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtNotasUserCon.Location = New System.Drawing.Point(15, 111)
+        Me.TxtNotasUserCon.Multiline = True
+        Me.TxtNotasUserCon.Name = "TxtNotasUserCon"
+        Me.TxtNotasUserCon.Size = New System.Drawing.Size(265, 150)
+        Me.TxtNotasUserCon.TabIndex = 56
+        Me.TxtNotasUserCon.Text = "Isto Serve para Notas" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Tipo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Informação Util sobre o utilizador" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'LblTelefoneUserCon
+        '
+        Me.LblTelefoneUserCon.AutoSize = True
+        Me.LblTelefoneUserCon.Location = New System.Drawing.Point(12, 59)
+        Me.LblTelefoneUserCon.Name = "LblTelefoneUserCon"
+        Me.LblTelefoneUserCon.Size = New System.Drawing.Size(49, 13)
+        Me.LblTelefoneUserCon.TabIndex = 47
+        Me.LblTelefoneUserCon.Text = "Telefone"
+        '
+        'BtnImagemDefUtilizadorContato
+        '
+        Me.BtnImagemDefUtilizadorContato.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemDefUtilizadorContato.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemDefUtilizadorContato.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemDefUtilizadorContato.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.BtnImagemDefUtilizadorContato.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemDefUtilizadorContato.EstadoBotao = False
+        Me.BtnImagemDefUtilizadorContato.Imagem = Nothing
+        Me.BtnImagemDefUtilizadorContato.Location = New System.Drawing.Point(231, 0)
+        Me.BtnImagemDefUtilizadorContato.Name = "BtnImagemDefUtilizadorContato"
+        Me.BtnImagemDefUtilizadorContato.Size = New System.Drawing.Size(230, 44)
+        Me.BtnImagemDefUtilizadorContato.TabIndex = 2
+        Me.BtnImagemDefUtilizadorContato.TamanhoLetra = 10
+        Me.BtnImagemDefUtilizadorContato.Texto = "Utilizador Contactos"
+        '
+        'BtnImagemDefUtilizadorInfo
+        '
+        Me.BtnImagemDefUtilizadorInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.BtnImagemDefUtilizadorInfo.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemDefUtilizadorInfo.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemDefUtilizadorInfo.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.BtnImagemDefUtilizadorInfo.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemDefUtilizadorInfo.EstadoBotao = True
+        Me.BtnImagemDefUtilizadorInfo.Imagem = Nothing
+        Me.BtnImagemDefUtilizadorInfo.Location = New System.Drawing.Point(0, 0)
+        Me.BtnImagemDefUtilizadorInfo.Name = "BtnImagemDefUtilizadorInfo"
+        Me.BtnImagemDefUtilizadorInfo.Size = New System.Drawing.Size(230, 44)
+        Me.BtnImagemDefUtilizadorInfo.TabIndex = 1
+        Me.BtnImagemDefUtilizadorInfo.TamanhoLetra = 10
+        Me.BtnImagemDefUtilizadorInfo.Texto = "Informação Utilizador"
         '
         'PnlDefUtilizadorInfo
         '
@@ -474,6 +986,74 @@ Partial Class Form1
         Me.PnlDefUtilizadorInfo.Size = New System.Drawing.Size(1000, 425)
         Me.PnlDefUtilizadorInfo.TabIndex = 0
         '
+        'ComboBox4
+        '
+        Me.ComboBox4.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ComboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox4.FormattingEnabled = True
+        Me.ComboBox4.Location = New System.Drawing.Point(252, 81)
+        Me.ComboBox4.Name = "ComboBox4"
+        Me.ComboBox4.Size = New System.Drawing.Size(49, 21)
+        Me.ComboBox4.TabIndex = 45
+        '
+        'ComboBox5
+        '
+        Me.ComboBox5.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ComboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox5.FormattingEnabled = True
+        Me.ComboBox5.Location = New System.Drawing.Point(198, 81)
+        Me.ComboBox5.Name = "ComboBox5"
+        Me.ComboBox5.Size = New System.Drawing.Size(49, 21)
+        Me.ComboBox5.TabIndex = 44
+        '
+        'ComboBox6
+        '
+        Me.ComboBox6.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ComboBox6.DropDownHeight = 50
+        Me.ComboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox6.ForeColor = System.Drawing.Color.White
+        Me.ComboBox6.FormattingEnabled = True
+        Me.ComboBox6.IntegralHeight = False
+        Me.ComboBox6.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"})
+        Me.ComboBox6.Location = New System.Drawing.Point(143, 81)
+        Me.ComboBox6.Name = "ComboBox6"
+        Me.ComboBox6.Size = New System.Drawing.Size(49, 21)
+        Me.ComboBox6.TabIndex = 43
+        '
+        'ComboBox3
+        '
+        Me.ComboBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ComboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Location = New System.Drawing.Point(252, 107)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(49, 21)
+        Me.ComboBox3.TabIndex = 42
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(198, 107)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(49, 21)
+        Me.ComboBox2.TabIndex = 41
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ComboBox1.DropDownHeight = 50
+        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox1.ForeColor = System.Drawing.Color.White
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.IntegralHeight = False
+        Me.ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"})
+        Me.ComboBox1.Location = New System.Drawing.Point(143, 107)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(49, 21)
+        Me.ComboBox1.TabIndex = 40
+        '
         'TxtUtilizadorGeneroDef
         '
         Me.TxtUtilizadorGeneroDef.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
@@ -484,6 +1064,22 @@ Partial Class Form1
         Me.TxtUtilizadorGeneroDef.Name = "TxtUtilizadorGeneroDef"
         Me.TxtUtilizadorGeneroDef.Size = New System.Drawing.Size(130, 15)
         Me.TxtUtilizadorGeneroDef.TabIndex = 38
+        '
+        'BtnDefUtilizadorInfoEdit
+        '
+        Me.BtnDefUtilizadorInfoEdit.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnDefUtilizadorInfoEdit.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnDefUtilizadorInfoEdit.CorHover = System.Drawing.Color.Gray
+        Me.BtnDefUtilizadorInfoEdit.CorSelecionado = System.Drawing.Color.Black
+        Me.BtnDefUtilizadorInfoEdit.CorTexto = System.Drawing.Color.White
+        Me.BtnDefUtilizadorInfoEdit.EstadoBotao = False
+        Me.BtnDefUtilizadorInfoEdit.Imagem = Nothing
+        Me.BtnDefUtilizadorInfoEdit.Location = New System.Drawing.Point(787, 374)
+        Me.BtnDefUtilizadorInfoEdit.Name = "BtnDefUtilizadorInfoEdit"
+        Me.BtnDefUtilizadorInfoEdit.Size = New System.Drawing.Size(200, 44)
+        Me.BtnDefUtilizadorInfoEdit.TabIndex = 20
+        Me.BtnDefUtilizadorInfoEdit.TamanhoLetra = 10
+        Me.BtnDefUtilizadorInfoEdit.Texto = "Editar"
         '
         'TxtUtilizadorUserDef
         '
@@ -658,402 +1254,14 @@ Partial Class Form1
         Me.LblUtilizadorNomePDef.TabIndex = 22
         Me.LblUtilizadorNomePDef.Text = "Nome Proprio"
         '
-        'ComboBox1
+        'Label16
         '
-        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ComboBox1.DropDownHeight = 50
-        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox1.ForeColor = System.Drawing.Color.White
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.IntegralHeight = False
-        Me.ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"})
-        Me.ComboBox1.Location = New System.Drawing.Point(143, 107)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(49, 21)
-        Me.ComboBox1.TabIndex = 40
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(198, 107)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(49, 21)
-        Me.ComboBox2.TabIndex = 41
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ComboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(252, 107)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(49, 21)
-        Me.ComboBox3.TabIndex = 42
-        '
-        'ComboBox4
-        '
-        Me.ComboBox4.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ComboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(252, 81)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(49, 21)
-        Me.ComboBox4.TabIndex = 45
-        '
-        'ComboBox5
-        '
-        Me.ComboBox5.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ComboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(198, 81)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(49, 21)
-        Me.ComboBox5.TabIndex = 44
-        '
-        'ComboBox6
-        '
-        Me.ComboBox6.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ComboBox6.DropDownHeight = 50
-        Me.ComboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox6.ForeColor = System.Drawing.Color.White
-        Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.IntegralHeight = False
-        Me.ComboBox6.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"})
-        Me.ComboBox6.Location = New System.Drawing.Point(143, 81)
-        Me.ComboBox6.Name = "ComboBox6"
-        Me.ComboBox6.Size = New System.Drawing.Size(49, 21)
-        Me.ComboBox6.TabIndex = 43
-        '
-        'TxtTelemovelUserCon
-        '
-        Me.TxtTelemovelUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.TxtTelemovelUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtTelemovelUserCon.Enabled = False
-        Me.TxtTelemovelUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtTelemovelUserCon.Location = New System.Drawing.Point(79, 38)
-        Me.TxtTelemovelUserCon.Name = "TxtTelemovelUserCon"
-        Me.TxtTelemovelUserCon.Size = New System.Drawing.Size(130, 15)
-        Me.TxtTelemovelUserCon.TabIndex = 57
-        '
-        'LblTelemovelUserCon
-        '
-        Me.LblTelemovelUserCon.AutoSize = True
-        Me.LblTelemovelUserCon.Location = New System.Drawing.Point(12, 38)
-        Me.LblTelemovelUserCon.Name = "LblTelemovelUserCon"
-        Me.LblTelemovelUserCon.Size = New System.Drawing.Size(56, 13)
-        Me.LblTelemovelUserCon.TabIndex = 46
-        Me.LblTelemovelUserCon.Text = "Telemóvel"
-        '
-        'LblNotasUserCon
-        '
-        Me.LblNotasUserCon.AutoSize = True
-        Me.LblNotasUserCon.Location = New System.Drawing.Point(12, 84)
-        Me.LblNotasUserCon.Name = "LblNotasUserCon"
-        Me.LblNotasUserCon.Size = New System.Drawing.Size(35, 13)
-        Me.LblNotasUserCon.TabIndex = 55
-        Me.LblNotasUserCon.Text = "Notas"
-        '
-        'LblEmailUserCon
-        '
-        Me.LblEmailUserCon.AutoSize = True
-        Me.LblEmailUserCon.Location = New System.Drawing.Point(12, 16)
-        Me.LblEmailUserCon.Name = "LblEmailUserCon"
-        Me.LblEmailUserCon.Size = New System.Drawing.Size(32, 13)
-        Me.LblEmailUserCon.TabIndex = 48
-        Me.LblEmailUserCon.Text = "Email"
-        '
-        'TxtEmailUserCon
-        '
-        Me.TxtEmailUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.TxtEmailUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtEmailUserCon.Enabled = False
-        Me.TxtEmailUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtEmailUserCon.Location = New System.Drawing.Point(79, 16)
-        Me.TxtEmailUserCon.Name = "TxtEmailUserCon"
-        Me.TxtEmailUserCon.Size = New System.Drawing.Size(130, 15)
-        Me.TxtEmailUserCon.TabIndex = 59
-        '
-        'TxtTelefoneUserCon
-        '
-        Me.TxtTelefoneUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.TxtTelefoneUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtTelefoneUserCon.Enabled = False
-        Me.TxtTelefoneUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtTelefoneUserCon.Location = New System.Drawing.Point(79, 59)
-        Me.TxtTelefoneUserCon.Name = "TxtTelefoneUserCon"
-        Me.TxtTelefoneUserCon.Size = New System.Drawing.Size(130, 15)
-        Me.TxtTelefoneUserCon.TabIndex = 58
-        '
-        'TxtNotasUserCon
-        '
-        Me.TxtNotasUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.TxtNotasUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtNotasUserCon.Enabled = False
-        Me.TxtNotasUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtNotasUserCon.Location = New System.Drawing.Point(15, 111)
-        Me.TxtNotasUserCon.Multiline = True
-        Me.TxtNotasUserCon.Name = "TxtNotasUserCon"
-        Me.TxtNotasUserCon.Size = New System.Drawing.Size(265, 150)
-        Me.TxtNotasUserCon.TabIndex = 56
-        Me.TxtNotasUserCon.Text = "Isto Serve para Notas" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Tipo:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Informação Util sobre o utilizador" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'LblTelefoneUserCon
-        '
-        Me.LblTelefoneUserCon.AutoSize = True
-        Me.LblTelefoneUserCon.Location = New System.Drawing.Point(12, 59)
-        Me.LblTelefoneUserCon.Name = "LblTelefoneUserCon"
-        Me.LblTelefoneUserCon.Size = New System.Drawing.Size(49, 13)
-        Me.LblTelefoneUserCon.TabIndex = 47
-        Me.LblTelefoneUserCon.Text = "Telefone"
-        '
-        'TxtCidadeUserCon
-        '
-        Me.TxtCidadeUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.TxtCidadeUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtCidadeUserCon.Enabled = False
-        Me.TxtCidadeUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCidadeUserCon.Location = New System.Drawing.Point(291, 39)
-        Me.TxtCidadeUserCon.Name = "TxtCidadeUserCon"
-        Me.TxtCidadeUserCon.Size = New System.Drawing.Size(130, 15)
-        Me.TxtCidadeUserCon.TabIndex = 63
-        '
-        'LblCidadeUserCon
-        '
-        Me.LblCidadeUserCon.AutoSize = True
-        Me.LblCidadeUserCon.Location = New System.Drawing.Point(224, 39)
-        Me.LblCidadeUserCon.Name = "LblCidadeUserCon"
-        Me.LblCidadeUserCon.Size = New System.Drawing.Size(40, 13)
-        Me.LblCidadeUserCon.TabIndex = 60
-        Me.LblCidadeUserCon.Text = "Cidade"
-        '
-        'LblPaisUserCon
-        '
-        Me.LblPaisUserCon.AutoSize = True
-        Me.LblPaisUserCon.Location = New System.Drawing.Point(224, 17)
-        Me.LblPaisUserCon.Name = "LblPaisUserCon"
-        Me.LblPaisUserCon.Size = New System.Drawing.Size(29, 13)
-        Me.LblPaisUserCon.TabIndex = 62
-        Me.LblPaisUserCon.Text = "País"
-        '
-        'TxtPaisUserCon
-        '
-        Me.TxtPaisUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.TxtPaisUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtPaisUserCon.Enabled = False
-        Me.TxtPaisUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPaisUserCon.Location = New System.Drawing.Point(291, 17)
-        Me.TxtPaisUserCon.Name = "TxtPaisUserCon"
-        Me.TxtPaisUserCon.Size = New System.Drawing.Size(130, 15)
-        Me.TxtPaisUserCon.TabIndex = 65
-        '
-        'TxtRuaUserCon
-        '
-        Me.TxtRuaUserCon.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.TxtRuaUserCon.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TxtRuaUserCon.Enabled = False
-        Me.TxtRuaUserCon.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtRuaUserCon.Location = New System.Drawing.Point(291, 60)
-        Me.TxtRuaUserCon.Name = "TxtRuaUserCon"
-        Me.TxtRuaUserCon.Size = New System.Drawing.Size(130, 15)
-        Me.TxtRuaUserCon.TabIndex = 64
-        '
-        'LblRuaUserCon
-        '
-        Me.LblRuaUserCon.AutoSize = True
-        Me.LblRuaUserCon.Location = New System.Drawing.Point(224, 60)
-        Me.LblRuaUserCon.Name = "LblRuaUserCon"
-        Me.LblRuaUserCon.Size = New System.Drawing.Size(27, 13)
-        Me.LblRuaUserCon.TabIndex = 61
-        Me.LblRuaUserCon.Text = "Rua"
-        '
-        'BtnImagemDefUtilizadorContato
-        '
-        Me.BtnImagemDefUtilizadorContato.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemDefUtilizadorContato.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemDefUtilizadorContato.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagemDefUtilizadorContato.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.BtnImagemDefUtilizadorContato.CorTexto = System.Drawing.Color.White
-        Me.BtnImagemDefUtilizadorContato.EstadoBotao = False
-        Me.BtnImagemDefUtilizadorContato.Imagem = Nothing
-        Me.BtnImagemDefUtilizadorContato.Location = New System.Drawing.Point(231, 0)
-        Me.BtnImagemDefUtilizadorContato.Name = "BtnImagemDefUtilizadorContato"
-        Me.BtnImagemDefUtilizadorContato.Size = New System.Drawing.Size(230, 44)
-        Me.BtnImagemDefUtilizadorContato.TabIndex = 2
-        Me.BtnImagemDefUtilizadorContato.TamanhoLetra = 10
-        Me.BtnImagemDefUtilizadorContato.Texto = "Utilizador Contactos"
-        '
-        'BtnImagemDefUtilizadorInfo
-        '
-        Me.BtnImagemDefUtilizadorInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.BtnImagemDefUtilizadorInfo.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemDefUtilizadorInfo.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagemDefUtilizadorInfo.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.BtnImagemDefUtilizadorInfo.CorTexto = System.Drawing.Color.White
-        Me.BtnImagemDefUtilizadorInfo.EstadoBotao = True
-        Me.BtnImagemDefUtilizadorInfo.Imagem = Nothing
-        Me.BtnImagemDefUtilizadorInfo.Location = New System.Drawing.Point(0, 0)
-        Me.BtnImagemDefUtilizadorInfo.Name = "BtnImagemDefUtilizadorInfo"
-        Me.BtnImagemDefUtilizadorInfo.Size = New System.Drawing.Size(230, 44)
-        Me.BtnImagemDefUtilizadorInfo.TabIndex = 1
-        Me.BtnImagemDefUtilizadorInfo.TamanhoLetra = 10
-        Me.BtnImagemDefUtilizadorInfo.Texto = "Informação Utilizador"
-        '
-        'BtnDefUtilizadorInfoEdit
-        '
-        Me.BtnDefUtilizadorInfoEdit.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnDefUtilizadorInfoEdit.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnDefUtilizadorInfoEdit.CorHover = System.Drawing.Color.Gray
-        Me.BtnDefUtilizadorInfoEdit.CorSelecionado = System.Drawing.Color.Black
-        Me.BtnDefUtilizadorInfoEdit.CorTexto = System.Drawing.Color.White
-        Me.BtnDefUtilizadorInfoEdit.EstadoBotao = False
-        Me.BtnDefUtilizadorInfoEdit.Imagem = Nothing
-        Me.BtnDefUtilizadorInfoEdit.Location = New System.Drawing.Point(787, 374)
-        Me.BtnDefUtilizadorInfoEdit.Name = "BtnDefUtilizadorInfoEdit"
-        Me.BtnDefUtilizadorInfoEdit.Size = New System.Drawing.Size(200, 44)
-        Me.BtnDefUtilizadorInfoEdit.TabIndex = 20
-        Me.BtnDefUtilizadorInfoEdit.TamanhoLetra = 10
-        Me.BtnDefUtilizadorInfoEdit.Texto = "Editar"
-        '
-        'BtnImagemCancelar
-        '
-        Me.BtnImagemCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemCancelar.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemCancelar.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagemCancelar.CorSelecionado = System.Drawing.Color.Black
-        Me.BtnImagemCancelar.CorTexto = System.Drawing.Color.White
-        Me.BtnImagemCancelar.EstadoBotao = False
-        Me.BtnImagemCancelar.Imagem = Nothing
-        Me.BtnImagemCancelar.Location = New System.Drawing.Point(333, 327)
-        Me.BtnImagemCancelar.Name = "BtnImagemCancelar"
-        Me.BtnImagemCancelar.Size = New System.Drawing.Size(200, 44)
-        Me.BtnImagemCancelar.TabIndex = 19
-        Me.BtnImagemCancelar.TamanhoLetra = 10
-        Me.BtnImagemCancelar.Texto = "Cancelar"
-        '
-        'BtnImagemRegistar
-        '
-        Me.BtnImagemRegistar.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemRegistar.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemRegistar.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagemRegistar.CorSelecionado = System.Drawing.Color.Black
-        Me.BtnImagemRegistar.CorTexto = System.Drawing.Color.White
-        Me.BtnImagemRegistar.EstadoBotao = False
-        Me.BtnImagemRegistar.Imagem = Nothing
-        Me.BtnImagemRegistar.Location = New System.Drawing.Point(106, 327)
-        Me.BtnImagemRegistar.Name = "BtnImagemRegistar"
-        Me.BtnImagemRegistar.Size = New System.Drawing.Size(200, 44)
-        Me.BtnImagemRegistar.TabIndex = 18
-        Me.BtnImagemRegistar.TamanhoLetra = 10
-        Me.BtnImagemRegistar.Texto = "Registar"
-        '
-        'BtnImagemRegistarEntrar
-        '
-        Me.BtnImagemRegistarEntrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemRegistarEntrar.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemRegistarEntrar.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagemRegistarEntrar.CorSelecionado = System.Drawing.Color.Black
-        Me.BtnImagemRegistarEntrar.CorTexto = System.Drawing.Color.White
-        Me.BtnImagemRegistarEntrar.EstadoBotao = False
-        Me.BtnImagemRegistarEntrar.Imagem = Nothing
-        Me.BtnImagemRegistarEntrar.Location = New System.Drawing.Point(209, 3)
-        Me.BtnImagemRegistarEntrar.Name = "BtnImagemRegistarEntrar"
-        Me.BtnImagemRegistarEntrar.Size = New System.Drawing.Size(200, 44)
-        Me.BtnImagemRegistarEntrar.TabIndex = 6
-        Me.BtnImagemRegistarEntrar.TamanhoLetra = 10
-        Me.BtnImagemRegistarEntrar.Texto = "Registar"
-        '
-        'BtnImagemLogin
-        '
-        Me.BtnImagemLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemLogin.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemLogin.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagemLogin.CorSelecionado = System.Drawing.Color.Black
-        Me.BtnImagemLogin.CorTexto = System.Drawing.Color.White
-        Me.BtnImagemLogin.EstadoBotao = False
-        Me.BtnImagemLogin.Imagem = Nothing
-        Me.BtnImagemLogin.Location = New System.Drawing.Point(3, 3)
-        Me.BtnImagemLogin.Name = "BtnImagemLogin"
-        Me.BtnImagemLogin.Size = New System.Drawing.Size(200, 44)
-        Me.BtnImagemLogin.TabIndex = 5
-        Me.BtnImagemLogin.TamanhoLetra = 10
-        Me.BtnImagemLogin.Texto = "Entrar"
-        '
-        'BtnMenu1
-        '
-        Me.BtnMenu1.BackColor = System.Drawing.Color.Transparent
-        Me.BtnMenu1.BackgroundImage = CType(resources.GetObject("BtnMenu1.BackgroundImage"), System.Drawing.Image)
-        Me.BtnMenu1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnMenu1.Location = New System.Drawing.Point(168, 3)
-        Me.BtnMenu1.Name = "BtnMenu1"
-        Me.BtnMenu1.Size = New System.Drawing.Size(32, 32)
-        Me.BtnMenu1.TabIndex = 4
-        Me.BtnMenu1.zEstadoBotao = True
-        '
-        'BtnImagem1
-        '
-        Me.BtnImagem1.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.BtnImagem1.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagem1.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagem1.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.BtnImagem1.CorTexto = System.Drawing.Color.White
-        Me.BtnImagem1.EstadoBotao = True
-        Me.BtnImagem1.Imagem = Global.GestFrotPAP.My.Resources.Resources.home
-        Me.BtnImagem1.Location = New System.Drawing.Point(0, 56)
-        Me.BtnImagem1.Name = "BtnImagem1"
-        Me.BtnImagem1.Size = New System.Drawing.Size(200, 44)
-        Me.BtnImagem1.TabIndex = 0
-        Me.BtnImagem1.TamanhoLetra = 10
-        Me.BtnImagem1.Texto = "Home"
-        '
-        'BtnImagem2
-        '
-        Me.BtnImagem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagem2.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagem2.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagem2.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.BtnImagem2.CorTexto = System.Drawing.Color.White
-        Me.BtnImagem2.EstadoBotao = False
-        Me.BtnImagem2.Imagem = Nothing
-        Me.BtnImagem2.Location = New System.Drawing.Point(0, 101)
-        Me.BtnImagem2.Name = "BtnImagem2"
-        Me.BtnImagem2.Size = New System.Drawing.Size(200, 44)
-        Me.BtnImagem2.TabIndex = 1
-        Me.BtnImagem2.TamanhoLetra = 10
-        Me.BtnImagem2.Texto = "Abastecimento"
-        '
-        'BtnImagem4
-        '
-        Me.BtnImagem4.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagem4.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagem4.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagem4.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.BtnImagem4.CorTexto = System.Drawing.Color.White
-        Me.BtnImagem4.EstadoBotao = False
-        Me.BtnImagem4.Imagem = Nothing
-        Me.BtnImagem4.Location = New System.Drawing.Point(0, 191)
-        Me.BtnImagem4.Name = "BtnImagem4"
-        Me.BtnImagem4.Size = New System.Drawing.Size(200, 44)
-        Me.BtnImagem4.TabIndex = 3
-        Me.BtnImagem4.TamanhoLetra = 10
-        Me.BtnImagem4.Texto = "Veiculo"
-        '
-        'BtnImagem3
-        '
-        Me.BtnImagem3.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagem3.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagem3.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagem3.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.BtnImagem3.CorTexto = System.Drawing.Color.White
-        Me.BtnImagem3.EstadoBotao = False
-        Me.BtnImagem3.Imagem = Nothing
-        Me.BtnImagem3.Location = New System.Drawing.Point(0, 146)
-        Me.BtnImagem3.Name = "BtnImagem3"
-        Me.BtnImagem3.Size = New System.Drawing.Size(200, 44)
-        Me.BtnImagem3.TabIndex = 2
-        Me.BtnImagem3.TamanhoLetra = 10
-        Me.BtnImagem3.Texto = "Manutenção"
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(12, 10)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(45, 13)
+        Me.Label16.TabIndex = 0
+        Me.Label16.Text = "Label16"
         '
         'Form1
         '
@@ -1061,15 +1269,15 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1000, 500)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.PnlHome)
         Me.Controls.Add(Me.PnlDefUtilizador)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.PnlHome)
         Me.Controls.Add(Me.PnlUser)
         Me.Controls.Add(Me.PnlLogin)
-        Me.Controls.Add(Me.PnlBarraTop)
         Me.Controls.Add(Me.PnlMenu)
+        Me.Controls.Add(Me.PnlBarraTop)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -1082,6 +1290,18 @@ Partial Class Form1
         Me.PnlLogin.PerformLayout()
         Me.PnlUser.ResumeLayout(False)
         Me.PnlUser.PerformLayout()
+        Me.PnlHome.ResumeLayout(False)
+        Me.PnlHome.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.PnlDefUtilizador.ResumeLayout(False)
         Me.PnlDefUtilizadorContato.ResumeLayout(False)
         Me.PnlDefUtilizadorContato.PerformLayout()
@@ -1171,5 +1391,23 @@ Partial Class Form1
     Friend WithEvents TxtPaisUserCon As System.Windows.Forms.TextBox
     Friend WithEvents TxtRuaUserCon As System.Windows.Forms.TextBox
     Friend WithEvents LblRuaUserCon As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents LblPnlHome As System.Windows.Forms.Label
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents Label16 As System.Windows.Forms.Label
 
 End Class
