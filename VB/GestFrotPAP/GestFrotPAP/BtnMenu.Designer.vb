@@ -28,8 +28,7 @@ Partial Class BtnMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Transparent
-        Me.BackgroundImage = Global.GestFrotPAP.My.Resources.Resources.Menu
+        Me.BackColor = System.Drawing.Color.Gray
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.DoubleBuffered = True
         Me.Name = "BtnMenu"

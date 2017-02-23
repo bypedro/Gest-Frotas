@@ -3,73 +3,114 @@ Imports System.Drawing
 'Define evento primário->
 <System.ComponentModel.DefaultEventAttribute("ButtonClickMasterRace")> _
 Public Class BtnImagem
-    <System.ComponentModel.Category("BtnImagem")> _
-    Public Property zCorSelecionado As Color = Color.SteelBlue
-    <System.ComponentModel.Category("BtnImagem")> _
-    Public Property zCorFundo As Color = Color.SlateGray
-    '    Get
-    '        zCorFundo = Me.BackColor
-    '    End Get
-    '    Set(ByVal value As Color)
-    '        Me.BackColor = value
-    '    End Set
-    'End Property
-    'Ver outra solução
-    <System.ComponentModel.Category("BtnImagem")> _
-    Public Property zCorHover As Color = Color.LightSlateGray
-    Dim corfundo As Color = zCorFundo
-    Dim corselecionado As Color = zCorSelecionado
+    Private _CorSelecionado As Color = Color.SteelBlue
+    Private _CorFundo As Color = Color.SlateGray
+    Private _CorHover As Color = Color.LightSlateGray
+    Private _CorTexto As Color = Color.White
+    Private _TamanhoLetra As Integer = 10
+    Private _Texto As String = "Teste"
+    Private _Imagem As System.Drawing.Bitmap
+    Private _EstadoBotao As Boolean = False
+
 
     <System.ComponentModel.Category("BtnImagem")> _
-    Public Property zTamanhoLetra As Integer
+    Public Property CorSelecionado As Color
         Get
-            zTamanhoLetra = LblTexto.Font.Size
+            Return _CorSelecionado
         End Get
-        Set(ByVal value As Integer)
-            LblTexto.Font = Fonte.GetInstance(value, FontStyle.Bold)
+        Set(ByVal value As Color)
+            _CorSelecionado = value
+            If _EstadoBotao = False Then
+                Me.BackColor = _CorFundo
+            Else
+                Me.BackColor = _CorSelecionado
+            End If
         End Set
     End Property
     <System.ComponentModel.Category("BtnImagem")> _
-    Public Property zTexto As String
+    Public Property CorFundo As Color
         Get
-            zTexto = LblTexto.Text
+            Return _CorFundo
         End Get
-        Set(ByVal value As String)
-            LblTexto.Text = value
+        Set(ByVal value As Color)
+            _CorFundo = value
+            If _EstadoBotao = False Then
+                Me.BackColor = _CorFundo
+            Else
+                Me.BackColor = _CorSelecionado
+            End If
         End Set
     End Property
     <System.ComponentModel.Category("BtnImagem")> _
-    Public Property zImagem As System.Drawing.Bitmap
+    Public Property CorHover As Color
         Get
-            zImagem = Imagem.Image
+            Return _CorHover
+        End Get
+        Set(ByVal value As Color)
+            _CorHover = value
+        End Set
+    End Property
+    <System.ComponentModel.Category("BtnImagem")> _
+    Public Property CorTexto As Color
+        Get
+            Return _CorTexto
+        End Get
+        Set(ByVal value As Color)
+            _CorTexto = value
+            LblTexto.ForeColor = _CorTexto
+        End Set
+    End Property
+    <System.ComponentModel.Category("BtnImagem")> _
+    Public Property EstadoBotao As Boolean
+        Get
+            Return _EstadoBotao
+        End Get
+        Set(ByVal value As Boolean)
+            _EstadoBotao = value
+            If _EstadoBotao = False Then
+                Me.BackColor = _CorFundo
+            Else
+                Me.BackColor = _CorSelecionado
+            End If
+        End Set
+    End Property
+    <System.ComponentModel.Category("BtnImagem")> _
+    Public Property Imagem As System.Drawing.Bitmap
+        Get
+            Return _Imagem
         End Get
         Set(ByVal value As System.Drawing.Bitmap)
-            Imagem.Image = value
+            _Imagem = value
+            PctImagem.Image = _Imagem
         End Set
     End Property
     <System.ComponentModel.Category("BtnImagem")> _
-    Public Property zComprimentoImagem As Integer
+    Public Property TamanhoLetra As Integer
         Get
-            zComprimentoImagem = Imagem.Width
+            Return _TamanhoLetra
         End Get
         Set(ByVal value As Integer)
-            Imagem.Width = value
+            _TamanhoLetra = value
+            LblTexto.Font = Fonte.GetInstance(_TamanhoLetra, FontStyle.Bold)
         End Set
     End Property
     <System.ComponentModel.Category("BtnImagem")> _
-    Public Property zAlturaImagem As Integer
+    Public Property Texto As String
         Get
-            zAlturaImagem = Imagem.Height
+            Return _Texto
         End Get
-        Set(ByVal value As Integer)
-            Imagem.Height = value
+        Set(ByVal value As String)
+            _Texto = value
+            LblTexto.Text = _Texto
         End Set
     End Property
-    <System.ComponentModel.Category("BtnImagem")> _
-    Public Property zEstadoBotao As Boolean = False
+
+
+
+
 
     Private Sub BtnImagem_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        
+
         'TESTE
         'Dim p As New Drawing2D.GraphicsPath()
         ' p.StartFigure()
@@ -83,50 +124,45 @@ Public Class BtnImagem
         ' p.CloseFigure()
         'Me.Region = New Region(p)
         'TESTE
-        LblTexto.Font = Fonte.GetInstance(zTamanhoLetra, FontStyle.Bold)
-        If zEstadoBotao = False Then
-            Me.BackColor = zCorFundo
-        Else
-            Me.BackColor = corselecionado
-        End If
     End Sub
 
     Public Sub VerificarEstadoBotao()
-        If zEstadoBotao = False Then
-            Me.BackColor = corfundo
-            zEstadoBotao = False
+        If _EstadoBotao = False Then
+            Me.BackColor = CorFundo
+            _EstadoBotao = False
         End If
-        If zEstadoBotao = True Then
-            Me.BackColor = corselecionado
-            zEstadoBotao = True
+        If _EstadoBotao = True Then
+            Me.BackColor = CorSelecionado
+            _EstadoBotao = True
         End If
     End Sub
 
     Public Sub EventoClick()
-        If zEstadoBotao = False Then
-            Me.BackColor = corselecionado
-            Me.zEstadoBotao = True
+        
+        If _EstadoBotao = False Then
+            Me.BackColor = CorSelecionado
+            Me._EstadoBotao = True
         End If
         VerificarEstadoBotao()
     End Sub
 
     Public Event ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
-    Private Sub Objetos(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Imagem.Click, LblTexto.Click, Me.Click
+    Private Sub Objetos(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PctImagem.Click, LblTexto.Click, Me.Click
         EventoClick()
         RaiseEvent ButtonClickMasterRace(Me, EventArgs.Empty)
     End Sub
 
 
-    Private Sub Btnhover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.MouseEnter, LblTexto.MouseEnter, Imagem.MouseEnter 'Mousehover tem delay
+    Private Sub Btnhover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.MouseEnter, LblTexto.MouseEnter, PctImagem.MouseEnter 'Mousehover tem delay
         'Talvez em vez de uma cor escolhida por a mesma cor mas mais clara
-        If zEstadoBotao = False Then
-            Me.BackColor = zCorHover
+        If _EstadoBotao = False Then
+            Me.BackColor = _CorHover
         End If
     End Sub
-    Private Sub Btnleave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.MouseLeave, Imagem.MouseLeave, LblTexto.MouseLeave
-        If zEstadoBotao = False Then
-            Me.BackColor = corfundo
+    Private Sub Btnleave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.MouseLeave, PctImagem.MouseLeave, LblTexto.MouseLeave
+        If _EstadoBotao = False Then
+            Me.BackColor = CorFundo
         End If
     End Sub
 End Class
