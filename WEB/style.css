@@ -23,12 +23,25 @@ table {
 }
 
 th, td {
+<<<<<<< HEAD
+    text-align: left;
+    font-size: 14px;
+	font-family: "Raleway";
+    border-bottom: solid #f9f5f5 1px;
+	 padding: 14px;
+	 
+=======
 	font-family: "Raleway";
      border-bottom: solid #949494 1px;
     text-align: left;
     padding: 13px;
+>>>>>>> origin/master
 }
 
+td{
+text-align: left;
+
+}
 input, select {
 	font-family: Verdana, Geneva, sans-serif;
     border: 0px solid #ccc;
@@ -94,17 +107,22 @@ font-size: 18px;
 
 
 .hover08 figure img {
+<<<<<<< HEAD
+	    margin: 0px 31px 40px 0px;
+   width: 166px;
+        height: 61px;
+=======
 	margin:0 20px 10px 0;
 	width: 180px;
     height: 180px;
+>>>>>>> origin/master
 	-webkit-filter: grayscale(0) blur(0);
 	filter: grayscale(0) blur(0);
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
 	padding-left: 15px;
 	padding-bottom: 15px;
-	border-radius: 150px;
-	-webkit-border-radius: 150px;
+	border-radius: 13px;
 	-moz-border-radius: 130px;
 	
 
@@ -142,6 +160,33 @@ font-size: 18px;
 	outline: none;
 }
 
+
+.btns {
+	font-family: Verdana, Geneva, sans-serif;
+	bottom-align: right;
+	background-color: rgba(236, 236, 236, 0);
+    border: none;
+    padding: 8px 15px;
+    text-align: center;
+	border-radius: 6px;
+    text-decoration: none;
+	color: #2f2f2f;
+    display: inline-block;
+    font-size: 13px;
+    margin: 95px 130px;
+    cursor: pointer;
+	border: 1px solid;
+	outline: none;
+}
+
+.btns:hover {
+	background-color: #2f2f2f;
+	color: #f5f5f5;
+	outline: none;
+}
+
+
+
 .btna {
 	width: 436px;
 	font-family: Verdana, Geneva, sans-serif;
@@ -161,6 +206,7 @@ font-size: 18px;
 }
 
 .box {
+
 	display-align: block;
   vertical-align: top;
   background-color: white;
@@ -170,6 +216,19 @@ font-size: 18px;
       height: 339px;
   margin: 10px;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.26);
+}
+
+.boxt {
+	float:left;
+	display-align: block;
+  vertical-align: top;
+  background-color: white;
+  text-align: left;
+    padding: 42px;
+    width: 204px;
+    height: 297px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.26);
+  margin: 85px 15px 23px 22px;
 }
 
 .boxx {
@@ -268,7 +327,7 @@ width: 281px;
 }
 
 .btnreg {
-	font-family: Verdana, Geneva, sans-serif;
+	
 	bottom-align: right;
 	background-color: rgba(236, 236, 236, 0);
     border: none;
@@ -319,6 +378,31 @@ width: 281px;
 
 
 input[type=text] {
+	margin: 0px 0px 10px;
+    padding: 14px 10px 14px 40px;
+    width: calc(100%);
+    border-radius: 3px;
+    border: 1px solid #E3E4E7;
+    background: #FFF url(https://www.flex11.org/visuals/skins/modern_flex/images/icon-login.png) no-repeat 15px center;
+    color: #66737E;
+    font: 400 14px 'Cabin', sans-serif;
+    max-width: 230px;
+	
+}
+
+input[type=date] {
+	margin: 0px 0px 10px;
+    padding: 14px 10px 14px 40px;
+    width: calc(100%);
+    border-radius: 3px;
+    border: 1px solid #E3E4E7;
+    color: #66737E;
+    font: 400 14px 'Cabin', sans-serif;
+    max-width: 230px;
+	
+}
+
+input[type=adress] {
     padding: 14px 10px 14px 40px;
     width: calc(100%);
     border-radius: 3px;
@@ -356,13 +440,24 @@ input[type=email] {
 }
 
 img {
-
+	width: 70px;
+    height: 70px;
+	margin-top: 9px;
 }
 
 h1 {
-	font-family: Verdana, Geneva, sans-serif;
+    margin-top: 10px;
+	font-family: "Raleway";
 	text-align: justify;
-	font-size: 95%;
+	font-size: 90%;
+}
+
+h2 {
+    margin-top: 10px;
+	font-family: "Raleway";
+	text-align: justify;
+	font-size: 150%;
+	    margin: 52px 0px 0 24px;
 }
 
 h3 {
@@ -409,6 +504,12 @@ th {
     flex-direction: column;
   }
 
+  @media only screen and (max-width:960px){
+    body{
+        overflow-y:scroll;
+    }
+}
+  
   main {
     flex: 1 0 auto;
   }
@@ -432,6 +533,27 @@ th {
     padding: 0;
     overflow: hidden;
     background-color: #ffffff;
+<<<<<<< HEAD
+}
+
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+	margin-bottom: 22px;
+	font-family: "Montserrat";
+    font-size: 13px;
+    display: inline-block;
+    color: #616161;
+    text-align:center; 
+    padding: 0px 78px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+=======
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.26)
 }
 
@@ -450,10 +572,53 @@ ul.tab li a {
     transition: 0.3s;
 }
 
+>>>>>>> origin/master
 /* Change background color of links on hover */
 ul.tab li a:hover {
     color: #FF5252;
 }
+<<<<<<< HEAD
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {
+    color: #FF5252 !important;
+}
+
+/* Style the tab content */
+.tabcontent {
+	
+    display: none;
+    padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+.imga:hover {
+}
+
+.supp{
+
+	font-family: "Raleway";
+	font-weight: bold;
+}
+
+.page-header {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.page-title {
+    width: 88%;
+    padding-bottom: 0;
+    margin: 31px 0 6px;
+    border-bottom: 1px solid #eee;
+}
+
+.ini{
+	font-family: "Raleway";
+	font-weight: bold;
+=======
 
 /* Create an active/current tablink class */
 ul.tab li a:focus, .active {
@@ -467,6 +632,7 @@ ul.tab li a:focus, .active {
     padding: 6px 12px;
     -webkit-animation: fadeEffect 1s;
     animation: fadeEffect 1s;
+>>>>>>> origin/master
 }
 
 @-webkit-keyframes fadeEffect {

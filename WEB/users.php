@@ -1,7 +1,7 @@
 <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "root", "", "pap");
+$link = mysqli_connect("localhost", "root", "", "frotas");
  
 // Check connection
 if($link === false){
@@ -9,24 +9,44 @@ if($link === false){
 }
  
 // Attempt select query execution
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM utilizador";
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table>";
             echo "<tr>";
                 echo "<th>ID</th>";
                 echo "<th>UTILIZADOR</th>";
-                echo "<th>RUA</th>";
-                echo "<th>EMAIL</th>";
-				echo "<th>DATA REGISTO</th>";
+                echo "<th>NOME PROPRIO</th>";
+				echo "<th>APELIDO</th>";
+				echo "<th>GENERO</th>";
+				echo "<th>DATA NASCIMENTO</th>";
+				echo "<th>DATA CONTRATAÇÃO</th>";
+				echo "<th>PAGAMENTOS</th>";
+				echo "<th>HABILITACÕES</th>";
+				echo "<th>RUA</th>";
+				echo "<th>TELEMÓVEL</th>";
+				echo "<th>TELEFONE</th>";
+				echo "<th>EMAIL</th>";
+				echo "<th>NOTAS CONTACTO</th>";
+				echo "<th>NOTAS CONTRACTO</th>";
             echo "</tr>";
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
-                echo "<td>" . $row['userId'] . "</td>";
-                echo "<td>" . $row['userName'] . "</td>";
-                echo "<td>" . $row['userRua'] . "</td>";
-                echo "<td>" . $row['userEmail'] . "</td>";
-				echo "<td>" . $row['userRegisto'] . "</td>";
+                echo "<td>" . $row['CodUser'] . "</td>";
+                echo "<td>" . $row['Nome_Registo'] . "</td>";
+                echo "<td>" . $row['Nome_Proprio'] . "</td>";
+                echo "<td>" . $row['Apelido'] . "</td>";
+				echo "<td>" . $row['Genero'] . "</td>";
+				echo "<td>" . $row['Data_Nascimento'] . "</td>";
+				echo "<td>" . $row['Data_Contractado'] . "</td>";
+				echo "<td>" . $row['Pagamentos_Hora'] . "</td>";
+				echo "<td>" . $row['Habilitacoes'] . "</td>";
+				echo "<td>" . $row['Rua'] . "</td>";
+				echo "<td>" . $row['N_Telemovel'] . "</td>";
+				echo "<td>" . $row['N_Telefone'] . "</td>";
+				echo "<td>" . $row['Email'] . "</td>";
+				echo "<td>" . $row['Notas_Contacto'] . "</td>";
+				echo "<td>" . $row['Notas_Contracto'] . "</td>";
             echo "</tr>";
         }
         echo "</table>";

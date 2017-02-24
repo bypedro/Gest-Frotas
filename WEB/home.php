@@ -36,7 +36,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Suporte</a></li>
+            <li class=""><a href="#">Suporte</a></li>
             <li><a href="#">texto</a></li>
             <li><a href="manageuser.php">Texto</a></li>
           </ul>
@@ -44,7 +44,7 @@
             
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-			  <span class="glyphicon glyphicon-user"></span>&nbsp;Olá,  <?php echo $userRow['Nome_Registo']; ?>&nbsp;<span class="caret"></span></a>
+			  <span class=""></span><img src="logos/perfil.png" onClick="changePicture();" /><span class=""></span></a>
               <ul class="dropdown-menu">
 			    <li><a href="#"><span class=""></span>&#9742; Serviços</a></li>
                 <li><a href="perfil.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Perfil</a></li>
