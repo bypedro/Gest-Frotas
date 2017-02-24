@@ -578,10 +578,148 @@ Module SQL
             MsgBox(ex.ToString)
             ligacao.Close()
         End Try
+
+        'Carro
+        Try
+            If DetalhesUtilizador.CodUser <> 0 Then
+                Comando = New MySqlCommand("select CodVei from Veicondu where coduser='" + DetalhesUtilizador.CodUser + "' and emuso='sim'", ligacao)
+                ligacao.Open()
+                Objecto = Comando.ExecuteScalar
+                If IsDBNull(Objecto) Then
+                    DetalhesUtilizador.CodVeiculo = "Não tem"
+                    MsgBox("ERRO CodVei nome")
+                    ligacao.Close()
+                Else
+                    DetalhesUtilizador.CodVeiculo = CType(Objecto, String)
+                    ligacao.Close()
+                End If
+            Else
+                DetalhesUtilizador.CodVeiculo = "Não tem"
+                MsgBox("ERRO CodVei nome")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            ligacao.Close()
+        End Try
+
+        Try
+            If DetalhesUtilizador.CodVeiculo <> 0 Then
+                Comando = New MySqlCommand("select cor from veiculos where codvei='" + DetalhesUtilizador.CodVeiculo.ToString + "'", ligacao)
+                ligacao.Open()
+                Objecto = Comando.ExecuteScalar
+                If IsDBNull(Objecto) Then
+                    DetalhesUtilizador.VeiCor = "Não tem"
+                    MsgBox("ERRO VeiCor nome")
+                    ligacao.Close()
+                Else
+                    DetalhesUtilizador.VeiCor = CType(Objecto, String)
+                    ligacao.Close()
+                End If
+            Else
+                DetalhesUtilizador.VeiCor = "Não tem"
+                MsgBox("ERRO VeiCor nome")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            ligacao.Close()
+        End Try
+
+        Try
+            If DetalhesUtilizador.CodVeiculo <> 0 Then
+                Comando = New MySqlCommand("select marca from veiculos where codvei='" + DetalhesUtilizador.CodVeiculo.ToString + "'", ligacao)
+                ligacao.Open()
+                Objecto = Comando.ExecuteScalar
+                If IsDBNull(Objecto) Then
+                    DetalhesUtilizador.VeiMarca = "Não tem"
+                    MsgBox("ERRO Marca")
+                    ligacao.Close()
+                Else
+                    DetalhesUtilizador.VeiMarca = CType(Objecto, String)
+                    ligacao.Close()
+                End If
+            Else
+                DetalhesUtilizador.VeiMarca = "Não tem"
+                MsgBox("ERRO Marca")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            ligacao.Close()
+        End Try
+
+        Try
+            If DetalhesUtilizador.CodVeiculo <> 0 Then
+                Comando = New MySqlCommand("select modelo from veiculos where codvei='" + DetalhesUtilizador.CodVeiculo.ToString + "'", ligacao)
+                ligacao.Open()
+                Objecto = Comando.ExecuteScalar
+                If IsDBNull(Objecto) Then
+                    DetalhesUtilizador.VeiModelo = "Não tem"
+                    MsgBox("ERRO Modelo")
+                    ligacao.Close()
+                Else
+                    DetalhesUtilizador.VeiModelo = CType(Objecto, String)
+                    ligacao.Close()
+                End If
+            Else
+                DetalhesUtilizador.VeiModelo = "Não tem"
+                MsgBox("ERRO Modelo")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            ligacao.Close()
+        End Try
+
+        Try
+            If DetalhesUtilizador.CodVeiculo <> 0 Then
+                Comando = New MySqlCommand("select matricula from veiculos where codvei='" + DetalhesUtilizador.CodVeiculo.ToString + "'", ligacao)
+                ligacao.Open()
+                Objecto = Comando.ExecuteScalar
+                If IsDBNull(Objecto) Then
+                    DetalhesUtilizador.VeiMatricula = "Não tem"
+                    MsgBox("ERRO matricula")
+                    ligacao.Close()
+                Else
+                    DetalhesUtilizador.VeiMatricula = CType(Objecto, String)
+                    ligacao.Close()
+                End If
+            Else
+                DetalhesUtilizador.VeiMatricula = "Não tem"
+                MsgBox("ERRO matricula")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            ligacao.Close()
+        End Try
+
+        'Agenda
+        Try
+            If DetalhesUtilizador.CodVeiculo <> 0 Then
+                Comando = New MySqlCommand("select Proxima_Inspecao from veiculos where codvei='" + DetalhesUtilizador.CodVeiculo.ToString + "'", ligacao)
+                ligacao.Open()
+                Objecto = Comando.ExecuteScalar
+                If IsDBNull(Objecto) Then
+                    DetalhesUtilizador.VeiProxInspecao = "Não tem"
+                    MsgBox("ERRO VeiProxInspecao")
+                    ligacao.Close()
+                Else
+                    DetalhesUtilizador.VeiProxInspecao = CType(Objecto, String)
+                    ligacao.Close()
+                End If
+            Else
+                DetalhesUtilizador.VeiProxInspecao = "Não tem"
+                MsgBox("ERRO VeiProxInspecao")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            ligacao.Close()
+        End Try
+
+
     End Sub
 
 
+    ' SELECT * FROM veicondu where emuso="sim" and coduser="1"
 
+    '  Comando = New MySqlCommand("select CodVei from pais where ='" + DetalhesUtilizador.CodUser + "'codpais='" + DetalhesUtilizador.CodUser + "'", ligacao)
 
 
 End Module

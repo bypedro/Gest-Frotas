@@ -25,7 +25,6 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.PnlMenu = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TmrSlide1 = New System.Windows.Forms.Timer(Me.components)
         Me.TmrSlide2 = New System.Windows.Forms.Timer(Me.components)
         Me.PnlBarraTop = New System.Windows.Forms.Panel()
@@ -59,12 +58,13 @@ Partial Class Form1
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
+        Me.LblVeiProxInspEmUso = New System.Windows.Forms.Label()
+        Me.LblVeiProxManEmUso = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.LblVeiCorEmUso = New System.Windows.Forms.Label()
+        Me.LblVeiMatricEmUso = New System.Windows.Forms.Label()
+        Me.LblVeiModelEmUso = New System.Windows.Forms.Label()
+        Me.LblVeiMarcEmUso = New System.Windows.Forms.Label()
         Me.LblPnlHome = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -105,7 +105,7 @@ Partial Class Form1
         Me.LblUtilizadorHabilitacoesDef = New System.Windows.Forms.Label()
         Me.TxtUtilizadorDataContratDef = New System.Windows.Forms.TextBox()
         Me.LblUtilizadorNomePDef = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BtnImagemDefUtilizadorContato = New GestFrotPAP.BtnImagem()
         Me.BtnImagemDefUtilizadorInfo = New GestFrotPAP.BtnImagem()
         Me.BtnDefUtilizadorInfoEdit = New GestFrotPAP.BtnImagem()
@@ -119,7 +119,6 @@ Partial Class Form1
         Me.BtnImagem4 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem3 = New GestFrotPAP.BtnImagem()
         Me.PnlMenu.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlBarraTop.SuspendLayout()
         Me.PnlLogin.SuspendLayout()
         Me.PnlUser.SuspendLayout()
@@ -132,6 +131,7 @@ Partial Class Form1
         Me.PnlDefUtilizador.SuspendLayout()
         Me.PnlDefUtilizadorContato.SuspendLayout()
         Me.PnlDefUtilizadorInfo.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PnlMenu
@@ -148,15 +148,6 @@ Partial Class Form1
         Me.PnlMenu.Name = "PnlMenu"
         Me.PnlMenu.Size = New System.Drawing.Size(201, 476)
         Me.PnlMenu.TabIndex = 5
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.White
-        Me.PictureBox1.Location = New System.Drawing.Point(4, 8)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(158, 38)
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
         '
         'TmrSlide1
         '
@@ -495,8 +486,8 @@ Partial Class Form1
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.Label8)
-        Me.GroupBox2.Controls.Add(Me.Label9)
+        Me.GroupBox2.Controls.Add(Me.LblVeiProxInspEmUso)
+        Me.GroupBox2.Controls.Add(Me.LblVeiProxManEmUso)
         Me.GroupBox2.ForeColor = System.Drawing.Color.White
         Me.GroupBox2.Location = New System.Drawing.Point(235, 35)
         Me.GroupBox2.Name = "GroupBox2"
@@ -505,30 +496,30 @@ Partial Class Form1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Sua Agenda"
         '
-        'Label8
+        'LblVeiProxInspEmUso
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(6, 31)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(91, 13)
-        Me.Label8.TabIndex = 3
-        Me.Label8.Text = "Proxima Inspeção"
+        Me.LblVeiProxInspEmUso.AutoSize = True
+        Me.LblVeiProxInspEmUso.Location = New System.Drawing.Point(6, 31)
+        Me.LblVeiProxInspEmUso.Name = "LblVeiProxInspEmUso"
+        Me.LblVeiProxInspEmUso.Size = New System.Drawing.Size(91, 13)
+        Me.LblVeiProxInspEmUso.TabIndex = 3
+        Me.LblVeiProxInspEmUso.Text = "Proxima Inspeção"
         '
-        'Label9
+        'LblVeiProxManEmUso
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(6, 16)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(107, 13)
-        Me.Label9.TabIndex = 4
-        Me.Label9.Text = "Proxima Manutenção"
+        Me.LblVeiProxManEmUso.AutoSize = True
+        Me.LblVeiProxManEmUso.Location = New System.Drawing.Point(6, 16)
+        Me.LblVeiProxManEmUso.Name = "LblVeiProxManEmUso"
+        Me.LblVeiProxManEmUso.Size = New System.Drawing.Size(107, 13)
+        Me.LblVeiProxManEmUso.TabIndex = 4
+        Me.LblVeiProxManEmUso.Text = "Proxima Manutenção"
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Label17)
-        Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.LblVeiCorEmUso)
+        Me.GroupBox1.Controls.Add(Me.LblVeiMatricEmUso)
+        Me.GroupBox1.Controls.Add(Me.LblVeiModelEmUso)
+        Me.GroupBox1.Controls.Add(Me.LblVeiMarcEmUso)
         Me.GroupBox1.ForeColor = System.Drawing.Color.White
         Me.GroupBox1.Location = New System.Drawing.Point(12, 35)
         Me.GroupBox1.Name = "GroupBox1"
@@ -537,32 +528,41 @@ Partial Class Form1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Seu Veiculo"
         '
-        'Label7
+        'LblVeiCorEmUso
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(7, 46)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(50, 13)
-        Me.Label7.TabIndex = 2
-        Me.Label7.Text = "Matricula"
+        Me.LblVeiCorEmUso.AutoSize = True
+        Me.LblVeiCorEmUso.Location = New System.Drawing.Point(7, 60)
+        Me.LblVeiCorEmUso.Name = "LblVeiCorEmUso"
+        Me.LblVeiCorEmUso.Size = New System.Drawing.Size(23, 13)
+        Me.LblVeiCorEmUso.TabIndex = 3
+        Me.LblVeiCorEmUso.Text = "Cor"
         '
-        'Label6
+        'LblVeiMatricEmUso
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(7, 31)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(42, 13)
-        Me.Label6.TabIndex = 1
-        Me.Label6.Text = "Modelo"
+        Me.LblVeiMatricEmUso.AutoSize = True
+        Me.LblVeiMatricEmUso.Location = New System.Drawing.Point(7, 46)
+        Me.LblVeiMatricEmUso.Name = "LblVeiMatricEmUso"
+        Me.LblVeiMatricEmUso.Size = New System.Drawing.Size(50, 13)
+        Me.LblVeiMatricEmUso.TabIndex = 2
+        Me.LblVeiMatricEmUso.Text = "Matricula"
         '
-        'Label5
+        'LblVeiModelEmUso
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(7, 15)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(37, 13)
-        Me.Label5.TabIndex = 0
-        Me.Label5.Text = "Marca"
+        Me.LblVeiModelEmUso.AutoSize = True
+        Me.LblVeiModelEmUso.Location = New System.Drawing.Point(7, 31)
+        Me.LblVeiModelEmUso.Name = "LblVeiModelEmUso"
+        Me.LblVeiModelEmUso.Size = New System.Drawing.Size(42, 13)
+        Me.LblVeiModelEmUso.TabIndex = 1
+        Me.LblVeiModelEmUso.Text = "Modelo"
+        '
+        'LblVeiMarcEmUso
+        '
+        Me.LblVeiMarcEmUso.AutoSize = True
+        Me.LblVeiMarcEmUso.Location = New System.Drawing.Point(7, 15)
+        Me.LblVeiMarcEmUso.Name = "LblVeiMarcEmUso"
+        Me.LblVeiMarcEmUso.Size = New System.Drawing.Size(37, 13)
+        Me.LblVeiMarcEmUso.TabIndex = 0
+        Me.LblVeiMarcEmUso.Text = "Marca"
         '
         'LblPnlHome
         '
@@ -999,14 +999,14 @@ Partial Class Form1
         Me.LblUtilizadorNomePDef.TabIndex = 22
         Me.LblUtilizadorNomePDef.Text = "Nome Proprio"
         '
-        'Label17
+        'PictureBox1
         '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(7, 60)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(23, 13)
-        Me.Label17.TabIndex = 3
-        Me.Label17.Text = "Cor"
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Location = New System.Drawing.Point(4, 8)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(158, 38)
+        Me.PictureBox1.TabIndex = 5
+        Me.PictureBox1.TabStop = False
         '
         'BtnImagemDefUtilizadorContato
         '
@@ -1139,7 +1139,7 @@ Partial Class Form1
         Me.BtnImagem1.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
         Me.BtnImagem1.CorTexto = System.Drawing.Color.White
         Me.BtnImagem1.EstadoBotao = True
-        Me.BtnImagem1.Imagem = Global.GestFrotPAP.My.Resources.Resources.home
+        Me.BtnImagem1.Imagem = Nothing
         Me.BtnImagem1.Location = New System.Drawing.Point(0, 56)
         Me.BtnImagem1.Name = "BtnImagem1"
         Me.BtnImagem1.Size = New System.Drawing.Size(200, 44)
@@ -1215,7 +1215,6 @@ Partial Class Form1
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "GestFrot"
         Me.PnlMenu.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PnlBarraTop.ResumeLayout(False)
         Me.PnlBarraTop.PerformLayout()
         Me.PnlLogin.ResumeLayout(False)
@@ -1239,6 +1238,7 @@ Partial Class Form1
         Me.PnlDefUtilizadorContato.PerformLayout()
         Me.PnlDefUtilizadorInfo.ResumeLayout(False)
         Me.PnlDefUtilizadorInfo.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1321,11 +1321,11 @@ Partial Class Form1
     Friend WithEvents LblPnlHome As System.Windows.Forms.Label
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents LblVeiProxManEmUso As System.Windows.Forms.Label
+    Friend WithEvents LblVeiProxInspEmUso As System.Windows.Forms.Label
+    Friend WithEvents LblVeiMatricEmUso As System.Windows.Forms.Label
+    Friend WithEvents LblVeiModelEmUso As System.Windows.Forms.Label
+    Friend WithEvents LblVeiMarcEmUso As System.Windows.Forms.Label
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
@@ -1335,6 +1335,6 @@ Partial Class Form1
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents LblVeiCorEmUso As System.Windows.Forms.Label
 
 End Class

@@ -240,20 +240,97 @@
 
 
     'Carro
-    'Carro
-    'SELECT * FROM veicondu where emuso="sim"
-    ' Private _CodVeiculo As String
-    'Private _VeiMarca As String
-    'Private _VeiModelo As String
-    'Private _VeiMatricula As String
-    'Private _VeiCor As String
+    Public Property CodVeiculo As Integer
+        Get
+            Return _CodVeiculo
+        End Get
+        Set(ByVal value As Integer)
+            _CodVeiculo = value
+        End Set
+    End Property
+
+    Public Property VeiMarca As String
+        Get
+            Return _VeiMarca
+        End Get
+        Set(ByVal value As String)
+            _VeiMarca = value
+        End Set
+    End Property
+
+    Public Property VeiModelo As String
+        Get
+            Return _VeiModelo
+        End Get
+        Set(ByVal value As String)
+            _VeiModelo = value
+        End Set
+    End Property
+
+    Public Property VeiMatricula As String
+        Get
+            Return _VeiMatricula
+        End Get
+        Set(ByVal value As String)
+            _VeiMatricula = value
+        End Set
+    End Property
+
+    Public Property VeiCor As String
+        Get
+            Return _VeiCor
+        End Get
+        Set(ByVal value As String)
+            _VeiCor = value
+        End Set
+    End Property
 
     'Agenda
-    '  Private _VeiProxInspecao As String
-    ' Private _VeiProxManutencao As String
+    Public Property VeiProxInspecao As String
+        Get
+            Return _VeiProxInspecao
+        End Get
+        Set(ByVal value As String)
+            _VeiProxInspecao = value
+        End Set
+    End Property
+
+    Public Property VeiProxManutencao As String
+        Get
+            Return _VeiProxManutencao
+        End Get
+        Set(ByVal value As String)
+            _VeiProxManutencao = value
+        End Set
+    End Property
 
     'Historico
-    'Private _VeiUltiAbastecimento As String
-    'Private _VeiUltiManutencao As String
-    'Private _VeiUltiDespesa As String
+    Public Property VeiUltiAbastecimento As String
+        Get
+            Return _VeiUltiAbastecimento
+        End Get
+        Set(ByVal value As String)
+            _VeiUltiAbastecimento = value
+        End Set
+    End Property
+
+
+    Public Property VeiUltiManutencao As String
+        Get
+            Return _VeiUltiManutencao
+        End Get
+        Set(ByVal value As String)
+            _VeiUltiManutencao = value
+        End Set
+    End Property
+
+    Public Property VeiUltiDespesa As String
+        Get
+            Return _VeiUltiDespesa
+        End Get
+        Set(ByVal value As String)
+            _VeiUltiDespesa = value
+        End Set
+    End Property
+
 End Class
