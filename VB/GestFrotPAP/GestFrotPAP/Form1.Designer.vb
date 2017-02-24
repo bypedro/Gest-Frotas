@@ -87,12 +87,6 @@ Partial Class Form1
         Me.TxtNotasUserCon = New System.Windows.Forms.TextBox()
         Me.LblTelefoneUserCon = New System.Windows.Forms.Label()
         Me.PnlDefUtilizadorInfo = New System.Windows.Forms.Panel()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.TxtUtilizadorGeneroDef = New System.Windows.Forms.TextBox()
         Me.TxtUtilizadorUserDef = New System.Windows.Forms.TextBox()
         Me.LblUtilizadorUserDef = New System.Windows.Forms.Label()
@@ -111,6 +105,7 @@ Partial Class Form1
         Me.LblUtilizadorHabilitacoesDef = New System.Windows.Forms.Label()
         Me.TxtUtilizadorDataContratDef = New System.Windows.Forms.TextBox()
         Me.LblUtilizadorNomePDef = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.BtnImagemDefUtilizadorContato = New GestFrotPAP.BtnImagem()
         Me.BtnImagemDefUtilizadorInfo = New GestFrotPAP.BtnImagem()
         Me.BtnDefUtilizadorInfoEdit = New GestFrotPAP.BtnImagem()
@@ -239,9 +234,9 @@ Partial Class Form1
         Me.PnlLogin.Controls.Add(Me.BtnImagemRegistarEntrar)
         Me.PnlLogin.Controls.Add(Me.BtnImagemLogin)
         Me.PnlLogin.ForeColor = System.Drawing.Color.Silver
-        Me.PnlLogin.Location = New System.Drawing.Point(207, 350)
+        Me.PnlLogin.Location = New System.Drawing.Point(878, 164)
         Me.PnlLogin.Name = "PnlLogin"
-        Me.PnlLogin.Size = New System.Drawing.Size(148, 137)
+        Me.PnlLogin.Size = New System.Drawing.Size(50, 50)
         Me.PnlLogin.TabIndex = 7
         '
         'LblPasswordLogin
@@ -414,7 +409,7 @@ Partial Class Form1
         Me.PnlHome.Controls.Add(Me.LblPnlHome)
         Me.PnlHome.Location = New System.Drawing.Point(200, 30)
         Me.PnlHome.Name = "PnlHome"
-        Me.PnlHome.Size = New System.Drawing.Size(800, 33)
+        Me.PnlHome.Size = New System.Drawing.Size(800, 349)
         Me.PnlHome.TabIndex = 10
         Me.PnlHome.Visible = False
         '
@@ -530,6 +525,7 @@ Partial Class Form1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label17)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.Label5)
@@ -616,20 +612,20 @@ Partial Class Form1
         '
         'PnlDefUtilizador
         '
-        Me.PnlDefUtilizador.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.PnlDefUtilizador.Controls.Add(Me.PnlDefUtilizadorContato)
+        Me.PnlDefUtilizador.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.PnlDefUtilizador.Controls.Add(Me.BtnImagemDefUtilizadorContato)
         Me.PnlDefUtilizador.Controls.Add(Me.BtnImagemDefUtilizadorInfo)
+        Me.PnlDefUtilizador.Controls.Add(Me.PnlDefUtilizadorContato)
         Me.PnlDefUtilizador.Controls.Add(Me.PnlDefUtilizadorInfo)
-        Me.PnlDefUtilizador.Location = New System.Drawing.Point(882, 186)
+        Me.PnlDefUtilizador.Location = New System.Drawing.Point(878, 111)
         Me.PnlDefUtilizador.Name = "PnlDefUtilizador"
-        Me.PnlDefUtilizador.Size = New System.Drawing.Size(145, 46)
+        Me.PnlDefUtilizador.Size = New System.Drawing.Size(50, 50)
         Me.PnlDefUtilizador.TabIndex = 14
         Me.PnlDefUtilizador.Visible = False
         '
         'PnlDefUtilizadorContato
         '
-        Me.PnlDefUtilizadorContato.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.PnlDefUtilizadorContato.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.PnlDefUtilizadorContato.Controls.Add(Me.TxtCidadeUserCon)
         Me.PnlDefUtilizadorContato.Controls.Add(Me.LblCidadeUserCon)
         Me.PnlDefUtilizadorContato.Controls.Add(Me.LblPaisUserCon)
@@ -794,13 +790,7 @@ Partial Class Form1
         '
         'PnlDefUtilizadorInfo
         '
-        Me.PnlDefUtilizadorInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.PnlDefUtilizadorInfo.Controls.Add(Me.ComboBox4)
-        Me.PnlDefUtilizadorInfo.Controls.Add(Me.ComboBox5)
-        Me.PnlDefUtilizadorInfo.Controls.Add(Me.ComboBox6)
-        Me.PnlDefUtilizadorInfo.Controls.Add(Me.ComboBox3)
-        Me.PnlDefUtilizadorInfo.Controls.Add(Me.ComboBox2)
-        Me.PnlDefUtilizadorInfo.Controls.Add(Me.ComboBox1)
+        Me.PnlDefUtilizadorInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.PnlDefUtilizadorInfo.Controls.Add(Me.TxtUtilizadorGeneroDef)
         Me.PnlDefUtilizadorInfo.Controls.Add(Me.BtnDefUtilizadorInfoEdit)
         Me.PnlDefUtilizadorInfo.Controls.Add(Me.TxtUtilizadorUserDef)
@@ -824,74 +814,6 @@ Partial Class Form1
         Me.PnlDefUtilizadorInfo.Name = "PnlDefUtilizadorInfo"
         Me.PnlDefUtilizadorInfo.Size = New System.Drawing.Size(1000, 425)
         Me.PnlDefUtilizadorInfo.TabIndex = 0
-        '
-        'ComboBox4
-        '
-        Me.ComboBox4.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ComboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(252, 81)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(49, 21)
-        Me.ComboBox4.TabIndex = 45
-        '
-        'ComboBox5
-        '
-        Me.ComboBox5.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ComboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(198, 81)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(49, 21)
-        Me.ComboBox5.TabIndex = 44
-        '
-        'ComboBox6
-        '
-        Me.ComboBox6.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ComboBox6.DropDownHeight = 50
-        Me.ComboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox6.ForeColor = System.Drawing.Color.White
-        Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.IntegralHeight = False
-        Me.ComboBox6.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"})
-        Me.ComboBox6.Location = New System.Drawing.Point(143, 81)
-        Me.ComboBox6.Name = "ComboBox6"
-        Me.ComboBox6.Size = New System.Drawing.Size(49, 21)
-        Me.ComboBox6.TabIndex = 43
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ComboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(252, 107)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(49, 21)
-        Me.ComboBox3.TabIndex = 42
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(198, 107)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(49, 21)
-        Me.ComboBox2.TabIndex = 41
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ComboBox1.DropDownHeight = 50
-        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox1.ForeColor = System.Drawing.Color.White
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.IntegralHeight = False
-        Me.ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"})
-        Me.ComboBox1.Location = New System.Drawing.Point(143, 107)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(49, 21)
-        Me.ComboBox1.TabIndex = 40
         '
         'TxtUtilizadorGeneroDef
         '
@@ -1076,6 +998,15 @@ Partial Class Form1
         Me.LblUtilizadorNomePDef.Size = New System.Drawing.Size(71, 13)
         Me.LblUtilizadorNomePDef.TabIndex = 22
         Me.LblUtilizadorNomePDef.Text = "Nome Proprio"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(7, 60)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(23, 13)
+        Me.Label17.TabIndex = 3
+        Me.Label17.Text = "Cor"
         '
         'BtnImagemDefUtilizadorContato
         '
@@ -1270,8 +1201,8 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1000, 500)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PnlHome)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PnlDefUtilizador)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
@@ -1372,12 +1303,6 @@ Partial Class Form1
     Friend WithEvents BtnImagemDefUtilizadorInfo As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagemDefUtilizadorContato As GestFrotPAP.BtnImagem
     Friend WithEvents PnlDefUtilizadorContato As System.Windows.Forms.Panel
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox4 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox5 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox6 As System.Windows.Forms.ComboBox
     Friend WithEvents TxtTelemovelUserCon As System.Windows.Forms.TextBox
     Friend WithEvents LblTelemovelUserCon As System.Windows.Forms.Label
     Friend WithEvents LblNotasUserCon As System.Windows.Forms.Label
@@ -1410,5 +1335,6 @@ Partial Class Form1
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents Label17 As System.Windows.Forms.Label
 
 End Class

@@ -1,4 +1,5 @@
 ﻿Public Class UtilizadorDetalhes
+    'User
     Private _CodUser As Integer
     Private _NomeRegisto As String
     Private _Senha As String
@@ -22,6 +23,23 @@
     Private _Pais As String
     Private _PaisCod As String
 
+    'Carro
+    Private _CodVeiculo As String
+    Private _VeiMarca As String
+    Private _VeiModelo As String
+    Private _VeiMatricula As String
+    Private _VeiCor As String
+
+    'Agenda
+    Private _VeiProxInspecao As String
+    Private _VeiProxManutencao As String
+
+    'Historico
+    Private _VeiUltiAbastecimento As String
+    Private _VeiUltiManutencao As String
+    Private _VeiUltiDespesa As String
+
+    'Utilizador
     Public Property CodUser As String
         Get
             Return _CodUser
@@ -219,4 +237,23 @@
             _CidadeCod = value
         End Set
     End Property
+
+
+    'Carro
+    'Carro
+    'SELECT * FROM veicondu where emuso="sim"
+    ' Private _CodVeiculo As String
+    'Private _VeiMarca As String
+    'Private _VeiModelo As String
+    'Private _VeiMatricula As String
+    'Private _VeiCor As String
+
+    'Agenda
+    '  Private _VeiProxInspecao As String
+    ' Private _VeiProxManutencao As String
+
+    'Historico
+    'Private _VeiUltiAbastecimento As String
+    'Private _VeiUltiManutencao As String
+    'Private _VeiUltiDespesa As String
 End Class

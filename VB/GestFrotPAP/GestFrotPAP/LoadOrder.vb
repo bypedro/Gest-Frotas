@@ -196,7 +196,7 @@ Public Module LoadOrder
         Form1.PnlUser.Left = Form1.LblUtilzadorMenu.Left - Form1.PnlUser.Width + Form1.LblUtilzadorMenu.Width
         Form1.PnlUser.Top = Form1.LblUtilzadorMenu.Bottom + 7
         Form1.PnlUser.Width = 200 'Ver qual a label maior?
-        Form1.PnlUser.Height = Form1.Label1.Height + Form1.Label2.Height + Form1.Label3.Height
+        Form1.PnlUser.Height = Form1.Label1.Height + Form1.Label2.Height + Form1.Label3.Height + 5
         Form1.PnlUser.Width = 90
 
 
