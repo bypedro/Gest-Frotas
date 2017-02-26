@@ -353,4 +353,14 @@ Public Class Form1
 
     End Sub
 
+    Private Sub ListBox1_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles ListBox1.DrawItem
+        e.DrawBackground()
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+            e.Graphics.DrawString(ListBox1.GetItemText(ListBox1.Items(e.Index)), e.Font, b, e.Bounds)
+        End Using
+        e.DrawFocusRectangle()
+    End Sub
 End Class

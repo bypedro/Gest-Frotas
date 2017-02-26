@@ -2,7 +2,7 @@
 Imports System.Net.Mail
 Module SQL
     Dim DB As String = "frotas"
-    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
+    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=0000;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
     Dim adapter As New MySqlDataAdapter
     Public DetalhesUtilizador As New UtilizadorDetalhes
 
@@ -208,6 +208,7 @@ Module SQL
             Exit Function
         Catch ex As Exception
             MsgBox("ERRO SQL INSERT")
+            ligacao.Close()
             Return (False)
             Exit Function
         End Try

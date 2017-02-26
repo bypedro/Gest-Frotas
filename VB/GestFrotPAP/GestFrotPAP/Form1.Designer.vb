@@ -25,6 +25,7 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.PnlMenu = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TmrSlide1 = New System.Windows.Forms.Timer(Me.components)
         Me.TmrSlide2 = New System.Windows.Forms.Timer(Me.components)
         Me.PnlBarraTop = New System.Windows.Forms.Panel()
@@ -67,6 +68,20 @@ Partial Class Form1
         Me.LblVeiMarcEmUso = New System.Windows.Forms.Label()
         Me.LblPnlHome = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.ListBox6 = New System.Windows.Forms.ListBox()
+        Me.ListBox7 = New System.Windows.Forms.ListBox()
+        Me.ListBox8 = New System.Windows.Forms.ListBox()
+        Me.ListBox4 = New System.Windows.Forms.ListBox()
+        Me.ListBox3 = New System.Windows.Forms.ListBox()
+        Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
@@ -105,7 +120,6 @@ Partial Class Form1
         Me.LblUtilizadorHabilitacoesDef = New System.Windows.Forms.Label()
         Me.TxtUtilizadorDataContratDef = New System.Windows.Forms.TextBox()
         Me.LblUtilizadorNomePDef = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BtnImagemDefUtilizadorContato = New GestFrotPAP.BtnImagem()
         Me.BtnImagemDefUtilizadorInfo = New GestFrotPAP.BtnImagem()
         Me.BtnDefUtilizadorInfoEdit = New GestFrotPAP.BtnImagem()
@@ -118,7 +132,9 @@ Partial Class Form1
         Me.BtnImagem2 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem4 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem3 = New GestFrotPAP.BtnImagem()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.PnlMenu.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlBarraTop.SuspendLayout()
         Me.PnlLogin.SuspendLayout()
         Me.PnlUser.SuspendLayout()
@@ -131,7 +147,7 @@ Partial Class Form1
         Me.PnlDefUtilizador.SuspendLayout()
         Me.PnlDefUtilizadorContato.SuspendLayout()
         Me.PnlDefUtilizadorInfo.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PnlMenu
@@ -148,6 +164,15 @@ Partial Class Form1
         Me.PnlMenu.Name = "PnlMenu"
         Me.PnlMenu.Size = New System.Drawing.Size(201, 476)
         Me.PnlMenu.TabIndex = 5
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Location = New System.Drawing.Point(4, 8)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(158, 38)
+        Me.PictureBox1.TabIndex = 5
+        Me.PictureBox1.TabStop = False
         '
         'TmrSlide1
         '
@@ -400,7 +425,7 @@ Partial Class Form1
         Me.PnlHome.Controls.Add(Me.LblPnlHome)
         Me.PnlHome.Location = New System.Drawing.Point(200, 30)
         Me.PnlHome.Name = "PnlHome"
-        Me.PnlHome.Size = New System.Drawing.Size(800, 349)
+        Me.PnlHome.Size = New System.Drawing.Size(800, 170)
         Me.PnlHome.TabIndex = 10
         Me.PnlHome.Visible = False
         '
@@ -575,13 +600,177 @@ Partial Class Form1
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.DataGridView1)
+        Me.Panel2.Controls.Add(Me.Label18)
+        Me.Panel2.Controls.Add(Me.Label17)
+        Me.Panel2.Controls.Add(Me.Label9)
+        Me.Panel2.Controls.Add(Me.Label8)
+        Me.Panel2.Controls.Add(Me.Label7)
+        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Controls.Add(Me.Label5)
+        Me.Panel2.Controls.Add(Me.ListBox6)
+        Me.Panel2.Controls.Add(Me.ListBox7)
+        Me.Panel2.Controls.Add(Me.ListBox8)
+        Me.Panel2.Controls.Add(Me.ListBox4)
+        Me.Panel2.Controls.Add(Me.ListBox3)
+        Me.Panel2.Controls.Add(Me.ListBox2)
+        Me.Panel2.Controls.Add(Me.ListBox1)
         Me.Panel2.Controls.Add(Me.Label16)
-        Me.Panel2.Location = New System.Drawing.Point(200, 68)
+        Me.Panel2.Location = New System.Drawing.Point(32, 30)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(50, 50)
+        Me.Panel2.Size = New System.Drawing.Size(968, 470)
         Me.Panel2.TabIndex = 11
         Me.Panel2.Visible = False
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(771, 35)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(60, 13)
+        Me.Label18.TabIndex = 15
+        Me.Label18.Text = "Km Veiculo"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(645, 36)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(31, 13)
+        Me.Label17.TabIndex = 14
+        Me.Label17.Text = "Valor"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(519, 35)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(62, 13)
+        Me.Label9.TabIndex = 13
+        Me.Label9.Text = "Quantidade"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(390, 36)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(30, 13)
+        Me.Label8.TabIndex = 12
+        Me.Label8.Text = "Data"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(264, 35)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(50, 13)
+        Me.Label7.TabIndex = 11
+        Me.Label7.Text = "Utilizador"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(142, 36)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(61, 13)
+        Me.Label6.TabIndex = 10
+        Me.Label6.Text = "Fornecedor"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(15, 35)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(32, 13)
+        Me.Label5.TabIndex = 9
+        Me.Label5.Text = "Carro"
+        '
+        'ListBox6
+        '
+        Me.ListBox6.BackColor = System.Drawing.Color.DimGray
+        Me.ListBox6.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ListBox6.ForeColor = System.Drawing.Color.White
+        Me.ListBox6.FormattingEnabled = True
+        Me.ListBox6.Location = New System.Drawing.Point(774, 72)
+        Me.ListBox6.MultiColumn = True
+        Me.ListBox6.Name = "ListBox6"
+        Me.ListBox6.Size = New System.Drawing.Size(120, 91)
+        Me.ListBox6.TabIndex = 7
+        '
+        'ListBox7
+        '
+        Me.ListBox7.BackColor = System.Drawing.Color.DimGray
+        Me.ListBox7.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ListBox7.ForeColor = System.Drawing.Color.White
+        Me.ListBox7.FormattingEnabled = True
+        Me.ListBox7.Location = New System.Drawing.Point(648, 72)
+        Me.ListBox7.MultiColumn = True
+        Me.ListBox7.Name = "ListBox7"
+        Me.ListBox7.Size = New System.Drawing.Size(120, 91)
+        Me.ListBox7.TabIndex = 6
+        '
+        'ListBox8
+        '
+        Me.ListBox8.BackColor = System.Drawing.Color.DimGray
+        Me.ListBox8.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ListBox8.ForeColor = System.Drawing.Color.White
+        Me.ListBox8.FormattingEnabled = True
+        Me.ListBox8.Location = New System.Drawing.Point(522, 72)
+        Me.ListBox8.MultiColumn = True
+        Me.ListBox8.Name = "ListBox8"
+        Me.ListBox8.Size = New System.Drawing.Size(120, 91)
+        Me.ListBox8.TabIndex = 5
+        '
+        'ListBox4
+        '
+        Me.ListBox4.BackColor = System.Drawing.Color.DimGray
+        Me.ListBox4.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ListBox4.ForeColor = System.Drawing.Color.White
+        Me.ListBox4.FormattingEnabled = True
+        Me.ListBox4.Location = New System.Drawing.Point(393, 72)
+        Me.ListBox4.MultiColumn = True
+        Me.ListBox4.Name = "ListBox4"
+        Me.ListBox4.Size = New System.Drawing.Size(120, 91)
+        Me.ListBox4.TabIndex = 4
+        '
+        'ListBox3
+        '
+        Me.ListBox3.BackColor = System.Drawing.Color.DimGray
+        Me.ListBox3.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ListBox3.ForeColor = System.Drawing.Color.White
+        Me.ListBox3.FormattingEnabled = True
+        Me.ListBox3.Location = New System.Drawing.Point(267, 72)
+        Me.ListBox3.MultiColumn = True
+        Me.ListBox3.Name = "ListBox3"
+        Me.ListBox3.Size = New System.Drawing.Size(120, 91)
+        Me.ListBox3.TabIndex = 3
+        '
+        'ListBox2
+        '
+        Me.ListBox2.BackColor = System.Drawing.Color.DimGray
+        Me.ListBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ListBox2.ForeColor = System.Drawing.Color.White
+        Me.ListBox2.FormattingEnabled = True
+        Me.ListBox2.Items.AddRange(New Object() {"banananananananananan", "LOL"})
+        Me.ListBox2.Location = New System.Drawing.Point(141, 72)
+        Me.ListBox2.MultiColumn = True
+        Me.ListBox2.Name = "ListBox2"
+        Me.ListBox2.Size = New System.Drawing.Size(120, 91)
+        Me.ListBox2.TabIndex = 2
+        '
+        'ListBox1
+        '
+        Me.ListBox1.BackColor = System.Drawing.Color.DimGray
+        Me.ListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ListBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.ListBox1.ForeColor = System.Drawing.Color.White
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"})
+        Me.ListBox1.Location = New System.Drawing.Point(15, 72)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(120, 91)
+        Me.ListBox1.TabIndex = 1
         '
         'Label16
         '
@@ -999,15 +1188,6 @@ Partial Class Form1
         Me.LblUtilizadorNomePDef.TabIndex = 22
         Me.LblUtilizadorNomePDef.Text = "Nome Proprio"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.White
-        Me.PictureBox1.Location = New System.Drawing.Point(4, 8)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(158, 38)
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
-        '
         'BtnImagemDefUtilizadorContato
         '
         Me.BtnImagemDefUtilizadorContato.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
@@ -1195,13 +1375,20 @@ Partial Class Form1
         Me.BtnImagem3.TamanhoLetra = 10
         Me.BtnImagem3.Texto = "Manutenção"
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(18, 176)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(240, 150)
+        Me.DataGridView1.TabIndex = 16
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1000, 500)
-        Me.Controls.Add(Me.PnlHome)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PnlDefUtilizador)
         Me.Controls.Add(Me.Panel4)
@@ -1210,11 +1397,13 @@ Partial Class Form1
         Me.Controls.Add(Me.PnlLogin)
         Me.Controls.Add(Me.PnlMenu)
         Me.Controls.Add(Me.PnlBarraTop)
+        Me.Controls.Add(Me.PnlHome)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "GestFrot"
         Me.PnlMenu.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PnlBarraTop.ResumeLayout(False)
         Me.PnlBarraTop.PerformLayout()
         Me.PnlLogin.ResumeLayout(False)
@@ -1238,7 +1427,7 @@ Partial Class Form1
         Me.PnlDefUtilizadorContato.PerformLayout()
         Me.PnlDefUtilizadorInfo.ResumeLayout(False)
         Me.PnlDefUtilizadorInfo.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1336,5 +1525,20 @@ Partial Class Form1
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents LblVeiCorEmUso As System.Windows.Forms.Label
+    Friend WithEvents ListBox4 As System.Windows.Forms.ListBox
+    Friend WithEvents ListBox3 As System.Windows.Forms.ListBox
+    Friend WithEvents ListBox2 As System.Windows.Forms.ListBox
+    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
+    Friend WithEvents ListBox6 As System.Windows.Forms.ListBox
+    Friend WithEvents ListBox7 As System.Windows.Forms.ListBox
+    Friend WithEvents ListBox8 As System.Windows.Forms.ListBox
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
 
 End Class
