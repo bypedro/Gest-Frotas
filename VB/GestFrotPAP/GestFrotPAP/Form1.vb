@@ -1,8 +1,7 @@
 ﻿Imports System.Drawing
 Imports System.Drawing.Drawing2D
 Imports System.Drawing.Text
-
-
+Imports System.Runtime.InteropServices
 
 
 Public Class Form1
@@ -152,6 +151,15 @@ Public Class Form1
     End Sub
     Private Sub BtnImagem2_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem2.ButtonClickMasterRace
         MenuPrincipal(1, True)
+        ListBox1.SelectedItems.Clear()
+        AbastecimentoVer()
+        Try
+            ListBox1.SelectedIndex = 0
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
+
     End Sub
     Private Sub BtnImagem3_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem3.ButtonClickMasterRace
         MenuPrincipal(2, True)
@@ -290,12 +298,24 @@ Public Class Form1
     End Sub
 
     Private Sub Label3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label3.Click
+        If PnlMenu.Right = 36 Then
+            PnlMenu.Left = 200
+            For a = 0 To NMenuPrincipal
+                BtnImagemMenuPrincipal(a).Left = 0
+
+            Next
+            BtnMenu1.zEstadoBotao = False
+            BtnMenu1.resetbtn()
+        End If
+        BtnImagem1.EstadoBotao = True
+
         LoadOrder.LoginPage()
         PnlLogin.Show()
         PnlHome.Hide()
         LblUtilzadorMenu.Hide()
         PnlUser.Hide()
         PnlDefUtilizador.Hide()
+        
     End Sub
 
     Private Sub Label2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label2.Click
@@ -353,14 +373,23 @@ Public Class Form1
 
     End Sub
 
+    'Draw MODe= fixed
     Private Sub ListBox1_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles ListBox1.DrawItem
         e.DrawBackground()
         If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
             e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
         End If
         Using b As New SolidBrush(e.ForeColor)
-            e.Graphics.DrawString(ListBox1.GetItemText(ListBox1.Items(e.Index)), e.Font, b, e.Bounds)
+            Try
+                e.Graphics.DrawString(ListBox1.GetItemText(ListBox1.Items(e.Index)), e.Font, b, e.Bounds)
+            Catch ex As Exception
+
+            End Try
         End Using
         e.DrawFocusRectangle()
+    End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
     End Sub
 End Class

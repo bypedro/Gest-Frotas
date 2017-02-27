@@ -169,12 +169,6 @@
     <None Include="Resources\maven.TTF" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Menu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Menu1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
@@ -192,10 +186,28 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\home.png" />
+    <None Include="Resources\Icons\menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\gas-station.png" />
+    <None Include="Resources\Icons\menu1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\home-silhouette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\gas-station.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\wrench.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\euro-sack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\euro-sack1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\dollar-bills.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

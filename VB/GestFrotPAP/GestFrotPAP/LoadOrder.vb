@@ -34,7 +34,7 @@ Public Module LoadOrder
         Form1.PnlMenu.Top = Form1.PnlBarraTop.Bottom
         Form1.PnlMenu.Height = Form1.Height - Form1.PnlBarraTop.Height
         Form1.PnlMenu.Width = 200
-        Form1.BtnMenu1.Left = Form1.PnlMenu.Right - 35
+        Form1.BtnMenu1.Left = Form1.PnlMenu.Right - 34
 
         'Barra do topo com titulo / Por aqui o butão fechar
         Form1.LblNomeProjeto.Text = "VecXP"
@@ -215,7 +215,7 @@ Public Module LoadOrder
         Form1.LblVeiModelEmUso.Text = "Modelo= " + DetalhesUtilizador.VeiModelo.ToString + ""
         Form1.LblVeiMatricEmUso.Text = "Matricula = " + DetalhesUtilizador.VeiMatricula.ToString + ""
         'Agenda
-        Form1.LblVeiProxInspEmUso.Text = "Proxima Inspecao = " + DetalhesUtilizador.VeiProxInspecao.ToString + ""
+        Form1.LblVeiProxInspEmUso.Text = "----------MUDAR NO SQL-------Proxima Inspecao = " + DetalhesUtilizador.VeiProxInspecao.ToString + ""
 
 
     End Sub

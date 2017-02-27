@@ -41,7 +41,7 @@ Partial Class BtnImagem
         '
         Me.PctImagem.BackColor = System.Drawing.Color.Transparent
         Me.PctImagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PctImagem.Location = New System.Drawing.Point(1, 6)
+        Me.PctImagem.Location = New System.Drawing.Point(2, 6)
         Me.PctImagem.Name = "PctImagem"
         Me.PctImagem.Size = New System.Drawing.Size(32, 32)
         Me.PctImagem.TabIndex = 1

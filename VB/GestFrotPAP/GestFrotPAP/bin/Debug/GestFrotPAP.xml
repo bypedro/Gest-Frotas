@@ -15,7 +15,15 @@ GestFrotPAP
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
-</member><member name="P:GestFrotPAP.My.Resources.Resources.home">
+</member><member name="P:GestFrotPAP.My.Resources.Resources.dollar_bills">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:GestFrotPAP.My.Resources.Resources.gas_station">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:GestFrotPAP.My.Resources.Resources.home_silhouette">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -23,11 +31,15 @@ GestFrotPAP
 	<summary>
   Looks up a localized resource of type System.Byte[].
 </summary>
-</member><member name="P:GestFrotPAP.My.Resources.Resources.Menu">
+</member><member name="P:GestFrotPAP.My.Resources.Resources.menu">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:GestFrotPAP.My.Resources.Resources.Menu1">
+</member><member name="P:GestFrotPAP.My.Resources.Resources.menu1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:GestFrotPAP.My.Resources.Resources.wrench">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

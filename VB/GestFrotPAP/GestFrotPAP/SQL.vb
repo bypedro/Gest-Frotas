@@ -714,13 +714,52 @@ Module SQL
             ligacao.Close()
         End Try
 
-
     End Sub
 
 
     ' SELECT * FROM veicondu where emuso="sim" and coduser="1"
 
     '  Comando = New MySqlCommand("select CodVei from pais where ='" + DetalhesUtilizador.CodUser + "'codpais='" + DetalhesUtilizador.CodUser + "'", ligacao)
+
+    Public Sub AbastecimentoVer()
+        Dim Tabelas As DataSet = New DataSet
+        adapter.SelectCommand = New MySqlCommand
+        adapter.SelectCommand.Connection = ligacao
+        adapter.SelectCommand.CommandText = ("select CodVeiAbast,Data,Veiculo_km,quantidade,valor,notas,concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,Nome as Fornecedor,concat(Nome_Proprio, ' ', Apelido) as Utilizador ,Nome as Fornecedor from veiabast,veiculos,fornecedores,Utilizador where Veiculos.Codvei=Veiabast.CodVei and fornecedores.Codforn=Veiabast.Codforn and Utilizador.CodUser=Veiabast.Coduser")
+        Try
+            ligacao.Open()
+            adapter.Fill(Tabelas, "Abastecimento")
+            ligacao.Close()
+        Catch ex As Exception
+            ligacao.Close()
+            MsgBox("ERRO abastecimento")
+            Exit Sub
+        End Try
+       
+        Form1.ListBox1.DataSource = Tabelas.Tables(0)
+        Form1.ListBox2.DataSource = Tabelas.Tables(0)
+        Form1.ListBox3.DataSource = Tabelas.Tables(0)
+        Form1.ListBox4.DataSource = Tabelas.Tables(0)
+        Form1.ListBox5.DataSource = Tabelas.Tables(0)
+        Form1.ListBox6.DataSource = Tabelas.Tables(0)
+        Form1.ListBox7.DataSource = Tabelas.Tables(0)
+
+        Form1.ListBox1.DisplayMember = "veiculo"
+        Form1.ListBox2.DisplayMember = "Fornecedor"
+        Form1.ListBox3.DisplayMember = "Utilizador"
+        Form1.ListBox4.DisplayMember = "Data"
+        Form1.ListBox5.DisplayMember = "quantidade"
+        Form1.ListBox6.DisplayMember = "valor"
+        Form1.ListBox7.DisplayMember = "Veiculo_km"
+
+        Form1.ListBox1.ValueMember = "CodVeiAbast"
+        Form1.ListBox2.ValueMember = "CodVeiAbast"
+        Form1.ListBox3.ValueMember = "CodVeiAbast"
+        Form1.ListBox4.ValueMember = "CodVeiAbast"
+        Form1.ListBox6.ValueMember = "CodVeiAbast"
+        Form1.ListBox7.ValueMember = "CodVeiAbast"
+
+    End Sub
 
 
 End Module
