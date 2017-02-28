@@ -29,6 +29,7 @@
     Private _VeiModelo As String
     Private _VeiMatricula As String
     Private _VeiCor As String
+    'KM?
 
     'Agenda
     Private _VeiProxInspecao As String

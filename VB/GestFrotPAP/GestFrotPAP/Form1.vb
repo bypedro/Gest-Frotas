@@ -151,10 +151,10 @@ Public Class Form1
     End Sub
     Private Sub BtnImagem2_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem2.ButtonClickMasterRace
         MenuPrincipal(1, True)
-        ListBox1.SelectedItems.Clear()
+        LstAbastCarro.SelectedItems.Clear()
         AbastecimentoVer()
         Try
-            ListBox1.SelectedIndex = 0
+            LstAbastCarro.SelectedIndex = 0
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
@@ -163,9 +163,23 @@ Public Class Form1
     End Sub
     Private Sub BtnImagem3_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem3.ButtonClickMasterRace
         MenuPrincipal(2, True)
+        LstManuCarro.SelectedItems.Clear()
+        ManutencaoVer()
+        Try
+            LstAbastCarro.SelectedIndex = 0
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
     End Sub
     Private Sub BtnImagem4_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem4.ButtonClickMasterRace
         MenuPrincipal(3, True)
+        LstAbastCarro.SelectedItems.Clear()
+        DespesasVer()
+        Try
+            LstAbastCarro.SelectedIndex = 0
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
     End Sub
 
     Private Sub TmrSlide1_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles TmrSlide1.Tick
@@ -315,7 +329,7 @@ Public Class Form1
         LblUtilzadorMenu.Hide()
         PnlUser.Hide()
         PnlDefUtilizador.Hide()
-        
+
     End Sub
 
     Private Sub Label2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label2.Click
@@ -369,19 +383,17 @@ Public Class Form1
         MenuDefUtilizador(1)
     End Sub
 
-    Private Sub PnlBarraTop_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles PnlBarraTop.Paint
-
-    End Sub
-
-    'Draw MODe= fixed
-    Private Sub ListBox1_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles ListBox1.DrawItem
+    '
+    'Abastecimento
+    '
+    Private Sub LstAbastCarro_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAbastCarro.DrawItem 'Draw MODe= fixed
         e.DrawBackground()
         If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
             e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
         End If
         Using b As New SolidBrush(e.ForeColor)
             Try
-                e.Graphics.DrawString(ListBox1.GetItemText(ListBox1.Items(e.Index)), e.Font, b, e.Bounds)
+                e.Graphics.DrawString(LstAbastCarro.GetItemText(LstAbastCarro.Items(e.Index)), e.Font, b, e.Bounds)
             Catch ex As Exception
 
             End Try
@@ -389,7 +401,132 @@ Public Class Form1
         e.DrawFocusRectangle()
     End Sub
 
-    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+    Private Sub LstAbastFornecedor_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAbastFornecedor.DrawItem
+        e.DrawBackground()
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+            Try
+                e.Graphics.DrawString(LstAbastFornecedor.GetItemText(LstAbastFornecedor.Items(e.Index)), e.Font, b, e.Bounds)
+            Catch ex As Exception
 
+            End Try
+        End Using
+        e.DrawFocusRectangle()
+    End Sub
+
+    Private Sub LstAbastUtilizador_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAbastUtilizador.DrawItem
+        e.DrawBackground()
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+            Try
+                e.Graphics.DrawString(LstAbastUtilizador.GetItemText(LstAbastUtilizador.Items(e.Index)), e.Font, b, e.Bounds)
+            Catch ex As Exception
+
+            End Try
+        End Using
+        e.DrawFocusRectangle()
+    End Sub
+
+    Private Sub LstAbastData_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAbastData.DrawItem
+        e.DrawBackground()
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+            Try
+                e.Graphics.DrawString(LstAbastData.GetItemText(LstAbastData.Items(e.Index)), e.Font, b, e.Bounds)
+            Catch ex As Exception
+
+            End Try
+        End Using
+        e.DrawFocusRectangle()
+    End Sub
+
+    Private Sub LstAbastQuantidade_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAbastQuantidade.DrawItem
+        e.DrawBackground()
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+            Try
+                e.Graphics.DrawString(LstAbastQuantidade.GetItemText(LstAbastQuantidade.Items(e.Index)), e.Font, b, e.Bounds)
+            Catch ex As Exception
+
+            End Try
+        End Using
+        e.DrawFocusRectangle()
+    End Sub
+
+    Private Sub LstAbastValor_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAbastValor.DrawItem
+        e.DrawBackground()
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+            Try
+                e.Graphics.DrawString(LstAbastValor.GetItemText(LstAbastValor.Items(e.Index)), e.Font, b, e.Bounds)
+            Catch ex As Exception
+
+            End Try
+        End Using
+        e.DrawFocusRectangle()
+    End Sub
+
+    Private Sub LstAbastKM_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAbastKM.DrawItem
+        e.DrawBackground()
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+            Try
+                e.Graphics.DrawString(LstAbastKM.GetItemText(LstAbastKM.Items(e.Index)), e.Font, b, e.Bounds)
+            Catch ex As Exception
+
+            End Try
+        End Using
+        e.DrawFocusRectangle()
+    End Sub
+    '
+    'Abastecimento
+    '
+    '
+    'Manutencao
+    '
+    Private Sub LstManuCarro_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstManuCarro.DrawItem
+        e.DrawBackground()
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+            Try
+                e.Graphics.DrawString(LstManuCarro.GetItemText(LstManuCarro.Items(e.Index)), e.Font, b, e.Bounds)
+            Catch ex As Exception
+
+            End Try
+        End Using
+        e.DrawFocusRectangle()
+    End Sub
+
+
+    '
+    'Despesa
+    '
+    Private Sub LstDespCarro_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstDespCarro.DrawItem
+        e.DrawBackground()
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+            Try
+                e.Graphics.DrawString(LstDespCarro.GetItemText(LstDespCarro.Items(e.Index)), e.Font, b, e.Bounds)
+            Catch ex As Exception
+
+            End Try
+        End Using
+        e.DrawFocusRectangle()
     End Sub
 End Class

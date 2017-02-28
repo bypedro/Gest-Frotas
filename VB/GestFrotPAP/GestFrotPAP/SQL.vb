@@ -736,28 +736,108 @@ Module SQL
             Exit Sub
         End Try
        
-        Form1.ListBox1.DataSource = Tabelas.Tables(0)
-        Form1.ListBox2.DataSource = Tabelas.Tables(0)
-        Form1.ListBox3.DataSource = Tabelas.Tables(0)
-        Form1.ListBox4.DataSource = Tabelas.Tables(0)
-        Form1.ListBox5.DataSource = Tabelas.Tables(0)
-        Form1.ListBox6.DataSource = Tabelas.Tables(0)
-        Form1.ListBox7.DataSource = Tabelas.Tables(0)
+        Form1.LstAbastCarro.DataSource = Tabelas.Tables(0)
+        Form1.LstAbastFornecedor.DataSource = Tabelas.Tables(0)
+        Form1.LstAbastUtilizador.DataSource = Tabelas.Tables(0)
+        Form1.LstAbastData.DataSource = Tabelas.Tables(0)
+        Form1.LstAbastQuantidade.DataSource = Tabelas.Tables(0)
+        Form1.LstAbastValor.DataSource = Tabelas.Tables(0)
+        Form1.LstAbastKM.DataSource = Tabelas.Tables(0)
 
-        Form1.ListBox1.DisplayMember = "veiculo"
-        Form1.ListBox2.DisplayMember = "Fornecedor"
-        Form1.ListBox3.DisplayMember = "Utilizador"
-        Form1.ListBox4.DisplayMember = "Data"
-        Form1.ListBox5.DisplayMember = "quantidade"
-        Form1.ListBox6.DisplayMember = "valor"
-        Form1.ListBox7.DisplayMember = "Veiculo_km"
+        Form1.LstAbastCarro.DisplayMember = "veiculo"
+        Form1.LstAbastFornecedor.DisplayMember = "Fornecedor"
+        Form1.LstAbastUtilizador.DisplayMember = "Utilizador"
+        Form1.LstAbastData.DisplayMember = "Data"
+        Form1.LstAbastQuantidade.DisplayMember = "quantidade"
+        Form1.LstAbastValor.DisplayMember = "valor"
+        Form1.LstAbastKM.DisplayMember = "Veiculo_km"
 
-        Form1.ListBox1.ValueMember = "CodVeiAbast"
-        Form1.ListBox2.ValueMember = "CodVeiAbast"
-        Form1.ListBox3.ValueMember = "CodVeiAbast"
-        Form1.ListBox4.ValueMember = "CodVeiAbast"
-        Form1.ListBox6.ValueMember = "CodVeiAbast"
-        Form1.ListBox7.ValueMember = "CodVeiAbast"
+        Form1.LstAbastCarro.ValueMember = "CodVeiAbast"
+        Form1.LstAbastFornecedor.ValueMember = "CodVeiAbast"
+        Form1.LstAbastUtilizador.ValueMember = "CodVeiAbast"
+        Form1.LstAbastData.ValueMember = "CodVeiAbast"
+        Form1.LstAbastValor.ValueMember = "CodVeiAbast"
+        Form1.LstAbastKM.ValueMember = "CodVeiAbast"
+
+    End Sub
+
+    Public Sub ManutencaoVer()
+        Dim Tabelas As DataSet = New DataSet
+        adapter.SelectCommand = New MySqlCommand
+        adapter.SelectCommand.Connection = ligacao
+        adapter.SelectCommand.CommandText = ("select Codmanu,Data_Efetuada,Veiculo_km,valor,nota,concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,tipoManu.Nome as TipoManu,fornecedores.Nome as Fornecedor from Manutencao,veiculos,fornecedores,tipomanu where Veiculos.Codvei=manutencao.CodVei and fornecedores.Codforn=manutencao.Codforn and tipomanu.CodtipoM=manutencao.codtipom")
+        Try
+            ligacao.Open()
+            adapter.Fill(Tabelas, "Manutencao")
+            ligacao.Close()
+        Catch ex As Exception
+            ligacao.Close()
+            MsgBox("ERRO Manutencao")
+            Exit Sub
+        End Try
+
+        Form1.LstManuCarro.DataSource = Tabelas.Tables(0)
+        Form1.LstManuFornecedor.DataSource = Tabelas.Tables(0)
+        Form1.LstManuTipo.DataSource = Tabelas.Tables(0)
+        Form1.LstManuData.DataSource = Tabelas.Tables(0)
+        Form1.LstManuValor.DataSource = Tabelas.Tables(0)
+        Form1.LstManuKm.DataSource = Tabelas.Tables(0)
+
+        Form1.LstManuCarro.DisplayMember = "veiculo"
+        Form1.LstManuFornecedor.DisplayMember = "Fornecedor"
+        Form1.LstManuTipo.DisplayMember = "Tipomanu"
+        Form1.LstManuData.DisplayMember = "Data_efetuada"
+        Form1.LstManuValor.DisplayMember = "valor"
+        Form1.LstManuKm.DisplayMember = "Veiculo_km"
+
+        Form1.LstManuCarro.ValueMember = "Codmanu"
+        Form1.LstManuFornecedor.ValueMember = "Codmanu"
+        Form1.LstManuTipo.ValueMember = "Codmanu"
+        Form1.LstManuData.ValueMember = "Codmanu"
+        Form1.LstManuValor.ValueMember = "Codmanu"
+        Form1.LstManuKm.ValueMember = "Codmanu"
+
+    End Sub
+
+    Public Sub DespesasVer()
+        Dim Tabelas As DataSet = New DataSet
+        adapter.SelectCommand = New MySqlCommand
+        adapter.SelectCommand.Connection = ligacao
+        adapter.SelectCommand.CommandText = ("select Coddesp,Data_Efetuada,Veiculo_Km,Valor,Nota,concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,fornecedores.Nome as Fornecedor,concat(Nome_Proprio, ' ', Apelido) as Utilizador,tipodesp.nome as Tipodesp from despesas,Veiculos,Fornecedores,Utilizador,TipoDesp where Despesas.codvei=veiculos.codvei and Despesas.codforn=Fornecedores.codforn and Despesas.coduser=Utilizador.coduser and Despesas.codtipod=tipodesp.codtipod")
+        Try
+            ligacao.Open()
+            adapter.Fill(Tabelas, "Despesas")
+            ligacao.Close()
+        Catch ex As Exception
+            ligacao.Close()
+            MsgBox("ERRO Despesas")
+            Exit Sub
+        End Try
+
+        Form1.LstDespCarro.DataSource = Tabelas.Tables(0)
+        Form1.LstDespFornecedor.DataSource = Tabelas.Tables(0)
+        Form1.LstDespUtilizador.DataSource = Tabelas.Tables(0)
+        Form1.LstDespTipo.DataSource = Tabelas.Tables(0)
+        Form1.LstDespData.DataSource = Tabelas.Tables(0)
+        Form1.LstDespValor.DataSource = Tabelas.Tables(0)
+        Form1.LstDespKM.DataSource = Tabelas.Tables(0)
+
+        Form1.LstDespCarro.DisplayMember = "veiculo"
+        Form1.LstDespFornecedor.DisplayMember = "Fornecedor"
+        Form1.LstDespUtilizador.DisplayMember = "Utilizador"
+        Form1.LstDespTipo.DisplayMember = "Tipodesp"
+        Form1.LstDespData.DisplayMember = "Data_efetuada"
+        Form1.LstDespValor.DisplayMember = "valor"
+        Form1.LstDespKM.DisplayMember = "Veiculo_km"
+
+
+        Form1.LstDespCarro.ValueMember = "Coddesp"
+        Form1.LstDespFornecedor.ValueMember = "Coddesp"
+        Form1.LstDespUtilizador.ValueMember = "Coddesp"
+        Form1.LstDespTipo.ValueMember = "Coddesp"
+        Form1.LstDespData.ValueMember = "Coddesp"
+        Form1.LstDespValor.ValueMember = "Coddesp"
+        Form1.LstDespKM.ValueMember = "Coddesp"
 
     End Sub
 
