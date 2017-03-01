@@ -25,7 +25,6 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.PnlMenu = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TmrSlide1 = New System.Windows.Forms.Timer(Me.components)
         Me.TmrSlide2 = New System.Windows.Forms.Timer(Me.components)
         Me.PnlBarraTop = New System.Windows.Forms.Panel()
@@ -98,6 +97,21 @@ Partial Class Form1
         Me.LstManuCarro = New System.Windows.Forms.ListBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.LstDespUtilizador = New System.Windows.Forms.ListBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.LstDespValor = New System.Windows.Forms.ListBox()
+        Me.LstDespKM = New System.Windows.Forms.ListBox()
+        Me.LstDespData = New System.Windows.Forms.ListBox()
+        Me.LstDespTipo = New System.Windows.Forms.ListBox()
+        Me.LstDespFornecedor = New System.Windows.Forms.ListBox()
+        Me.LstDespCarro = New System.Windows.Forms.ListBox()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.PnlDefUtilizador = New System.Windows.Forms.Panel()
         Me.PnlDefUtilizadorContato = New System.Windows.Forms.Panel()
         Me.TxtCidadeUserCon = New System.Windows.Forms.TextBox()
@@ -133,21 +147,10 @@ Partial Class Form1
         Me.LblUtilizadorHabilitacoesDef = New System.Windows.Forms.Label()
         Me.TxtUtilizadorDataContratDef = New System.Windows.Forms.TextBox()
         Me.LblUtilizadorNomePDef = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.LstDespValor = New System.Windows.Forms.ListBox()
-        Me.LstDespKM = New System.Windows.Forms.ListBox()
-        Me.LstDespData = New System.Windows.Forms.ListBox()
-        Me.LstDespTipo = New System.Windows.Forms.ListBox()
-        Me.LstDespFornecedor = New System.Windows.Forms.ListBox()
-        Me.LstDespCarro = New System.Windows.Forms.ListBox()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.LstDespUtilizador = New System.Windows.Forms.ListBox()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BtnImagemDefUtilizadorContato = New GestFrotPAP.BtnImagem()
         Me.BtnImagemDefUtilizadorInfo = New GestFrotPAP.BtnImagem()
         Me.BtnDefUtilizadorInfoEdit = New GestFrotPAP.BtnImagem()
@@ -155,13 +158,15 @@ Partial Class Form1
         Me.BtnImagemRegistar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemRegistarEntrar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemLogin = New GestFrotPAP.BtnImagem()
+        Me.BtnImagem7 = New GestFrotPAP.BtnImagem()
+        Me.BtnImagem6 = New GestFrotPAP.BtnImagem()
+        Me.BtnImagem5 = New GestFrotPAP.BtnImagem()
         Me.BtnMenu1 = New GestFrotPAP.BtnMenu()
         Me.BtnImagem1 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem2 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem4 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem3 = New GestFrotPAP.BtnImagem()
         Me.PnlMenu.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlBarraTop.SuspendLayout()
         Me.PnlLogin.SuspendLayout()
         Me.PnlUser.SuspendLayout()
@@ -176,11 +181,15 @@ Partial Class Form1
         Me.PnlDefUtilizador.SuspendLayout()
         Me.PnlDefUtilizadorContato.SuspendLayout()
         Me.PnlDefUtilizadorInfo.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PnlMenu
         '
         Me.PnlMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.PnlMenu.Controls.Add(Me.BtnImagem7)
+        Me.PnlMenu.Controls.Add(Me.BtnImagem6)
+        Me.PnlMenu.Controls.Add(Me.BtnImagem5)
         Me.PnlMenu.Controls.Add(Me.PictureBox1)
         Me.PnlMenu.Controls.Add(Me.BtnMenu1)
         Me.PnlMenu.Controls.Add(Me.BtnImagem1)
@@ -193,22 +202,13 @@ Partial Class Form1
         Me.PnlMenu.Size = New System.Drawing.Size(201, 476)
         Me.PnlMenu.TabIndex = 5
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.White
-        Me.PictureBox1.Location = New System.Drawing.Point(4, 8)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(158, 38)
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
-        '
         'TmrSlide1
         '
-        Me.TmrSlide1.Interval = 10
+        Me.TmrSlide1.Interval = 1
         '
         'TmrSlide2
         '
-        Me.TmrSlide2.Interval = 10
+        Me.TmrSlide2.Interval = 1
         '
         'PnlBarraTop
         '
@@ -429,9 +429,9 @@ Partial Class Form1
         Me.Label2.ForeColor = System.Drawing.Color.Silver
         Me.Label2.Location = New System.Drawing.Point(3, 13)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(77, 13)
+        Me.Label2.Size = New System.Drawing.Size(94, 13)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Acount Setting"
+        Me.Label2.Text = "Detalhes da conta"
         '
         'Label1
         '
@@ -439,9 +439,9 @@ Partial Class Form1
         Me.Label1.ForeColor = System.Drawing.Color.Silver
         Me.Label1.Location = New System.Drawing.Point(3, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(34, 13)
+        Me.Label1.Size = New System.Drawing.Size(70, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "LOLZ"
+        Me.Label1.Text = "Sobre VecXp"
         '
         'PnlHome
         '
@@ -453,7 +453,7 @@ Partial Class Form1
         Me.PnlHome.Controls.Add(Me.LblPnlHome)
         Me.PnlHome.Location = New System.Drawing.Point(200, 30)
         Me.PnlHome.Name = "PnlHome"
-        Me.PnlHome.Size = New System.Drawing.Size(800, 170)
+        Me.PnlHome.Size = New System.Drawing.Size(50, 170)
         Me.PnlHome.TabIndex = 10
         Me.PnlHome.Visible = False
         '
@@ -644,7 +644,7 @@ Partial Class Form1
         Me.Panel2.Controls.Add(Me.LstAbastFornecedor)
         Me.Panel2.Controls.Add(Me.LstAbastCarro)
         Me.Panel2.Controls.Add(Me.Label16)
-        Me.Panel2.Location = New System.Drawing.Point(857, 298)
+        Me.Panel2.Location = New System.Drawing.Point(723, 312)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(50, 50)
         Me.Panel2.TabIndex = 11
@@ -829,9 +829,9 @@ Partial Class Form1
         Me.Panel3.Controls.Add(Me.LstManuFornecedor)
         Me.Panel3.Controls.Add(Me.LstManuCarro)
         Me.Panel3.Controls.Add(Me.Label26)
-        Me.Panel3.Location = New System.Drawing.Point(34, 0)
+        Me.Panel3.Location = New System.Drawing.Point(724, 366)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(968, 470)
+        Me.Panel3.Size = New System.Drawing.Size(50, 50)
         Me.Panel3.TabIndex = 11
         Me.Panel3.Visible = False
         '
@@ -989,11 +989,168 @@ Partial Class Form1
         Me.Panel4.Controls.Add(Me.LstDespFornecedor)
         Me.Panel4.Controls.Add(Me.LstDespCarro)
         Me.Panel4.Controls.Add(Me.Label18)
-        Me.Panel4.Location = New System.Drawing.Point(32, 30)
+        Me.Panel4.Location = New System.Drawing.Point(723, 425)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(968, 470)
+        Me.Panel4.Size = New System.Drawing.Size(50, 50)
         Me.Panel4.TabIndex = 12
         Me.Panel4.Visible = False
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(257, 52)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(48, 13)
+        Me.Label21.TabIndex = 45
+        Me.Label21.Text = "utilizador"
+        '
+        'LstDespUtilizador
+        '
+        Me.LstDespUtilizador.BackColor = System.Drawing.Color.DimGray
+        Me.LstDespUtilizador.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LstDespUtilizador.ForeColor = System.Drawing.Color.White
+        Me.LstDespUtilizador.FormattingEnabled = True
+        Me.LstDespUtilizador.Location = New System.Drawing.Point(260, 89)
+        Me.LstDespUtilizador.MultiColumn = True
+        Me.LstDespUtilizador.Name = "LstDespUtilizador"
+        Me.LstDespUtilizador.Size = New System.Drawing.Size(120, 91)
+        Me.LstDespUtilizador.TabIndex = 44
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(772, 50)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(60, 13)
+        Me.Label5.TabIndex = 43
+        Me.Label5.Text = "Km Veiculo"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(645, 52)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(31, 13)
+        Me.Label6.TabIndex = 42
+        Me.Label6.Text = "Valor"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(551, 53)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(30, 13)
+        Me.Label7.TabIndex = 41
+        Me.Label7.Text = "Data"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(406, 52)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(107, 13)
+        Me.Label8.TabIndex = 40
+        Me.Label8.Text = "TIpo de Manutenção"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(135, 52)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(61, 13)
+        Me.Label9.TabIndex = 39
+        Me.Label9.Text = "Fornecedor"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(27, 52)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(32, 13)
+        Me.Label17.TabIndex = 38
+        Me.Label17.Text = "Carro"
+        '
+        'LstDespValor
+        '
+        Me.LstDespValor.BackColor = System.Drawing.Color.DimGray
+        Me.LstDespValor.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LstDespValor.ForeColor = System.Drawing.Color.White
+        Me.LstDespValor.FormattingEnabled = True
+        Me.LstDespValor.Location = New System.Drawing.Point(653, 89)
+        Me.LstDespValor.MultiColumn = True
+        Me.LstDespValor.Name = "LstDespValor"
+        Me.LstDespValor.Size = New System.Drawing.Size(120, 91)
+        Me.LstDespValor.TabIndex = 37
+        '
+        'LstDespKM
+        '
+        Me.LstDespKM.BackColor = System.Drawing.Color.DimGray
+        Me.LstDespKM.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LstDespKM.ForeColor = System.Drawing.Color.White
+        Me.LstDespKM.FormattingEnabled = True
+        Me.LstDespKM.Location = New System.Drawing.Point(775, 89)
+        Me.LstDespKM.MultiColumn = True
+        Me.LstDespKM.Name = "LstDespKM"
+        Me.LstDespKM.Size = New System.Drawing.Size(120, 91)
+        Me.LstDespKM.TabIndex = 36
+        '
+        'LstDespData
+        '
+        Me.LstDespData.BackColor = System.Drawing.Color.DimGray
+        Me.LstDespData.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LstDespData.ForeColor = System.Drawing.Color.White
+        Me.LstDespData.FormattingEnabled = True
+        Me.LstDespData.Location = New System.Drawing.Point(531, 89)
+        Me.LstDespData.MultiColumn = True
+        Me.LstDespData.Name = "LstDespData"
+        Me.LstDespData.Size = New System.Drawing.Size(120, 91)
+        Me.LstDespData.TabIndex = 35
+        '
+        'LstDespTipo
+        '
+        Me.LstDespTipo.BackColor = System.Drawing.Color.DimGray
+        Me.LstDespTipo.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LstDespTipo.ForeColor = System.Drawing.Color.White
+        Me.LstDespTipo.FormattingEnabled = True
+        Me.LstDespTipo.Location = New System.Drawing.Point(409, 89)
+        Me.LstDespTipo.MultiColumn = True
+        Me.LstDespTipo.Name = "LstDespTipo"
+        Me.LstDespTipo.Size = New System.Drawing.Size(120, 91)
+        Me.LstDespTipo.TabIndex = 34
+        '
+        'LstDespFornecedor
+        '
+        Me.LstDespFornecedor.BackColor = System.Drawing.Color.DimGray
+        Me.LstDespFornecedor.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LstDespFornecedor.ForeColor = System.Drawing.Color.White
+        Me.LstDespFornecedor.FormattingEnabled = True
+        Me.LstDespFornecedor.Location = New System.Drawing.Point(138, 89)
+        Me.LstDespFornecedor.MultiColumn = True
+        Me.LstDespFornecedor.Name = "LstDespFornecedor"
+        Me.LstDespFornecedor.Size = New System.Drawing.Size(120, 91)
+        Me.LstDespFornecedor.TabIndex = 33
+        '
+        'LstDespCarro
+        '
+        Me.LstDespCarro.BackColor = System.Drawing.Color.DimGray
+        Me.LstDespCarro.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LstDespCarro.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.LstDespCarro.ForeColor = System.Drawing.Color.White
+        Me.LstDespCarro.FormattingEnabled = True
+        Me.LstDespCarro.Items.AddRange(New Object() {""})
+        Me.LstDespCarro.Location = New System.Drawing.Point(16, 89)
+        Me.LstDespCarro.Name = "LstDespCarro"
+        Me.LstDespCarro.Size = New System.Drawing.Size(120, 91)
+        Me.LstDespCarro.TabIndex = 32
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(24, 27)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(45, 13)
+        Me.Label18.TabIndex = 31
+        Me.Label18.Text = "Label18"
         '
         'PnlDefUtilizador
         '
@@ -1384,162 +1541,43 @@ Partial Class Form1
         Me.LblUtilizadorNomePDef.TabIndex = 22
         Me.LblUtilizadorNomePDef.Text = "Nome Proprio"
         '
-        'Label5
+        'Panel5
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(772, 50)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(60, 13)
-        Me.Label5.TabIndex = 43
-        Me.Label5.Text = "Km Veiculo"
+        Me.Panel5.BackColor = System.Drawing.Color.White
+        Me.Panel5.Location = New System.Drawing.Point(445, 98)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(50, 50)
+        Me.Panel5.TabIndex = 15
+        Me.Panel5.Visible = False
         '
-        'Label6
+        'Panel6
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(645, 52)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(31, 13)
-        Me.Label6.TabIndex = 42
-        Me.Label6.Text = "Valor"
+        Me.Panel6.BackColor = System.Drawing.Color.White
+        Me.Panel6.Location = New System.Drawing.Point(445, 184)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(50, 50)
+        Me.Panel6.TabIndex = 16
+        Me.Panel6.Visible = False
         '
-        'Label7
+        'Panel7
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(551, 53)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(30, 13)
-        Me.Label7.TabIndex = 41
-        Me.Label7.Text = "Data"
+        Me.Panel7.BackColor = System.Drawing.Color.White
+        Me.Panel7.Location = New System.Drawing.Point(445, 254)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(50, 50)
+        Me.Panel7.TabIndex = 16
+        Me.Panel7.Visible = False
         '
-        'Label8
+        'PictureBox1
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(406, 52)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(107, 13)
-        Me.Label8.TabIndex = 40
-        Me.Label8.Text = "TIpo de Manutenção"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(135, 52)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(61, 13)
-        Me.Label9.TabIndex = 39
-        Me.Label9.Text = "Fornecedor"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(27, 52)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(32, 13)
-        Me.Label17.TabIndex = 38
-        Me.Label17.Text = "Carro"
-        '
-        'LstDespValor
-        '
-        Me.LstDespValor.BackColor = System.Drawing.Color.DimGray
-        Me.LstDespValor.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstDespValor.ForeColor = System.Drawing.Color.White
-        Me.LstDespValor.FormattingEnabled = True
-        Me.LstDespValor.Location = New System.Drawing.Point(653, 89)
-        Me.LstDespValor.MultiColumn = True
-        Me.LstDespValor.Name = "LstDespValor"
-        Me.LstDespValor.Size = New System.Drawing.Size(120, 91)
-        Me.LstDespValor.TabIndex = 37
-        '
-        'LstDespKM
-        '
-        Me.LstDespKM.BackColor = System.Drawing.Color.DimGray
-        Me.LstDespKM.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstDespKM.ForeColor = System.Drawing.Color.White
-        Me.LstDespKM.FormattingEnabled = True
-        Me.LstDespKM.Location = New System.Drawing.Point(775, 89)
-        Me.LstDespKM.MultiColumn = True
-        Me.LstDespKM.Name = "LstDespKM"
-        Me.LstDespKM.Size = New System.Drawing.Size(120, 91)
-        Me.LstDespKM.TabIndex = 36
-        '
-        'LstDespData
-        '
-        Me.LstDespData.BackColor = System.Drawing.Color.DimGray
-        Me.LstDespData.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstDespData.ForeColor = System.Drawing.Color.White
-        Me.LstDespData.FormattingEnabled = True
-        Me.LstDespData.Location = New System.Drawing.Point(531, 89)
-        Me.LstDespData.MultiColumn = True
-        Me.LstDespData.Name = "LstDespData"
-        Me.LstDespData.Size = New System.Drawing.Size(120, 91)
-        Me.LstDespData.TabIndex = 35
-        '
-        'LstDespTipo
-        '
-        Me.LstDespTipo.BackColor = System.Drawing.Color.DimGray
-        Me.LstDespTipo.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstDespTipo.ForeColor = System.Drawing.Color.White
-        Me.LstDespTipo.FormattingEnabled = True
-        Me.LstDespTipo.Location = New System.Drawing.Point(409, 89)
-        Me.LstDespTipo.MultiColumn = True
-        Me.LstDespTipo.Name = "LstDespTipo"
-        Me.LstDespTipo.Size = New System.Drawing.Size(120, 91)
-        Me.LstDespTipo.TabIndex = 34
-        '
-        'LstDespFornecedor
-        '
-        Me.LstDespFornecedor.BackColor = System.Drawing.Color.DimGray
-        Me.LstDespFornecedor.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstDespFornecedor.ForeColor = System.Drawing.Color.White
-        Me.LstDespFornecedor.FormattingEnabled = True
-        Me.LstDespFornecedor.Location = New System.Drawing.Point(138, 89)
-        Me.LstDespFornecedor.MultiColumn = True
-        Me.LstDespFornecedor.Name = "LstDespFornecedor"
-        Me.LstDespFornecedor.Size = New System.Drawing.Size(120, 91)
-        Me.LstDespFornecedor.TabIndex = 33
-        '
-        'LstDespCarro
-        '
-        Me.LstDespCarro.BackColor = System.Drawing.Color.DimGray
-        Me.LstDespCarro.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstDespCarro.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.LstDespCarro.ForeColor = System.Drawing.Color.White
-        Me.LstDespCarro.FormattingEnabled = True
-        Me.LstDespCarro.Items.AddRange(New Object() {""})
-        Me.LstDespCarro.Location = New System.Drawing.Point(16, 89)
-        Me.LstDespCarro.Name = "LstDespCarro"
-        Me.LstDespCarro.Size = New System.Drawing.Size(120, 91)
-        Me.LstDespCarro.TabIndex = 32
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(24, 27)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(45, 13)
-        Me.Label18.TabIndex = 31
-        Me.Label18.Text = "Label18"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(257, 52)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(48, 13)
-        Me.Label21.TabIndex = 45
-        Me.Label21.Text = "utilizador"
-        '
-        'LstDespUtilizador
-        '
-        Me.LstDespUtilizador.BackColor = System.Drawing.Color.DimGray
-        Me.LstDespUtilizador.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstDespUtilizador.ForeColor = System.Drawing.Color.White
-        Me.LstDespUtilizador.FormattingEnabled = True
-        Me.LstDespUtilizador.Location = New System.Drawing.Point(260, 89)
-        Me.LstDespUtilizador.MultiColumn = True
-        Me.LstDespUtilizador.Name = "LstDespUtilizador"
-        Me.LstDespUtilizador.Size = New System.Drawing.Size(120, 91)
-        Me.LstDespUtilizador.TabIndex = 44
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImage = Global.GestFrotPAP.My.Resources.Resources.construction_hazard_banner_orange
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(4, 8)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(158, 38)
+        Me.PictureBox1.TabIndex = 5
+        Me.PictureBox1.TabStop = False
         '
         'BtnImagemDefUtilizadorContato
         '
@@ -1629,7 +1667,7 @@ Partial Class Form1
         Me.BtnImagemRegistarEntrar.CorSelecionado = System.Drawing.Color.Black
         Me.BtnImagemRegistarEntrar.CorTexto = System.Drawing.Color.White
         Me.BtnImagemRegistarEntrar.EstadoBotao = False
-        Me.BtnImagemRegistarEntrar.Imagem = Nothing
+        Me.BtnImagemRegistarEntrar.Imagem = Global.GestFrotPAP.My.Resources.Resources.new_user
         Me.BtnImagemRegistarEntrar.Location = New System.Drawing.Point(209, 3)
         Me.BtnImagemRegistarEntrar.Name = "BtnImagemRegistarEntrar"
         Me.BtnImagemRegistarEntrar.Size = New System.Drawing.Size(200, 44)
@@ -1645,13 +1683,61 @@ Partial Class Form1
         Me.BtnImagemLogin.CorSelecionado = System.Drawing.Color.Black
         Me.BtnImagemLogin.CorTexto = System.Drawing.Color.White
         Me.BtnImagemLogin.EstadoBotao = False
-        Me.BtnImagemLogin.Imagem = Nothing
+        Me.BtnImagemLogin.Imagem = Global.GestFrotPAP.My.Resources.Resources.login_left_arrow
         Me.BtnImagemLogin.Location = New System.Drawing.Point(3, 3)
         Me.BtnImagemLogin.Name = "BtnImagemLogin"
         Me.BtnImagemLogin.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagemLogin.TabIndex = 5
         Me.BtnImagemLogin.TamanhoLetra = 10
         Me.BtnImagemLogin.Texto = "Entrar"
+        '
+        'BtnImagem7
+        '
+        Me.BtnImagem7.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem7.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem7.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagem7.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.BtnImagem7.CorTexto = System.Drawing.Color.White
+        Me.BtnImagem7.EstadoBotao = False
+        Me.BtnImagem7.Imagem = Global.GestFrotPAP.My.Resources.Resources.toolbox
+        Me.BtnImagem7.Location = New System.Drawing.Point(0, 326)
+        Me.BtnImagem7.Name = "BtnImagem7"
+        Me.BtnImagem7.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagem7.TabIndex = 8
+        Me.BtnImagem7.TamanhoLetra = 10
+        Me.BtnImagem7.Texto = "Administração"
+        '
+        'BtnImagem6
+        '
+        Me.BtnImagem6.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem6.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem6.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagem6.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.BtnImagem6.CorTexto = System.Drawing.Color.White
+        Me.BtnImagem6.EstadoBotao = False
+        Me.BtnImagem6.Imagem = Global.GestFrotPAP.My.Resources.Resources.gears_configuration_tool
+        Me.BtnImagem6.Location = New System.Drawing.Point(0, 281)
+        Me.BtnImagem6.Name = "BtnImagem6"
+        Me.BtnImagem6.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagem6.TabIndex = 7
+        Me.BtnImagem6.TamanhoLetra = 10
+        Me.BtnImagem6.Texto = "Definições"
+        '
+        'BtnImagem5
+        '
+        Me.BtnImagem5.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem5.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem5.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagem5.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.BtnImagem5.CorTexto = System.Drawing.Color.White
+        Me.BtnImagem5.EstadoBotao = False
+        Me.BtnImagem5.Imagem = Global.GestFrotPAP.My.Resources.Resources.weekly_calendar
+        Me.BtnImagem5.Location = New System.Drawing.Point(0, 236)
+        Me.BtnImagem5.Name = "BtnImagem5"
+        Me.BtnImagem5.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagem5.TabIndex = 6
+        Me.BtnImagem5.TamanhoLetra = 10
+        Me.BtnImagem5.Texto = "Agenda"
         '
         'BtnMenu1
         '
@@ -1734,8 +1820,9 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1000, 500)
-        Me.Controls.Add(Me.Panel4)
-        Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.Panel7)
+        Me.Controls.Add(Me.Panel6)
+        Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PnlDefUtilizador)
         Me.Controls.Add(Me.PnlUser)
@@ -1743,12 +1830,13 @@ Partial Class Form1
         Me.Controls.Add(Me.PnlMenu)
         Me.Controls.Add(Me.PnlBarraTop)
         Me.Controls.Add(Me.PnlHome)
+        Me.Controls.Add(Me.Panel4)
+        Me.Controls.Add(Me.Panel3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "GestFrot"
         Me.PnlMenu.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PnlBarraTop.ResumeLayout(False)
         Me.PnlBarraTop.PerformLayout()
         Me.PnlLogin.ResumeLayout(False)
@@ -1776,6 +1864,7 @@ Partial Class Form1
         Me.PnlDefUtilizadorContato.PerformLayout()
         Me.PnlDefUtilizadorInfo.ResumeLayout(False)
         Me.PnlDefUtilizadorInfo.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1915,5 +2004,11 @@ Partial Class Form1
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents LstDespUtilizador As System.Windows.Forms.ListBox
+    Friend WithEvents BtnImagem5 As GestFrotPAP.BtnImagem
+    Friend WithEvents BtnImagem7 As GestFrotPAP.BtnImagem
+    Friend WithEvents BtnImagem6 As GestFrotPAP.BtnImagem
+    Friend WithEvents Panel5 As System.Windows.Forms.Panel
+    Friend WithEvents Panel6 As System.Windows.Forms.Panel
+    Friend WithEvents Panel7 As System.Windows.Forms.Panel
 
 End Class

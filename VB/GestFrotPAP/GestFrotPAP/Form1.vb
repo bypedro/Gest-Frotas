@@ -5,7 +5,7 @@ Imports System.Runtime.InteropServices
 
 
 Public Class Form1
-    Dim NMenuPrincipal As Integer = 3 'Nº butões
+    Dim NMenuPrincipal As Integer = 6 'Nº butões
     Dim BtnImagemMenuPrincipal(NMenuPrincipal) As BtnImagem
     Dim panelMenuPrincipal(NMenuPrincipal) As Panel
 
@@ -113,11 +113,17 @@ Public Class Form1
         panelMenuPrincipal(1) = Panel2
         panelMenuPrincipal(2) = Panel3
         panelMenuPrincipal(3) = Panel4
+        panelMenuPrincipal(4) = Panel5
+        panelMenuPrincipal(5) = Panel6
+        panelMenuPrincipal(6) = Panel7
+
         BtnImagemMenuPrincipal(0) = BtnImagem1
         BtnImagemMenuPrincipal(1) = BtnImagem2
         BtnImagemMenuPrincipal(2) = BtnImagem3
         BtnImagemMenuPrincipal(3) = BtnImagem4
-
+        BtnImagemMenuPrincipal(4) = BtnImagem5
+        BtnImagemMenuPrincipal(5) = BtnImagem6
+        BtnImagemMenuPrincipal(6) = BtnImagem7
 
 
 
@@ -180,6 +186,18 @@ Public Class Form1
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
+    End Sub
+
+    Private Sub BtnImagem5_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagem5.ButtonClickMasterRace
+        MenuPrincipal(4, True)
+    End Sub
+
+    Private Sub BtnImagem6_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagem6.ButtonClickMasterRace
+        MenuPrincipal(5, True)
+    End Sub
+
+    Private Sub BtnImagem7_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagem7.ButtonClickMasterRace
+        MenuPrincipal(6, True)
     End Sub
 
     Private Sub TmrSlide1_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles TmrSlide1.Tick
@@ -308,7 +326,7 @@ Public Class Form1
     End Sub
 
     Sub Label1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label1.Click
-        MsgBox("LOL")
+        AboutBox1.Show()
     End Sub
 
     Private Sub Label3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label3.Click

@@ -175,6 +175,24 @@ Public Module LoadOrder
         Form1.Panel4.Height = Form1.Height - Form1.PnlBarraTop.Height
         Form1.Panel4.SendToBack()
 
+        Form1.Panel5.Left = Form1.PnlMenu.Right - 164
+        Form1.Panel5.Top = Form1.PnlBarraTop.Bottom
+        Form1.Panel5.Width = Form1.Width - Form1.PnlMenu.Width + 164
+        Form1.Panel5.Height = Form1.Height - Form1.PnlBarraTop.Height
+        Form1.Panel5.SendToBack()
+
+        Form1.Panel6.Left = Form1.PnlMenu.Right - 164
+        Form1.Panel6.Top = Form1.PnlBarraTop.Bottom
+        Form1.Panel6.Width = Form1.Width - Form1.PnlMenu.Width + 164
+        Form1.Panel6.Height = Form1.Height - Form1.PnlBarraTop.Height
+        Form1.Panel6.SendToBack()
+
+        Form1.Panel7.Left = Form1.PnlMenu.Right - 164
+        Form1.Panel7.Top = Form1.PnlBarraTop.Bottom
+        Form1.Panel7.Width = Form1.Width - Form1.PnlMenu.Width + 164
+        Form1.Panel7.Height = Form1.Height - Form1.PnlBarraTop.Height
+        Form1.Panel7.SendToBack()
+
 
         'IDK
         Form1.PnlLogin.Hide()
@@ -197,7 +215,7 @@ Public Module LoadOrder
         Form1.PnlUser.Top = Form1.LblUtilzadorMenu.Bottom + 7
         Form1.PnlUser.Width = 200 'Ver qual a label maior?
         Form1.PnlUser.Height = Form1.Label1.Height + Form1.Label2.Height + Form1.Label3.Height + 5
-        Form1.PnlUser.Width = 90
+        Form1.PnlUser.Width = 100
 
 
 

@@ -13,8 +13,8 @@
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <MinimumRequiredVersion>0.0.1.0</MinimumRequiredVersion>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>0.0.1.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -95,6 +95,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBox1.Designer.vb">
+      <DependentUpon>AboutBox1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AboutBox1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="BtnImagem.Designer.vb">
       <DependentUpon>BtnImagem.vb</DependentUpon>
     </Compile>
@@ -136,6 +143,9 @@
     <Compile Include="UtilizadorDetalhes.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BtnImagem.resx">
       <DependentUpon>BtnImagem.vb</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +218,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Icons\dollar-bills.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\weekly-calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\construction-hazard-banner-orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\new-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\toolbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\gears-configuration-tool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\login-left-arrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
