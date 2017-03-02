@@ -2,7 +2,7 @@
 Imports System.Net.Mail
 Module SQL
     Dim DB As String = "frotas"
-    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=0000;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
+    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
     Dim adapter As New MySqlDataAdapter
     Public DetalhesUtilizador As New UtilizadorDetalhes
 
@@ -765,7 +765,7 @@ Module SQL
         Dim Tabelas As DataSet = New DataSet
         adapter.SelectCommand = New MySqlCommand
         adapter.SelectCommand.Connection = ligacao
-        adapter.SelectCommand.CommandText = ("select Codmanu,Data_Efetuada,Veiculo_km,valor,nota,concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,tipoManu.Nome as TipoManu,fornecedores.Nome as Fornecedor from Manutencao,veiculos,fornecedores,tipomanu where Veiculos.Codvei=manutencao.CodVei and fornecedores.Codforn=manutencao.Codforn and tipomanu.CodtipoM=manutencao.codtipom")
+        adapter.SelectCommand.CommandText = ("select Codmanu,Data_Efetuada,Veiculo_km,valor,nota,concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,tipoManu.Nome as TipoManu,fornecedores.Nome as Fornecedor from Manutencao,veiculos,fornecedores,tipomanu where Veiculos.Codvei=manutencao.CodVei and fornecedores.Codforn=manutencao.Codforn and tipomanu.CodtipoM=manutencao.codtipom and efetuada='Sim'")
         Try
             ligacao.Open()
             adapter.Fill(Tabelas, "Manutencao")
@@ -803,7 +803,7 @@ Module SQL
         Dim Tabelas As DataSet = New DataSet
         adapter.SelectCommand = New MySqlCommand
         adapter.SelectCommand.Connection = ligacao
-        adapter.SelectCommand.CommandText = ("select Coddesp,Data_Efetuada,Veiculo_Km,Valor,Nota,concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,fornecedores.Nome as Fornecedor,concat(Nome_Proprio, ' ', Apelido) as Utilizador,tipodesp.nome as Tipodesp from despesas,Veiculos,Fornecedores,Utilizador,TipoDesp where Despesas.codvei=veiculos.codvei and Despesas.codforn=Fornecedores.codforn and Despesas.coduser=Utilizador.coduser and Despesas.codtipod=tipodesp.codtipod")
+        adapter.SelectCommand.CommandText = ("select Coddesp,Data_Efetuada,Veiculo_Km,Valor,Nota,concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,fornecedores.Nome as Fornecedor,concat(Nome_Proprio, ' ', Apelido) as Utilizador,tipodesp.nome as Tipodesp from despesas,Veiculos,Fornecedores,Utilizador,TipoDesp where Despesas.codvei=veiculos.codvei and Despesas.codforn=Fornecedores.codforn and Despesas.coduser=Utilizador.coduser and Despesas.codtipod=tipodesp.codtipod and efetuada='Sim'")
         Try
             ligacao.Open()
             adapter.Fill(Tabelas, "Despesas")
