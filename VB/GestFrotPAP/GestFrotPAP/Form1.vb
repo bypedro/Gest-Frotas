@@ -190,6 +190,13 @@ Public Class Form1
 
     Private Sub BtnImagem5_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagem5.ButtonClickMasterRace
         MenuPrincipal(4, True)
+        LstAgendaManuCarro.SelectedItems.Clear()
+        AgendaVer()
+        Try
+            LstAgendaManuCarro.SelectedIndex = 0
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
     End Sub
 
     Private Sub BtnImagem6_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagem6.ButtonClickMasterRace

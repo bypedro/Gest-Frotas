@@ -813,7 +813,6 @@ Module SQL
             MsgBox("ERRO Despesas")
             Exit Sub
         End Try
-
         Form1.LstDespCarro.DataSource = Tabelas.Tables(0)
         Form1.LstDespFornecedor.DataSource = Tabelas.Tables(0)
         Form1.LstDespUtilizador.DataSource = Tabelas.Tables(0)
@@ -838,8 +837,44 @@ Module SQL
         Form1.LstDespData.ValueMember = "Coddesp"
         Form1.LstDespValor.ValueMember = "Coddesp"
         Form1.LstDespKM.ValueMember = "Coddesp"
+    End Sub
+
+    Public Sub AgendaVer()
+        Dim Tabelas As DataSet = New DataSet
+        adapter.SelectCommand = New MySqlCommand
+        adapter.SelectCommand.Connection = ligacao
+        adapter.SelectCommand.CommandText = ("select Codmanu,Data_agendada,Veiculo_km,valor,nota,concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,tipoManu.Nome as TipoManu,fornecedores.Nome as Fornecedor from Manutencao,veiculos,fornecedores,tipomanu where Veiculos.Codvei=manutencao.CodVei and fornecedores.Codforn=manutencao.Codforn and tipomanu.CodtipoM=manutencao.codtipom and efetuada='Nao'")
+        Try
+            ligacao.Open()
+            adapter.Fill(Tabelas, "AgendaManu")
+            ligacao.Close()
+        Catch ex As Exception
+            ligacao.Close()
+            MsgBox("ERRO AgendaManu")
+            Exit Sub
+        End Try
+
+        Form1.LstAgendaManuCarro.DataSource = Tabelas.Tables(0)
+        Form1.LstAgendaManuTipo.DataSource = Tabelas.Tables(0)
+        Form1.LstAgendaManuData.DataSource = Tabelas.Tables(0)
+        Form1.LstAgendaManuKM.DataSource = Tabelas.Tables(0)
+
+        Form1.LstAgendaManuCarro.DisplayMember = "veiculo"
+        Form1.LstAgendaManuTipo.DisplayMember = "TipoManu"
+        Form1.LstAgendaManuData.DisplayMember = "Data_agendada"
+        Form1.LstAgendaManuKm.DisplayMember = "Veiculo_km"
+
+
+        Form1.LstAgendaManuCarro.ValueMember = "Codmanu"
+        Form1.LstAgendaManuTipo.ValueMember = "Codmanu"
+        Form1.LstAgendaManuData.ValueMember = "Codmanu"
+        Form1.LstAgendaManuKm.ValueMember = "Codmanu"
+
 
     End Sub
+
+
+
 
 
 End Module
