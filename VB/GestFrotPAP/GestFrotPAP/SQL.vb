@@ -2,7 +2,7 @@
 Imports System.Net.Mail
 Module SQL
     Dim DB As String = "frotas"
-    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
+    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=0000;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
     Dim adapter As New MySqlDataAdapter
     Public DetalhesUtilizador As New UtilizadorDetalhes
 
@@ -725,7 +725,8 @@ Module SQL
         Dim Tabelas As DataSet = New DataSet
         adapter.SelectCommand = New MySqlCommand
         adapter.SelectCommand.Connection = ligacao
-        adapter.SelectCommand.CommandText = ("select CodVeiAbast,Data,Veiculo_km,quantidade,valor,notas,concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,Nome as Fornecedor,concat(Nome_Proprio, ' ', Apelido) as Utilizador ,Nome as Fornecedor from veiabast,veiculos,fornecedores,Utilizador where Veiculos.Codvei=Veiabast.CodVei and fornecedores.Codforn=Veiabast.Codforn and Utilizador.CodUser=Veiabast.Coduser")
+        'Trocar KM nas definições do programa..->
+        adapter.SelectCommand.CommandText = ("select CodVeiAbast,Data,concat(Veiculo_km,' KM') as Veiculo_km ,quantidade,valor,notas,concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,Nome as Fornecedor,concat(Nome_Proprio, ' ', Apelido) as Utilizador ,Nome as Fornecedor from veiabast,veiculos,fornecedores,Utilizador where Veiculos.Codvei=Veiabast.CodVei and fornecedores.Codforn=Veiabast.Codforn and Utilizador.CodUser=Veiabast.Coduser")
         Try
             ligacao.Open()
             adapter.Fill(Tabelas, "Abastecimento")
@@ -840,13 +841,13 @@ Module SQL
     End Sub
 
     Public Sub AgendaVer()
-        Dim Tabelas As DataSet = New DataSet
+        Dim Manutencao As DataSet = New DataSet
         adapter.SelectCommand = New MySqlCommand
         adapter.SelectCommand.Connection = ligacao
         adapter.SelectCommand.CommandText = ("select Codmanu,Data_agendada,Veiculo_km,valor,nota,concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,tipoManu.Nome as TipoManu,fornecedores.Nome as Fornecedor from Manutencao,veiculos,fornecedores,tipomanu where Veiculos.Codvei=manutencao.CodVei and fornecedores.Codforn=manutencao.Codforn and tipomanu.CodtipoM=manutencao.codtipom and efetuada='Nao'")
         Try
             ligacao.Open()
-            adapter.Fill(Tabelas, "AgendaManu")
+            adapter.Fill(Manutencao, "AgendaManu")
             ligacao.Close()
         Catch ex As Exception
             ligacao.Close()
@@ -854,10 +855,10 @@ Module SQL
             Exit Sub
         End Try
 
-        Form1.LstAgendaManuCarro.DataSource = Tabelas.Tables(0)
-        Form1.LstAgendaManuTipo.DataSource = Tabelas.Tables(0)
-        Form1.LstAgendaManuData.DataSource = Tabelas.Tables(0)
-        Form1.LstAgendaManuKM.DataSource = Tabelas.Tables(0)
+        Form1.LstAgendaManuCarro.DataSource = Manutencao.Tables(0)
+        Form1.LstAgendaManuTipo.DataSource = Manutencao.Tables(0)
+        Form1.LstAgendaManuData.DataSource = Manutencao.Tables(0)
+        Form1.LstAgendaManuKm.DataSource = Manutencao.Tables(0)
 
         Form1.LstAgendaManuCarro.DisplayMember = "veiculo"
         Form1.LstAgendaManuTipo.DisplayMember = "TipoManu"
@@ -869,6 +870,35 @@ Module SQL
         Form1.LstAgendaManuTipo.ValueMember = "Codmanu"
         Form1.LstAgendaManuData.ValueMember = "Codmanu"
         Form1.LstAgendaManuKm.ValueMember = "Codmanu"
+
+
+        '
+        'Desp
+        Dim Despesa As DataSet = New DataSet
+        adapter.SelectCommand = New MySqlCommand
+        adapter.SelectCommand.Connection = ligacao
+        adapter.SelectCommand.CommandText = ("select Coddesp,Data_Agendada,Veiculo_Km,Valor,Nota,concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,fornecedores.Nome as Fornecedor,concat(Nome_Proprio, ' ', Apelido) as Utilizador,tipodesp.nome as Tipodesp from despesas,Veiculos,Fornecedores,Utilizador,TipoDesp where Despesas.codvei=veiculos.codvei and Despesas.codforn=Fornecedores.codforn and Despesas.coduser=Utilizador.coduser and Despesas.codtipod=tipodesp.codtipod and efetuada='Nao'")
+        Try
+            ligacao.Open()
+            adapter.Fill(Despesa, "AgendaDesp")
+            ligacao.Close()
+        Catch ex As Exception
+            ligacao.Close()
+            MsgBox("ERRO AgendaDesp")
+            Exit Sub
+        End Try
+
+        Form1.LstAgendaDespesaCarro.DataSource = Despesa.Tables(0)
+        Form1.LstAgendaDespesaTipo.DataSource = Despesa.Tables(0)
+        Form1.LstAgendaDespesaData.DataSource = Despesa.Tables(0)
+
+        Form1.LstAgendaDespesaCarro.DisplayMember = "veiculo"
+        Form1.LstAgendaDespesaTipo.DisplayMember = "Tipodesp"
+        Form1.LstAgendaDespesaData.DisplayMember = "Data_Agendada"
+
+        Form1.LstAgendaDespesaCarro.ValueMember = "Coddesp"
+        Form1.LstAgendaDespesaTipo.ValueMember = "Coddesp"
+        Form1.LstAgendaDespesaData.ValueMember = "Coddesp"
 
 
     End Sub

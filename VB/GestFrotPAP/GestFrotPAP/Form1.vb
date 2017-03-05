@@ -5,6 +5,13 @@ Imports System.Runtime.InteropServices
 
 
 Public Class Form1
+    'ListBox
+    Private Declare Function LockWindowUpdate Lib "user32" (ByVal hwndLock As IntPtr) As Int32
+    Private Declare Function ShowScrollBar Lib "user32" (ByVal hwnd As IntPtr, ByVal wBar As Int32, ByVal bShow As Int32) As Int32
+    Private Const SB_VERT = 1
+
+
+
     Dim NMenuPrincipal As Integer = 6 'Nº butões
     Dim BtnImagemMenuPrincipal(NMenuPrincipal) As BtnImagem
     Dim panelMenuPrincipal(NMenuPrincipal) As Panel
@@ -12,6 +19,10 @@ Public Class Form1
     Dim NMenuDefutilizador As Integer = 1 '  'Nº butões
     Dim BtnImagemMenuDefUtilizador1(NMenuDefutilizador) As BtnImagem
     Dim panelMenuDefUtilizador(NMenuDefutilizador) As Panel
+
+    Dim NMenuAgenda As Integer = 1 '  'Nº butões
+    Dim BtnImagemMenuAgenda(NMenuAgenda) As BtnImagem
+    Dim panelMenuAgenda(NMenuAgenda) As Panel
 
     Private Sub MenuPrincipal(ByVal c As Integer, Optional ByVal MenuDefault As Boolean = False, Optional ByVal MenuHome As Boolean = False)
         Dim a As Integer
@@ -45,8 +56,6 @@ Public Class Form1
         End If
     End Sub
 
-
-
     Private Sub MenuDefUtilizador(ByVal d As Integer)
         Dim a As Integer
         For a = 0 To NMenuDefutilizador
@@ -58,6 +67,19 @@ Public Class Form1
             panelMenuDefUtilizador(d).Show()
         Next
     End Sub
+
+    Private Sub MenuAgenda(ByVal d As Integer)
+        Dim a As Integer
+        For a = 0 To NMenuAgenda
+            If BtnImagemMenuAgenda(a).EstadoBotao = True And a <> d Then
+                BtnImagemMenuAgenda(a).EstadoBotao = False
+                BtnImagemMenuAgenda(a).VerificarEstadoBotao()
+                panelMenuAgenda(a).Hide()
+            End If
+            panelMenuAgenda(d).Show()
+        Next
+    End Sub
+
 
     Private Sub Botao(ByVal c As BtnImagem)
         If c.EstadoBotao = True Then
@@ -86,7 +108,8 @@ Public Class Form1
 
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-        'Adiciona evento a todos os objetos do programa(Só os da microsoft)
+
+        'Adiciona evento a todos os objetos do programa(Associados ao form1)(Objetos dentro de paneis necessitao de ser adicionados)
         AddHandler Me.MouseDown, AddressOf c_MouseDown
         For Each c As Control In Me.Controls
             AddHandler c.MouseDown, AddressOf c_MouseDown
@@ -101,14 +124,16 @@ Public Class Form1
         'Adiciona evento a todos os objetos do programa(Só os da microsoft)
 
         'Arrays de Objetos
+        '
+        'Menu definições 
+        '
         panelMenuDefUtilizador(0) = PnlDefUtilizadorInfo
         panelMenuDefUtilizador(1) = PnlDefUtilizadorContato
-
         BtnImagemMenuDefUtilizador1(0) = BtnImagemDefUtilizadorInfo
         BtnImagemMenuDefUtilizador1(1) = BtnImagemDefUtilizadorContato
-
-
-
+        '
+        'Menu Principal
+        '
         panelMenuPrincipal(0) = PnlHome
         panelMenuPrincipal(1) = Panel2
         panelMenuPrincipal(2) = Panel3
@@ -116,7 +141,6 @@ Public Class Form1
         panelMenuPrincipal(4) = Panel5
         panelMenuPrincipal(5) = Panel6
         panelMenuPrincipal(6) = Panel7
-
         BtnImagemMenuPrincipal(0) = BtnImagem1
         BtnImagemMenuPrincipal(1) = BtnImagem2
         BtnImagemMenuPrincipal(2) = BtnImagem3
@@ -124,8 +148,13 @@ Public Class Form1
         BtnImagemMenuPrincipal(4) = BtnImagem5
         BtnImagemMenuPrincipal(5) = BtnImagem6
         BtnImagemMenuPrincipal(6) = BtnImagem7
-
-
+        '
+        'Menu Agenda
+        '
+        BtnImagemMenuAgenda(0) = BtnImagemAgendaManu
+        BtnImagemMenuAgenda(1) = BtnImagemAgendaDesp
+        panelMenuAgenda(0) = PnlAgendaManu
+        panelMenuAgenda(1) = PnlAgendaDesp
 
         'Arrays de Objetos
 
@@ -190,6 +219,7 @@ Public Class Form1
 
     Private Sub BtnImagem5_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagem5.ButtonClickMasterRace
         MenuPrincipal(4, True)
+
         LstAgendaManuCarro.SelectedItems.Clear()
         AgendaVer()
         Try
@@ -197,6 +227,11 @@ Public Class Form1
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
+
+
+        BtnImagemAgendaManu.EstadoBotao = True
+        MenuAgenda(0)
+
     End Sub
 
     Private Sub BtnImagem6_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagem6.ButtonClickMasterRace
@@ -396,18 +431,61 @@ Public Class Form1
             LoadOrder.MenuPrincipalPage()
             BtnDefUtilizadorInfoEdit.Texto = "Editar"
         End If
-
     End Sub
 
+
+
+
+
+
+
+    'SubMenus
+    '
+    'Definições de Utilizador
+    '
     Private Sub BtnImagemDefUtilizadorInfo_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs) Handles BtnImagemDefUtilizadorInfo.ButtonClickMasterRace
         MenuDefUtilizador(0)
-
     End Sub
 
     Private Sub BtnImagemDefUtilizadorContato_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs) Handles BtnImagemDefUtilizadorContato.ButtonClickMasterRace
         MenuDefUtilizador(1)
     End Sub
+    '
+    'Agenda
+    '
+    Private Sub BtnImagemAgendaManu_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemAgendaManu.ButtonClickMasterRace
+        MenuAgenda(0)
+    End Sub
 
+    Private Sub BtnImagemAgendaDesp_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemAgendaDesp.ButtonClickMasterRace
+        MenuAgenda(1)
+    End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    'Desenhar As tabelas com cores diferentes 
+    '                  |
+    '                  V
     '
     'Abastecimento
     '
@@ -439,6 +517,7 @@ Public Class Form1
             End Try
         End Using
         e.DrawFocusRectangle()
+        ShowScrollBar(LstAbastFornecedor.Handle, SB_VERT, False)
     End Sub
 
     Private Sub LstAbastUtilizador_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAbastUtilizador.DrawItem
@@ -516,9 +595,6 @@ Public Class Form1
         e.DrawFocusRectangle()
     End Sub
     '
-    'Abastecimento
-    '
-    '
     'Manutencao
     '
     Private Sub LstManuCarro_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstManuCarro.DrawItem
@@ -535,8 +611,6 @@ Public Class Form1
         End Using
         e.DrawFocusRectangle()
     End Sub
-
-
     '
     'Despesa
     '
@@ -553,5 +627,153 @@ Public Class Form1
             End Try
         End Using
         e.DrawFocusRectangle()
+    End Sub
+    '
+    'AgendaDesp
+    '
+    Private Sub LstAgendaDespesaCarro_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAgendaDespesaCarro.DrawItem
+        e.DrawBackground()
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+            Try
+                e.Graphics.DrawString(LstAgendaDespesaCarro.GetItemText(LstAgendaDespesaCarro.Items(e.Index)), e.Font, b, e.Bounds)
+            Catch ex As Exception
+
+            End Try
+        End Using
+        e.DrawFocusRectangle()
+    End Sub
+
+    Private Sub LstAgendaDespesaTipo_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAgendaDespesaTipo.DrawItem
+        e.DrawBackground()
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+            Try
+                e.Graphics.DrawString(LstAgendaDespesaTipo.GetItemText(LstAgendaDespesaTipo.Items(e.Index)), e.Font, b, e.Bounds)
+            Catch ex As Exception
+
+            End Try
+        End Using
+        e.DrawFocusRectangle()
+    End Sub
+
+    Private Sub LstAgendaDespesaData_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAgendaDespesaData.DrawItem
+        e.DrawBackground()
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+            Try
+                e.Graphics.DrawString(LstAgendaDespesaData.GetItemText(LstAgendaDespesaData.Items(e.Index)), e.Font, b, e.Bounds)
+            Catch ex As Exception
+
+            End Try
+        End Using
+        e.DrawFocusRectangle()
+    End Sub
+    '
+    'AgendaManu
+    '
+    Private Sub LstAgendaManuCarro_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAgendaManuCarro.DrawItem
+        e.DrawBackground()
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+            Try
+                e.Graphics.DrawString(LstAgendaManuCarro.GetItemText(LstAgendaManuCarro.Items(e.Index)), e.Font, b, e.Bounds)
+            Catch ex As Exception
+
+            End Try
+        End Using
+        e.DrawFocusRectangle()
+    End Sub
+
+    Private Sub LstAgendaManuTipo_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAgendaManuTipo.DrawItem
+        e.DrawBackground()
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+            Try
+                e.Graphics.DrawString(LstAgendaManuTipo.GetItemText(LstAgendaManuTipo.Items(e.Index)), e.Font, b, e.Bounds)
+            Catch ex As Exception
+
+            End Try
+        End Using
+        e.DrawFocusRectangle()
+    End Sub
+
+    Private Sub LstAgendaManuData_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAgendaManuData.DrawItem
+        e.DrawBackground()
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+            Try
+                e.Graphics.DrawString(LstAgendaManuData.GetItemText(LstAgendaManuData.Items(e.Index)), e.Font, b, e.Bounds)
+            Catch ex As Exception
+
+            End Try
+        End Using
+        e.DrawFocusRectangle()
+    End Sub
+
+    Private Sub LstAgendaManuKm_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAgendaManuKm.DrawItem
+        e.DrawBackground()
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+            Try
+                e.Graphics.DrawString(LstAgendaManuKm.GetItemText(LstAgendaManuKm.Items(e.Index)), e.Font, b, e.Bounds)
+            Catch ex As Exception
+
+            End Try
+        End Using
+        e.DrawFocusRectangle()
+    End Sub
+
+
+
+
+
+
+    '
+    'VER OUTRAS IMPLEMENTAÇÔES
+    '
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        LockWindowUpdate(LstAbastFornecedor.Handle)
+        LstAbastFornecedor.TopIndex = LstAbastFornecedor.TopIndex + 1
+        ShowScrollBar(LstAbastFornecedor.Handle, SB_VERT, False)
+        LockWindowUpdate(0&)
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        LockWindowUpdate(LstAbastFornecedor.Handle)
+        LstAbastFornecedor.TopIndex = LstAbastFornecedor.TopIndex - 1
+        ShowScrollBar(LstAbastFornecedor.Handle, SB_VERT, False)
+        LockWindowUpdate(0&)
+    End Sub
+
+    Private Sub LstAbastUtilizador_MouseEnter(sender As Object, e As EventArgs) Handles LstAbastUtilizador.MouseEnter
+        LstAbastFornecedor.TopIndex = LstAbastUtilizador.TopIndex
+        LstAbastCarro.TopIndex = LstAbastUtilizador.TopIndex
+        LstAbastQuantidade.TopIndex = LstAbastUtilizador.TopIndex
+        LstAbastValor.TopIndex = LstAbastUtilizador.TopIndex
+        LstAbastData.TopIndex = LstAbastUtilizador.TopIndex
+        LstAbastKM.TopIndex = LstAbastUtilizador.TopIndex
+    End Sub
+    Private Sub LstAbastUtilizador_Click(sender As Object, e As EventArgs) Handles LstAbastUtilizador.Click
+        LstAbastFornecedor.TopIndex = LstAbastUtilizador.TopIndex
+        LstAbastCarro.TopIndex = LstAbastUtilizador.TopIndex
+        LstAbastQuantidade.TopIndex = LstAbastUtilizador.TopIndex
+        LstAbastValor.TopIndex = LstAbastUtilizador.TopIndex
+        LstAbastData.TopIndex = LstAbastUtilizador.TopIndex
+        LstAbastKM.TopIndex = LstAbastUtilizador.TopIndex
     End Sub
 End Class

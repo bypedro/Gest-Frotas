@@ -50,14 +50,10 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PnlHome = New System.Windows.Forms.Panel()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Last3 = New System.Windows.Forms.Label()
+        Me.Last2 = New System.Windows.Forms.Label()
+        Me.Last1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.LblVeiProxInspEmUso = New System.Windows.Forms.Label()
         Me.LblVeiProxManEmUso = New System.Windows.Forms.Label()
@@ -68,6 +64,8 @@ Partial Class Form1
         Me.LblVeiMarcEmUso = New System.Windows.Forms.Label()
         Me.LblPnlHome = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.LblAbastKM = New System.Windows.Forms.Label()
         Me.LblAbastValor = New System.Windows.Forms.Label()
         Me.LblAbastQuantidade = New System.Windows.Forms.Label()
@@ -149,10 +147,14 @@ Partial Class Form1
         Me.TxtUtilizadorDataContratDef = New System.Windows.Forms.TextBox()
         Me.LblUtilizadorNomePDef = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.PnlAgendaDesp = New System.Windows.Forms.Panel()
+        Me.LblAgendaDespesaData = New System.Windows.Forms.Label()
+        Me.LblAgendaDespesaTipo = New System.Windows.Forms.Label()
+        Me.LblAgendaDespesaCarro = New System.Windows.Forms.Label()
+        Me.LstAgendaDespesaData = New System.Windows.Forms.ListBox()
+        Me.LstAgendaDespesaTipo = New System.Windows.Forms.ListBox()
+        Me.LstAgendaDespesaCarro = New System.Windows.Forms.ListBox()
+        Me.PnlAgendaManu = New System.Windows.Forms.Panel()
         Me.LblAgendaManuKMPrev = New System.Windows.Forms.Label()
         Me.LblAgendaManuUtilizadorDataPrev = New System.Windows.Forms.Label()
         Me.LblAgendaManuTipo = New System.Windows.Forms.Label()
@@ -161,6 +163,8 @@ Partial Class Form1
         Me.LstAgendaManuData = New System.Windows.Forms.ListBox()
         Me.LstAgendaManuTipo = New System.Windows.Forms.ListBox()
         Me.LstAgendaManuCarro = New System.Windows.Forms.ListBox()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Panel7 = New System.Windows.Forms.Panel()
         Me.BtnImagemAgendaDesp = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAgendaManu = New GestFrotPAP.BtnImagem()
         Me.BtnImagemDefUtilizadorContato = New GestFrotPAP.BtnImagem()
@@ -178,19 +182,12 @@ Partial Class Form1
         Me.BtnImagem2 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem4 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem3 = New GestFrotPAP.BtnImagem()
-        Me.LblAgendaDespesaData = New System.Windows.Forms.Label()
-        Me.LblAgendaDespesaTipo = New System.Windows.Forms.Label()
-        Me.LblAgendaDespesaCarro = New System.Windows.Forms.Label()
-        Me.LstAgendaDespesaData = New System.Windows.Forms.ListBox()
-        Me.LstAgendaDespesaTipo = New System.Windows.Forms.ListBox()
-        Me.LstAgendaDespesaCarro = New System.Windows.Forms.ListBox()
         Me.PnlMenu.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlBarraTop.SuspendLayout()
         Me.PnlLogin.SuspendLayout()
         Me.PnlUser.SuspendLayout()
         Me.PnlHome.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -201,8 +198,8 @@ Partial Class Form1
         Me.PnlDefUtilizadorContato.SuspendLayout()
         Me.PnlDefUtilizadorInfo.SuspendLayout()
         Me.Panel5.SuspendLayout()
-        Me.Panel1.SuspendLayout()
-        Me.Panel8.SuspendLayout()
+        Me.PnlAgendaDesp.SuspendLayout()
+        Me.PnlAgendaManu.SuspendLayout()
         Me.SuspendLayout()
         '
         'PnlMenu
@@ -478,7 +475,6 @@ Partial Class Form1
         'PnlHome
         '
         Me.PnlHome.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.PnlHome.Controls.Add(Me.GroupBox4)
         Me.PnlHome.Controls.Add(Me.GroupBox3)
         Me.PnlHome.Controls.Add(Me.GroupBox2)
         Me.PnlHome.Controls.Add(Me.GroupBox1)
@@ -489,51 +485,11 @@ Partial Class Form1
         Me.PnlHome.TabIndex = 10
         Me.PnlHome.Visible = False
         '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.Add(Me.Label13)
-        Me.GroupBox4.Controls.Add(Me.Label14)
-        Me.GroupBox4.Controls.Add(Me.Label15)
-        Me.GroupBox4.ForeColor = System.Drawing.Color.White
-        Me.GroupBox4.Location = New System.Drawing.Point(235, 127)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(200, 83)
-        Me.GroupBox4.TabIndex = 4
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Notas"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(7, 44)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(99, 13)
-        Me.Label13.TabIndex = 2
-        Me.Label13.Text = "Ultimo Manutenção"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(7, 29)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(99, 13)
-        Me.Label14.TabIndex = 1
-        Me.Label14.Text = "Ultima Manutenção"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(7, 16)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(109, 13)
-        Me.Label15.TabIndex = 0
-        Me.Label15.Text = "Ultimo Abastecimento"
-        '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.Label12)
-        Me.GroupBox3.Controls.Add(Me.Label11)
-        Me.GroupBox3.Controls.Add(Me.Label10)
+        Me.GroupBox3.Controls.Add(Me.Last3)
+        Me.GroupBox3.Controls.Add(Me.Last2)
+        Me.GroupBox3.Controls.Add(Me.Last1)
         Me.GroupBox3.ForeColor = System.Drawing.Color.White
         Me.GroupBox3.Location = New System.Drawing.Point(12, 127)
         Me.GroupBox3.Name = "GroupBox3"
@@ -542,32 +498,32 @@ Partial Class Form1
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "O que fez"
         '
-        'Label12
+        'Last3
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(7, 44)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(81, 13)
-        Me.Label12.TabIndex = 2
-        Me.Label12.Text = "Ultimo Despesa"
+        Me.Last3.AutoSize = True
+        Me.Last3.Location = New System.Drawing.Point(7, 44)
+        Me.Last3.Name = "Last3"
+        Me.Last3.Size = New System.Drawing.Size(81, 13)
+        Me.Last3.TabIndex = 2
+        Me.Last3.Text = "Ultimo Despesa"
         '
-        'Label11
+        'Last2
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(7, 29)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(99, 13)
-        Me.Label11.TabIndex = 1
-        Me.Label11.Text = "Ultima Manutenção"
+        Me.Last2.AutoSize = True
+        Me.Last2.Location = New System.Drawing.Point(7, 29)
+        Me.Last2.Name = "Last2"
+        Me.Last2.Size = New System.Drawing.Size(99, 13)
+        Me.Last2.TabIndex = 1
+        Me.Last2.Text = "Ultima Manutenção"
         '
-        'Label10
+        'Last1
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(7, 16)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(109, 13)
-        Me.Label10.TabIndex = 0
-        Me.Label10.Text = "Ultimo Abastecimento"
+        Me.Last1.AutoSize = True
+        Me.Last1.Location = New System.Drawing.Point(7, 16)
+        Me.Last1.Name = "Last1"
+        Me.Last1.Size = New System.Drawing.Size(109, 13)
+        Me.Last1.TabIndex = 0
+        Me.Last1.Text = "Ultimo Abastecimento"
         '
         'GroupBox2
         '
@@ -661,6 +617,8 @@ Partial Class Form1
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Button2)
+        Me.Panel2.Controls.Add(Me.Button1)
         Me.Panel2.Controls.Add(Me.LblAbastKM)
         Me.Panel2.Controls.Add(Me.LblAbastValor)
         Me.Panel2.Controls.Add(Me.LblAbastQuantidade)
@@ -676,16 +634,34 @@ Partial Class Form1
         Me.Panel2.Controls.Add(Me.LstAbastFornecedor)
         Me.Panel2.Controls.Add(Me.LstAbastCarro)
         Me.Panel2.Controls.Add(Me.LblAbast)
-        Me.Panel2.Location = New System.Drawing.Point(320, 30)
+        Me.Panel2.Location = New System.Drawing.Point(32, 30)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(50, 50)
+        Me.Panel2.Size = New System.Drawing.Size(968, 470)
         Me.Panel2.TabIndex = 11
         Me.Panel2.Visible = False
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(880, 73)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 17
+        Me.Button2.Text = "^"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(884, 243)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 16
+        Me.Button1.Text = "V"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'LblAbastKM
         '
         Me.LblAbastKM.AutoSize = True
-        Me.LblAbastKM.Location = New System.Drawing.Point(744, 51)
+        Me.LblAbastKM.Location = New System.Drawing.Point(456, 51)
         Me.LblAbastKM.Name = "LblAbastKM"
         Me.LblAbastKM.Size = New System.Drawing.Size(60, 13)
         Me.LblAbastKM.TabIndex = 15
@@ -694,7 +670,7 @@ Partial Class Form1
         'LblAbastValor
         '
         Me.LblAbastValor.AutoSize = True
-        Me.LblAbastValor.Location = New System.Drawing.Point(622, 51)
+        Me.LblAbastValor.Location = New System.Drawing.Point(317, 51)
         Me.LblAbastValor.Name = "LblAbastValor"
         Me.LblAbastValor.Size = New System.Drawing.Size(31, 13)
         Me.LblAbastValor.TabIndex = 14
@@ -703,7 +679,7 @@ Partial Class Form1
         'LblAbastQuantidade
         '
         Me.LblAbastQuantidade.AutoSize = True
-        Me.LblAbastQuantidade.Location = New System.Drawing.Point(500, 51)
+        Me.LblAbastQuantidade.Location = New System.Drawing.Point(245, 51)
         Me.LblAbastQuantidade.Name = "LblAbastQuantidade"
         Me.LblAbastQuantidade.Size = New System.Drawing.Size(62, 13)
         Me.LblAbastQuantidade.TabIndex = 13
@@ -712,7 +688,7 @@ Partial Class Form1
         'LblAbastData
         '
         Me.LblAbastData.AutoSize = True
-        Me.LblAbastData.Location = New System.Drawing.Point(378, 51)
+        Me.LblAbastData.Location = New System.Drawing.Point(389, 51)
         Me.LblAbastData.Name = "LblAbastData"
         Me.LblAbastData.Size = New System.Drawing.Size(30, 13)
         Me.LblAbastData.TabIndex = 12
@@ -721,7 +697,7 @@ Partial Class Form1
         'LblAbastUtilizador
         '
         Me.LblAbastUtilizador.AutoSize = True
-        Me.LblAbastUtilizador.Location = New System.Drawing.Point(256, 49)
+        Me.LblAbastUtilizador.Location = New System.Drawing.Point(730, 49)
         Me.LblAbastUtilizador.Name = "LblAbastUtilizador"
         Me.LblAbastUtilizador.Size = New System.Drawing.Size(50, 13)
         Me.LblAbastUtilizador.TabIndex = 11
@@ -730,7 +706,7 @@ Partial Class Form1
         'LblAbastFornecedor
         '
         Me.LblAbastFornecedor.AutoSize = True
-        Me.LblAbastFornecedor.Location = New System.Drawing.Point(134, 51)
+        Me.LblAbastFornecedor.Location = New System.Drawing.Point(13, 51)
         Me.LblAbastFornecedor.Name = "LblAbastFornecedor"
         Me.LblAbastFornecedor.Size = New System.Drawing.Size(61, 13)
         Me.LblAbastFornecedor.TabIndex = 10
@@ -739,7 +715,7 @@ Partial Class Form1
         'LblAbastCarro
         '
         Me.LblAbastCarro.AutoSize = True
-        Me.LblAbastCarro.Location = New System.Drawing.Point(12, 51)
+        Me.LblAbastCarro.Location = New System.Drawing.Point(528, 51)
         Me.LblAbastCarro.Name = "LblAbastCarro"
         Me.LblAbastCarro.Size = New System.Drawing.Size(32, 13)
         Me.LblAbastCarro.TabIndex = 9
@@ -752,10 +728,9 @@ Partial Class Form1
         Me.LstAbastQuantidade.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.LstAbastQuantidade.ForeColor = System.Drawing.Color.White
         Me.LstAbastQuantidade.FormattingEnabled = True
-        Me.LstAbastQuantidade.Location = New System.Drawing.Point(503, 72)
-        Me.LstAbastQuantidade.MultiColumn = True
+        Me.LstAbastQuantidade.Location = New System.Drawing.Point(248, 72)
         Me.LstAbastQuantidade.Name = "LstAbastQuantidade"
-        Me.LstAbastQuantidade.Size = New System.Drawing.Size(120, 91)
+        Me.LstAbastQuantidade.Size = New System.Drawing.Size(70, 195)
         Me.LstAbastQuantidade.TabIndex = 7
         '
         'LstAbastValor
@@ -765,10 +740,9 @@ Partial Class Form1
         Me.LstAbastValor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.LstAbastValor.ForeColor = System.Drawing.Color.White
         Me.LstAbastValor.FormattingEnabled = True
-        Me.LstAbastValor.Location = New System.Drawing.Point(625, 72)
-        Me.LstAbastValor.MultiColumn = True
+        Me.LstAbastValor.Location = New System.Drawing.Point(320, 72)
         Me.LstAbastValor.Name = "LstAbastValor"
-        Me.LstAbastValor.Size = New System.Drawing.Size(120, 91)
+        Me.LstAbastValor.Size = New System.Drawing.Size(70, 195)
         Me.LstAbastValor.TabIndex = 6
         '
         'LstAbastKM
@@ -778,10 +752,9 @@ Partial Class Form1
         Me.LstAbastKM.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.LstAbastKM.ForeColor = System.Drawing.Color.White
         Me.LstAbastKM.FormattingEnabled = True
-        Me.LstAbastKM.Location = New System.Drawing.Point(747, 72)
-        Me.LstAbastKM.MultiColumn = True
+        Me.LstAbastKM.Location = New System.Drawing.Point(459, 72)
         Me.LstAbastKM.Name = "LstAbastKM"
-        Me.LstAbastKM.Size = New System.Drawing.Size(120, 91)
+        Me.LstAbastKM.Size = New System.Drawing.Size(70, 195)
         Me.LstAbastKM.TabIndex = 5
         '
         'LstAbastData
@@ -791,10 +764,9 @@ Partial Class Form1
         Me.LstAbastData.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.LstAbastData.ForeColor = System.Drawing.Color.White
         Me.LstAbastData.FormattingEnabled = True
-        Me.LstAbastData.Location = New System.Drawing.Point(381, 72)
-        Me.LstAbastData.MultiColumn = True
+        Me.LstAbastData.Location = New System.Drawing.Point(392, 72)
         Me.LstAbastData.Name = "LstAbastData"
-        Me.LstAbastData.Size = New System.Drawing.Size(120, 91)
+        Me.LstAbastData.Size = New System.Drawing.Size(65, 195)
         Me.LstAbastData.TabIndex = 4
         '
         'LstAbastUtilizador
@@ -804,10 +776,9 @@ Partial Class Form1
         Me.LstAbastUtilizador.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.LstAbastUtilizador.ForeColor = System.Drawing.Color.White
         Me.LstAbastUtilizador.FormattingEnabled = True
-        Me.LstAbastUtilizador.Location = New System.Drawing.Point(259, 72)
-        Me.LstAbastUtilizador.MultiColumn = True
+        Me.LstAbastUtilizador.Location = New System.Drawing.Point(733, 72)
         Me.LstAbastUtilizador.Name = "LstAbastUtilizador"
-        Me.LstAbastUtilizador.Size = New System.Drawing.Size(120, 91)
+        Me.LstAbastUtilizador.Size = New System.Drawing.Size(120, 195)
         Me.LstAbastUtilizador.TabIndex = 3
         '
         'LstAbastFornecedor
@@ -817,10 +788,9 @@ Partial Class Form1
         Me.LstAbastFornecedor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.LstAbastFornecedor.ForeColor = System.Drawing.Color.White
         Me.LstAbastFornecedor.FormattingEnabled = True
-        Me.LstAbastFornecedor.Location = New System.Drawing.Point(137, 72)
-        Me.LstAbastFornecedor.MultiColumn = True
+        Me.LstAbastFornecedor.Location = New System.Drawing.Point(16, 72)
         Me.LstAbastFornecedor.Name = "LstAbastFornecedor"
-        Me.LstAbastFornecedor.Size = New System.Drawing.Size(120, 91)
+        Me.LstAbastFornecedor.Size = New System.Drawing.Size(230, 195)
         Me.LstAbastFornecedor.TabIndex = 2
         '
         'LstAbastCarro
@@ -831,9 +801,9 @@ Partial Class Form1
         Me.LstAbastCarro.ForeColor = System.Drawing.Color.White
         Me.LstAbastCarro.FormattingEnabled = True
         Me.LstAbastCarro.Items.AddRange(New Object() {""})
-        Me.LstAbastCarro.Location = New System.Drawing.Point(15, 72)
+        Me.LstAbastCarro.Location = New System.Drawing.Point(531, 72)
         Me.LstAbastCarro.Name = "LstAbastCarro"
-        Me.LstAbastCarro.Size = New System.Drawing.Size(120, 91)
+        Me.LstAbastCarro.Size = New System.Drawing.Size(200, 195)
         Me.LstAbastCarro.TabIndex = 1
         '
         'LblAbast
@@ -1578,62 +1548,110 @@ Partial Class Form1
         Me.Panel5.BackColor = System.Drawing.Color.DimGray
         Me.Panel5.Controls.Add(Me.BtnImagemAgendaDesp)
         Me.Panel5.Controls.Add(Me.BtnImagemAgendaManu)
-        Me.Panel5.Controls.Add(Me.Panel1)
-        Me.Panel5.Controls.Add(Me.Panel8)
-        Me.Panel5.Location = New System.Drawing.Point(32, 30)
+        Me.Panel5.Controls.Add(Me.PnlAgendaDesp)
+        Me.Panel5.Controls.Add(Me.PnlAgendaManu)
+        Me.Panel5.Location = New System.Drawing.Point(620, 30)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(968, 470)
+        Me.Panel5.Size = New System.Drawing.Size(50, 50)
         Me.Panel5.TabIndex = 15
         Me.Panel5.Visible = False
         '
-        'Panel6
+        'PnlAgendaDesp
         '
-        Me.Panel6.BackColor = System.Drawing.Color.White
-        Me.Panel6.Location = New System.Drawing.Point(445, 184)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(50, 50)
-        Me.Panel6.TabIndex = 16
-        Me.Panel6.Visible = False
+        Me.PnlAgendaDesp.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.PnlAgendaDesp.Controls.Add(Me.LblAgendaDespesaData)
+        Me.PnlAgendaDesp.Controls.Add(Me.LblAgendaDespesaTipo)
+        Me.PnlAgendaDesp.Controls.Add(Me.LblAgendaDespesaCarro)
+        Me.PnlAgendaDesp.Controls.Add(Me.LstAgendaDespesaData)
+        Me.PnlAgendaDesp.Controls.Add(Me.LstAgendaDespesaTipo)
+        Me.PnlAgendaDesp.Controls.Add(Me.LstAgendaDespesaCarro)
+        Me.PnlAgendaDesp.Location = New System.Drawing.Point(1, 45)
+        Me.PnlAgendaDesp.Name = "PnlAgendaDesp"
+        Me.PnlAgendaDesp.Size = New System.Drawing.Size(856, 425)
+        Me.PnlAgendaDesp.TabIndex = 7
+        Me.PnlAgendaDesp.Visible = False
         '
-        'Panel7
+        'LblAgendaDespesaData
         '
-        Me.Panel7.BackColor = System.Drawing.Color.White
-        Me.Panel7.Location = New System.Drawing.Point(445, 254)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(50, 50)
-        Me.Panel7.TabIndex = 16
-        Me.Panel7.Visible = False
+        Me.LblAgendaDespesaData.AutoSize = True
+        Me.LblAgendaDespesaData.Location = New System.Drawing.Point(275, 8)
+        Me.LblAgendaDespesaData.Name = "LblAgendaDespesaData"
+        Me.LblAgendaDespesaData.Size = New System.Drawing.Size(30, 13)
+        Me.LblAgendaDespesaData.TabIndex = 55
+        Me.LblAgendaDespesaData.Text = "Data"
         '
-        'Panel1
+        'LblAgendaDespesaTipo
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.LblAgendaDespesaData)
-        Me.Panel1.Controls.Add(Me.LblAgendaDespesaTipo)
-        Me.Panel1.Controls.Add(Me.LblAgendaDespesaCarro)
-        Me.Panel1.Controls.Add(Me.LstAgendaDespesaData)
-        Me.Panel1.Controls.Add(Me.LstAgendaDespesaTipo)
-        Me.Panel1.Controls.Add(Me.LstAgendaDespesaCarro)
-        Me.Panel1.Location = New System.Drawing.Point(1, 45)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(856, 425)
-        Me.Panel1.TabIndex = 7
-        Me.Panel1.Visible = False
+        Me.LblAgendaDespesaTipo.AutoSize = True
+        Me.LblAgendaDespesaTipo.Location = New System.Drawing.Point(129, 7)
+        Me.LblAgendaDespesaTipo.Name = "LblAgendaDespesaTipo"
+        Me.LblAgendaDespesaTipo.Size = New System.Drawing.Size(89, 13)
+        Me.LblAgendaDespesaTipo.TabIndex = 54
+        Me.LblAgendaDespesaTipo.Text = "TIpo de Despesa"
         '
-        'Panel8
+        'LblAgendaDespesaCarro
         '
-        Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Panel8.Controls.Add(Me.LblAgendaManuKMPrev)
-        Me.Panel8.Controls.Add(Me.LblAgendaManuUtilizadorDataPrev)
-        Me.Panel8.Controls.Add(Me.LblAgendaManuTipo)
-        Me.Panel8.Controls.Add(Me.LblAgendaManuCarro)
-        Me.Panel8.Controls.Add(Me.LstAgendaManuKm)
-        Me.Panel8.Controls.Add(Me.LstAgendaManuData)
-        Me.Panel8.Controls.Add(Me.LstAgendaManuTipo)
-        Me.Panel8.Controls.Add(Me.LstAgendaManuCarro)
-        Me.Panel8.Location = New System.Drawing.Point(1, 45)
-        Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(968, 425)
-        Me.Panel8.TabIndex = 4
+        Me.LblAgendaDespesaCarro.AutoSize = True
+        Me.LblAgendaDespesaCarro.Location = New System.Drawing.Point(18, 8)
+        Me.LblAgendaDespesaCarro.Name = "LblAgendaDespesaCarro"
+        Me.LblAgendaDespesaCarro.Size = New System.Drawing.Size(32, 13)
+        Me.LblAgendaDespesaCarro.TabIndex = 52
+        Me.LblAgendaDespesaCarro.Text = "Carro"
+        '
+        'LstAgendaDespesaData
+        '
+        Me.LstAgendaDespesaData.BackColor = System.Drawing.Color.DimGray
+        Me.LstAgendaDespesaData.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LstAgendaDespesaData.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.LstAgendaDespesaData.ForeColor = System.Drawing.Color.White
+        Me.LstAgendaDespesaData.FormattingEnabled = True
+        Me.LstAgendaDespesaData.Location = New System.Drawing.Point(255, 44)
+        Me.LstAgendaDespesaData.MultiColumn = True
+        Me.LstAgendaDespesaData.Name = "LstAgendaDespesaData"
+        Me.LstAgendaDespesaData.Size = New System.Drawing.Size(120, 91)
+        Me.LstAgendaDespesaData.TabIndex = 49
+        '
+        'LstAgendaDespesaTipo
+        '
+        Me.LstAgendaDespesaTipo.BackColor = System.Drawing.Color.DimGray
+        Me.LstAgendaDespesaTipo.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LstAgendaDespesaTipo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.LstAgendaDespesaTipo.ForeColor = System.Drawing.Color.White
+        Me.LstAgendaDespesaTipo.FormattingEnabled = True
+        Me.LstAgendaDespesaTipo.Location = New System.Drawing.Point(132, 44)
+        Me.LstAgendaDespesaTipo.MultiColumn = True
+        Me.LstAgendaDespesaTipo.Name = "LstAgendaDespesaTipo"
+        Me.LstAgendaDespesaTipo.Size = New System.Drawing.Size(120, 91)
+        Me.LstAgendaDespesaTipo.TabIndex = 48
+        '
+        'LstAgendaDespesaCarro
+        '
+        Me.LstAgendaDespesaCarro.BackColor = System.Drawing.Color.DimGray
+        Me.LstAgendaDespesaCarro.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LstAgendaDespesaCarro.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.LstAgendaDespesaCarro.ForeColor = System.Drawing.Color.White
+        Me.LstAgendaDespesaCarro.FormattingEnabled = True
+        Me.LstAgendaDespesaCarro.Items.AddRange(New Object() {""})
+        Me.LstAgendaDespesaCarro.Location = New System.Drawing.Point(7, 45)
+        Me.LstAgendaDespesaCarro.Name = "LstAgendaDespesaCarro"
+        Me.LstAgendaDespesaCarro.Size = New System.Drawing.Size(120, 91)
+        Me.LstAgendaDespesaCarro.TabIndex = 46
+        '
+        'PnlAgendaManu
+        '
+        Me.PnlAgendaManu.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PnlAgendaManu.Controls.Add(Me.LblAgendaManuKMPrev)
+        Me.PnlAgendaManu.Controls.Add(Me.LblAgendaManuUtilizadorDataPrev)
+        Me.PnlAgendaManu.Controls.Add(Me.LblAgendaManuTipo)
+        Me.PnlAgendaManu.Controls.Add(Me.LblAgendaManuCarro)
+        Me.PnlAgendaManu.Controls.Add(Me.LstAgendaManuKm)
+        Me.PnlAgendaManu.Controls.Add(Me.LstAgendaManuData)
+        Me.PnlAgendaManu.Controls.Add(Me.LstAgendaManuTipo)
+        Me.PnlAgendaManu.Controls.Add(Me.LstAgendaManuCarro)
+        Me.PnlAgendaManu.Location = New System.Drawing.Point(1, 45)
+        Me.PnlAgendaManu.Name = "PnlAgendaManu"
+        Me.PnlAgendaManu.Size = New System.Drawing.Size(968, 425)
+        Me.PnlAgendaManu.TabIndex = 4
         '
         'LblAgendaManuKMPrev
         '
@@ -1675,6 +1693,7 @@ Partial Class Form1
         '
         Me.LstAgendaManuKm.BackColor = System.Drawing.Color.DimGray
         Me.LstAgendaManuKm.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LstAgendaManuKm.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.LstAgendaManuKm.ForeColor = System.Drawing.Color.White
         Me.LstAgendaManuKm.FormattingEnabled = True
         Me.LstAgendaManuKm.Location = New System.Drawing.Point(373, 44)
@@ -1687,6 +1706,7 @@ Partial Class Form1
         '
         Me.LstAgendaManuData.BackColor = System.Drawing.Color.DimGray
         Me.LstAgendaManuData.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LstAgendaManuData.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.LstAgendaManuData.ForeColor = System.Drawing.Color.White
         Me.LstAgendaManuData.FormattingEnabled = True
         Me.LstAgendaManuData.Location = New System.Drawing.Point(251, 44)
@@ -1699,6 +1719,7 @@ Partial Class Form1
         '
         Me.LstAgendaManuTipo.BackColor = System.Drawing.Color.DimGray
         Me.LstAgendaManuTipo.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LstAgendaManuTipo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.LstAgendaManuTipo.ForeColor = System.Drawing.Color.White
         Me.LstAgendaManuTipo.FormattingEnabled = True
         Me.LstAgendaManuTipo.Location = New System.Drawing.Point(129, 44)
@@ -1720,6 +1741,24 @@ Partial Class Form1
         Me.LstAgendaManuCarro.Size = New System.Drawing.Size(120, 91)
         Me.LstAgendaManuCarro.TabIndex = 46
         '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.White
+        Me.Panel6.Location = New System.Drawing.Point(445, 184)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(50, 50)
+        Me.Panel6.TabIndex = 16
+        Me.Panel6.Visible = False
+        '
+        'Panel7
+        '
+        Me.Panel7.BackColor = System.Drawing.Color.White
+        Me.Panel7.Location = New System.Drawing.Point(445, 254)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(50, 50)
+        Me.Panel7.TabIndex = 16
+        Me.Panel7.Visible = False
+        '
         'BtnImagemAgendaDesp
         '
         Me.BtnImagemAgendaDesp.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
@@ -1728,7 +1767,7 @@ Partial Class Form1
         Me.BtnImagemAgendaDesp.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
         Me.BtnImagemAgendaDesp.CorTexto = System.Drawing.Color.White
         Me.BtnImagemAgendaDesp.EstadoBotao = False
-        Me.BtnImagemAgendaDesp.Imagem = Nothing
+        Me.BtnImagemAgendaDesp.Imagem = Global.GestFrotPAP.My.Resources.Resources.dollar_bills
         Me.BtnImagemAgendaDesp.Location = New System.Drawing.Point(232, 0)
         Me.BtnImagemAgendaDesp.Name = "BtnImagemAgendaDesp"
         Me.BtnImagemAgendaDesp.Size = New System.Drawing.Size(230, 44)
@@ -1744,7 +1783,7 @@ Partial Class Form1
         Me.BtnImagemAgendaManu.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
         Me.BtnImagemAgendaManu.CorTexto = System.Drawing.Color.White
         Me.BtnImagemAgendaManu.EstadoBotao = True
-        Me.BtnImagemAgendaManu.Imagem = Nothing
+        Me.BtnImagemAgendaManu.Imagem = Global.GestFrotPAP.My.Resources.Resources.wrench
         Me.BtnImagemAgendaManu.Location = New System.Drawing.Point(0, 0)
         Me.BtnImagemAgendaManu.Name = "BtnImagemAgendaManu"
         Me.BtnImagemAgendaManu.Size = New System.Drawing.Size(230, 44)
@@ -1987,88 +2026,24 @@ Partial Class Form1
         Me.BtnImagem3.TamanhoLetra = 10
         Me.BtnImagem3.Texto = "Manutenção"
         '
-        'LblAgendaDespesaData
-        '
-        Me.LblAgendaDespesaData.AutoSize = True
-        Me.LblAgendaDespesaData.Location = New System.Drawing.Point(275, 8)
-        Me.LblAgendaDespesaData.Name = "LblAgendaDespesaData"
-        Me.LblAgendaDespesaData.Size = New System.Drawing.Size(30, 13)
-        Me.LblAgendaDespesaData.TabIndex = 55
-        Me.LblAgendaDespesaData.Text = "Data"
-        '
-        'LblAgendaDespesaTipo
-        '
-        Me.LblAgendaDespesaTipo.AutoSize = True
-        Me.LblAgendaDespesaTipo.Location = New System.Drawing.Point(129, 7)
-        Me.LblAgendaDespesaTipo.Name = "LblAgendaDespesaTipo"
-        Me.LblAgendaDespesaTipo.Size = New System.Drawing.Size(89, 13)
-        Me.LblAgendaDespesaTipo.TabIndex = 54
-        Me.LblAgendaDespesaTipo.Text = "TIpo de Despesa"
-        '
-        'LblAgendaDespesaCarro
-        '
-        Me.LblAgendaDespesaCarro.AutoSize = True
-        Me.LblAgendaDespesaCarro.Location = New System.Drawing.Point(18, 8)
-        Me.LblAgendaDespesaCarro.Name = "LblAgendaDespesaCarro"
-        Me.LblAgendaDespesaCarro.Size = New System.Drawing.Size(32, 13)
-        Me.LblAgendaDespesaCarro.TabIndex = 52
-        Me.LblAgendaDespesaCarro.Text = "Carro"
-        '
-        'LstAgendaDespesaData
-        '
-        Me.LstAgendaDespesaData.BackColor = System.Drawing.Color.DimGray
-        Me.LstAgendaDespesaData.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstAgendaDespesaData.ForeColor = System.Drawing.Color.White
-        Me.LstAgendaDespesaData.FormattingEnabled = True
-        Me.LstAgendaDespesaData.Location = New System.Drawing.Point(255, 44)
-        Me.LstAgendaDespesaData.MultiColumn = True
-        Me.LstAgendaDespesaData.Name = "LstAgendaDespesaData"
-        Me.LstAgendaDespesaData.Size = New System.Drawing.Size(120, 91)
-        Me.LstAgendaDespesaData.TabIndex = 49
-        '
-        'LstAgendaDespesaTipo
-        '
-        Me.LstAgendaDespesaTipo.BackColor = System.Drawing.Color.DimGray
-        Me.LstAgendaDespesaTipo.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstAgendaDespesaTipo.ForeColor = System.Drawing.Color.White
-        Me.LstAgendaDespesaTipo.FormattingEnabled = True
-        Me.LstAgendaDespesaTipo.Location = New System.Drawing.Point(132, 44)
-        Me.LstAgendaDespesaTipo.MultiColumn = True
-        Me.LstAgendaDespesaTipo.Name = "LstAgendaDespesaTipo"
-        Me.LstAgendaDespesaTipo.Size = New System.Drawing.Size(120, 91)
-        Me.LstAgendaDespesaTipo.TabIndex = 48
-        '
-        'LstAgendaDespesaCarro
-        '
-        Me.LstAgendaDespesaCarro.BackColor = System.Drawing.Color.DimGray
-        Me.LstAgendaDespesaCarro.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstAgendaDespesaCarro.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.LstAgendaDespesaCarro.ForeColor = System.Drawing.Color.White
-        Me.LstAgendaDespesaCarro.FormattingEnabled = True
-        Me.LstAgendaDespesaCarro.Items.AddRange(New Object() {""})
-        Me.LstAgendaDespesaCarro.Location = New System.Drawing.Point(7, 45)
-        Me.LstAgendaDespesaCarro.Name = "LstAgendaDespesaCarro"
-        Me.LstAgendaDespesaCarro.Size = New System.Drawing.Size(120, 91)
-        Me.LstAgendaDespesaCarro.TabIndex = 46
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1000, 500)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.PnlHome)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.PnlDefUtilizador)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.Panel6)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PnlUser)
         Me.Controls.Add(Me.PnlLogin)
         Me.Controls.Add(Me.PnlMenu)
         Me.Controls.Add(Me.PnlBarraTop)
-        Me.Controls.Add(Me.PnlHome)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -2083,8 +2058,6 @@ Partial Class Form1
         Me.PnlUser.PerformLayout()
         Me.PnlHome.ResumeLayout(False)
         Me.PnlHome.PerformLayout()
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -2103,10 +2076,10 @@ Partial Class Form1
         Me.PnlDefUtilizadorInfo.ResumeLayout(False)
         Me.PnlDefUtilizadorInfo.PerformLayout()
         Me.Panel5.ResumeLayout(False)
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
-        Me.Panel8.ResumeLayout(False)
-        Me.Panel8.PerformLayout()
+        Me.PnlAgendaDesp.ResumeLayout(False)
+        Me.PnlAgendaDesp.PerformLayout()
+        Me.PnlAgendaManu.ResumeLayout(False)
+        Me.PnlAgendaManu.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2195,13 +2168,9 @@ Partial Class Form1
     Friend WithEvents LblVeiModelEmUso As System.Windows.Forms.Label
     Friend WithEvents LblVeiMarcEmUso As System.Windows.Forms.Label
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents Last3 As System.Windows.Forms.Label
+    Friend WithEvents Last2 As System.Windows.Forms.Label
+    Friend WithEvents Last1 As System.Windows.Forms.Label
     Friend WithEvents LblAbast As System.Windows.Forms.Label
     Friend WithEvents LblVeiCorEmUso As System.Windows.Forms.Label
     Friend WithEvents LstAbastData As System.Windows.Forms.ListBox
@@ -2254,8 +2223,8 @@ Partial Class Form1
     Friend WithEvents Panel7 As System.Windows.Forms.Panel
     Friend WithEvents BtnImagemAgendaDesp As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagemAgendaManu As GestFrotPAP.BtnImagem
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents Panel8 As System.Windows.Forms.Panel
+    Friend WithEvents PnlAgendaDesp As System.Windows.Forms.Panel
+    Friend WithEvents PnlAgendaManu As System.Windows.Forms.Panel
     Friend WithEvents LblAgendaManuKMPrev As System.Windows.Forms.Label
     Friend WithEvents LblAgendaManuUtilizadorDataPrev As System.Windows.Forms.Label
     Friend WithEvents LblAgendaManuTipo As System.Windows.Forms.Label
@@ -2270,5 +2239,7 @@ Partial Class Form1
     Friend WithEvents LstAgendaDespesaData As System.Windows.Forms.ListBox
     Friend WithEvents LstAgendaDespesaTipo As System.Windows.Forms.ListBox
     Friend WithEvents LstAgendaDespesaCarro As System.Windows.Forms.ListBox
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 
 End Class
