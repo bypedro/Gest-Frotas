@@ -2,7 +2,7 @@
 Imports System.Net.Mail
 Module SQL
     Dim DB As String = "frotas"
-    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
+    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=0000;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
     Dim adapter As New MySqlDataAdapter
     Public DetalhesUtilizador As New UtilizadorDetalhes
 
@@ -725,8 +725,9 @@ Module SQL
         Dim Tabelas As DataSet = New DataSet
         adapter.SelectCommand = New MySqlCommand
         adapter.SelectCommand.Connection = ligacao
+        Dim itemcoll(100) As String
         'Trocar KM nas definições do programa..->
-        adapter.SelectCommand.CommandText = ("select CodVeiAbast,Data,concat(Veiculo_km,' KM') as Veiculo_km ,quantidade,valor,notas,concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,Nome as Fornecedor,concat(Nome_Proprio, ' ', Apelido) as Utilizador ,Nome as Fornecedor from veiabast,veiculos,fornecedores,Utilizador where Veiculos.Codvei=Veiabast.CodVei and fornecedores.Codforn=Veiabast.Codforn and Utilizador.CodUser=Veiabast.Coduser")
+        adapter.SelectCommand.CommandText = ("select CodVeiAbast,Data,concat(Veiculo_km,' KM') as Veiculo_km ,quantidade,valor,notas,concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,Nome as Fornecedor,concat(Nome_Proprio, ' ', Apelido) as Utilizador  from veiabast,veiculos,fornecedores,Utilizador where Veiculos.Codvei=Veiabast.CodVei and fornecedores.Codforn=Veiabast.Codforn and Utilizador.CodUser=Veiabast.Coduser")
         Try
             ligacao.Open()
             adapter.Fill(Tabelas, "Abastecimento")
@@ -736,7 +737,29 @@ Module SQL
             MsgBox("ERRO abastecimento")
             Exit Sub
         End Try
+
+        Form1.ListView1.GridLines = True
+        Dim i As Integer = 0
+        Dim j As Integer = 0
+        ' adding the columns in ListView
+        For i = 0 To Tabelas.Tables(0).Columns.Count - 1
+
+            Form1.ListView1.Columns.Add(Tabelas.Tables(0).Columns(i).ColumnName.ToString())
+
+
+
+        Next
+        'Now adding the Items in Listview
+        For i = 0 To Tabelas.Tables(0).Rows.Count - 1
+            For j = 0 To Tabelas.Tables(0).Columns.Count - 1
+                itemcoll(j) = Tabelas.Tables(0).Rows(i)(j).ToString()
+
+            Next
+            Dim lvi As New ListViewItem(itemcoll)
+            Form1.ListView1.Items.Add(lvi)
+        Next
        
+
         Form1.LstAbastCarro.DataSource = Tabelas.Tables(0)
         Form1.LstAbastFornecedor.DataSource = Tabelas.Tables(0)
         Form1.LstAbastUtilizador.DataSource = Tabelas.Tables(0)

@@ -36,3 +36,4 @@ C:\Users\12F\Documents\GitHub\Gest-Frotas\VB\GestFrotPAP\GestFrotPAP\obj\Debug\G
 C:\Users\12F\Documents\GitHub\Gest-Frotas\VB\GestFrotPAP\GestFrotPAP\obj\Debug\GestFrotPAP.vbprojResolveAssemblyReference.cache
 C:\Users\Pedro\Documents\GitHub\Gest-Frotas\VB\GestFrotPAP\GestFrotPAP\obj\Debug\GestFrotPAP.AboutBox1.resources
 C:\Users\12F\Documents\GitHub\Gest-Frotas\VB\GestFrotPAP\GestFrotPAP\obj\Debug\GestFrotPAP.AboutBox1.resources
+C:\Users\Pedro\Documents\GitHub\Gest-Frotas\VB\GestFrotPAP\GestFrotPAP\obj\Debug\GestFrotPAP.vbprojResolveAssemblyReference.cache

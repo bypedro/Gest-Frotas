@@ -687,17 +687,28 @@ Public Class Form1
     'VER OUTRAS IMPLEMENTAÇÔES
     '
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        LockWindowUpdate(LstAbastFornecedor.Handle)
+
+  
+
         LstAbastFornecedor.TopIndex = LstAbastFornecedor.TopIndex + 1
-        ShowScrollBar(LstAbastFornecedor.Handle, SB_VERT, False)
-        LockWindowUpdate(0&)
+        LstAbastCarro.TopIndex = LstAbastCarro.TopIndex + 1
+        LstAbastKM.TopIndex = LstAbastKM.TopIndex + 1
+        LstAbastQuantidade.TopIndex = LstAbastQuantidade.TopIndex + 1
+        LstAbastUtilizador.TopIndex = LstAbastUtilizador.TopIndex + 1
+        LstAbastValor.TopIndex = LstAbastValor.TopIndex + 1
+        LstAbastData.TopIndex = LstAbastData.TopIndex + 1
+
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        LockWindowUpdate(LstAbastFornecedor.Handle)
+
         LstAbastFornecedor.TopIndex = LstAbastFornecedor.TopIndex - 1
-        ShowScrollBar(LstAbastFornecedor.Handle, SB_VERT, False)
-        LockWindowUpdate(0&)
+        LstAbastCarro.TopIndex = LstAbastCarro.TopIndex - 1
+        LstAbastKM.TopIndex = LstAbastKM.TopIndex - 1
+        LstAbastQuantidade.TopIndex = LstAbastQuantidade.TopIndex - 1
+        LstAbastUtilizador.TopIndex = LstAbastUtilizador.TopIndex - 1
+        LstAbastValor.TopIndex = LstAbastValor.TopIndex - 1
+        LstAbastData.TopIndex = LstAbastData.TopIndex - 1
     End Sub
 
     Private Sub LstAbastUtilizador_MouseEnter(ByVal sender As Object, ByVal e As EventArgs) Handles LstAbastUtilizador.MouseEnter
@@ -711,5 +722,10 @@ Public Class Form1
         LstAbastValor.TopIndex = LstAbastUtilizador.TopIndex
         LstAbastData.TopIndex = LstAbastUtilizador.TopIndex
         LstAbastKM.TopIndex = LstAbastUtilizador.TopIndex
+    End Sub
+
+    Private Sub ListView1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.Click
+
+
     End Sub
 End Class
