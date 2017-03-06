@@ -168,6 +168,9 @@ Partial Class Form1
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BtnImagem9 = New GestFrotPAP.BtnImagem()
+        Me.BtnImagem8 = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAgendaDesp = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAgendaManu = New GestFrotPAP.BtnImagem()
         Me.BtnImagemDefUtilizadorContato = New GestFrotPAP.BtnImagem()
@@ -185,6 +188,7 @@ Partial Class Form1
         Me.BtnImagem2 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem4 = New GestFrotPAP.BtnImagem()
         Me.BtnImagem3 = New GestFrotPAP.BtnImagem()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.PnlMenu.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlBarraTop.SuspendLayout()
@@ -203,6 +207,7 @@ Partial Class Form1
         Me.Panel5.SuspendLayout()
         Me.PnlAgendaDesp.SuspendLayout()
         Me.PnlAgendaManu.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'PnlMenu
@@ -641,7 +646,7 @@ Partial Class Form1
         Me.Panel2.Controls.Add(Me.LblAbast)
         Me.Panel2.Location = New System.Drawing.Point(32, 30)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(968, 470)
+        Me.Panel2.Size = New System.Drawing.Size(96, 47)
         Me.Panel2.TabIndex = 11
         Me.Panel2.Visible = False
         '
@@ -1794,6 +1799,49 @@ Partial Class Form1
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1
         '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Label6)
+        Me.Panel1.Controls.Add(Me.BtnImagem9)
+        Me.Panel1.Controls.Add(Me.BtnImagem8)
+        Me.Panel1.Location = New System.Drawing.Point(315, 40)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(380, 450)
+        Me.Panel1.TabIndex = 17
+        '
+        'BtnImagem9
+        '
+        Me.BtnImagem9.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem9.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem9.CorHover = System.Drawing.Color.LightSlateGray
+        Me.BtnImagem9.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagem9.CorTexto = System.Drawing.Color.White
+        Me.BtnImagem9.EstadoBotao = False
+        Me.BtnImagem9.Imagem = Nothing
+        Me.BtnImagem9.Location = New System.Drawing.Point(207, 403)
+        Me.BtnImagem9.Name = "BtnImagem9"
+        Me.BtnImagem9.Size = New System.Drawing.Size(170, 44)
+        Me.BtnImagem9.TabIndex = 1
+        Me.BtnImagem9.TamanhoLetra = 10
+        Me.BtnImagem9.Texto = "Cancelar"
+        '
+        'BtnImagem8
+        '
+        Me.BtnImagem8.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem8.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem8.CorHover = System.Drawing.Color.LightSlateGray
+        Me.BtnImagem8.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagem8.CorTexto = System.Drawing.Color.White
+        Me.BtnImagem8.EstadoBotao = False
+        Me.BtnImagem8.Imagem = Nothing
+        Me.BtnImagem8.Location = New System.Drawing.Point(3, 403)
+        Me.BtnImagem8.Name = "BtnImagem8"
+        Me.BtnImagem8.Size = New System.Drawing.Size(170, 44)
+        Me.BtnImagem8.TabIndex = 0
+        Me.BtnImagem8.TamanhoLetra = 10
+        Me.BtnImagem8.Texto = "Inserir"
+        '
         'BtnImagemAgendaDesp
         '
         Me.BtnImagemAgendaDesp.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
@@ -2061,12 +2109,22 @@ Partial Class Form1
         Me.BtnImagem3.TamanhoLetra = 10
         Me.BtnImagem3.Texto = "Manutenção"
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(10, 9)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(121, 13)
+        Me.Label6.TabIndex = 2
+        Me.Label6.Text = "Nome de tabela a inserir"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1000, 500)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PnlHome)
         Me.Controls.Add(Me.Panel5)
@@ -2115,6 +2173,8 @@ Partial Class Form1
         Me.PnlAgendaDesp.PerformLayout()
         Me.PnlAgendaManu.ResumeLayout(False)
         Me.PnlAgendaManu.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2279,5 +2339,9 @@ Partial Class Form1
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents ListView1 As System.Windows.Forms.ListView
     Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents BtnImagem9 As GestFrotPAP.BtnImagem
+    Friend WithEvents BtnImagem8 As GestFrotPAP.BtnImagem
+    Friend WithEvents Label6 As System.Windows.Forms.Label
 
 End Class
