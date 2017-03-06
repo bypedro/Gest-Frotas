@@ -1,7 +1,10 @@
-﻿Option Strict On
-Option Explicit On
+﻿
 
 Public Class Form1
+    Private Declare Function LockWindowUpdate Lib "user32" (ByVal hwndLock As IntPtr) As Int32
+    Private Declare Function ShowScrollBar Lib "user32" (ByVal hwnd As IntPtr, ByVal wBar As Int32, ByVal bShow As Int32) As Int32
+
+    Private Const SB_VERT = 1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.ListBox1.DrawMode = DrawMode.OwnerDrawFixed
@@ -20,7 +23,9 @@ Public Class Form1
         Dim childListBox As ListBox = DirectCast(parentListBox.Tag, ListBox)
         e.DrawBackground()
         e.DrawFocusRectangle()
-
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
         Dim brsh As New SolidBrush(Color.Black)
 
         If String.Compare(e.State.ToString, DrawItemState.Selected.ToString) > 0 Then brsh.Color = Color.White
@@ -29,6 +34,10 @@ Public Class Form1
 
         childListBox.TopIndex = parentListBox.TopIndex
 
+        ShowScrollBar(ListBox1.Handle, SB_VERT, False)
+        ShowScrollBar(ListBox2.Handle, SB_VERT, False)
+        LockWindowUpdate(IntPtr.Zero)
     End Sub
 
+   
 End Class

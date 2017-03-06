@@ -104,6 +104,7 @@ Public Class Form1
                 PnlUser.Hide()
             End If
         End If
+      
     End Sub
 
 
@@ -121,6 +122,23 @@ Public Class Form1
             AddHandler c.MouseDown, AddressOf c_MouseDown
         Next
         AddHandler LblNomeProjeto.MouseDown, AddressOf c_MouseDown
+
+
+        Me.LstAbastUtilizador.Tag = Me.LstAbastCarro
+        Me.LstAbastKM.Tag = Me.LstAbastUtilizador
+        Me.LstAbastData.Tag = Me.LstAbastUtilizador
+        Me.LstAbastValor.Tag = Me.LstAbastUtilizador
+        Me.LstAbastQuantidade.Tag = Me.LstAbastUtilizador
+        Me.LstAbastFornecedor.Tag = Me.LstAbastUtilizador
+
+        AddHandler Me.LstAbastUtilizador.DrawItem, AddressOf Abast_DrawItem
+        AddHandler Me.LstAbastCarro.DrawItem, AddressOf Abast_DrawItem
+        AddHandler Me.LstAbastKM.DrawItem, AddressOf Abast_DrawItem
+        AddHandler Me.LstAbastData.DrawItem, AddressOf Abast_DrawItem
+        AddHandler Me.LstAbastValor.DrawItem, AddressOf Abast_DrawItem
+        AddHandler Me.LstAbastQuantidade.DrawItem, AddressOf Abast_DrawItem
+        AddHandler Me.LstAbastFornecedor.DrawItem, AddressOf Abast_DrawItem
+
         'Adiciona evento a todos os objetos do programa(Só os da microsoft)
 
         'Arrays de Objetos
@@ -467,7 +485,33 @@ Public Class Form1
 
 
 
+    Private Sub Abast_DrawItem(ByVal sender As Object, ByVal e As DrawItemEventArgs)
+        Dim parentListBox As ListBox = DirectCast(sender, ListBox)
+        Dim childListBox As ListBox = DirectCast(parentListBox.Tag, ListBox)
+        e.DrawBackground()
 
+        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
+            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
+        End If
+        Using b As New SolidBrush(e.ForeColor)
+
+            e.Graphics.DrawString(parentListBox.GetItemText(parentListBox.Items(e.Index)), e.Font, b, e.Bounds)
+           
+        End Using
+
+     
+
+
+
+        ShowScrollBar(LstAbastFornecedor.Handle, SB_VERT, False)
+        ShowScrollBar(LstAbastQuantidade.Handle, SB_VERT, False)
+        ShowScrollBar(LstAbastValor.Handle, SB_VERT, False)
+        ShowScrollBar(LstAbastData.Handle, SB_VERT, False)
+        ShowScrollBar(LstAbastKM.Handle, SB_VERT, False)
+        ShowScrollBar(LstAbastCarro.Handle, SB_VERT, False)
+        LockWindowUpdate(IntPtr.Zero)
+        e.DrawFocusRectangle()
+    End Sub
 
 
 
@@ -489,111 +533,7 @@ Public Class Form1
     '
     'Abastecimento
     '
-    Private Sub LstAbastCarro_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAbastCarro.DrawItem 'Draw MODe= fixed
-        e.DrawBackground()
-        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
-            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
-        End If
-        Using b As New SolidBrush(e.ForeColor)
-            Try
-                e.Graphics.DrawString(LstAbastCarro.GetItemText(LstAbastCarro.Items(e.Index)), e.Font, b, e.Bounds)
-            Catch ex As Exception
-
-            End Try
-        End Using
-        e.DrawFocusRectangle()
-    End Sub
-
-    Private Sub LstAbastFornecedor_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAbastFornecedor.DrawItem
-        e.DrawBackground()
-        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
-            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
-        End If
-        Using b As New SolidBrush(e.ForeColor)
-            Try
-                e.Graphics.DrawString(LstAbastFornecedor.GetItemText(LstAbastFornecedor.Items(e.Index)), e.Font, b, e.Bounds)
-            Catch ex As Exception
-
-            End Try
-        End Using
-        e.DrawFocusRectangle()
-        ShowScrollBar(LstAbastFornecedor.Handle, SB_VERT, False)
-    End Sub
-
-    Private Sub LstAbastUtilizador_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAbastUtilizador.DrawItem
-        e.DrawBackground()
-        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
-            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
-        End If
-        Using b As New SolidBrush(e.ForeColor)
-            Try
-                e.Graphics.DrawString(LstAbastUtilizador.GetItemText(LstAbastUtilizador.Items(e.Index)), e.Font, b, e.Bounds)
-            Catch ex As Exception
-
-            End Try
-        End Using
-        e.DrawFocusRectangle()
-    End Sub
-
-    Private Sub LstAbastData_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAbastData.DrawItem
-        e.DrawBackground()
-        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
-            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
-        End If
-        Using b As New SolidBrush(e.ForeColor)
-            Try
-                e.Graphics.DrawString(LstAbastData.GetItemText(LstAbastData.Items(e.Index)), e.Font, b, e.Bounds)
-            Catch ex As Exception
-
-            End Try
-        End Using
-        e.DrawFocusRectangle()
-    End Sub
-
-    Private Sub LstAbastQuantidade_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAbastQuantidade.DrawItem
-        e.DrawBackground()
-        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
-            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
-        End If
-        Using b As New SolidBrush(e.ForeColor)
-            Try
-                e.Graphics.DrawString(LstAbastQuantidade.GetItemText(LstAbastQuantidade.Items(e.Index)), e.Font, b, e.Bounds)
-            Catch ex As Exception
-
-            End Try
-        End Using
-        e.DrawFocusRectangle()
-    End Sub
-
-    Private Sub LstAbastValor_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAbastValor.DrawItem
-        e.DrawBackground()
-        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
-            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
-        End If
-        Using b As New SolidBrush(e.ForeColor)
-            Try
-                e.Graphics.DrawString(LstAbastValor.GetItemText(LstAbastValor.Items(e.Index)), e.Font, b, e.Bounds)
-            Catch ex As Exception
-
-            End Try
-        End Using
-        e.DrawFocusRectangle()
-    End Sub
-
-    Private Sub LstAbastKM_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstAbastKM.DrawItem
-        e.DrawBackground()
-        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
-            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
-        End If
-        Using b As New SolidBrush(e.ForeColor)
-            Try
-                e.Graphics.DrawString(LstAbastKM.GetItemText(LstAbastKM.Items(e.Index)), e.Font, b, e.Bounds)
-            Catch ex As Exception
-
-            End Try
-        End Using
-        e.DrawFocusRectangle()
-    End Sub
+    'FEELS BAD
     '
     'Manutencao
     '
@@ -760,15 +700,11 @@ Public Class Form1
         LockWindowUpdate(0&)
     End Sub
 
-    Private Sub LstAbastUtilizador_MouseEnter(sender As Object, e As EventArgs) Handles LstAbastUtilizador.MouseEnter
-        LstAbastFornecedor.TopIndex = LstAbastUtilizador.TopIndex
-        LstAbastCarro.TopIndex = LstAbastUtilizador.TopIndex
-        LstAbastQuantidade.TopIndex = LstAbastUtilizador.TopIndex
-        LstAbastValor.TopIndex = LstAbastUtilizador.TopIndex
-        LstAbastData.TopIndex = LstAbastUtilizador.TopIndex
-        LstAbastKM.TopIndex = LstAbastUtilizador.TopIndex
+    Private Sub LstAbastUtilizador_MouseEnter(ByVal sender As Object, ByVal e As EventArgs) Handles LstAbastUtilizador.MouseEnter
+        
     End Sub
-    Private Sub LstAbastUtilizador_Click(sender As Object, e As EventArgs) Handles LstAbastUtilizador.Click
+
+    Private Sub LstAbastUtilizador_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LstAbastUtilizador.Click
         LstAbastFornecedor.TopIndex = LstAbastUtilizador.TopIndex
         LstAbastCarro.TopIndex = LstAbastUtilizador.TopIndex
         LstAbastQuantidade.TopIndex = LstAbastUtilizador.TopIndex

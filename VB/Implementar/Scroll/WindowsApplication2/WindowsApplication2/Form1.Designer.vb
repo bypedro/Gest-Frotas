@@ -29,6 +29,7 @@ Partial Class Form1
         '
         'ListBox1
         '
+        Me.ListBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"})
         Me.ListBox1.Location = New System.Drawing.Point(36, 22)
@@ -38,6 +39,7 @@ Partial Class Form1
         '
         'ListBox2
         '
+        Me.ListBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.ListBox2.FormattingEnabled = True
         Me.ListBox2.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"})
         Me.ListBox2.Location = New System.Drawing.Point(162, 22)
@@ -47,6 +49,7 @@ Partial Class Form1
         '
         'ListBox3
         '
+        Me.ListBox3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.ListBox3.FormattingEnabled = True
         Me.ListBox3.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"})
         Me.ListBox3.Location = New System.Drawing.Point(288, 22)
