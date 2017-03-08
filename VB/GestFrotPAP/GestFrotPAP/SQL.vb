@@ -2,7 +2,7 @@
 Imports System.Net.Mail
 Module SQL
     Dim DB As String = "frotas"
-    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=0000;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
+    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
     Dim adapter As New MySqlDataAdapter
     Public DetalhesUtilizador As New UtilizadorDetalhes
 
@@ -727,7 +727,7 @@ Module SQL
         adapter.SelectCommand.Connection = ligacao
         Dim itemcoll(100) As String
         'Trocar KM nas definições do programa..->
-        adapter.SelectCommand.CommandText = ("select CodVeiAbast,Data,concat(Veiculo_km,' KM') as Veiculo_km ,quantidade,valor,notas,concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,Nome as Fornecedor,concat(Nome_Proprio, ' ', Apelido) as Utilizador  from veiabast,veiculos,fornecedores,Utilizador where Veiculos.Codvei=Veiabast.CodVei and fornecedores.Codforn=Veiabast.Codforn and Utilizador.CodUser=Veiabast.Coduser")
+        adapter.SelectCommand.CommandText = ("select CodVeiAbast,Data,Nome as Fornecedor,Quantidade,Valor,concat(Veiculo_km,' KM') as Quilometros ,notas,concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,concat(Nome_Proprio, ' ', Apelido) as Utilizador  from veiabast,veiculos,fornecedores,Utilizador where Veiculos.Codvei=Veiabast.CodVei and fornecedores.Codforn=Veiabast.Codforn and Utilizador.CodUser=Veiabast.Coduser and Utilizador.CodUser='" + DetalhesUtilizador.CodUser + "'")
         Try
             ligacao.Open()
             adapter.Fill(Tabelas, "Abastecimento")
@@ -737,51 +737,62 @@ Module SQL
             MsgBox("ERRO abastecimento")
             Exit Sub
         End Try
-
+        Form1.ListView1.Font = GetInstance(8, FontStyle.Bold)
         Form1.ListView1.GridLines = True
+        Form1.ListView1.HeaderStyle = ColumnHeaderStyle.Nonclickable
+        Form1.ListView1.Clear()
         Dim i As Integer = 0
         Dim j As Integer = 0
         ' adding the columns in ListView
         For i = 0 To Tabelas.Tables(0).Columns.Count - 1
-
             Form1.ListView1.Columns.Add(Tabelas.Tables(0).Columns(i).ColumnName.ToString())
-
-
-
         Next
         'Now adding the Items in Listview
         For i = 0 To Tabelas.Tables(0).Rows.Count - 1
             For j = 0 To Tabelas.Tables(0).Columns.Count - 1
-                itemcoll(j) = Tabelas.Tables(0).Rows(i)(j).ToString()
-
+                itemcoll(j) = Tabelas.Tables(0).Rows(i)(j)
             Next
             Dim lvi As New ListViewItem(itemcoll)
             Form1.ListView1.Items.Add(lvi)
         Next
-       
+        Form1.ListView1.Columns(0).Width = 0
+        Form1.ListView1.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent)
+        Form1.ListView1.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent)
+        Form1.ListView1.Columns(3).Width = 100
+        Form1.ListView1.Columns(4).Width = 100
+        Form1.ListView1.Columns(5).Width = 100
+        Form1.ListView1.Columns(6).Width = 0
+        Form1.ListView1.AutoResizeColumn(7, ColumnHeaderAutoResizeStyle.ColumnContent)
+        Form1.ListView1.AutoResizeColumn(8, ColumnHeaderAutoResizeStyle.ColumnContent)
 
-        Form1.LstAbastCarro.DataSource = Tabelas.Tables(0)
-        Form1.LstAbastFornecedor.DataSource = Tabelas.Tables(0)
-        Form1.LstAbastUtilizador.DataSource = Tabelas.Tables(0)
-        Form1.LstAbastData.DataSource = Tabelas.Tables(0)
-        Form1.LstAbastQuantidade.DataSource = Tabelas.Tables(0)
-        Form1.LstAbastValor.DataSource = Tabelas.Tables(0)
-        Form1.LstAbastKM.DataSource = Tabelas.Tables(0)
+     
+        Form1.ListView1.Columns(0).TextAlign = HorizontalAlignment.Center
+        Form1.ListView1.Columns(1).TextAlign = HorizontalAlignment.Center
+        Form1.ListView1.Columns(2).TextAlign = HorizontalAlignment.Center
+        Form1.ListView1.Columns(3).TextAlign = HorizontalAlignment.Center
+        Form1.ListView1.Columns(4).TextAlign = HorizontalAlignment.Center
+        Form1.ListView1.Columns(5).TextAlign = HorizontalAlignment.Center
+        Form1.ListView1.Columns(6).TextAlign = HorizontalAlignment.Center
+        Form1.ListView1.Columns(7).TextAlign = HorizontalAlignment.Center
+        Form1.ListView1.Columns(8).TextAlign = HorizontalAlignment.Center
 
-        Form1.LstAbastCarro.DisplayMember = "veiculo"
-        Form1.LstAbastFornecedor.DisplayMember = "Fornecedor"
-        Form1.LstAbastUtilizador.DisplayMember = "Utilizador"
-        Form1.LstAbastData.DisplayMember = "Data"
-        Form1.LstAbastQuantidade.DisplayMember = "quantidade"
-        Form1.LstAbastValor.DisplayMember = "valor"
-        Form1.LstAbastKM.DisplayMember = "Veiculo_km"
 
-        Form1.LstAbastCarro.ValueMember = "CodVeiAbast"
-        Form1.LstAbastFornecedor.ValueMember = "CodVeiAbast"
-        Form1.LstAbastUtilizador.ValueMember = "CodVeiAbast"
-        Form1.LstAbastData.ValueMember = "CodVeiAbast"
-        Form1.LstAbastValor.ValueMember = "CodVeiAbast"
-        Form1.LstAbastKM.ValueMember = "CodVeiAbast"
+        If Tabelas.Tables(0).Rows.Count = 0 Then
+            Form1.ListView1.Columns(0).Width = 0
+            Form1.ListView1.Columns(1).Width = 100
+            Form1.ListView1.Columns(2).Width = 100
+            Form1.ListView1.Columns(3).Width = 100
+            Form1.ListView1.Columns(4).Width = 100
+            Form1.ListView1.Columns(5).Width = 100
+            Form1.ListView1.Columns(6).Width = 0
+            Form1.ListView1.Columns(7).Width = 100
+            Form1.ListView1.Columns(8).Width = 100
+        End If
+
+
+
+
+
 
     End Sub
 

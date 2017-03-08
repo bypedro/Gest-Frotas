@@ -4,13 +4,12 @@ Imports System.Drawing.Text
 Imports System.Runtime.InteropServices
 
 
+
 Public Class Form1
     'ListBox
     Private Declare Function LockWindowUpdate Lib "user32" (ByVal hwndLock As IntPtr) As Int32
     Private Declare Function ShowScrollBar Lib "user32" (ByVal hwnd As IntPtr, ByVal wBar As Int32, ByVal bShow As Int32) As Int32
     Private Const SB_VERT = 1
-
-
 
     Dim NMenuPrincipal As Integer = 6 'Nº butões
     Dim BtnImagemMenuPrincipal(NMenuPrincipal) As BtnImagem
@@ -107,8 +106,10 @@ Public Class Form1
       
     End Sub
 
+ 
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+
 
         'Adiciona evento a todos os objetos do programa(Associados ao form1)(Objetos dentro de paneis necessitao de ser adicionados)
         AddHandler Me.MouseDown, AddressOf c_MouseDown
@@ -124,20 +125,8 @@ Public Class Form1
         AddHandler LblNomeProjeto.MouseDown, AddressOf c_MouseDown
 
 
-        Me.LstAbastUtilizador.Tag = Me.LstAbastCarro
-        Me.LstAbastKM.Tag = Me.LstAbastUtilizador
-        Me.LstAbastData.Tag = Me.LstAbastUtilizador
-        Me.LstAbastValor.Tag = Me.LstAbastUtilizador
-        Me.LstAbastQuantidade.Tag = Me.LstAbastUtilizador
-        Me.LstAbastFornecedor.Tag = Me.LstAbastUtilizador
+      
 
-        AddHandler Me.LstAbastUtilizador.DrawItem, AddressOf Abast_DrawItem
-        AddHandler Me.LstAbastCarro.DrawItem, AddressOf Abast_DrawItem
-        AddHandler Me.LstAbastKM.DrawItem, AddressOf Abast_DrawItem
-        AddHandler Me.LstAbastData.DrawItem, AddressOf Abast_DrawItem
-        AddHandler Me.LstAbastValor.DrawItem, AddressOf Abast_DrawItem
-        AddHandler Me.LstAbastQuantidade.DrawItem, AddressOf Abast_DrawItem
-        AddHandler Me.LstAbastFornecedor.DrawItem, AddressOf Abast_DrawItem
 
         'Adiciona evento a todos os objetos do programa(Só os da microsoft)
 
@@ -204,35 +193,20 @@ Public Class Form1
     End Sub
     Private Sub BtnImagem2_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem2.ButtonClickMasterRace
         MenuPrincipal(1, True)
-        LstAbastCarro.SelectedItems.Clear()
         AbastecimentoVer()
-        Try
-            LstAbastCarro.SelectedIndex = 0
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
-
+       
 
     End Sub
     Private Sub BtnImagem3_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem3.ButtonClickMasterRace
         MenuPrincipal(2, True)
         LstManuCarro.SelectedItems.Clear()
         ManutencaoVer()
-        Try
-            LstAbastCarro.SelectedIndex = 0
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
+
     End Sub
     Private Sub BtnImagem4_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem4.ButtonClickMasterRace
         MenuPrincipal(3, True)
-        LstAbastCarro.SelectedItems.Clear()
         DespesasVer()
-        Try
-            LstAbastCarro.SelectedIndex = 0
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
+       
     End Sub
 
     Private Sub BtnImagem5_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagem5.ButtonClickMasterRace
@@ -485,33 +459,7 @@ Public Class Form1
 
 
 
-    Private Sub Abast_DrawItem(ByVal sender As Object, ByVal e As DrawItemEventArgs)
-        Dim parentListBox As ListBox = DirectCast(sender, ListBox)
-        Dim childListBox As ListBox = DirectCast(parentListBox.Tag, ListBox)
-        e.DrawBackground()
-
-        If (e.State And DrawItemState.Selected) = DrawItemState.Selected Then
-            e.Graphics.FillRectangle(Brushes.Gray, e.Bounds)
-        End If
-        Using b As New SolidBrush(e.ForeColor)
-
-            e.Graphics.DrawString(parentListBox.GetItemText(parentListBox.Items(e.Index)), e.Font, b, e.Bounds)
-           
-        End Using
-
-     
-
-
-
-        ShowScrollBar(LstAbastFornecedor.Handle, SB_VERT, False)
-        ShowScrollBar(LstAbastQuantidade.Handle, SB_VERT, False)
-        ShowScrollBar(LstAbastValor.Handle, SB_VERT, False)
-        ShowScrollBar(LstAbastData.Handle, SB_VERT, False)
-        ShowScrollBar(LstAbastKM.Handle, SB_VERT, False)
-        ShowScrollBar(LstAbastCarro.Handle, SB_VERT, False)
-        LockWindowUpdate(IntPtr.Zero)
-        e.DrawFocusRectangle()
-    End Sub
+  
 
 
 
@@ -678,56 +626,10 @@ Public Class Form1
         e.DrawFocusRectangle()
     End Sub
 
-
-
-
-
-
-    '
-    'VER OUTRAS IMPLEMENTAÇÔES
-    '
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
-  
-
-        LstAbastFornecedor.TopIndex = LstAbastFornecedor.TopIndex + 1
-        LstAbastCarro.TopIndex = LstAbastCarro.TopIndex + 1
-        LstAbastKM.TopIndex = LstAbastKM.TopIndex + 1
-        LstAbastQuantidade.TopIndex = LstAbastQuantidade.TopIndex + 1
-        LstAbastUtilizador.TopIndex = LstAbastUtilizador.TopIndex + 1
-        LstAbastValor.TopIndex = LstAbastValor.TopIndex + 1
-        LstAbastData.TopIndex = LstAbastData.TopIndex + 1
-
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
-        LstAbastFornecedor.TopIndex = LstAbastFornecedor.TopIndex - 1
-        LstAbastCarro.TopIndex = LstAbastCarro.TopIndex - 1
-        LstAbastKM.TopIndex = LstAbastKM.TopIndex - 1
-        LstAbastQuantidade.TopIndex = LstAbastQuantidade.TopIndex - 1
-        LstAbastUtilizador.TopIndex = LstAbastUtilizador.TopIndex - 1
-        LstAbastValor.TopIndex = LstAbastValor.TopIndex - 1
-        LstAbastData.TopIndex = LstAbastData.TopIndex - 1
-    End Sub
-
-    Private Sub LstAbastUtilizador_MouseEnter(ByVal sender As Object, ByVal e As EventArgs) Handles LstAbastUtilizador.MouseEnter
-        
-    End Sub
-
-    Private Sub LstAbastUtilizador_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LstAbastUtilizador.Click
-        LstAbastFornecedor.TopIndex = LstAbastUtilizador.TopIndex
-        LstAbastCarro.TopIndex = LstAbastUtilizador.TopIndex
-        LstAbastQuantidade.TopIndex = LstAbastUtilizador.TopIndex
-        LstAbastValor.TopIndex = LstAbastUtilizador.TopIndex
-        LstAbastData.TopIndex = LstAbastUtilizador.TopIndex
-        LstAbastKM.TopIndex = LstAbastUtilizador.TopIndex
-    End Sub
-
     Private Sub ListView1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.Click
+        MsgBox(ListView1.SelectedItems(0).Text)
 
 
     End Sub
-
 
 End Class
