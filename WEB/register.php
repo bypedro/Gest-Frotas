@@ -2,7 +2,7 @@
 	ob_start();
 	session_start();
 	if( isset($_SESSION['user'])!="" ){
-		header("Location: home.php");
+		header("Location: demo3.php");
 	}
 	include_once 'dbconnect.php';
 
@@ -65,7 +65,7 @@
 		// if there's no error, continue to signup
 		if( !$error ) {
 			
-			$query = "INSERT INTO utilizador(Nome_Registo, Email, Senha) VALUES('$name','$email','$password')";
+			$query = "INSERT INTO utilizador(Nome_Registo, Email, Senha, userPic) VALUES('$name','$email','$password', '$userpic')";
 			$res = mysql_query($query);
 				
 			if ($res) {
@@ -149,6 +149,7 @@
                 </div>
                 <span class="text-danger"><?php echo $passError; ?></span>
             </div>
+
 			
 			<br>
          <button type="submit" class="btnreg" name="btn-signup">Registar</button>
