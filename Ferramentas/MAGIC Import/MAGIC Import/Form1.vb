@@ -64,4 +64,17 @@ Public Class Form1
     End Sub
 
 
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+
+        For a = 0 To 15
+            Comando.Connection = ligacao
+            Comando.CommandText = "insert into VeiAbast (data, veiculo_km,quantidade,valor,notas,codvei,codforn,coduser) values ('2001-01-01','16','1','1','teste3','1','1','1')"
+            ligacao.Open()
+            Comando.ExecuteNonQuery()
+            ligacao.Close()
+        Next
+        
+
+
+    End Sub
 End Class

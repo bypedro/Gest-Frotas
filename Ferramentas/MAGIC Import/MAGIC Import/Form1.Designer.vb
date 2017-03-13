@@ -26,6 +26,7 @@ Partial Class Form1
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -49,11 +50,21 @@ Partial Class Form1
         Me.ListBox1.Size = New System.Drawing.Size(120, 95)
         Me.ListBox1.TabIndex = 1
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(155, 12)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 2
+        Me.Button2.Text = "Magic"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(242, 148)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.Button1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -66,5 +77,6 @@ Partial Class Form1
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 
 End Class
