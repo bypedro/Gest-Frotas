@@ -1,35 +1,6 @@
-﻿Imports System.Runtime.InteropServices
-Public Module LoadOrder
+﻿Public Module LoadOrder
     Private CentroEcranX As Integer = Form1.Width / 2
     Private CentroEcranY As Integer = Form1.Height / 2
-
-    <DllImport("user32.dll", CharSet:=CharSet.Auto)> _
-    Public Function SendMessage(ByVal hWnd As IntPtr, ByVal msg As Integer, ByVal wParam As Integer, <MarshalAs(UnmanagedType.LPWStr)> ByVal lParam As String) As Int32
-    End Function
-
-    Public Sub Fade(ByVal Tipo As Integer) ' 0 para entrar 1 para sair Por em outro sitio? 
-        Dim fade As Double
-        If Tipo = 0 Then
-            For fade = 0.0 To 1.1 Step 0.2
-                Form1.Opacity = fade
-                Form1.Refresh()
-                Threading.Thread.Sleep(50)
-
-            Next
-        ElseIf Tipo = 1 Then
-            For fade = 1.1 To 0.0 Step -0.3
-                Form1.Opacity = fade
-                Form1.Refresh()
-                Threading.Thread.Sleep(50)
-            Next
-        End If
-
-    End Sub
-
-    
-
-
-
     Public Sub LoginPage()
         'MENU
         Form1.PnlMenu.Left = 0
@@ -62,8 +33,6 @@ Public Module LoadOrder
         Form1.TxtPwdLogin.Font = Fonte.GetInstance(12, FontStyle.Bold)
         Form1.TxtUserLogin.ForeColor = Color.White
         Form1.TxtPwdLogin.ForeColor = Color.White
-
-
 
         Form1.TxtUserLogin.Left = CentroEcranX - (Form1.TxtUserLogin.Width / 2)
         Form1.TxtPwdLogin.Left = CentroEcranX - (Form1.TxtPwdLogin.Width / 2)
@@ -152,7 +121,6 @@ Public Module LoadOrder
 
         'Mostra Pagina Principal
         Form1.PnlHome.Show()
-
         'Paginas
         Form1.PnlHome.Left = Form1.PnlMenu.Right
         Form1.PnlHome.Top = Form1.PnlBarraTop.Bottom
@@ -195,10 +163,8 @@ Public Module LoadOrder
         Form1.Panel7.Height = Form1.Height - Form1.PnlBarraTop.Height
         Form1.Panel7.SendToBack()
 
-
         'IDK
         Form1.PnlLogin.Hide()
-
         'Menu Utilizador
         Form1.LblUtilzadorMenu.Text = DetalhesUtilizador.NomeRegisto 'Form1.TxtUser.Text + "MUDAR" 'nome do Utilizador/ email/ idk possivelmente buscar nome e apelido á bd
         Form1.LblUtilzadorMenu.Visible = True
@@ -235,6 +201,7 @@ Public Module LoadOrder
         Form1.LblVeiModelEmUso.Text = "Modelo= " + DetalhesUtilizador.VeiModelo.ToString + ""
         Form1.LblVeiMatricEmUso.Text = "Matricula = " + DetalhesUtilizador.VeiMatricula.ToString + ""
         'Agenda
+
         Form1.LblVeiProxInspEmUso.Text = "----------MUDAR NO SQL-------Proxima Inspecao = " + DetalhesUtilizador.VeiProxInspecao.ToString + ""
 
 
@@ -251,17 +218,10 @@ Public Module LoadOrder
         Form1.LblPasswordLogin.Hide()
         Form1.BtnImagemCancelar.Show()
         Form1.BtnImagemRegistar.Show()
-
         Form1.BtnImagemRegistar.Left = CentroEcranX - Form1.BtnImagemRegistar.Width - 5
         Form1.BtnImagemCancelar.Left = CentroEcranX + 5
         Form1.BtnImagemRegistar.Top = CentroEcranY + Form1.BtnImagemRegistar.Height
         Form1.BtnImagemCancelar.Top = CentroEcranY + Form1.BtnImagemCancelar.Height
-
-
-
-        'Mudar txt para as de registo
-        'mudar butoes registar e cancelar
-        'etc
     End Sub
 
     Public Sub MenuUtilizador()
@@ -460,7 +420,130 @@ Public Module LoadOrder
         Form1.TxtCidadeUserCon.Text = DetalhesUtilizador.Cidade
         Form1.TxtRuaUserCon.Text = DetalhesUtilizador.Rua
         Form1.TxtNotasUserCon.Text = DetalhesUtilizador.NotasContacto
-
     End Sub
 
+    Public Sub MenuInserir_Editar(ByVal Tabela As String)
+        For Each c As Control In Form1.Panel1.Controls
+            c.Hide()
+        Next
+        Form1.LblInserirUltimoKM.Text = "Ultimo Registo: " + UltimoKM().ToString + " KM"
+        If Tabela = "AbastInsert" Then
+            Form1.LblInserirTitulo.Text = "Novo Abastecimento"
+            Form1.BtnImagemInserirInserir.Texto = "Inserir"
+
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirUltimoKM.Show()
+            Form1.LblInserirQuantiade.Show()
+            Form1.TxtInserirQuantidade.Show()
+            Form1.LblInserirValor.Show()
+            Form1.TxtInserirValor.Show()
+            Form1.LblInserirFornecedor.Show()
+            Form1.LstInserirFornecedor.Show()
+
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+            Form1.BtnImagemInserirCancelar.Show()
+        ElseIf Tabela = "AbastEdit" Then
+            Form1.LblInserirTitulo.Text = "Editar Abastecimento"
+            Form1.BtnImagemInserirInserir.Texto = "Editar"
+
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.TxtInserirQuilometros.Show()
+            Form1.TxtInserirQuilometros.Enabled = False
+            Form1.LblInserirUltimoKM.Show()
+            Form1.LblInserirQuantiade.Show()
+            Form1.TxtInserirQuantidade.Show()
+            Form1.LblInserirValor.Show()
+            Form1.TxtInserirValor.Show()
+            Form1.LblInserirFornecedor.Show()
+            Form1.LstInserirFornecedor.Show()
+
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+            Form1.BtnImagemInserirCancelar.Show()
+
+        ElseIf Tabela = "ManuInsert" Then
+            Form1.LblInserirTitulo.Text = "Novo manutenção"
+            Form1.BtnImagemInserirInserir.Texto = "Inserir"
+
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirUltimoKM.Show()
+            Form1.LblInserirQuantiade.Show()
+            Form1.TxtInserirQuantidade.Show()
+            Form1.LblInserirValor.Show()
+            Form1.TxtInserirValor.Show()
+            Form1.LblInserirFornecedor.Show()
+            Form1.LstInserirFornecedor.Show()
+
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+            Form1.BtnImagemInserirCancelar.Show()
+        End If
+    End Sub
+
+    Public Sub ListViewSize(ByVal Listview As String)
+        If Listview = "LstVAbastecimento" Then
+            Form1.LstVAbastecimento.Columns(0).Width = 0
+            Form1.LstVAbastecimento.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent)
+            Form1.LstVAbastecimento.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent)
+            Form1.LstVAbastecimento.Columns(3).Width = 100
+            Form1.LstVAbastecimento.Columns(4).Width = 100
+            Form1.LstVAbastecimento.Columns(5).Width = 100
+            Form1.LstVAbastecimento.AutoResizeColumn(6, ColumnHeaderAutoResizeStyle.ColumnContent)
+            Form1.LstVAbastecimento.Columns(7).Width = 100
+
+            Form1.LstVAbastecimento.Columns(0).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAbastecimento.Columns(1).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAbastecimento.Columns(2).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAbastecimento.Columns(3).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAbastecimento.Columns(4).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAbastecimento.Columns(5).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAbastecimento.Columns(6).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAbastecimento.Columns(7).TextAlign = HorizontalAlignment.Center
+            If Form1.LstVAbastecimento.Items.Count = 0 Then
+                Form1.LstVAbastecimento.Columns(0).Width = 0
+                Form1.LstVAbastecimento.Columns(1).Width = 100
+                Form1.LstVAbastecimento.Columns(2).Width = 100
+                Form1.LstVAbastecimento.Columns(3).Width = 100
+                Form1.LstVAbastecimento.Columns(4).Width = 100
+                Form1.LstVAbastecimento.Columns(5).Width = 100
+                Form1.LstVAbastecimento.Columns(6).Width = 100
+                Form1.LstVAbastecimento.Columns(7).Width = 200
+            End If
+        ElseIf Listview = "LstVManu" Then
+            Form1.LstVManu.Columns(0).Width = 0
+            Form1.LstVManu.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent)
+            Form1.LstVManu.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent)
+            Form1.LstVManu.Columns(3).Width = 100
+            Form1.LstVManu.Columns(4).Width = 100
+            Form1.LstVManu.AutoResizeColumn(5, ColumnHeaderAutoResizeStyle.ColumnContent)
+            Form1.LstVManu.AutoResizeColumn(6, ColumnHeaderAutoResizeStyle.ColumnContent)
+
+            Form1.LstVManu.Columns(0).TextAlign = HorizontalAlignment.Center
+            Form1.LstVManu.Columns(1).TextAlign = HorizontalAlignment.Center
+            Form1.LstVManu.Columns(2).TextAlign = HorizontalAlignment.Center
+            Form1.LstVManu.Columns(3).TextAlign = HorizontalAlignment.Center
+            Form1.LstVManu.Columns(4).TextAlign = HorizontalAlignment.Center
+            Form1.LstVManu.Columns(5).TextAlign = HorizontalAlignment.Center
+            Form1.LstVManu.Columns(6).TextAlign = HorizontalAlignment.Center
+            If Form1.LstVManu.Items.Count = 0 Then
+                Form1.LstVManu.Columns(0).Width = 0
+                Form1.LstVManu.Columns(1).Width = 100
+                Form1.LstVManu.Columns(2).Width = 100
+                Form1.LstVManu.Columns(3).Width = 100
+                Form1.LstVManu.Columns(4).Width = 100
+                Form1.LstVManu.Columns(5).Width = 100
+                Form1.LstVManu.Columns(6).Width = 100
+            End If
+        End If
+       
+    End Sub
 End Module
