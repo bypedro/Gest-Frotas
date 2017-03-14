@@ -481,11 +481,34 @@
             Form1.TxtInserirValor.Show()
             Form1.LblInserirFornecedor.Show()
             Form1.LstInserirFornecedor.Show()
+            Form1.LstAgendaManuTipo.Show()
+            Form1.LblAgendaManuTipo.Show()
 
             Form1.LblInserirNota.Show()
             Form1.TxtInserirNota.Show()
             Form1.BtnImagemInserirInserir.Show()
             Form1.BtnImagemInserirCancelar.Show()
+        ElseIf Tabela = "ManuEdit" Then
+            Form1.LblInserirTitulo.Text = "Editar manutenção"
+            Form1.BtnImagemInserirInserir.Texto = "Editar"
+
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirUltimoKM.Show()
+            Form1.LblInserirValor.Show()
+            Form1.TxtInserirValor.Show()
+            Form1.LblInserirFornecedor.Show()
+            Form1.LstInserirFornecedor.Show()
+            Form1.LstInserirManuTipo.Show()
+            Form1.LblInserirManuTipo.Show()
+
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+            Form1.BtnImagemInserirCancelar.Show()
+
+
         End If
     End Sub
 

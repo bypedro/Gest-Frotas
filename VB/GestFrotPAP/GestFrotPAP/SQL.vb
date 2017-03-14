@@ -2,7 +2,7 @@
 Imports System.Net.Mail
 Module SQL
     Dim DB As String = "frotas"
-    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=0000;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
+    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
     Dim adapter As New MySqlDataAdapter
     Dim Comando As MySqlCommand
     Public DetalhesUtilizador As New UtilizadorDetalhes
@@ -1149,6 +1149,23 @@ Module SQL
         Form1.LstInserirFornecedor.DisplayMember = "Nome"
         Form1.LstInserirFornecedor.ValueMember = "CodForn"
 
+        Dim TipoManu As DataSet = New DataSet
+        adapter.SelectCommand = New MySqlCommand
+        adapter.SelectCommand.Connection = ligacao
+        adapter.SelectCommand.CommandText = ("Select CodTipoM, Nome from TipoManu")
+        Try
+            ligacao.Open()
+            adapter.Fill(TipoManu, "Fornecedor")
+            ligacao.Close()
+        Catch ex As Exception
+            ligacao.Close()
+            MsgBox("ERRO Fornecedor")
+            Exit Sub
+        End Try
+        Form1.LstInserirManuTipo.DataSource = TipoManu.Tables(0)
+        Form1.LstInserirManuTipo.DisplayMember = "Nome"
+        Form1.LstInserirManuTipo.ValueMember = "CodTipoM"
+
         If Tabela = "AbastEdit" Then
             Comando = New MySqlCommand
             Comando.Connection = ligacao
@@ -1174,16 +1191,16 @@ Module SQL
         If Tabela = "ManuEdit" Then
             Comando = New MySqlCommand
             Comando.Connection = ligacao
-            'Comando.CommandText = "select * from veiabast,veiculos,fornecedores,Utilizador where Veiculos.Codvei=Veiabast.CodVei and fornecedores.Codforn=Veiabast.Codforn and Utilizador.CodUser=Veiabast.Coduser and CodVeiAbast=" + Id + ""
+            Comando.CommandText = "select * from Manutencao,veiculos,fornecedores,tipomanu where Veiculos.Codvei=manutencao.CodVei and fornecedores.Codforn=manutencao.Codforn and tipomanu.CodtipoM=manutencao.codtipom and CodManu=" + Id + ""
             Try
                 ligacao.Open()
                 reader = Comando.ExecuteReader
                 While reader.Read
-                    Form1.TxtInserirQuantidade.Text = reader.GetString("Quantidade")
                     Form1.TxtInserirValor.Text = reader.GetString("Valor")
                     Form1.TxtInserirQuilometros.Text = reader.GetString("Veiculo_KM")
-                    Form1.TxtInserirNota.Text = reader.GetString("Notas")
+                    Form1.TxtInserirNota.Text = reader.GetString("Nota")
                     Form1.LstInserirFornecedor.SelectedValue = reader.GetString("CodForn")
+                    Form1.LstInserirManuTipo.SelectedValue = reader.GetString("CodTipoM")
                 End While
                 ligacao.Close()
             Catch ex As Exception

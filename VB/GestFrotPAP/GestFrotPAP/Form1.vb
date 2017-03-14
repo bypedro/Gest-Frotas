@@ -486,16 +486,14 @@ Public Class Form1
 
     Private Sub BtnImagemAbastEdit_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemAbastEdit.ButtonClickMasterRace
         Botao(BtnImagemAbastEdit)
-        Try
-            LstVAbastecimento.SelectedItems(0).Text.ToString()
-        Catch ex As Exception
+        If LstVAbastecimento.SelectedItems.Count > 0 Then
+            Panel1.Show()
+            Panel1.BringToFront()
+            Inserir_EditarTabelaSQL("AbastEdit", LstVAbastecimento.SelectedItems(0).Text.ToString)
+        Else
             MsgBox("Selecione um abastecimento")
-            Exit Sub
-        End Try
-        Panel1.Show()
-        Panel1.BringToFront()
-        Inserir_EditarTabelaSQL("AbastEdit", LstVAbastecimento.SelectedItems(0).Text.ToString)
-
+        End If
+    
     End Sub
 
 
@@ -540,16 +538,14 @@ Public Class Form1
 
     Private Sub BtnImagemManuEdit_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemManuEdit.ButtonClickMasterRace
         Botao(BtnImagemManuEdit)
-        Try
-            LstVManu.SelectedItems(0).Text.ToString()
-        Catch ex As Exception
+        If LstVManu.SelectedItems.Count > 0 Then
+            Panel1.Show()
+            Panel1.BringToFront()
+            Inserir_EditarTabelaSQL("ManuEdit", LstVManu.SelectedItems(0).Text.ToString)
+        Else
             MsgBox("Selecione um abastecimento")
-            Exit Sub
-        End Try
-        'VER ORDEM DISTO
-        Panel1.Show()
-        Panel1.BringToFront()
-        Inserir_EditarTabelaSQL("ManuEdit", LstVManu.SelectedItems(0).Text.ToString)
+        End If
+        
     End Sub
 
 End Class

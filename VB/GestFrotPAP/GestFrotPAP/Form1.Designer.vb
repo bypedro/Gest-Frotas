@@ -177,12 +177,14 @@ Partial Class Form1
         Me.LblInserirQuantiade = New System.Windows.Forms.Label()
         Me.LblInserirValor = New System.Windows.Forms.Label()
         Me.LblInserirTitulo = New System.Windows.Forms.Label()
+        Me.LstInserirManuTipo = New System.Windows.Forms.ListBox()
+        Me.LblInserirManuTipo = New System.Windows.Forms.Label()
+        Me.BtnImagemInserirCancelar = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemInserirInserir = New GestFrotPAP.BtnImagem()
         Me.BtnImagemManuEdit = New GestFrotPAP.BtnImagem()
         Me.BtnImagemManuInsert = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAbastEdit = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAbastInsert = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemInserirCancelar = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemInserirInserir = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAgendaDesp = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAgendaManu = New GestFrotPAP.BtnImagem()
         Me.BtnImagemDefUtilizadorContato = New GestFrotPAP.BtnImagem()
@@ -1702,6 +1704,8 @@ Partial Class Form1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.LstInserirManuTipo)
+        Me.Panel1.Controls.Add(Me.LblInserirManuTipo)
         Me.Panel1.Controls.Add(Me.ComboBox2)
         Me.Panel1.Controls.Add(Me.ComboBox3)
         Me.Panel1.Controls.Add(Me.TextBox1)
@@ -1964,6 +1968,59 @@ Partial Class Form1
         Me.LblInserirTitulo.TabIndex = 2
         Me.LblInserirTitulo.Text = "Nome de tabela a inserir"
         '
+        'LstInserirManuTipo
+        '
+        Me.LstInserirManuTipo.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.LstInserirManuTipo.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LstInserirManuTipo.ForeColor = System.Drawing.Color.White
+        Me.LstInserirManuTipo.FormattingEnabled = True
+        Me.LstInserirManuTipo.Location = New System.Drawing.Point(80, 259)
+        Me.LstInserirManuTipo.Name = "LstInserirManuTipo"
+        Me.LstInserirManuTipo.Size = New System.Drawing.Size(286, 26)
+        Me.LstInserirManuTipo.TabIndex = 30
+        '
+        'LblInserirManuTipo
+        '
+        Me.LblInserirManuTipo.AutoSize = True
+        Me.LblInserirManuTipo.ForeColor = System.Drawing.Color.White
+        Me.LblInserirManuTipo.Location = New System.Drawing.Point(12, 259)
+        Me.LblInserirManuTipo.Name = "LblInserirManuTipo"
+        Me.LblInserirManuTipo.Size = New System.Drawing.Size(28, 13)
+        Me.LblInserirManuTipo.TabIndex = 29
+        Me.LblInserirManuTipo.Text = "Tipo"
+        '
+        'BtnImagemInserirCancelar
+        '
+        Me.BtnImagemInserirCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemInserirCancelar.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemInserirCancelar.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemInserirCancelar.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemInserirCancelar.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemInserirCancelar.EstadoBotao = False
+        Me.BtnImagemInserirCancelar.Imagem = Nothing
+        Me.BtnImagemInserirCancelar.Location = New System.Drawing.Point(205, 401)
+        Me.BtnImagemInserirCancelar.Name = "BtnImagemInserirCancelar"
+        Me.BtnImagemInserirCancelar.Size = New System.Drawing.Size(170, 44)
+        Me.BtnImagemInserirCancelar.TabIndex = 1
+        Me.BtnImagemInserirCancelar.TamanhoLetra = 10
+        Me.BtnImagemInserirCancelar.Texto = "Cancelar"
+        '
+        'BtnImagemInserirInserir
+        '
+        Me.BtnImagemInserirInserir.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemInserirInserir.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemInserirInserir.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemInserirInserir.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemInserirInserir.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemInserirInserir.EstadoBotao = False
+        Me.BtnImagemInserirInserir.Imagem = Nothing
+        Me.BtnImagemInserirInserir.Location = New System.Drawing.Point(3, 401)
+        Me.BtnImagemInserirInserir.Name = "BtnImagemInserirInserir"
+        Me.BtnImagemInserirInserir.Size = New System.Drawing.Size(170, 44)
+        Me.BtnImagemInserirInserir.TabIndex = 0
+        Me.BtnImagemInserirInserir.TamanhoLetra = 10
+        Me.BtnImagemInserirInserir.Texto = "Inserir"
+        '
         'BtnImagemManuEdit
         '
         Me.BtnImagemManuEdit.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
@@ -1973,7 +2030,7 @@ Partial Class Form1
         Me.BtnImagemManuEdit.CorTexto = System.Drawing.Color.White
         Me.BtnImagemManuEdit.EstadoBotao = False
         Me.BtnImagemManuEdit.Imagem = Nothing
-        Me.BtnImagemManuEdit.Location = New System.Drawing.Point(541, 418)
+        Me.BtnImagemManuEdit.Location = New System.Drawing.Point(542, 406)
         Me.BtnImagemManuEdit.Name = "BtnImagemManuEdit"
         Me.BtnImagemManuEdit.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagemManuEdit.TabIndex = 34
@@ -1989,7 +2046,7 @@ Partial Class Form1
         Me.BtnImagemManuInsert.CorTexto = System.Drawing.Color.White
         Me.BtnImagemManuInsert.EstadoBotao = False
         Me.BtnImagemManuInsert.Imagem = Nothing
-        Me.BtnImagemManuInsert.Location = New System.Drawing.Point(747, 418)
+        Me.BtnImagemManuInsert.Location = New System.Drawing.Point(748, 406)
         Me.BtnImagemManuInsert.Name = "BtnImagemManuInsert"
         Me.BtnImagemManuInsert.Size = New System.Drawing.Size(200, 44)
         Me.BtnImagemManuInsert.TabIndex = 33
@@ -2027,38 +2084,6 @@ Partial Class Form1
         Me.BtnImagemAbastInsert.TabIndex = 20
         Me.BtnImagemAbastInsert.TamanhoLetra = 10
         Me.BtnImagemAbastInsert.Texto = "Inserir"
-        '
-        'BtnImagemInserirCancelar
-        '
-        Me.BtnImagemInserirCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemInserirCancelar.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemInserirCancelar.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagemInserirCancelar.CorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagemInserirCancelar.CorTexto = System.Drawing.Color.White
-        Me.BtnImagemInserirCancelar.EstadoBotao = False
-        Me.BtnImagemInserirCancelar.Imagem = Nothing
-        Me.BtnImagemInserirCancelar.Location = New System.Drawing.Point(205, 401)
-        Me.BtnImagemInserirCancelar.Name = "BtnImagemInserirCancelar"
-        Me.BtnImagemInserirCancelar.Size = New System.Drawing.Size(170, 44)
-        Me.BtnImagemInserirCancelar.TabIndex = 1
-        Me.BtnImagemInserirCancelar.TamanhoLetra = 10
-        Me.BtnImagemInserirCancelar.Texto = "Cancelar"
-        '
-        'BtnImagemInserirInserir
-        '
-        Me.BtnImagemInserirInserir.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemInserirInserir.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemInserirInserir.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagemInserirInserir.CorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagemInserirInserir.CorTexto = System.Drawing.Color.White
-        Me.BtnImagemInserirInserir.EstadoBotao = False
-        Me.BtnImagemInserirInserir.Imagem = Nothing
-        Me.BtnImagemInserirInserir.Location = New System.Drawing.Point(3, 401)
-        Me.BtnImagemInserirInserir.Name = "BtnImagemInserirInserir"
-        Me.BtnImagemInserirInserir.Size = New System.Drawing.Size(170, 44)
-        Me.BtnImagemInserirInserir.TabIndex = 0
-        Me.BtnImagemInserirInserir.TamanhoLetra = 10
-        Me.BtnImagemInserirInserir.Texto = "Inserir"
         '
         'BtnImagemAgendaDesp
         '
@@ -2575,5 +2600,7 @@ Partial Class Form1
     Friend WithEvents LstVManu As System.Windows.Forms.ListView
     Friend WithEvents LblManuFornecedor As System.Windows.Forms.Label
     Friend WithEvents LblManuVeiculo As System.Windows.Forms.Label
+    Friend WithEvents LstInserirManuTipo As System.Windows.Forms.ListBox
+    Friend WithEvents LblInserirManuTipo As System.Windows.Forms.Label
 
 End Class
