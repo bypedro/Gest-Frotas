@@ -426,6 +426,7 @@
         For Each c As Control In Form1.Panel1.Controls
             c.Hide()
         Next
+        Form1.BtnImagemInserirCancelar.Show()
         Form1.LblInserirUltimoKM.Text = "Ultimo Registo: " + UltimoKM().ToString + " KM"
         If Tabela = "AbastInsert" Then
             Form1.LblInserirTitulo.Text = "Novo Abastecimento"
@@ -441,20 +442,17 @@
             Form1.TxtInserirValor.Show()
             Form1.LblInserirFornecedor.Show()
             Form1.LstInserirFornecedor.Show()
-
             Form1.LblInserirNota.Show()
             Form1.TxtInserirNota.Show()
             Form1.BtnImagemInserirInserir.Show()
-            Form1.BtnImagemInserirCancelar.Show()
         ElseIf Tabela = "AbastEdit" Then
             Form1.LblInserirTitulo.Text = "Editar Abastecimento"
             Form1.BtnImagemInserirInserir.Texto = "Editar"
+            Form1.TxtInserirQuilometros.Enabled = False
 
             Form1.LblInserirTitulo.Show()
             Form1.LblInserirQuilometros.Show()
             Form1.TxtInserirQuilometros.Show()
-            Form1.TxtInserirQuilometros.Enabled = False
-            Form1.LblInserirUltimoKM.Show()
             Form1.LblInserirQuantiade.Show()
             Form1.TxtInserirQuantidade.Show()
             Form1.LblInserirValor.Show()
@@ -465,8 +463,6 @@
             Form1.LblInserirNota.Show()
             Form1.TxtInserirNota.Show()
             Form1.BtnImagemInserirInserir.Show()
-            Form1.BtnImagemInserirCancelar.Show()
-
         ElseIf Tabela = "ManuInsert" Then
             Form1.LblInserirTitulo.Text = "Novo manutenção"
             Form1.BtnImagemInserirInserir.Texto = "Inserir"
@@ -475,22 +471,41 @@
             Form1.LblInserirQuilometros.Show()
             Form1.TxtInserirQuilometros.Show()
             Form1.LblInserirUltimoKM.Show()
-            Form1.LblInserirQuantiade.Show()
-            Form1.TxtInserirQuantidade.Show()
             Form1.LblInserirValor.Show()
             Form1.TxtInserirValor.Show()
             Form1.LblInserirFornecedor.Show()
             Form1.LstInserirFornecedor.Show()
-            Form1.LstAgendaManuTipo.Show()
-            Form1.LblAgendaManuTipo.Show()
-
+            Form1.LstInserirTipo.Show()
+            Form1.LblInserirManuTipo.Show()
             Form1.LblInserirNota.Show()
             Form1.TxtInserirNota.Show()
             Form1.BtnImagemInserirInserir.Show()
-            Form1.BtnImagemInserirCancelar.Show()
         ElseIf Tabela = "ManuEdit" Then
             Form1.LblInserirTitulo.Text = "Editar manutenção"
             Form1.BtnImagemInserirInserir.Texto = "Editar"
+            Form1.TxtInserirQuilometros.Enabled = False
+
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirValor.Show()
+            Form1.TxtInserirValor.Show()
+            Form1.LblInserirFornecedor.Show()
+            Form1.LstInserirFornecedor.Show()
+            Form1.LstInserirTipo.Show()
+            Form1.LblInserirManuTipo.Show()
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+
+
+            Form1.LstInserirTipo.Top = Form1.LblInserirFornecedor.Bottom + 27
+            Form1.LblInserirManuTipo.Top = Form1.LblInserirFornecedor.Bottom + 27
+
+        ElseIf Tabela = "DespInsert" Then
+            MsgBox("TABELA A SER DEFINIDA")
+            Form1.LblInserirTitulo.Text = "Novo Despesa"
+            Form1.BtnImagemInserirInserir.Texto = "Inserir"
 
             Form1.LblInserirTitulo.Show()
             Form1.LblInserirQuilometros.Show()
@@ -500,15 +515,34 @@
             Form1.TxtInserirValor.Show()
             Form1.LblInserirFornecedor.Show()
             Form1.LstInserirFornecedor.Show()
-            Form1.LstInserirManuTipo.Show()
+            Form1.LstInserirTipo.Show()
             Form1.LblInserirManuTipo.Show()
-
             Form1.LblInserirNota.Show()
             Form1.TxtInserirNota.Show()
             Form1.BtnImagemInserirInserir.Show()
-            Form1.BtnImagemInserirCancelar.Show()
+        ElseIf Tabela = "DespEdit" Then
+            MsgBox("TABELA A SER DEFINIDA")
+            Form1.LblInserirTitulo.Text = "Editar Despesa"
+            Form1.BtnImagemInserirInserir.Texto = "Editar"
+            Form1.TxtInserirQuilometros.Enabled = False
 
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirValor.Show()
+            Form1.TxtInserirValor.Show()
+            Form1.LblInserirFornecedor.Show()
+            Form1.LstInserirFornecedor.Show()
+            Form1.LstInserirTipo.Show()
+            Form1.LblInserirManuTipo.Show()
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
 
+            Form1.LstInserirTipo.Top = Form1.LblInserirFornecedor.Bottom + 27
+            Form1.LblInserirManuTipo.Top = Form1.LblInserirFornecedor.Bottom + 27
+        Else
+            MsgBox("TABELA NÂO DEFINIDA")
         End If
     End Sub
 
@@ -545,7 +579,8 @@
             Form1.LstVManu.Columns(0).Width = 0
             Form1.LstVManu.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent)
             Form1.LstVManu.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVManu.Columns(3).Width = 100
+            Form1.LstVManu.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent)
+
             Form1.LstVManu.Columns(4).Width = 100
             Form1.LstVManu.AutoResizeColumn(5, ColumnHeaderAutoResizeStyle.ColumnContent)
             Form1.LstVManu.AutoResizeColumn(6, ColumnHeaderAutoResizeStyle.ColumnContent)
@@ -565,6 +600,34 @@
                 Form1.LstVManu.Columns(4).Width = 100
                 Form1.LstVManu.Columns(5).Width = 100
                 Form1.LstVManu.Columns(6).Width = 100
+            End If
+
+        ElseIf Listview = "LstVDesp" Then
+            Form1.LstVDesp.Columns(0).Width = 0
+            Form1.LstVDesp.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent)
+            Form1.LstVDesp.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent)
+            Form1.LstVDesp.Columns(3).Width = 100
+            Form1.LstVDesp.Columns(4).Width = 100
+            Form1.LstVDesp.AutoResizeColumn(5, ColumnHeaderAutoResizeStyle.ColumnContent)
+            Form1.LstVDesp.AutoResizeColumn(6, ColumnHeaderAutoResizeStyle.ColumnContent)
+            Form1.LstVDesp.Columns(7).Width = 100
+
+            Form1.LstVDesp.Columns(0).TextAlign = HorizontalAlignment.Center
+            Form1.LstVDesp.Columns(1).TextAlign = HorizontalAlignment.Center
+            Form1.LstVDesp.Columns(2).TextAlign = HorizontalAlignment.Center
+            Form1.LstVDesp.Columns(3).TextAlign = HorizontalAlignment.Center
+            Form1.LstVDesp.Columns(4).TextAlign = HorizontalAlignment.Center
+            Form1.LstVDesp.Columns(5).TextAlign = HorizontalAlignment.Center
+            Form1.LstVDesp.Columns(6).TextAlign = HorizontalAlignment.Center
+            Form1.LstVDesp.Columns(7).TextAlign = HorizontalAlignment.Center
+            If Form1.LstVDesp.Items.Count = 0 Then
+                Form1.LstVDesp.Columns(0).Width = 0
+                Form1.LstVDesp.Columns(1).Width = 100
+                Form1.LstVDesp.Columns(2).Width = 100
+                Form1.LstVDesp.Columns(3).Width = 100
+                Form1.LstVDesp.Columns(4).Width = 100
+                Form1.LstVDesp.Columns(5).Width = 100
+                Form1.LstVDesp.Columns(6).Width = 100
             End If
         End If
        

@@ -208,7 +208,9 @@ Public Class Form1
     Private Sub BtnImagem4_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagem4.ButtonClickMasterRace
         MenuPrincipal(3, True)
         DespesasVer()
-
+        LblDesp.Font = GetInstance(12, FontStyle.Bold)
+        GrpDesp.Font = GetInstance(12, FontStyle.Bold)
+        GrpDespNota.Font = GetInstance(8, FontStyle.Bold)
     End Sub
 
     Private Sub BtnImagem5_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagem5.ButtonClickMasterRace
@@ -466,16 +468,11 @@ Public Class Form1
         DetalhesManu(LstVManu.SelectedItems(0).Text)
     End Sub
 
-
-    Private Sub BtnImagemInserirCancelar_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemInserirCancelar.ButtonClickMasterRace
-        Botao(BtnImagemInserirCancelar)
-        TxtInserirQuilometros.Text = ""
-        TxtInserirQuantidade.Text = ""
-        TxtInserirValor.Text = ""
-        TxtInserirNota.Text = ""
-        TxtInserirQuilometros.Enabled = True
-        Panel1.Hide()
+    Private Sub LstVDesp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LstVDesp.Click
+        DetalhesDesp(LstVDesp.SelectedItems(0).Text)
     End Sub
+
+
 
     Private Sub BtnImagemAbastInsert_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemAbastInsert.ButtonClickMasterRace
         Botao(BtnImagemAbastInsert)
@@ -497,38 +494,6 @@ Public Class Form1
     End Sub
 
 
-
-
-    Private Sub BtnImagemInserirInserir_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemInserirInserir.ButtonClickMasterRace
-        Botao(BtnImagemInserirInserir)
-        If TabelaSelecionada = "AbastInsert" Then
-            If CheckForAlphaCharacters(TxtInserirQuilometros.Text.ToString) Then
-                MsgBox("Dados Invalidos")
-                Exit Sub
-            End If
-            If Val(TxtInserirQuilometros.Text) <= UltimoKM() Then
-                MsgBox("Quilometros não podem ser inferiores aos já registados")
-                Exit Sub
-            Else
-                If Val(TxtInserirQuantidade.Text) = 0 Or Val(TxtInserirValor.Text) = 0 Then
-                    MsgBox("Quantidade ou valor não podem ser 0")
-                    Exit Sub
-                Else
-                    If CheckForAlphaCharacters(TxtInserirQuantidade.Text.ToString) = True Or CheckForAlphaCharacters(TxtInserirValor.Text.ToString) = True Then
-                        MsgBox("Dados Invalidos")
-                        Exit Sub
-                    End If
-                    InserirDados("Abast")
-                End If
-            End If
-        ElseIf TabelaSelecionada = "AbastEdit" Then
-            EditarDados("AbastEdit")
-        End If
-        AbastecimentoVer()
-        Panel1.Hide()
-        TxtInserirQuilometros.Enabled = True
-    End Sub
-
     Private Sub BtnImagemManuInsert_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemManuInsert.ButtonClickMasterRace
         Botao(BtnImagemManuInsert)
         Panel1.Show()
@@ -545,7 +510,62 @@ Public Class Form1
         Else
             MsgBox("Selecione um abastecimento")
         End If
-        
     End Sub
 
+
+
+
+    Private Sub BtnImagemDespInsert_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemDespInsert.ButtonClickMasterRace
+        Botao(BtnImagemManuInsert)
+        Panel1.Show()
+        Panel1.BringToFront()
+        Inserir_EditarTabelaSQL("DespInsert")
+    End Sub
+
+    Private Sub BtnImagemDespEdit_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemDespEdit.ButtonClickMasterRace
+        Botao(BtnImagemManuEdit)
+        If LstVDesp.SelectedItems.Count > 0 Then
+            Panel1.Show()
+            Panel1.BringToFront()
+            Inserir_EditarTabelaSQL("DespEdit", LstVDesp.SelectedItems(0).Text.ToString)
+        Else
+            MsgBox("Selecione um abastecimento")
+        End If
+    End Sub
+
+
+
+
+    '
+    'PANEL DE EDITAR E INSERIR
+    '
+    Private Sub BtnImagemInserirCancelar_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemInserirCancelar.ButtonClickMasterRace
+        Botao(BtnImagemInserirCancelar)
+        TxtInserirQuilometros.Text = ""
+        TxtInserirQuantidade.Text = ""
+        TxtInserirValor.Text = ""
+        TxtInserirNota.Text = ""
+        TxtInserirQuilometros.Enabled = True
+        Panel1.Hide()
+    End Sub
+
+    Private Sub BtnImagemInserirInserir_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemInserirInserir.ButtonClickMasterRace
+        Botao(BtnImagemInserirInserir)
+        If SQL.TabelaSelecionada = "AbastInsert" Then
+            InserirDados("AbastInsert")
+            AbastecimentoVer()
+        ElseIf SQL.TabelaSelecionada = "AbastEdit" Then
+            EditarDados("AbastEdit")
+            AbastecimentoVer()
+        ElseIf SQL.TabelaSelecionada = "ManuInsert" Then
+            InserirDados("ManuInsert")
+            ManutencaoVer()
+        ElseIf SQL.TabelaSelecionada = "ManuEdit" Then
+            EditarDados("ManuEdit")
+            ManutencaoVer()
+        End If
+
+        Panel1.Hide()
+        TxtInserirQuilometros.Enabled = True
+    End Sub
 End Class
