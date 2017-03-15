@@ -215,13 +215,7 @@ Public Class Form1
 
     Private Sub BtnImagem5_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagem5.ButtonClickMasterRace
         MenuPrincipal(4, True)
-        LstAgendaManuCarro.SelectedItems.Clear()
         AgendaVer()
-        Try
-            LstAgendaManuCarro.SelectedIndex = 0
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
         BtnImagemAgendaManu.EstadoBotao = True
         MenuAgenda(0)
 
@@ -516,14 +510,14 @@ Public Class Form1
 
 
     Private Sub BtnImagemDespInsert_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemDespInsert.ButtonClickMasterRace
-        Botao(BtnImagemManuInsert)
+        Botao(BtnImagemDespInsert)
         Panel1.Show()
         Panel1.BringToFront()
         Inserir_EditarTabelaSQL("DespInsert")
     End Sub
 
     Private Sub BtnImagemDespEdit_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemDespEdit.ButtonClickMasterRace
-        Botao(BtnImagemManuEdit)
+        Botao(BtnImagemDespEdit)
         If LstVDesp.SelectedItems.Count > 0 Then
             Panel1.Show()
             Panel1.BringToFront()
@@ -563,6 +557,12 @@ Public Class Form1
         ElseIf SQL.TabelaSelecionada = "ManuEdit" Then
             EditarDados("ManuEdit")
             ManutencaoVer()
+        ElseIf SQL.TabelaSelecionada = "DespInsert" Then
+            InserirDados("DespInsert")
+            DespesasVer()
+        ElseIf SQL.TabelaSelecionada = "DespEdit" Then
+            EditarDados("DespEdit")
+            DespesasVer()
         End If
 
         Panel1.Hide()

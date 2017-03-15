@@ -147,25 +147,17 @@ Partial Class Form1
         Me.LstAgendaDespesaTipo = New System.Windows.Forms.ListBox()
         Me.LstAgendaDespesaCarro = New System.Windows.Forms.ListBox()
         Me.PnlAgendaManu = New System.Windows.Forms.Panel()
-        Me.LblAgendaManuKMPrev = New System.Windows.Forms.Label()
-        Me.LblAgendaManuUtilizadorDataPrev = New System.Windows.Forms.Label()
-        Me.LblAgendaManuTipo = New System.Windows.Forms.Label()
-        Me.LblAgendaManuCarro = New System.Windows.Forms.Label()
-        Me.LstAgendaManuKm = New System.Windows.Forms.ListBox()
-        Me.LstAgendaManuData = New System.Windows.Forms.ListBox()
-        Me.LstAgendaManuTipo = New System.Windows.Forms.ListBox()
-        Me.LstAgendaManuCarro = New System.Windows.Forms.ListBox()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.LstInserirTipo = New System.Windows.Forms.ListBox()
         Me.LblInserirManuTipo = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.CmbInserirDia = New System.Windows.Forms.ComboBox()
+        Me.CmbInserirMes = New System.Windows.Forms.ComboBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.CmbInserirAno = New System.Windows.Forms.ComboBox()
         Me.LblInserirDataAgendada = New System.Windows.Forms.Label()
         Me.LstInserirLembrarPor = New System.Windows.Forms.ListBox()
         Me.LblInserirLembrarPor = New System.Windows.Forms.Label()
@@ -181,16 +173,42 @@ Partial Class Form1
         Me.LblInserirQuantiade = New System.Windows.Forms.Label()
         Me.LblInserirValor = New System.Windows.Forms.Label()
         Me.LblInserirTitulo = New System.Windows.Forms.Label()
-        Me.BtnImagemDespEdit = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemDespInsert = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemManuEdit = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemManuInsert = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemInserirCancelar = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemInserirInserir = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemAbastEdit = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemAbastInsert = New GestFrotPAP.BtnImagem()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.LstVAgendaDesp = New System.Windows.Forms.ListView()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.LstVAgendaManu = New System.Windows.Forms.ListView()
+        Me.BtnImagem10 = New GestFrotPAP.BtnImagem()
+        Me.BtnImagem11 = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAgendaDesp = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAgendaManu = New GestFrotPAP.BtnImagem()
+        Me.BtnImagem8 = New GestFrotPAP.BtnImagem()
+        Me.BtnImagem9 = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemDespEdit = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemDespInsert = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemInserirCancelar = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemInserirInserir = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemManuEdit = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemManuInsert = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemAbastEdit = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemAbastInsert = New GestFrotPAP.BtnImagem()
         Me.BtnImagemDefUtilizadorContato = New GestFrotPAP.BtnImagem()
         Me.BtnImagemDefUtilizadorInfo = New GestFrotPAP.BtnImagem()
         Me.BtnDefUtilizadorInfoEdit = New GestFrotPAP.BtnImagem()
@@ -231,6 +249,10 @@ Partial Class Form1
         Me.PnlAgendaDesp.SuspendLayout()
         Me.PnlAgendaManu.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
         Me.SuspendLayout()
         '
         'PnlMenu
@@ -1511,28 +1533,32 @@ Partial Class Form1
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.DimGray
-        Me.Panel5.Controls.Add(Me.BtnImagemAgendaDesp)
-        Me.Panel5.Controls.Add(Me.BtnImagemAgendaManu)
         Me.Panel5.Controls.Add(Me.PnlAgendaDesp)
         Me.Panel5.Controls.Add(Me.PnlAgendaManu)
-        Me.Panel5.Location = New System.Drawing.Point(620, 30)
+        Me.Panel5.Controls.Add(Me.BtnImagemAgendaDesp)
+        Me.Panel5.Controls.Add(Me.BtnImagemAgendaManu)
+        Me.Panel5.Location = New System.Drawing.Point(32, 30)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(50, 50)
+        Me.Panel5.Size = New System.Drawing.Size(968, 470)
         Me.Panel5.TabIndex = 15
         Me.Panel5.Visible = False
         '
         'PnlAgendaDesp
         '
         Me.PnlAgendaDesp.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.PnlAgendaDesp.Controls.Add(Me.BtnImagem8)
+        Me.PnlAgendaDesp.Controls.Add(Me.BtnImagem9)
+        Me.PnlAgendaDesp.Controls.Add(Me.GroupBox4)
+        Me.PnlAgendaDesp.Controls.Add(Me.LstVAgendaDesp)
         Me.PnlAgendaDesp.Controls.Add(Me.LblAgendaDespesaData)
         Me.PnlAgendaDesp.Controls.Add(Me.LblAgendaDespesaTipo)
         Me.PnlAgendaDesp.Controls.Add(Me.LblAgendaDespesaCarro)
         Me.PnlAgendaDesp.Controls.Add(Me.LstAgendaDespesaData)
         Me.PnlAgendaDesp.Controls.Add(Me.LstAgendaDespesaTipo)
         Me.PnlAgendaDesp.Controls.Add(Me.LstAgendaDespesaCarro)
-        Me.PnlAgendaDesp.Location = New System.Drawing.Point(1, 45)
+        Me.PnlAgendaDesp.Location = New System.Drawing.Point(0, 44)
         Me.PnlAgendaDesp.Name = "PnlAgendaDesp"
-        Me.PnlAgendaDesp.Size = New System.Drawing.Size(856, 425)
+        Me.PnlAgendaDesp.Size = New System.Drawing.Size(968, 425)
         Me.PnlAgendaDesp.TabIndex = 7
         Me.PnlAgendaDesp.Visible = False
         '
@@ -1604,107 +1630,15 @@ Partial Class Form1
         '
         'PnlAgendaManu
         '
-        Me.PnlAgendaManu.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PnlAgendaManu.Controls.Add(Me.LblAgendaManuKMPrev)
-        Me.PnlAgendaManu.Controls.Add(Me.LblAgendaManuUtilizadorDataPrev)
-        Me.PnlAgendaManu.Controls.Add(Me.LblAgendaManuTipo)
-        Me.PnlAgendaManu.Controls.Add(Me.LblAgendaManuCarro)
-        Me.PnlAgendaManu.Controls.Add(Me.LstAgendaManuKm)
-        Me.PnlAgendaManu.Controls.Add(Me.LstAgendaManuData)
-        Me.PnlAgendaManu.Controls.Add(Me.LstAgendaManuTipo)
-        Me.PnlAgendaManu.Controls.Add(Me.LstAgendaManuCarro)
-        Me.PnlAgendaManu.Location = New System.Drawing.Point(1, 45)
+        Me.PnlAgendaManu.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.PnlAgendaManu.Controls.Add(Me.BtnImagem10)
+        Me.PnlAgendaManu.Controls.Add(Me.BtnImagem11)
+        Me.PnlAgendaManu.Controls.Add(Me.GroupBox6)
+        Me.PnlAgendaManu.Controls.Add(Me.LstVAgendaManu)
+        Me.PnlAgendaManu.Location = New System.Drawing.Point(0, 44)
         Me.PnlAgendaManu.Name = "PnlAgendaManu"
         Me.PnlAgendaManu.Size = New System.Drawing.Size(968, 425)
         Me.PnlAgendaManu.TabIndex = 4
-        '
-        'LblAgendaManuKMPrev
-        '
-        Me.LblAgendaManuKMPrev.AutoSize = True
-        Me.LblAgendaManuKMPrev.Location = New System.Drawing.Point(370, 5)
-        Me.LblAgendaManuKMPrev.Name = "LblAgendaManuKMPrev"
-        Me.LblAgendaManuKMPrev.Size = New System.Drawing.Size(60, 13)
-        Me.LblAgendaManuKMPrev.TabIndex = 57
-        Me.LblAgendaManuKMPrev.Text = "Km Veiculo"
-        '
-        'LblAgendaManuUtilizadorDataPrev
-        '
-        Me.LblAgendaManuUtilizadorDataPrev.AutoSize = True
-        Me.LblAgendaManuUtilizadorDataPrev.Location = New System.Drawing.Point(271, 8)
-        Me.LblAgendaManuUtilizadorDataPrev.Name = "LblAgendaManuUtilizadorDataPrev"
-        Me.LblAgendaManuUtilizadorDataPrev.Size = New System.Drawing.Size(30, 13)
-        Me.LblAgendaManuUtilizadorDataPrev.TabIndex = 55
-        Me.LblAgendaManuUtilizadorDataPrev.Text = "Data"
-        '
-        'LblAgendaManuTipo
-        '
-        Me.LblAgendaManuTipo.AutoSize = True
-        Me.LblAgendaManuTipo.Location = New System.Drawing.Point(126, 7)
-        Me.LblAgendaManuTipo.Name = "LblAgendaManuTipo"
-        Me.LblAgendaManuTipo.Size = New System.Drawing.Size(107, 13)
-        Me.LblAgendaManuTipo.TabIndex = 54
-        Me.LblAgendaManuTipo.Text = "TIpo de Manutenção"
-        '
-        'LblAgendaManuCarro
-        '
-        Me.LblAgendaManuCarro.AutoSize = True
-        Me.LblAgendaManuCarro.Location = New System.Drawing.Point(18, 7)
-        Me.LblAgendaManuCarro.Name = "LblAgendaManuCarro"
-        Me.LblAgendaManuCarro.Size = New System.Drawing.Size(32, 13)
-        Me.LblAgendaManuCarro.TabIndex = 52
-        Me.LblAgendaManuCarro.Text = "Carro"
-        '
-        'LstAgendaManuKm
-        '
-        Me.LstAgendaManuKm.BackColor = System.Drawing.Color.DimGray
-        Me.LstAgendaManuKm.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstAgendaManuKm.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.LstAgendaManuKm.ForeColor = System.Drawing.Color.White
-        Me.LstAgendaManuKm.FormattingEnabled = True
-        Me.LstAgendaManuKm.Location = New System.Drawing.Point(373, 44)
-        Me.LstAgendaManuKm.MultiColumn = True
-        Me.LstAgendaManuKm.Name = "LstAgendaManuKm"
-        Me.LstAgendaManuKm.Size = New System.Drawing.Size(120, 91)
-        Me.LstAgendaManuKm.TabIndex = 50
-        '
-        'LstAgendaManuData
-        '
-        Me.LstAgendaManuData.BackColor = System.Drawing.Color.DimGray
-        Me.LstAgendaManuData.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstAgendaManuData.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.LstAgendaManuData.ForeColor = System.Drawing.Color.White
-        Me.LstAgendaManuData.FormattingEnabled = True
-        Me.LstAgendaManuData.Location = New System.Drawing.Point(251, 44)
-        Me.LstAgendaManuData.MultiColumn = True
-        Me.LstAgendaManuData.Name = "LstAgendaManuData"
-        Me.LstAgendaManuData.Size = New System.Drawing.Size(120, 91)
-        Me.LstAgendaManuData.TabIndex = 49
-        '
-        'LstAgendaManuTipo
-        '
-        Me.LstAgendaManuTipo.BackColor = System.Drawing.Color.DimGray
-        Me.LstAgendaManuTipo.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstAgendaManuTipo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.LstAgendaManuTipo.ForeColor = System.Drawing.Color.White
-        Me.LstAgendaManuTipo.FormattingEnabled = True
-        Me.LstAgendaManuTipo.Location = New System.Drawing.Point(129, 44)
-        Me.LstAgendaManuTipo.MultiColumn = True
-        Me.LstAgendaManuTipo.Name = "LstAgendaManuTipo"
-        Me.LstAgendaManuTipo.Size = New System.Drawing.Size(120, 91)
-        Me.LstAgendaManuTipo.TabIndex = 48
-        '
-        'LstAgendaManuCarro
-        '
-        Me.LstAgendaManuCarro.BackColor = System.Drawing.Color.DimGray
-        Me.LstAgendaManuCarro.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstAgendaManuCarro.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.LstAgendaManuCarro.ForeColor = System.Drawing.Color.White
-        Me.LstAgendaManuCarro.FormattingEnabled = True
-        Me.LstAgendaManuCarro.Items.AddRange(New Object() {""})
-        Me.LstAgendaManuCarro.Location = New System.Drawing.Point(7, 44)
-        Me.LstAgendaManuCarro.Name = "LstAgendaManuCarro"
-        Me.LstAgendaManuCarro.Size = New System.Drawing.Size(120, 91)
-        Me.LstAgendaManuCarro.TabIndex = 46
         '
         'Panel6
         '
@@ -1735,11 +1669,11 @@ Partial Class Form1
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.LstInserirTipo)
         Me.Panel1.Controls.Add(Me.LblInserirManuTipo)
-        Me.Panel1.Controls.Add(Me.ComboBox2)
-        Me.Panel1.Controls.Add(Me.ComboBox3)
+        Me.Panel1.Controls.Add(Me.CmbInserirDia)
+        Me.Panel1.Controls.Add(Me.CmbInserirMes)
         Me.Panel1.Controls.Add(Me.TextBox1)
         Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.ComboBox1)
+        Me.Panel1.Controls.Add(Me.CmbInserirAno)
         Me.Panel1.Controls.Add(Me.LblInserirDataAgendada)
         Me.Panel1.Controls.Add(Me.LstInserirLembrarPor)
         Me.Panel1.Controls.Add(Me.LblInserirLembrarPor)
@@ -1785,39 +1719,42 @@ Partial Class Form1
         Me.LblInserirManuTipo.TabIndex = 29
         Me.LblInserirManuTipo.Text = "Tipo"
         '
-        'ComboBox2
+        'CmbInserirDia
         '
-        Me.ComboBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ComboBox2.Enabled = False
-        Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox2.ForeColor = System.Drawing.Color.White
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"})
-        Me.ComboBox2.Location = New System.Drawing.Point(168, 202)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(63, 21)
-        Me.ComboBox2.TabIndex = 28
-        Me.ComboBox2.Text = "Dia"
+        Me.CmbInserirDia.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.CmbInserirDia.DropDownHeight = 50
+        Me.CmbInserirDia.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmbInserirDia.ForeColor = System.Drawing.Color.White
+        Me.CmbInserirDia.FormattingEnabled = True
+        Me.CmbInserirDia.IntegralHeight = False
+        Me.CmbInserirDia.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"})
+        Me.CmbInserirDia.Location = New System.Drawing.Point(168, 202)
+        Me.CmbInserirDia.MaxDropDownItems = 5
+        Me.CmbInserirDia.Name = "CmbInserirDia"
+        Me.CmbInserirDia.Size = New System.Drawing.Size(63, 21)
+        Me.CmbInserirDia.TabIndex = 28
+        Me.CmbInserirDia.Text = "Dia"
         '
-        'ComboBox3
+        'CmbInserirMes
         '
-        Me.ComboBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ComboBox3.Enabled = False
-        Me.ComboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox3.ForeColor = System.Drawing.Color.White
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
-        Me.ComboBox3.Location = New System.Drawing.Point(236, 202)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(63, 21)
-        Me.ComboBox3.TabIndex = 27
-        Me.ComboBox3.Text = "Mês"
+        Me.CmbInserirMes.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.CmbInserirMes.DropDownHeight = 50
+        Me.CmbInserirMes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmbInserirMes.ForeColor = System.Drawing.Color.White
+        Me.CmbInserirMes.FormattingEnabled = True
+        Me.CmbInserirMes.IntegralHeight = False
+        Me.CmbInserirMes.Items.AddRange(New Object() {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"})
+        Me.CmbInserirMes.Location = New System.Drawing.Point(236, 202)
+        Me.CmbInserirMes.MaxDropDownItems = 5
+        Me.CmbInserirMes.Name = "CmbInserirMes"
+        Me.CmbInserirMes.Size = New System.Drawing.Size(63, 21)
+        Me.CmbInserirMes.TabIndex = 27
+        Me.CmbInserirMes.Text = "Mês"
         '
         'TextBox1
         '
         Me.TextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox1.Enabled = False
         Me.TextBox1.ForeColor = System.Drawing.Color.White
         Me.TextBox1.Location = New System.Drawing.Point(211, 240)
         Me.TextBox1.Name = "TextBox1"
@@ -1829,7 +1766,6 @@ Partial Class Form1
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Enabled = False
         Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(10, 240)
         Me.Label5.Name = "Label5"
@@ -1837,30 +1773,31 @@ Partial Class Form1
         Me.Label5.TabIndex = 25
         Me.Label5.Text = "Quilometros"
         '
-        'ComboBox1
+        'CmbInserirAno
         '
-        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ComboBox1.Enabled = False
-        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox1.ForeColor = System.Drawing.Color.White
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035"})
-        Me.ComboBox1.Location = New System.Drawing.Point(301, 202)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(63, 21)
-        Me.ComboBox1.TabIndex = 22
-        Me.ComboBox1.Text = "Ano"
+        Me.CmbInserirAno.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.CmbInserirAno.DropDownHeight = 50
+        Me.CmbInserirAno.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmbInserirAno.ForeColor = System.Drawing.Color.White
+        Me.CmbInserirAno.FormattingEnabled = True
+        Me.CmbInserirAno.IntegralHeight = False
+        Me.CmbInserirAno.Items.AddRange(New Object() {"2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035"})
+        Me.CmbInserirAno.Location = New System.Drawing.Point(301, 202)
+        Me.CmbInserirAno.MaxDropDownItems = 5
+        Me.CmbInserirAno.Name = "CmbInserirAno"
+        Me.CmbInserirAno.Size = New System.Drawing.Size(63, 21)
+        Me.CmbInserirAno.TabIndex = 22
+        Me.CmbInserirAno.Text = "Ano"
         '
         'LblInserirDataAgendada
         '
         Me.LblInserirDataAgendada.AutoSize = True
-        Me.LblInserirDataAgendada.Enabled = False
         Me.LblInserirDataAgendada.ForeColor = System.Drawing.Color.White
         Me.LblInserirDataAgendada.Location = New System.Drawing.Point(10, 202)
         Me.LblInserirDataAgendada.Name = "LblInserirDataAgendada"
-        Me.LblInserirDataAgendada.Size = New System.Drawing.Size(67, 13)
+        Me.LblInserirDataAgendada.Size = New System.Drawing.Size(79, 13)
         Me.LblInserirDataAgendada.TabIndex = 21
-        Me.LblInserirDataAgendada.Text = "Agendar em:"
+        Me.LblInserirDataAgendada.Text = "Data Efetuado:"
         '
         'LstInserirLembrarPor
         '
@@ -2018,6 +1955,362 @@ Partial Class Form1
         Me.LblInserirTitulo.TabIndex = 2
         Me.LblInserirTitulo.Text = "Nome de tabela a inserir"
         '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.Label6)
+        Me.GroupBox4.Controls.Add(Me.Label8)
+        Me.GroupBox4.Controls.Add(Me.Label9)
+        Me.GroupBox4.Controls.Add(Me.Label10)
+        Me.GroupBox4.Controls.Add(Me.Label11)
+        Me.GroupBox4.Controls.Add(Me.Label12)
+        Me.GroupBox4.Controls.Add(Me.Label13)
+        Me.GroupBox4.Controls.Add(Me.GroupBox5)
+        Me.GroupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox4.ForeColor = System.Drawing.Color.White
+        Me.GroupBox4.Location = New System.Drawing.Point(18, 172)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(933, 195)
+        Me.GroupBox4.TabIndex = 57
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Detalhes"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(5, 115)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(75, 13)
+        Me.Label6.TabIndex = 27
+        Me.Label6.Text = "Fornecedor:"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(5, 100)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(55, 13)
+        Me.Label8.TabIndex = 26
+        Me.Label8.Text = "Veículo:"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(5, 85)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(29, 13)
+        Me.Label9.TabIndex = 25
+        Me.Label9.Text = "KM:"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(5, 70)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(40, 13)
+        Me.Label10.TabIndex = 24
+        Me.Label10.Text = "Valor:"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(6, 40)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(38, 13)
+        Me.Label11.TabIndex = 23
+        Me.Label11.Text = "Data:"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(5, 55)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(36, 13)
+        Me.Label12.TabIndex = 22
+        Me.Label12.Text = "Tipo:"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(5, 25)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(50, 13)
+        Me.Label13.TabIndex = 21
+        Me.Label13.Text = "Código:"
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.TextBox2)
+        Me.GroupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox5.ForeColor = System.Drawing.Color.White
+        Me.GroupBox5.Location = New System.Drawing.Point(525, 12)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(400, 175)
+        Me.GroupBox5.TabIndex = 20
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Nota"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBox2.Enabled = False
+        Me.TextBox2.ForeColor = System.Drawing.Color.White
+        Me.TextBox2.Location = New System.Drawing.Point(7, 15)
+        Me.TextBox2.Multiline = True
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(387, 154)
+        Me.TextBox2.TabIndex = 0
+        '
+        'LstVAgendaDesp
+        '
+        Me.LstVAgendaDesp.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid
+        Me.LstVAgendaDesp.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.LstVAgendaDesp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LstVAgendaDesp.ForeColor = System.Drawing.Color.Silver
+        Me.LstVAgendaDesp.FullRowSelect = True
+        Me.LstVAgendaDesp.GridLines = True
+        Me.LstVAgendaDesp.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.LstVAgendaDesp.HideSelection = False
+        Me.LstVAgendaDesp.Location = New System.Drawing.Point(18, 7)
+        Me.LstVAgendaDesp.Name = "LstVAgendaDesp"
+        Me.LstVAgendaDesp.Size = New System.Drawing.Size(933, 156)
+        Me.LstVAgendaDesp.TabIndex = 56
+        Me.LstVAgendaDesp.UseCompatibleStateImageBehavior = False
+        Me.LstVAgendaDesp.View = System.Windows.Forms.View.Details
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.Label14)
+        Me.GroupBox6.Controls.Add(Me.Label15)
+        Me.GroupBox6.Controls.Add(Me.Label16)
+        Me.GroupBox6.Controls.Add(Me.Label17)
+        Me.GroupBox6.Controls.Add(Me.Label18)
+        Me.GroupBox6.Controls.Add(Me.Label19)
+        Me.GroupBox6.Controls.Add(Me.Label20)
+        Me.GroupBox6.Controls.Add(Me.GroupBox7)
+        Me.GroupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox6.ForeColor = System.Drawing.Color.White
+        Me.GroupBox6.Location = New System.Drawing.Point(15, 169)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(933, 195)
+        Me.GroupBox6.TabIndex = 59
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Detalhes"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(5, 115)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(75, 13)
+        Me.Label14.TabIndex = 27
+        Me.Label14.Text = "Fornecedor:"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(5, 100)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(55, 13)
+        Me.Label15.TabIndex = 26
+        Me.Label15.Text = "Veículo:"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(5, 85)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(29, 13)
+        Me.Label16.TabIndex = 25
+        Me.Label16.Text = "KM:"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(5, 70)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(40, 13)
+        Me.Label17.TabIndex = 24
+        Me.Label17.Text = "Valor:"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(6, 40)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(38, 13)
+        Me.Label18.TabIndex = 23
+        Me.Label18.Text = "Data:"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(5, 55)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(36, 13)
+        Me.Label19.TabIndex = 22
+        Me.Label19.Text = "Tipo:"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(5, 25)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(50, 13)
+        Me.Label20.TabIndex = 21
+        Me.Label20.Text = "Código:"
+        '
+        'GroupBox7
+        '
+        Me.GroupBox7.Controls.Add(Me.TextBox3)
+        Me.GroupBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox7.ForeColor = System.Drawing.Color.White
+        Me.GroupBox7.Location = New System.Drawing.Point(525, 12)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Size = New System.Drawing.Size(400, 175)
+        Me.GroupBox7.TabIndex = 20
+        Me.GroupBox7.TabStop = False
+        Me.GroupBox7.Text = "Nota"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBox3.Enabled = False
+        Me.TextBox3.ForeColor = System.Drawing.Color.White
+        Me.TextBox3.Location = New System.Drawing.Point(7, 15)
+        Me.TextBox3.Multiline = True
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(387, 154)
+        Me.TextBox3.TabIndex = 0
+        '
+        'LstVAgendaManu
+        '
+        Me.LstVAgendaManu.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid
+        Me.LstVAgendaManu.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.LstVAgendaManu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LstVAgendaManu.ForeColor = System.Drawing.Color.Silver
+        Me.LstVAgendaManu.FullRowSelect = True
+        Me.LstVAgendaManu.GridLines = True
+        Me.LstVAgendaManu.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.LstVAgendaManu.HideSelection = False
+        Me.LstVAgendaManu.Location = New System.Drawing.Point(15, 4)
+        Me.LstVAgendaManu.Name = "LstVAgendaManu"
+        Me.LstVAgendaManu.Size = New System.Drawing.Size(933, 156)
+        Me.LstVAgendaManu.TabIndex = 58
+        Me.LstVAgendaManu.UseCompatibleStateImageBehavior = False
+        Me.LstVAgendaManu.View = System.Windows.Forms.View.Details
+        '
+        'BtnImagem10
+        '
+        Me.BtnImagem10.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem10.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem10.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagem10.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagem10.CorTexto = System.Drawing.Color.White
+        Me.BtnImagem10.EstadoBotao = False
+        Me.BtnImagem10.Imagem = Nothing
+        Me.BtnImagem10.Location = New System.Drawing.Point(542, 370)
+        Me.BtnImagem10.Name = "BtnImagem10"
+        Me.BtnImagem10.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagem10.TabIndex = 61
+        Me.BtnImagem10.TamanhoLetra = 10
+        Me.BtnImagem10.Texto = "Editar"
+        '
+        'BtnImagem11
+        '
+        Me.BtnImagem11.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem11.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem11.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagem11.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagem11.CorTexto = System.Drawing.Color.White
+        Me.BtnImagem11.EstadoBotao = False
+        Me.BtnImagem11.Imagem = Nothing
+        Me.BtnImagem11.Location = New System.Drawing.Point(748, 370)
+        Me.BtnImagem11.Name = "BtnImagem11"
+        Me.BtnImagem11.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagem11.TabIndex = 60
+        Me.BtnImagem11.TamanhoLetra = 10
+        Me.BtnImagem11.Texto = "Inserir"
+        '
+        'BtnImagemAgendaDesp
+        '
+        Me.BtnImagemAgendaDesp.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemAgendaDesp.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemAgendaDesp.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemAgendaDesp.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.BtnImagemAgendaDesp.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemAgendaDesp.EstadoBotao = False
+        Me.BtnImagemAgendaDesp.Imagem = Global.GestFrotPAP.My.Resources.Resources.dollar_bills
+        Me.BtnImagemAgendaDesp.Location = New System.Drawing.Point(232, 0)
+        Me.BtnImagemAgendaDesp.Name = "BtnImagemAgendaDesp"
+        Me.BtnImagemAgendaDesp.Size = New System.Drawing.Size(230, 44)
+        Me.BtnImagemAgendaDesp.TabIndex = 6
+        Me.BtnImagemAgendaDesp.TamanhoLetra = 10
+        Me.BtnImagemAgendaDesp.Texto = "Agenda Despesa"
+        '
+        'BtnImagemAgendaManu
+        '
+        Me.BtnImagemAgendaManu.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.BtnImagemAgendaManu.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemAgendaManu.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemAgendaManu.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
+        Me.BtnImagemAgendaManu.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemAgendaManu.EstadoBotao = True
+        Me.BtnImagemAgendaManu.Imagem = Global.GestFrotPAP.My.Resources.Resources.wrench
+        Me.BtnImagemAgendaManu.Location = New System.Drawing.Point(0, 0)
+        Me.BtnImagemAgendaManu.Name = "BtnImagemAgendaManu"
+        Me.BtnImagemAgendaManu.Size = New System.Drawing.Size(230, 44)
+        Me.BtnImagemAgendaManu.TabIndex = 5
+        Me.BtnImagemAgendaManu.TamanhoLetra = 10
+        Me.BtnImagemAgendaManu.Texto = "Agenda Manutenção"
+        '
+        'BtnImagem8
+        '
+        Me.BtnImagem8.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem8.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem8.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagem8.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagem8.CorTexto = System.Drawing.Color.White
+        Me.BtnImagem8.EstadoBotao = False
+        Me.BtnImagem8.Imagem = Nothing
+        Me.BtnImagem8.Location = New System.Drawing.Point(545, 373)
+        Me.BtnImagem8.Name = "BtnImagem8"
+        Me.BtnImagem8.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagem8.TabIndex = 59
+        Me.BtnImagem8.TamanhoLetra = 10
+        Me.BtnImagem8.Texto = "Editar"
+        '
+        'BtnImagem9
+        '
+        Me.BtnImagem9.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem9.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagem9.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagem9.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagem9.CorTexto = System.Drawing.Color.White
+        Me.BtnImagem9.EstadoBotao = False
+        Me.BtnImagem9.Imagem = Nothing
+        Me.BtnImagem9.Location = New System.Drawing.Point(751, 373)
+        Me.BtnImagem9.Name = "BtnImagem9"
+        Me.BtnImagem9.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagem9.TabIndex = 58
+        Me.BtnImagem9.TamanhoLetra = 10
+        Me.BtnImagem9.Texto = "Inserir"
+        '
         'BtnImagemDespEdit
         '
         Me.BtnImagemDespEdit.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
@@ -2049,38 +2342,6 @@ Partial Class Form1
         Me.BtnImagemDespInsert.TabIndex = 48
         Me.BtnImagemDespInsert.TamanhoLetra = 10
         Me.BtnImagemDespInsert.Texto = "Inserir"
-        '
-        'BtnImagemManuEdit
-        '
-        Me.BtnImagemManuEdit.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemManuEdit.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemManuEdit.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagemManuEdit.CorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagemManuEdit.CorTexto = System.Drawing.Color.White
-        Me.BtnImagemManuEdit.EstadoBotao = False
-        Me.BtnImagemManuEdit.Imagem = Nothing
-        Me.BtnImagemManuEdit.Location = New System.Drawing.Point(542, 406)
-        Me.BtnImagemManuEdit.Name = "BtnImagemManuEdit"
-        Me.BtnImagemManuEdit.Size = New System.Drawing.Size(200, 44)
-        Me.BtnImagemManuEdit.TabIndex = 34
-        Me.BtnImagemManuEdit.TamanhoLetra = 10
-        Me.BtnImagemManuEdit.Texto = "Editar"
-        '
-        'BtnImagemManuInsert
-        '
-        Me.BtnImagemManuInsert.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemManuInsert.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemManuInsert.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagemManuInsert.CorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagemManuInsert.CorTexto = System.Drawing.Color.White
-        Me.BtnImagemManuInsert.EstadoBotao = False
-        Me.BtnImagemManuInsert.Imagem = Nothing
-        Me.BtnImagemManuInsert.Location = New System.Drawing.Point(748, 406)
-        Me.BtnImagemManuInsert.Name = "BtnImagemManuInsert"
-        Me.BtnImagemManuInsert.Size = New System.Drawing.Size(200, 44)
-        Me.BtnImagemManuInsert.TabIndex = 33
-        Me.BtnImagemManuInsert.TamanhoLetra = 10
-        Me.BtnImagemManuInsert.Texto = "Inserir"
         '
         'BtnImagemInserirCancelar
         '
@@ -2114,6 +2375,38 @@ Partial Class Form1
         Me.BtnImagemInserirInserir.TamanhoLetra = 10
         Me.BtnImagemInserirInserir.Texto = "Inserir"
         '
+        'BtnImagemManuEdit
+        '
+        Me.BtnImagemManuEdit.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemManuEdit.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemManuEdit.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemManuEdit.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemManuEdit.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemManuEdit.EstadoBotao = False
+        Me.BtnImagemManuEdit.Imagem = Nothing
+        Me.BtnImagemManuEdit.Location = New System.Drawing.Point(542, 406)
+        Me.BtnImagemManuEdit.Name = "BtnImagemManuEdit"
+        Me.BtnImagemManuEdit.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagemManuEdit.TabIndex = 34
+        Me.BtnImagemManuEdit.TamanhoLetra = 10
+        Me.BtnImagemManuEdit.Texto = "Editar"
+        '
+        'BtnImagemManuInsert
+        '
+        Me.BtnImagemManuInsert.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemManuInsert.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemManuInsert.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemManuInsert.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemManuInsert.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemManuInsert.EstadoBotao = False
+        Me.BtnImagemManuInsert.Imagem = Nothing
+        Me.BtnImagemManuInsert.Location = New System.Drawing.Point(748, 406)
+        Me.BtnImagemManuInsert.Name = "BtnImagemManuInsert"
+        Me.BtnImagemManuInsert.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagemManuInsert.TabIndex = 33
+        Me.BtnImagemManuInsert.TamanhoLetra = 10
+        Me.BtnImagemManuInsert.Texto = "Inserir"
+        '
         'BtnImagemAbastEdit
         '
         Me.BtnImagemAbastEdit.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
@@ -2145,38 +2438,6 @@ Partial Class Form1
         Me.BtnImagemAbastInsert.TabIndex = 20
         Me.BtnImagemAbastInsert.TamanhoLetra = 10
         Me.BtnImagemAbastInsert.Texto = "Inserir"
-        '
-        'BtnImagemAgendaDesp
-        '
-        Me.BtnImagemAgendaDesp.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemAgendaDesp.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemAgendaDesp.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagemAgendaDesp.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.BtnImagemAgendaDesp.CorTexto = System.Drawing.Color.White
-        Me.BtnImagemAgendaDesp.EstadoBotao = False
-        Me.BtnImagemAgendaDesp.Imagem = Global.GestFrotPAP.My.Resources.Resources.dollar_bills
-        Me.BtnImagemAgendaDesp.Location = New System.Drawing.Point(232, 0)
-        Me.BtnImagemAgendaDesp.Name = "BtnImagemAgendaDesp"
-        Me.BtnImagemAgendaDesp.Size = New System.Drawing.Size(230, 44)
-        Me.BtnImagemAgendaDesp.TabIndex = 6
-        Me.BtnImagemAgendaDesp.TamanhoLetra = 10
-        Me.BtnImagemAgendaDesp.Texto = "Agenda Despesa"
-        '
-        'BtnImagemAgendaManu
-        '
-        Me.BtnImagemAgendaManu.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.BtnImagemAgendaManu.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemAgendaManu.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagemAgendaManu.CorSelecionado = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(88, Byte), Integer))
-        Me.BtnImagemAgendaManu.CorTexto = System.Drawing.Color.White
-        Me.BtnImagemAgendaManu.EstadoBotao = True
-        Me.BtnImagemAgendaManu.Imagem = Global.GestFrotPAP.My.Resources.Resources.wrench
-        Me.BtnImagemAgendaManu.Location = New System.Drawing.Point(0, 0)
-        Me.BtnImagemAgendaManu.Name = "BtnImagemAgendaManu"
-        Me.BtnImagemAgendaManu.Size = New System.Drawing.Size(230, 44)
-        Me.BtnImagemAgendaManu.TabIndex = 5
-        Me.BtnImagemAgendaManu.TamanhoLetra = 10
-        Me.BtnImagemAgendaManu.Texto = "Agenda Manutenção"
         '
         'BtnImagemDefUtilizadorContato
         '
@@ -2419,12 +2680,12 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1000, 500)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel4)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PnlHome)
-        Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.PnlDefUtilizador)
         Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.Panel6)
@@ -2479,9 +2740,16 @@ Partial Class Form1
         Me.PnlAgendaDesp.ResumeLayout(False)
         Me.PnlAgendaDesp.PerformLayout()
         Me.PnlAgendaManu.ResumeLayout(False)
-        Me.PnlAgendaManu.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
+        Me.GroupBox7.ResumeLayout(False)
+        Me.GroupBox7.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2587,14 +2855,6 @@ Partial Class Form1
     Friend WithEvents BtnImagemAgendaManu As GestFrotPAP.BtnImagem
     Friend WithEvents PnlAgendaDesp As System.Windows.Forms.Panel
     Friend WithEvents PnlAgendaManu As System.Windows.Forms.Panel
-    Friend WithEvents LblAgendaManuKMPrev As System.Windows.Forms.Label
-    Friend WithEvents LblAgendaManuUtilizadorDataPrev As System.Windows.Forms.Label
-    Friend WithEvents LblAgendaManuTipo As System.Windows.Forms.Label
-    Friend WithEvents LblAgendaManuCarro As System.Windows.Forms.Label
-    Friend WithEvents LstAgendaManuKm As System.Windows.Forms.ListBox
-    Friend WithEvents LstAgendaManuData As System.Windows.Forms.ListBox
-    Friend WithEvents LstAgendaManuTipo As System.Windows.Forms.ListBox
-    Friend WithEvents LstAgendaManuCarro As System.Windows.Forms.ListBox
     Friend WithEvents LblAgendaDespesaData As System.Windows.Forms.Label
     Friend WithEvents LblAgendaDespesaTipo As System.Windows.Forms.Label
     Friend WithEvents LblAgendaDespesaCarro As System.Windows.Forms.Label
@@ -2650,11 +2910,11 @@ Partial Class Form1
     Friend WithEvents LstInserirLembrarPor As System.Windows.Forms.ListBox
     Friend WithEvents LblInserirLembrarPor As System.Windows.Forms.Label
     Friend WithEvents LblInserirDataAgendada As System.Windows.Forms.Label
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents CmbInserirAno As System.Windows.Forms.ComboBox
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+    Friend WithEvents CmbInserirMes As System.Windows.Forms.ComboBox
+    Friend WithEvents CmbInserirDia As System.Windows.Forms.ComboBox
     Friend WithEvents BtnImagemAbastEdit As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagemManuEdit As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagemManuInsert As GestFrotPAP.BtnImagem
@@ -2667,5 +2927,31 @@ Partial Class Form1
     Friend WithEvents BtnImagemDespInsert As GestFrotPAP.BtnImagem
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents LblDespVeiculo As System.Windows.Forms.Label
+    Friend WithEvents BtnImagem8 As GestFrotPAP.BtnImagem
+    Friend WithEvents BtnImagem9 As GestFrotPAP.BtnImagem
+    Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
+    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents LstVAgendaDesp As System.Windows.Forms.ListView
+    Friend WithEvents BtnImagem10 As GestFrotPAP.BtnImagem
+    Friend WithEvents BtnImagem11 As GestFrotPAP.BtnImagem
+    Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
+    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents LstVAgendaManu As System.Windows.Forms.ListView
 
 End Class

@@ -423,6 +423,7 @@
     End Sub
 
     Public Sub MenuInserir_Editar(ByVal Tabela As String)
+        Form1.LblInserirTitulo.Font = GetInstance(12, FontStyle.Bold)
         For Each c As Control In Form1.Panel1.Controls
             c.Hide()
         Next
@@ -445,6 +446,23 @@
             Form1.LblInserirNota.Show()
             Form1.TxtInserirNota.Show()
             Form1.BtnImagemInserirInserir.Show()
+            'DATA
+            Form1.LblInserirDataAgendada.Show()
+            Form1.LblInserirDataAgendada.Text = "Data Efetuada"
+            Form1.CmbInserirAno.Show()
+            Form1.CmbInserirDia.Show()
+            Form1.CmbInserirMes.Show()
+            Form1.CmbInserirAno.Enabled = True
+            Form1.CmbInserirAno.Text = ""
+            Form1.CmbInserirAno.SelectedText = Year
+            Form1.CmbInserirDia.Enabled = True
+            Form1.CmbInserirDia.Text = ""
+            Form1.CmbInserirDia.SelectedText = Day
+            Form1.CmbInserirMes.Enabled = True
+            Form1.CmbInserirMes.Text = ""
+            Form1.CmbInserirMes.SelectedText = Month
+
+
         ElseIf Tabela = "AbastEdit" Then
             Form1.LblInserirTitulo.Text = "Editar Abastecimento"
             Form1.BtnImagemInserirInserir.Texto = "Editar"
@@ -480,6 +498,20 @@
             Form1.LblInserirNota.Show()
             Form1.TxtInserirNota.Show()
             Form1.BtnImagemInserirInserir.Show()
+            'DATA
+            Form1.LblInserirDataAgendada.Show()
+            Form1.LblInserirDataAgendada.Text = "Data Efetuada"
+            Form1.CmbInserirAno.Show()
+            Form1.CmbInserirDia.Show()
+            Form1.CmbInserirMes.Show()
+            Form1.CmbInserirAno.Text = ""
+            Form1.CmbInserirAno.SelectedText = Year
+            Form1.CmbInserirDia.Text = ""
+            Form1.CmbInserirDia.SelectedText = Day
+            Form1.CmbInserirMes.Enabled = True
+            Form1.CmbInserirMes.Text = ""
+            Form1.CmbInserirMes.SelectedText = Month
+
         ElseIf Tabela = "ManuEdit" Then
             Form1.LblInserirTitulo.Text = "Editar manutenção"
             Form1.BtnImagemInserirInserir.Texto = "Editar"
@@ -503,7 +535,6 @@
             Form1.LblInserirManuTipo.Top = Form1.LblInserirFornecedor.Bottom + 27
 
         ElseIf Tabela = "DespInsert" Then
-            MsgBox("TABELA A SER DEFINIDA")
             Form1.LblInserirTitulo.Text = "Novo Despesa"
             Form1.BtnImagemInserirInserir.Texto = "Inserir"
 
@@ -520,8 +551,21 @@
             Form1.LblInserirNota.Show()
             Form1.TxtInserirNota.Show()
             Form1.BtnImagemInserirInserir.Show()
+            'DATA
+            Form1.LblInserirDataAgendada.Show()
+            Form1.LblInserirDataAgendada.Text = "Data Efetuada"
+            Form1.CmbInserirAno.Show()
+            Form1.CmbInserirDia.Show()
+            Form1.CmbInserirMes.Show()
+            Form1.CmbInserirAno.Text = ""
+            Form1.CmbInserirAno.SelectedText = Year
+            Form1.CmbInserirDia.Text = ""
+            Form1.CmbInserirDia.SelectedText = Day
+            Form1.CmbInserirMes.Text = ""
+            Form1.CmbInserirMes.SelectedText = Month
+
+
         ElseIf Tabela = "DespEdit" Then
-            MsgBox("TABELA A SER DEFINIDA")
             Form1.LblInserirTitulo.Text = "Editar Despesa"
             Form1.BtnImagemInserirInserir.Texto = "Editar"
             Form1.TxtInserirQuilometros.Enabled = False
@@ -584,6 +628,7 @@
             Form1.LstVManu.Columns(4).Width = 100
             Form1.LstVManu.AutoResizeColumn(5, ColumnHeaderAutoResizeStyle.ColumnContent)
             Form1.LstVManu.AutoResizeColumn(6, ColumnHeaderAutoResizeStyle.ColumnContent)
+            Form1.LstVManu.AutoResizeColumn(7, ColumnHeaderAutoResizeStyle.ColumnContent)
 
             Form1.LstVManu.Columns(0).TextAlign = HorizontalAlignment.Center
             Form1.LstVManu.Columns(1).TextAlign = HorizontalAlignment.Center
@@ -592,6 +637,7 @@
             Form1.LstVManu.Columns(4).TextAlign = HorizontalAlignment.Center
             Form1.LstVManu.Columns(5).TextAlign = HorizontalAlignment.Center
             Form1.LstVManu.Columns(6).TextAlign = HorizontalAlignment.Center
+            Form1.LstVManu.Columns(7).TextAlign = HorizontalAlignment.Center
             If Form1.LstVManu.Items.Count = 0 Then
                 Form1.LstVManu.Columns(0).Width = 0
                 Form1.LstVManu.Columns(1).Width = 100
@@ -600,6 +646,8 @@
                 Form1.LstVManu.Columns(4).Width = 100
                 Form1.LstVManu.Columns(5).Width = 100
                 Form1.LstVManu.Columns(6).Width = 100
+                Form1.LstVManu.Columns(7).Width = 100
+
             End If
 
         ElseIf Listview = "LstVDesp" Then
