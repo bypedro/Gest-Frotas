@@ -2,7 +2,7 @@
 Imports System.Net.Mail
 Module SQL
     Dim DB As String = "frotas"
-    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=0000;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
+    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
     Dim adapter As New MySqlDataAdapter
     Dim Comando As MySqlCommand
     Public DetalhesUtilizador As New UtilizadorDetalhes
@@ -765,28 +765,7 @@ Module SQL
             ligacao.Close()
         End Try
 
-        'Agenda
-        Try
-            If DetalhesUtilizador.CodVeiculo <> 0 Then
-                Comando = New MySqlCommand("select Proxima_Inspecao from veiculos where codvei='" + DetalhesUtilizador.CodVeiculo.ToString + "'", ligacao)
-                ligacao.Open()
-                Objecto = Comando.ExecuteScalar
-                If IsDBNull(Objecto) Then
-                    DetalhesUtilizador.VeiProxInspecao = "Não tem"
-                    MsgBox("ERRO VeiProxInspecao")
-                    ligacao.Close()
-                Else
-                    DetalhesUtilizador.VeiProxInspecao = CType(Objecto, String)
-                    ligacao.Close()
-                End If
-            Else
-                DetalhesUtilizador.VeiProxInspecao = "Não tem"
-                MsgBox("ERRO VeiProxInspecao")
-            End If
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-            ligacao.Close()
-        End Try
+       
 
     End Sub
 
