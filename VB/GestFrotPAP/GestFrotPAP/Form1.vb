@@ -219,6 +219,11 @@ Public Class Form1
         BtnImagemAgendaManu.EstadoBotao = True
         MenuAgenda(0)
 
+        GrpAgendaDesp.Font = GetInstance(12, FontStyle.Bold)
+        GrpAgendaDespNota.Font = GetInstance(8, FontStyle.Bold)
+
+        GrpAgendaManu.Font = GetInstance(12, FontStyle.Bold)
+        GrpAgendaManuNota.Font = GetInstance(8, FontStyle.Bold)
     End Sub
 
     Private Sub BtnImagem6_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagem6.ButtonClickMasterRace
@@ -466,6 +471,14 @@ Public Class Form1
         DetalhesDesp(LstVDesp.SelectedItems(0).Text)
     End Sub
 
+    Private Sub LstVAgendaDesp_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LstVAgendaDesp.Click
+        DetalhesAgendaDesp(LstVAgendaDesp.SelectedItems(0).Text)
+    End Sub
+
+    Private Sub LstVAgendaManu_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LstVAgendaManu.Click
+        'DetalhesAgendaManu(LstVAgendaManu.SelectedItems(0).Text)
+    End Sub
+
 
 
     Private Sub BtnImagemAbastInsert_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemAbastInsert.ButtonClickMasterRace
@@ -563,9 +576,51 @@ Public Class Form1
         ElseIf SQL.TabelaSelecionada = "DespEdit" Then
             EditarDados("DespEdit")
             DespesasVer()
+        ElseIf SQL.TabelaSelecionada = "" Then
+            InserirDados("")
+            AgendaVer()
+        ElseIf SQL.TabelaSelecionada = "" Then
+            EditarDados("")
+            AgendaVer()
         End If
 
         Panel1.Hide()
         TxtInserirQuilometros.Enabled = True
+    End Sub
+
+    Private Sub BtnImagemAgendaManuEdit_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAgendaManuEdit.ButtonClickMasterRace
+        Botao(BtnImagemAgendaManuEdit)
+        If LstVAgendaManu.SelectedItems.Count > 0 Then
+            Panel1.Show()
+            Panel1.BringToFront()
+            Inserir_EditarTabelaSQL("AgendaManuEdit", LstVAgendaManu.SelectedItems(0).Text.ToString)
+        Else
+            MsgBox("Selecione um abastecimento")
+        End If
+    End Sub
+
+    Private Sub BtnImagemAgendaManuInsert_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAgendaManuInsert.ButtonClickMasterRace
+        Botao(BtnImagemAgendaManuInsert)
+        Panel1.Show()
+        Panel1.BringToFront()
+        Inserir_EditarTabelaSQL("AgendaManuInsert")
+    End Sub
+
+    Private Sub BtnImagemAgendaDespInsert_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAgendaDespInsert.ButtonClickMasterRace
+        Botao(BtnImagemAgendaDespInsert)
+        Panel1.Show()
+        Panel1.BringToFront()
+        Inserir_EditarTabelaSQL("AgendaDespInsert")
+    End Sub
+
+    Private Sub BtnImagemAgendaDespEdit_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAgendaDespEdit.ButtonClickMasterRace
+        Botao(BtnImagemAgendaDespEdit)
+        If LstVAgendaDesp.SelectedItems.Count > 0 Then
+            Panel1.Show()
+            Panel1.BringToFront()
+            Inserir_EditarTabelaSQL("AgendaDespEdit", LstVAgendaDesp.SelectedItems(0).Text.ToString)
+        Else
+            MsgBox("Selecione um abastecimento")
+        End If
     End Sub
 End Class

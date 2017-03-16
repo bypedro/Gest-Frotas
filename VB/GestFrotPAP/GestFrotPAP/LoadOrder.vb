@@ -585,6 +585,9 @@
 
             Form1.LstInserirTipo.Top = Form1.LblInserirFornecedor.Bottom + 27
             Form1.LblInserirManuTipo.Top = Form1.LblInserirFornecedor.Bottom + 27
+
+
+
         Else
             MsgBox("TABELA NÂO DEFINIDA")
         End If
@@ -676,6 +679,53 @@
                 Form1.LstVDesp.Columns(4).Width = 100
                 Form1.LstVDesp.Columns(5).Width = 100
                 Form1.LstVDesp.Columns(6).Width = 100
+                Form1.LstVDesp.Columns(7).Width = 100
+            End If
+        ElseIf Listview = "LstVAgendaManu" Then
+            Form1.LstVAgendaManu.Columns(0).Width = 0
+            Form1.LstVAgendaManu.Columns(1).Width = 120
+            Form1.LstVAgendaManu.Columns(2).Width = 100
+            Form1.LstVAgendaManu.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent)
+            Form1.LstVAgendaManu.AutoResizeColumn(4, ColumnHeaderAutoResizeStyle.ColumnContent)
+            Form1.LstVAgendaManu.Columns(5).Width = 100
+
+            Form1.LstVAgendaManu.Columns(0).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAgendaManu.Columns(1).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAgendaManu.Columns(2).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAgendaManu.Columns(3).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAgendaManu.Columns(4).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAgendaManu.Columns(5).TextAlign = HorizontalAlignment.Center
+
+            If Form1.LstVAgendaManu.Items.Count = 0 Then
+                Form1.LstVAgendaManu.Columns(0).Width = 0
+                Form1.LstVAgendaManu.Columns(1).Width = 100
+                Form1.LstVAgendaManu.Columns(2).Width = 100
+                Form1.LstVAgendaManu.Columns(3).Width = 100
+                Form1.LstVAgendaManu.Columns(4).Width = 100
+                Form1.LstVAgendaManu.Columns(5).Width = 100
+            End If
+        ElseIf Listview = "LstVAgendaDesp" Then
+            Form1.LstVAgendaDesp.Columns(0).Width = 0
+            Form1.LstVAgendaDesp.Columns(1).Width = 120
+            Form1.LstVAgendaDesp.Columns(2).Width = 100
+            Form1.LstVAgendaDesp.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent)
+            Form1.LstVAgendaDesp.AutoResizeColumn(4, ColumnHeaderAutoResizeStyle.ColumnContent)
+            Form1.LstVAgendaDesp.Columns(5).Width = 100
+
+            Form1.LstVAgendaDesp.Columns(0).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAgendaDesp.Columns(1).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAgendaDesp.Columns(2).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAgendaDesp.Columns(3).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAgendaDesp.Columns(4).TextAlign = HorizontalAlignment.Center
+            Form1.LstVAgendaDesp.Columns(5).TextAlign = HorizontalAlignment.Center
+
+            If Form1.LstVAgendaDesp.Items.Count = 0 Then
+                Form1.LstVAgendaDesp.Columns(0).Width = 0
+                Form1.LstVAgendaDesp.Columns(1).Width = 100
+                Form1.LstVAgendaDesp.Columns(2).Width = 100
+                Form1.LstVAgendaDesp.Columns(3).Width = 100
+                Form1.LstVAgendaDesp.Columns(4).Width = 100
+                Form1.LstVAgendaDesp.Columns(5).Width = 100
             End If
         End If
        
