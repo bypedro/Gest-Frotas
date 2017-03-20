@@ -1186,7 +1186,6 @@ Module SQL
             ligacao.Open()
             reader = Comando.ExecuteReader
             While reader.Read
-
                 Form1.LblAgendaManuDataAgendada.Text = "Data Agendada: " + reader("Data Agendada")
                 Form1.LblAgendaManuTipo.Text = "Tipo: " + reader.GetString("Tipo")
                 Form1.LblAgendaManuKMAgendado.Text = "KM Agendados: " + reader.GetString("KM Agendados")
@@ -1308,8 +1307,6 @@ Module SQL
         If Tabela = "DespEdit" Then
             Comando = New MySqlCommand
             Comando.Connection = ligacao
-            'select Coddesp,Data_Efetuada as Data,fornecedores.Nome as Fornecedor,tipodesp.nome as Tipo ,Valor,concat(Veiculo_km,' KM') as '" + "QuilometrosMUDAR" + "',concat(Marca, ' ', Modelo,' ',Ano,' ',Matricula) as veiculo,Nome_Registo as Utilizador from despesas,Veiculos,Fornecedores,Utilizador,TipoDesp where Despesas.codvei=veiculos.codvei and Despesas.codforn=Fornecedores.codforn and Despesas.coduser=Utilizador.coduser and Despesas.codtipod=tipodesp.codtipod and efetuada='Sim'  and Veiculos.CodVei='" + DetalhesUtilizador.CodVeiculo.ToString + "'"
-            Comando.CommandText = "select * from Manutencao,veiculos,fornecedores,tipomanu where Veiculos.Codvei=manutencao.CodVei and fornecedores.Codforn=manutencao.Codforn and tipomanu.CodtipoM=manutencao.codtipom and CodManu=" + Id + ""
             Comando.CommandText = "select * from despesas,Veiculos,Fornecedores,Utilizador,TipoDesp where Despesas.codvei=veiculos.codvei and Despesas.codforn=Fornecedores.codforn and Despesas.coduser=Utilizador.coduser and Despesas.codtipod=tipodesp.codtipod and CodDesp=" + Id + ""
             Try
                 ligacao.Open()
@@ -1321,6 +1318,31 @@ Module SQL
                     Form1.LstInserirFornecedor.SelectedValue = reader.GetString("CodForn")
                     Form1.LstInserirTipo.SelectedValue = reader.GetString("CodTipoD")
                 End While
+                ligacao.Close()
+            Catch ex As Exception
+                ligacao.Close()
+                MsgBox(ex.ToString)
+                Exit Sub
+            End Try
+        End If
+        If Tabela = "AgendaDespReagendar" Then
+
+            Comando = New MySqlCommand
+            Comando.Connection = ligacao
+            'select Coddesp,Data_Efetuada as Data,fornecedores.Nome as Fornecedor,tipodesp.nome as Tipo ,Valor,concat(Veiculo_km,' KM') as '" + "QuilometrosMUDAR" + "',concat(Marca, ' ', Modelo,' ',Ano,' ',Matricula) as veiculo,Nome_Registo as Utilizador from despesas,Veiculos,Fornecedores,Utilizador,TipoDesp where Despesas.codvei=veiculos.codvei and Despesas.codforn=Fornecedores.codforn and Despesas.coduser=Utilizador.coduser and Despesas.codtipod=tipodesp.codtipod and efetuada='Sim'  and Veiculos.CodVei='" + DetalhesUtilizador.CodVeiculo.ToString + "'"
+            Comando.CommandText = "select * from despesas,Veiculos,Fornecedores,Utilizador,TipoDesp where Despesas.codvei=veiculos.codvei and Despesas.codforn=Fornecedores.codforn and Despesas.coduser=Utilizador.coduser and Despesas.codtipod=tipodesp.codtipod and CodDesp=" + Id + ""
+            Try
+                ligacao.Open()
+                reader = Comando.ExecuteReader
+                While reader.Read
+                    Form1.TxtInserirQuilometros.Text = reader.GetString("Veiculo_Km_Agendado")
+                    Form1.TxtInserirNota.Text = reader.GetString("Nota")
+                    Form1.LstInserirLembrarPor.Text = reader.GetString("LembrarPor")
+                    Form1.CmbInserirAno.Text = String.Format("{0:yyyy}", reader("Data_agendada"))
+                    Form1.CmbInserirMes.Text = String.Format("{0:MM}", reader("Data_agendada"))
+                    Form1.CmbInserirDia.Text = String.Format("{0:dd}", reader("Data_agendada"))
+                End While
+
                 ligacao.Close()
             Catch ex As Exception
                 ligacao.Close()
@@ -1422,6 +1444,36 @@ Module SQL
         End If
 
         If Tabela = "DespEdit" Then
+            Try
+                Comando = New MySqlCommand("Update Despesas set Veiculo_KM='" + Val(Form1.TxtInserirQuilometros.Text).ToString + "',CodTipoD='" + Form1.LstInserirTipo.SelectedValue.ToString + "',Valor='" + Val(Form1.TxtInserirValor.Text).ToString + "',Nota='" + Form1.TxtInserirNota.Text.ToString + "',Codforn='" + Form1.LstInserirFornecedor.SelectedValue.ToString + "' where CodDesp='" + IDSelecionado + "'", ligacao)
+                ligacao.Open()
+                Comando.ExecuteNonQuery()
+                ligacao.Close()
+                MsgBox("Editado com sucesso")
+                Exit Sub
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+                ligacao.Close()
+                Exit Sub
+            End Try
+        End If
+
+        If Tabela = "AgendaDespReagendar" Then
+            Try
+                Comando = New MySqlCommand("Update Despesas set Veiculo_KM='" + Val(Form1.TxtInserirQuilometros.Text).ToString + "',CodTipoD='" + Form1.LstInserirTipo.SelectedValue.ToString + "',Valor='" + Val(Form1.TxtInserirValor.Text).ToString + "',Nota='" + Form1.TxtInserirNota.Text.ToString + "',Codforn='" + Form1.LstInserirFornecedor.SelectedValue.ToString + "' where CodDesp='" + IDSelecionado + "'", ligacao)
+                ligacao.Open()
+                Comando.ExecuteNonQuery()
+                ligacao.Close()
+                MsgBox("Editado com sucesso")
+                Exit Sub
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+                ligacao.Close()
+                Exit Sub
+            End Try
+        End If
+
+        If Tabela = "AgendaDespExecutar" Then
             Try
                 Comando = New MySqlCommand("Update Despesas set Veiculo_KM='" + Val(Form1.TxtInserirQuilometros.Text).ToString + "',CodTipoD='" + Form1.LstInserirTipo.SelectedValue.ToString + "',Valor='" + Val(Form1.TxtInserirValor.Text).ToString + "',Nota='" + Form1.TxtInserirNota.Text.ToString + "',Codforn='" + Form1.LstInserirFornecedor.SelectedValue.ToString + "' where CodDesp='" + IDSelecionado + "'", ligacao)
                 ligacao.Open()

@@ -169,8 +169,6 @@ Partial Class Form1
         Me.LblInserirManuTipo = New System.Windows.Forms.Label()
         Me.CmbInserirDia = New System.Windows.Forms.ComboBox()
         Me.CmbInserirMes = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.CmbInserirAno = New System.Windows.Forms.ComboBox()
         Me.LblInserirDataAgendada = New System.Windows.Forms.Label()
         Me.LstInserirLembrarPor = New System.Windows.Forms.ListBox()
@@ -187,6 +185,8 @@ Partial Class Form1
         Me.LblInserirQuantiade = New System.Windows.Forms.Label()
         Me.LblInserirValor = New System.Windows.Forms.Label()
         Me.LblInserirTitulo = New System.Windows.Forms.Label()
+        Me.BtnImagemInserirCancelar = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemInserirInserir = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAgendaDespReagendar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAgendaDespApagar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAgendaDespExecutar = New GestFrotPAP.BtnImagem()
@@ -199,8 +199,6 @@ Partial Class Form1
         Me.BtnImagemAgendaManu = New GestFrotPAP.BtnImagem()
         Me.BtnImagemDespEdit = New GestFrotPAP.BtnImagem()
         Me.BtnImagemDespInsert = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemInserirCancelar = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemInserirInserir = New GestFrotPAP.BtnImagem()
         Me.BtnImagemManuEdit = New GestFrotPAP.BtnImagem()
         Me.BtnImagemManuInsert = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAbastEdit = New GestFrotPAP.BtnImagem()
@@ -1837,8 +1835,6 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.LblInserirManuTipo)
         Me.Panel1.Controls.Add(Me.CmbInserirDia)
         Me.Panel1.Controls.Add(Me.CmbInserirMes)
-        Me.Panel1.Controls.Add(Me.TextBox1)
-        Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.CmbInserirAno)
         Me.Panel1.Controls.Add(Me.LblInserirDataAgendada)
         Me.Panel1.Controls.Add(Me.LstInserirLembrarPor)
@@ -1917,28 +1913,6 @@ Partial Class Form1
         Me.CmbInserirMes.TabIndex = 27
         Me.CmbInserirMes.Text = "Mês"
         '
-        'TextBox1
-        '
-        Me.TextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox1.ForeColor = System.Drawing.Color.White
-        Me.TextBox1.Location = New System.Drawing.Point(211, 240)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(154, 13)
-        Me.TextBox1.TabIndex = 26
-        Me.TextBox1.TabStop = False
-        Me.TextBox1.Text = "0"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(10, 240)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(62, 13)
-        Me.Label5.TabIndex = 25
-        Me.Label5.Text = "Quilometros"
-        '
         'CmbInserirAno
         '
         Me.CmbInserirAno.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
@@ -1963,13 +1937,12 @@ Partial Class Form1
         Me.LblInserirDataAgendada.Name = "LblInserirDataAgendada"
         Me.LblInserirDataAgendada.Size = New System.Drawing.Size(79, 13)
         Me.LblInserirDataAgendada.TabIndex = 21
-        Me.LblInserirDataAgendada.Text = "Data Efetuado:"
+        Me.LblInserirDataAgendada.Text = "Data Efetuada:"
         '
         'LstInserirLembrarPor
         '
         Me.LstInserirLembrarPor.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.LstInserirLembrarPor.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LstInserirLembrarPor.Enabled = False
         Me.LstInserirLembrarPor.ForeColor = System.Drawing.Color.White
         Me.LstInserirLembrarPor.FormattingEnabled = True
         Me.LstInserirLembrarPor.Items.AddRange(New Object() {"Nada", "KM", "DATA", "KM e DATA"})
@@ -1981,7 +1954,6 @@ Partial Class Form1
         'LblInserirLembrarPor
         '
         Me.LblInserirLembrarPor.AutoSize = True
-        Me.LblInserirLembrarPor.Enabled = False
         Me.LblInserirLembrarPor.ForeColor = System.Drawing.Color.White
         Me.LblInserirLembrarPor.Location = New System.Drawing.Point(10, 159)
         Me.LblInserirLembrarPor.Name = "LblInserirLembrarPor"
@@ -2120,6 +2092,38 @@ Partial Class Form1
         Me.LblInserirTitulo.Size = New System.Drawing.Size(121, 13)
         Me.LblInserirTitulo.TabIndex = 2
         Me.LblInserirTitulo.Text = "Nome de tabela a inserir"
+        '
+        'BtnImagemInserirCancelar
+        '
+        Me.BtnImagemInserirCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemInserirCancelar.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemInserirCancelar.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemInserirCancelar.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemInserirCancelar.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemInserirCancelar.EstadoBotao = False
+        Me.BtnImagemInserirCancelar.Imagem = Nothing
+        Me.BtnImagemInserirCancelar.Location = New System.Drawing.Point(205, 401)
+        Me.BtnImagemInserirCancelar.Name = "BtnImagemInserirCancelar"
+        Me.BtnImagemInserirCancelar.Size = New System.Drawing.Size(170, 44)
+        Me.BtnImagemInserirCancelar.TabIndex = 1
+        Me.BtnImagemInserirCancelar.TamanhoLetra = 10
+        Me.BtnImagemInserirCancelar.Texto = "Cancelar"
+        '
+        'BtnImagemInserirInserir
+        '
+        Me.BtnImagemInserirInserir.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemInserirInserir.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemInserirInserir.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemInserirInserir.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemInserirInserir.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemInserirInserir.EstadoBotao = False
+        Me.BtnImagemInserirInserir.Imagem = Nothing
+        Me.BtnImagemInserirInserir.Location = New System.Drawing.Point(3, 401)
+        Me.BtnImagemInserirInserir.Name = "BtnImagemInserirInserir"
+        Me.BtnImagemInserirInserir.Size = New System.Drawing.Size(170, 44)
+        Me.BtnImagemInserirInserir.TabIndex = 0
+        Me.BtnImagemInserirInserir.TamanhoLetra = 10
+        Me.BtnImagemInserirInserir.Texto = "Inserir"
         '
         'BtnImagemAgendaDespReagendar
         '
@@ -2312,38 +2316,6 @@ Partial Class Form1
         Me.BtnImagemDespInsert.TabIndex = 48
         Me.BtnImagemDespInsert.TamanhoLetra = 10
         Me.BtnImagemDespInsert.Texto = "Inserir"
-        '
-        'BtnImagemInserirCancelar
-        '
-        Me.BtnImagemInserirCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemInserirCancelar.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemInserirCancelar.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagemInserirCancelar.CorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagemInserirCancelar.CorTexto = System.Drawing.Color.White
-        Me.BtnImagemInserirCancelar.EstadoBotao = False
-        Me.BtnImagemInserirCancelar.Imagem = Nothing
-        Me.BtnImagemInserirCancelar.Location = New System.Drawing.Point(205, 401)
-        Me.BtnImagemInserirCancelar.Name = "BtnImagemInserirCancelar"
-        Me.BtnImagemInserirCancelar.Size = New System.Drawing.Size(170, 44)
-        Me.BtnImagemInserirCancelar.TabIndex = 1
-        Me.BtnImagemInserirCancelar.TamanhoLetra = 10
-        Me.BtnImagemInserirCancelar.Texto = "Cancelar"
-        '
-        'BtnImagemInserirInserir
-        '
-        Me.BtnImagemInserirInserir.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemInserirInserir.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemInserirInserir.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagemInserirInserir.CorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagemInserirInserir.CorTexto = System.Drawing.Color.White
-        Me.BtnImagemInserirInserir.EstadoBotao = False
-        Me.BtnImagemInserirInserir.Imagem = Nothing
-        Me.BtnImagemInserirInserir.Location = New System.Drawing.Point(3, 401)
-        Me.BtnImagemInserirInserir.Name = "BtnImagemInserirInserir"
-        Me.BtnImagemInserirInserir.Size = New System.Drawing.Size(170, 44)
-        Me.BtnImagemInserirInserir.TabIndex = 0
-        Me.BtnImagemInserirInserir.TamanhoLetra = 10
-        Me.BtnImagemInserirInserir.Texto = "Inserir"
         '
         'BtnImagemManuEdit
         '
@@ -2650,9 +2622,9 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1000, 500)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel4)
-        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PnlHome)
@@ -2874,8 +2846,6 @@ Partial Class Form1
     Friend WithEvents LblInserirLembrarPor As System.Windows.Forms.Label
     Friend WithEvents LblInserirDataAgendada As System.Windows.Forms.Label
     Friend WithEvents CmbInserirAno As System.Windows.Forms.ComboBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents CmbInserirMes As System.Windows.Forms.ComboBox
     Friend WithEvents CmbInserirDia As System.Windows.Forms.ComboBox
     Friend WithEvents BtnImagemAbastEdit As GestFrotPAP.BtnImagem

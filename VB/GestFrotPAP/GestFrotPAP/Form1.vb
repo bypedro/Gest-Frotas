@@ -549,9 +549,13 @@ Public Class Form1
         TxtInserirQuilometros.Text = ""
         TxtInserirQuantidade.Text = ""
         TxtInserirValor.Text = ""
+        LblInserirQuilometros.Text = "Quilometros:"
         TxtInserirNota.Text = ""
         TxtInserirQuilometros.Enabled = True
         Panel1.Hide()
+        CmbInserirAno.Invalidate()
+        CmbInserirDia.Invalidate()
+        CmbInserirMes.Invalidate()
     End Sub
 
     Private Sub BtnImagemInserirInserir_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemInserirInserir.ButtonClickMasterRace
@@ -583,6 +587,12 @@ Public Class Form1
         End If
 
         Panel1.Hide()
+        TxtInserirQuilometros.Text = ""
+        TxtInserirQuantidade.Text = ""
+        TxtInserirValor.Text = ""
+        TxtInserirNota.Text = ""
+        LblInserirDataAgendada.Text = "Data Efetuada:"
+        LblInserirQuilometros.Text = "Quilometros:"
         TxtInserirQuilometros.Enabled = True
     End Sub
 
@@ -605,6 +615,28 @@ Public Class Form1
         If LstVAgendaDesp.SelectedItems.Count > 0 Then
             ApagarDados("despesas", LstVAgendaDesp.SelectedItems(0).Text.ToString)
             AgendaVer()
+        Else
+            MsgBox("Selecione a despesa")
+        End If
+    End Sub
+
+    Private Sub BtnImagemAgendaDespReagendar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAgendaDespReagendar.ButtonClickMasterRace
+        Botao(BtnImagemAgendaDespReagendar)
+        If LstVAgendaDesp.SelectedItems.Count > 0 Then
+            Panel1.Show()
+            Panel1.BringToFront()
+            Inserir_EditarTabelaSQL("AgendaDespReagendar", LstVAgendaDesp.SelectedItems(0).Text.ToString)
+        Else
+            MsgBox("Selecione a despesa")
+        End If
+    End Sub
+
+    Private Sub BtnImagemAgendaDespExecutar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAgendaDespExecutar.ButtonClickMasterRace
+        Botao(BtnImagemAgendaDespExecutar)
+        If LstVAgendaDesp.SelectedItems.Count > 0 Then
+            Panel1.Show()
+            Panel1.BringToFront()
+            Inserir_EditarTabelaSQL("AgendaDespExecutar", LstVAgendaDesp.SelectedItems(0).Text.ToString)
         Else
             MsgBox("Selecione a despesa")
         End If

@@ -586,6 +586,29 @@
             Form1.LstInserirTipo.Top = Form1.LblInserirFornecedor.Bottom + 27
             Form1.LblInserirManuTipo.Top = Form1.LblInserirFornecedor.Bottom + 27
 
+        ElseIf Tabela = "AgendaDespReagendar" Then
+            Form1.LblInserirTitulo.Text = "Reagendar Despesa"
+            Form1.BtnImagemInserirInserir.Texto = "Reagendar"
+            Form1.LblInserirQuilometros.Text = "Quilometros agendados:"
+            Form1.LblInserirDataAgendada.Text = "Data agendada:"
+
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirDataAgendada.Show()
+            Form1.CmbInserirDia.Show()
+            Form1.CmbInserirAno.Show()
+            Form1.CmbInserirMes.Show()
+
+            Form1.LstInserirLembrarPor.Show()
+            Form1.LblInserirLembrarPor.Show()
+
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+
+            Form1.LstInserirTipo.Top = Form1.LblInserirFornecedor.Bottom + 27
+            Form1.LblInserirManuTipo.Top = Form1.LblInserirFornecedor.Bottom + 27
 
 
         Else
@@ -631,7 +654,7 @@
             Form1.LstVManu.Columns(4).Width = 100
             Form1.LstVManu.AutoResizeColumn(5, ColumnHeaderAutoResizeStyle.ColumnContent)
             Form1.LstVManu.AutoResizeColumn(6, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVManu.AutoResizeColumn(7, ColumnHeaderAutoResizeStyle.ColumnContent)
+            Form1.LstVManu.Columns(7).Width = 100
 
             Form1.LstVManu.Columns(0).TextAlign = HorizontalAlignment.Center
             Form1.LstVManu.Columns(1).TextAlign = HorizontalAlignment.Center
