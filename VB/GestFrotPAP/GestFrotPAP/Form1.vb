@@ -578,11 +578,14 @@ Public Class Form1
         ElseIf SQL.TabelaSelecionada = "DespEdit" Then
             EditarDados("DespEdit")
             DespesasVer()
-        ElseIf SQL.TabelaSelecionada = "" Then
-            InserirDados("")
+        ElseIf SQL.TabelaSelecionada = "AgendaDespInsert" Then
+            InserirDados("AgendaDespInsert")
             AgendaVer()
-        ElseIf SQL.TabelaSelecionada = "" Then
-            EditarDados("")
+        ElseIf SQL.TabelaSelecionada = "AgendaDespReagendar" Then
+            EditarDados("AgendaDespReagendar")
+            AgendaVer()
+        ElseIf SQL.TabelaSelecionada = "AgendaDespExecutar" Then
+            EditarDados("AgendaDespExecutar")
             AgendaVer()
         End If
 

@@ -610,6 +610,64 @@
             Form1.LstInserirTipo.Top = Form1.LblInserirFornecedor.Bottom + 27
             Form1.LblInserirManuTipo.Top = Form1.LblInserirFornecedor.Bottom + 27
 
+        ElseIf Tabela = "AgendaDespExecutar" Then
+            Form1.LblInserirTitulo.Text = "Novo Despesa"
+            Form1.BtnImagemInserirInserir.Texto = "Inserir"
+
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirUltimoKM.Show()
+            Form1.LblInserirValor.Show()
+            Form1.TxtInserirValor.Show()
+            Form1.LblInserirFornecedor.Show()
+            Form1.LstInserirFornecedor.Show()
+            Form1.LstInserirTipo.Show()
+            Form1.LblInserirManuTipo.Show()
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+            'DATA
+            Form1.LblInserirDataAgendada.Show()
+            Form1.LblInserirDataAgendada.Text = "Data Efetuada"
+            Form1.CmbInserirAno.Show()
+            Form1.CmbInserirDia.Show()
+            Form1.CmbInserirMes.Show()
+            Form1.CmbInserirAno.Text = ""
+            Form1.CmbInserirAno.SelectedText = Year
+            Form1.CmbInserirDia.Text = ""
+            Form1.CmbInserirDia.SelectedText = Day
+            Form1.CmbInserirMes.Text = ""
+            Form1.CmbInserirMes.SelectedText = Month
+
+        ElseIf Tabela = "AgendaDespInsert" Then
+            Form1.LblInserirTitulo.Text = "Agendar Despesa"
+            Form1.BtnImagemInserirInserir.Texto = "Agendar"
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.LblInserirQuilometros.Text = "Quilometros a efetuar:"
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirUltimoKM.Show()
+
+            Form1.LstInserirTipo.Show()
+            Form1.LblInserirManuTipo.Show()
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+            Form1.LblInserirLembrarPor.Show()
+            Form1.LstInserirLembrarPor.Show()
+            'DATA
+            Form1.LblInserirDataAgendada.Show()
+            Form1.LblInserirDataAgendada.Text = "Data a efetuar:"
+            Form1.CmbInserirAno.Show()
+            Form1.CmbInserirDia.Show()
+            Form1.CmbInserirMes.Show()
+            Form1.CmbInserirAno.Text = ""
+            Form1.CmbInserirAno.SelectedText = Year
+            Form1.CmbInserirDia.Text = ""
+            Form1.CmbInserirDia.SelectedText = Day
+            Form1.CmbInserirMes.Text = ""
+            Form1.CmbInserirMes.SelectedText = Month
 
         Else
             MsgBox("TABELA NÂO DEFINIDA")
