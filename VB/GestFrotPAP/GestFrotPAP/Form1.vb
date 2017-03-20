@@ -109,8 +109,6 @@ Public Class Form1
  
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-
-
         'Adiciona evento a todos os objetos do programa(Associados ao form1)(Objetos dentro de paneis necessitao de ser adicionados)
         AddHandler Me.MouseDown, AddressOf c_MouseDown
         For Each c As Control In Me.Controls
@@ -125,7 +123,7 @@ Public Class Form1
         AddHandler LblNomeProjeto.MouseDown, AddressOf c_MouseDown
 
 
-      
+
 
 
         'Adiciona evento a todos os objetos do programa(Só os da microsoft)
@@ -476,7 +474,7 @@ Public Class Form1
     End Sub
 
     Private Sub LstVAgendaManu_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LstVAgendaManu.Click
-        'DetalhesAgendaManu(LstVAgendaManu.SelectedItems(0).Text)
+        DetalhesAgendaManu(LstVAgendaManu.SelectedItems(0).Text)
     End Sub
 
 
@@ -588,17 +586,6 @@ Public Class Form1
         TxtInserirQuilometros.Enabled = True
     End Sub
 
-    Private Sub BtnImagemAgendaManuEdit_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAgendaManuEdit.ButtonClickMasterRace
-        Botao(BtnImagemAgendaManuEdit)
-        If LstVAgendaManu.SelectedItems.Count > 0 Then
-            Panel1.Show()
-            Panel1.BringToFront()
-            Inserir_EditarTabelaSQL("AgendaManuEdit", LstVAgendaManu.SelectedItems(0).Text.ToString)
-        Else
-            MsgBox("Selecione um abastecimento")
-        End If
-    End Sub
-
     Private Sub BtnImagemAgendaManuInsert_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAgendaManuInsert.ButtonClickMasterRace
         Botao(BtnImagemAgendaManuInsert)
         Panel1.Show()
@@ -613,14 +600,13 @@ Public Class Form1
         Inserir_EditarTabelaSQL("AgendaDespInsert")
     End Sub
 
-    Private Sub BtnImagemAgendaDespEdit_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAgendaDespEdit.ButtonClickMasterRace
-        Botao(BtnImagemAgendaDespEdit)
+    Private Sub BtnImagemAgendaDespApagar_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemAgendaDespApagar.ButtonClickMasterRace
+        Botao(BtnImagemAgendaDespApagar)
         If LstVAgendaDesp.SelectedItems.Count > 0 Then
-            Panel1.Show()
-            Panel1.BringToFront()
-            Inserir_EditarTabelaSQL("AgendaDespEdit", LstVAgendaDesp.SelectedItems(0).Text.ToString)
+            ApagarDados("despesas", LstVAgendaDesp.SelectedItems(0).Text.ToString)
+            AgendaVer()
         Else
-            MsgBox("Selecione um abastecimento")
+            MsgBox("Selecione a despesa")
         End If
     End Sub
 End Class

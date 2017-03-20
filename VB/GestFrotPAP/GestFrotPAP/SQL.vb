@@ -2,7 +2,7 @@
 Imports System.Net.Mail
 Module SQL
     Dim DB As String = "frotas"
-    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
+    Dim ligacao As New MySqlConnection("Server=localhost;Database=" + DB + ";Uid=root;Pwd=0000;Connect timeout=30;Convert Zero Datetime=True;") 'MUDAR TALVEZ
     Dim adapter As New MySqlDataAdapter
     Dim Comando As MySqlCommand
     Public DetalhesUtilizador As New UtilizadorDetalhes
@@ -889,7 +889,7 @@ Module SQL
         adapter.SelectCommand = New MySqlCommand
         adapter.SelectCommand.Connection = ligacao
         Dim itemcoll(100) As String
-        adapter.SelectCommand.CommandText = ("select Codmanu,Data_agendada as 'Data Agendada',Veiculo_Km_Agendado as 'KM Agendados',concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,tipoManu.Nome as Tipo, LembrarPor as 'Lembrar por:' from Manutencao,veiculos,fornecedores,tipomanu where Veiculos.Codvei=manutencao.CodVei and fornecedores.Codforn=manutencao.Codforn and tipomanu.CodtipoM=manutencao.codtipom and efetuada='Nao'")
+        adapter.SelectCommand.CommandText = ("select Codmanu,Data_agendada as 'Data Agendada',Veiculo_Km_Agendado as 'KM Agendados',concat(Marca, ' ', Modelo,' ',Ano,' ',Matricula) as veiculo,tipoManu.Nome as Tipo, LembrarPor as 'Lembrar por:' from Manutencao,veiculos,fornecedores,tipomanu where Veiculos.Codvei=manutencao.CodVei and fornecedores.Codforn=manutencao.Codforn and tipomanu.CodtipoM=manutencao.codtipom and efetuada='Nao'")
         Try
             ligacao.Open()
             adapter.Fill(Manutencao, "AgendaManu")
@@ -924,7 +924,7 @@ Module SQL
         Dim Despesa As DataSet = New DataSet
         adapter.SelectCommand = New MySqlCommand
         adapter.SelectCommand.Connection = ligacao
-        adapter.SelectCommand.CommandText = ("select CodDesp,Data_agendada as 'Data Agendada',Veiculo_Km_Agendado as 'KM Agendados',concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,TipoDesp.Nome as Tipo, LembrarPor as 'Lembrar por:' from despesas,Veiculos,Fornecedores,Utilizador,TipoDesp where Despesas.codvei=veiculos.codvei and Despesas.codforn=Fornecedores.codforn and Despesas.coduser=Utilizador.coduser and Despesas.codtipod=tipodesp.codtipod and efetuada='Nao'")
+        adapter.SelectCommand.CommandText = ("select CodDesp,Data_agendada as 'Data Agendada',Veiculo_Km_Agendado as 'KM Agendados',concat(Marca, ' ', Modelo,' ',Ano,' ',Matricula) as veiculo,TipoDesp.Nome as Tipo, LembrarPor as 'Lembrar por:' from despesas,Veiculos,Fornecedores,Utilizador,TipoDesp where Despesas.codvei=veiculos.codvei and Despesas.codforn=Fornecedores.codforn and Despesas.coduser=Utilizador.coduser and Despesas.codtipod=tipodesp.codtipod and efetuada='Nao'")
         Try
             ligacao.Open()
             adapter.Fill(Despesa, "AgendaDesp")
@@ -1154,7 +1154,7 @@ Module SQL
         Form1.LblAgendaDespCod.Text = "Código: " + Cod
         Comando = New MySqlCommand
         Comando.Connection = ligacao
-        Comando.CommandText = ("select Codmanu,Data_agendada as 'Data Agendada',Veiculo_Km_Agendado as 'KM Agendados',concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,tipoManu.Nome as Tipo, LembrarPor as 'Lembrar por:' from Manutencao,veiculos,fornecedores,tipomanu where Veiculos.Codvei=manutencao.CodVei and fornecedores.Codforn=manutencao.Codforn and tipomanu.CodtipoM=manutencao.codtipom and efetuada='Nao' and CodDesp='" + Cod + "'")
+        Comando.CommandText = ("select Coddesp,nota,Data_agendada as 'Data Agendada',Veiculo_Km_Agendado as 'KM Agendados',concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,tipodesp.Nome as Tipo, LembrarPor as 'Lembrar por:' from Despesas,veiculos,fornecedores,tipodesp where Veiculos.Codvei=Despesas.CodVei and fornecedores.Codforn=Despesas.Codforn and tipodesp.CodtipoD=Despesas.CodtipoD and efetuada='Nao' and CodDesp='" + Cod + "'")
         Try
             ligacao.Open()
             reader = Comando.ExecuteReader
@@ -1166,6 +1166,33 @@ Module SQL
                 Form1.LblAgendaDespLembrarPor.Text = "Lembrar por: " + reader.GetString("Lembrar por:")
                 Form1.LblAgendaDespVeiculo.Text = "Veiculo: " + reader.GetString("Veiculo")
                 Form1.TxtAgendaDespNota.Text = reader.GetString("Nota")
+            End While
+            ligacao.Close()
+        Catch ex As Exception
+            ligacao.Close()
+            MsgBox(ex.ToString)
+            Exit Sub
+        End Try
+    End Sub
+
+    Public Sub DetalhesAgendaManu(ByVal Cod As String)
+        Dim Comando As MySqlCommand
+        Dim reader As MySqlDataReader
+        Form1.LblAgendaManuCod.Text = "Código: " + Cod
+        Comando = New MySqlCommand
+        Comando.Connection = ligacao
+        Comando.CommandText = ("select CodManu,nota,Data_agendada as 'Data Agendada',Veiculo_Km_Agendado as 'KM Agendados',concat(Marca, ' ', Modelo,' ',Ano,' Matricula:',Matricula) as veiculo,tipomanu.Nome as Tipo, LembrarPor as 'Lembrar por:' from Manutencao,veiculos,fornecedores,tipomanu where Veiculos.Codvei=Manutencao.CodVei and fornecedores.Codforn=Manutencao.Codforn and TipoManu.CodtipoM=Manutencao.CodtipoM and efetuada='Nao' and Codmanu='" + Cod + "'")
+        Try
+            ligacao.Open()
+            reader = Comando.ExecuteReader
+            While reader.Read
+
+                Form1.LblAgendaManuDataAgendada.Text = "Data Agendada: " + reader("Data Agendada")
+                Form1.LblAgendaManuTipo.Text = "Tipo: " + reader.GetString("Tipo")
+                Form1.LblAgendaManuKMAgendado.Text = "KM Agendados: " + reader.GetString("KM Agendados")
+                Form1.LblAgendaManuLembrarpor.Text = "Lembrar por: " + reader.GetString("Lembrar por:")
+                Form1.LblAgendaManuVeiculo.Text = "Veiculo: " + reader.GetString("Veiculo")
+                Form1.TxtAgendaManuNota.Text = reader.GetString("Nota")
             End While
             ligacao.Close()
         Catch ex As Exception
@@ -1408,7 +1435,29 @@ Module SQL
                 Exit Sub
             End Try
         End If
+    End Sub
 
+    Public Sub ApagarDados(ByVal Tabela As String, ByVal COD As String)
+        Dim NOMECOD As String = ""
+        If Tabela.Contains("manu") Then
+            NOMECOD = "codmanu"
+        ElseIf Tabela.Contains("desp") Then
+            NOMECOD = "coddesp"
+        Else
+            Exit Sub
+        End If
+        Try
+            Comando = New MySqlCommand("Delete from " + Tabela + " where " + NOMECOD + "='" + COD + "'", ligacao)
+            ligacao.Open()
+            Comando.ExecuteNonQuery()
+            ligacao.Close()
+            MsgBox("Apagado com sucesso")
+            Exit Sub
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            ligacao.Close()
+            Exit Sub
+        End Try
     End Sub
 
 
