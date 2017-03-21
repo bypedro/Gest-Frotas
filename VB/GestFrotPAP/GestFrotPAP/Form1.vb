@@ -587,6 +587,15 @@ Public Class Form1
         ElseIf SQL.TabelaSelecionada = "AgendaDespExecutar" Then
             EditarDados("AgendaDespExecutar")
             AgendaVer()
+        ElseIf SQL.TabelaSelecionada = "AgendaManuReagendar" Then
+            EditarDados("AgendaManuReagendar")
+            AgendaVer()
+        ElseIf SQL.TabelaSelecionada = "AgendaManuExecutar" Then
+            EditarDados("AgendaManuExecutar")
+            AgendaVer()
+        ElseIf SQL.TabelaSelecionada = "AgendaManuInsert" Then
+            InserirDados("AgendaManuInsert")
+            AgendaVer()
         End If
 
         Panel1.Hide()
@@ -597,13 +606,6 @@ Public Class Form1
         LblInserirDataAgendada.Text = "Data Efetuada:"
         LblInserirQuilometros.Text = "Quilometros:"
         TxtInserirQuilometros.Enabled = True
-    End Sub
-
-    Private Sub BtnImagemAgendaManuInsert_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAgendaManuInsert.ButtonClickMasterRace
-        Botao(BtnImagemAgendaManuInsert)
-        Panel1.Show()
-        Panel1.BringToFront()
-        Inserir_EditarTabelaSQL("AgendaManuInsert")
     End Sub
 
     Private Sub BtnImagemAgendaDespInsert_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAgendaDespInsert.ButtonClickMasterRace
@@ -640,6 +642,45 @@ Public Class Form1
             Panel1.Show()
             Panel1.BringToFront()
             Inserir_EditarTabelaSQL("AgendaDespExecutar", LstVAgendaDesp.SelectedItems(0).Text.ToString)
+        Else
+            MsgBox("Selecione a despesa")
+        End If
+    End Sub
+
+    Private Sub BtnImagemAgendaManuApagar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAgendaManuApagar.ButtonClickMasterRace
+        Botao(BtnImagemAgendaManuApagar)
+        If LstVAgendaManu.SelectedItems.Count > 0 Then
+            ApagarDados("manutencao", LstVAgendaManu.SelectedItems(0).Text.ToString)
+            AgendaVer()
+        Else
+            MsgBox("Selecione a despesa")
+        End If
+    End Sub
+
+    Private Sub BtnImagemAgendaManuReagemdar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAgendaManuReagendar.ButtonClickMasterRace
+        Botao(BtnImagemAgendaManuReagendar)
+        If LstVAgendaManu.SelectedItems.Count > 0 Then
+            Panel1.Show()
+            Panel1.BringToFront()
+            Inserir_EditarTabelaSQL("AgendaManuReagendar", LstVAgendaManu.SelectedItems(0).Text.ToString)
+        Else
+            MsgBox("Selecione a despesa")
+        End If
+    End Sub
+
+    Private Sub BtnImagemAgendaManuInsert_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAgendaManuInsert.ButtonClickMasterRace
+        Botao(BtnImagemAgendaManuInsert)
+        Panel1.Show()
+        Panel1.BringToFront()
+        Inserir_EditarTabelaSQL("AgendaManuInsert")
+    End Sub
+
+    Private Sub BtnImagemAgendaManuExecutar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAgendaManuExecutar.ButtonClickMasterRace
+        Botao(BtnImagemAgendaManuExecutar)
+        If LstVAgendaManu.SelectedItems.Count > 0 Then
+            Panel1.Show()
+            Panel1.BringToFront()
+            Inserir_EditarTabelaSQL("AgendaManuExecutar", LstVAgendaManu.SelectedItems(0).Text.ToString)
         Else
             MsgBox("Selecione a despesa")
         End If
