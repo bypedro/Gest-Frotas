@@ -185,8 +185,11 @@ Partial Class Form1
         Me.LblInserirQuantiade = New System.Windows.Forms.Label()
         Me.LblInserirValor = New System.Windows.Forms.Label()
         Me.LblInserirTitulo = New System.Windows.Forms.Label()
-        Me.BtnImagemInserirCancelar = New GestFrotPAP.BtnImagem()
-        Me.BtnImagemInserirInserir = New GestFrotPAP.BtnImagem()
+        Me.PnlAdminUtilizador = New System.Windows.Forms.Panel()
+        Me.PnlAdminVeiculos = New System.Windows.Forms.Panel()
+        Me.BtnImagemAdminUtilizador = New GestFrotPAP.BtnImagem()
+        Me.BtnImagem10 = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemAdminVeiculos = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAgendaManuReagendar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAgendaManuApagar = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAgendaManuExecutar = New GestFrotPAP.BtnImagem()
@@ -197,6 +200,8 @@ Partial Class Form1
         Me.BtnImagemAgendaDespInsert = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAgendaDesp = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAgendaManu = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemInserirCancelar = New GestFrotPAP.BtnImagem()
+        Me.BtnImagemInserirInserir = New GestFrotPAP.BtnImagem()
         Me.BtnImagemDespEdit = New GestFrotPAP.BtnImagem()
         Me.BtnImagemDespInsert = New GestFrotPAP.BtnImagem()
         Me.BtnImagemManuEdit = New GestFrotPAP.BtnImagem()
@@ -246,6 +251,7 @@ Partial Class Form1
         Me.PnlAgendaDesp.SuspendLayout()
         Me.GrpAgendaDesp.SuspendLayout()
         Me.GrpAgendaDespNota.SuspendLayout()
+        Me.Panel7.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -1815,10 +1821,15 @@ Partial Class Form1
         '
         'Panel7
         '
-        Me.Panel7.BackColor = System.Drawing.Color.White
-        Me.Panel7.Location = New System.Drawing.Point(445, 254)
+        Me.Panel7.BackColor = System.Drawing.Color.Gray
+        Me.Panel7.Controls.Add(Me.BtnImagemAdminUtilizador)
+        Me.Panel7.Controls.Add(Me.PnlAdminVeiculos)
+        Me.Panel7.Controls.Add(Me.PnlAdminUtilizador)
+        Me.Panel7.Controls.Add(Me.BtnImagem10)
+        Me.Panel7.Controls.Add(Me.BtnImagemAdminVeiculos)
+        Me.Panel7.Location = New System.Drawing.Point(32, 30)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(50, 50)
+        Me.Panel7.Size = New System.Drawing.Size(968, 470)
         Me.Panel7.TabIndex = 16
         Me.Panel7.Visible = False
         '
@@ -2093,37 +2104,70 @@ Partial Class Form1
         Me.LblInserirTitulo.TabIndex = 2
         Me.LblInserirTitulo.Text = "Nome de tabela a inserir"
         '
-        'BtnImagemInserirCancelar
+        'PnlAdminUtilizador
         '
-        Me.BtnImagemInserirCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemInserirCancelar.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemInserirCancelar.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagemInserirCancelar.CorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagemInserirCancelar.CorTexto = System.Drawing.Color.White
-        Me.BtnImagemInserirCancelar.EstadoBotao = False
-        Me.BtnImagemInserirCancelar.Imagem = Nothing
-        Me.BtnImagemInserirCancelar.Location = New System.Drawing.Point(205, 401)
-        Me.BtnImagemInserirCancelar.Name = "BtnImagemInserirCancelar"
-        Me.BtnImagemInserirCancelar.Size = New System.Drawing.Size(170, 44)
-        Me.BtnImagemInserirCancelar.TabIndex = 1
-        Me.BtnImagemInserirCancelar.TamanhoLetra = 10
-        Me.BtnImagemInserirCancelar.Texto = "Cancelar"
+        Me.PnlAdminUtilizador.BackColor = System.Drawing.Color.DarkRed
+        Me.PnlAdminUtilizador.Location = New System.Drawing.Point(-1, 43)
+        Me.PnlAdminUtilizador.Name = "PnlAdminUtilizador"
+        Me.PnlAdminUtilizador.Size = New System.Drawing.Size(200, 100)
+        Me.PnlAdminUtilizador.TabIndex = 3
         '
-        'BtnImagemInserirInserir
+        'PnlAdminVeiculos
         '
-        Me.BtnImagemInserirInserir.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemInserirInserir.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BtnImagemInserirInserir.CorHover = System.Drawing.Color.Gray
-        Me.BtnImagemInserirInserir.CorSelecionado = System.Drawing.Color.SteelBlue
-        Me.BtnImagemInserirInserir.CorTexto = System.Drawing.Color.White
-        Me.BtnImagemInserirInserir.EstadoBotao = False
-        Me.BtnImagemInserirInserir.Imagem = Nothing
-        Me.BtnImagemInserirInserir.Location = New System.Drawing.Point(3, 401)
-        Me.BtnImagemInserirInserir.Name = "BtnImagemInserirInserir"
-        Me.BtnImagemInserirInserir.Size = New System.Drawing.Size(170, 44)
-        Me.BtnImagemInserirInserir.TabIndex = 0
-        Me.BtnImagemInserirInserir.TamanhoLetra = 10
-        Me.BtnImagemInserirInserir.Texto = "Inserir"
+        Me.PnlAdminVeiculos.BackColor = System.Drawing.Color.LightGreen
+        Me.PnlAdminVeiculos.Location = New System.Drawing.Point(209, 53)
+        Me.PnlAdminVeiculos.Name = "PnlAdminVeiculos"
+        Me.PnlAdminVeiculos.Size = New System.Drawing.Size(200, 100)
+        Me.PnlAdminVeiculos.TabIndex = 4
+        Me.PnlAdminVeiculos.Visible = False
+        '
+        'BtnImagemAdminUtilizador
+        '
+        Me.BtnImagemAdminUtilizador.BackColor = System.Drawing.Color.SteelBlue
+        Me.BtnImagemAdminUtilizador.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemAdminUtilizador.CorHover = System.Drawing.Color.LightSlateGray
+        Me.BtnImagemAdminUtilizador.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemAdminUtilizador.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemAdminUtilizador.EstadoBotao = True
+        Me.BtnImagemAdminUtilizador.Imagem = Nothing
+        Me.BtnImagemAdminUtilizador.Location = New System.Drawing.Point(0, 0)
+        Me.BtnImagemAdminUtilizador.Name = "BtnImagemAdminUtilizador"
+        Me.BtnImagemAdminUtilizador.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagemAdminUtilizador.TabIndex = 0
+        Me.BtnImagemAdminUtilizador.TamanhoLetra = 10
+        Me.BtnImagemAdminUtilizador.Texto = "Utilizador"
+        '
+        'BtnImagem10
+        '
+        Me.BtnImagem10.BackColor = System.Drawing.Color.DarkCyan
+        Me.BtnImagem10.CorFundo = System.Drawing.Color.DarkCyan
+        Me.BtnImagem10.CorHover = System.Drawing.Color.LightSlateGray
+        Me.BtnImagem10.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagem10.CorTexto = System.Drawing.Color.White
+        Me.BtnImagem10.EstadoBotao = False
+        Me.BtnImagem10.Imagem = Nothing
+        Me.BtnImagem10.Location = New System.Drawing.Point(400, 0)
+        Me.BtnImagem10.Name = "BtnImagem10"
+        Me.BtnImagem10.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagem10.TabIndex = 2
+        Me.BtnImagem10.TamanhoLetra = 10
+        Me.BtnImagem10.Texto = "UNKNOW"
+        '
+        'BtnImagemAdminVeiculos
+        '
+        Me.BtnImagemAdminVeiculos.BackColor = System.Drawing.Color.PowderBlue
+        Me.BtnImagemAdminVeiculos.CorFundo = System.Drawing.Color.PowderBlue
+        Me.BtnImagemAdminVeiculos.CorHover = System.Drawing.Color.LightSlateGray
+        Me.BtnImagemAdminVeiculos.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemAdminVeiculos.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemAdminVeiculos.EstadoBotao = False
+        Me.BtnImagemAdminVeiculos.Imagem = Nothing
+        Me.BtnImagemAdminVeiculos.Location = New System.Drawing.Point(200, 0)
+        Me.BtnImagemAdminVeiculos.Name = "BtnImagemAdminVeiculos"
+        Me.BtnImagemAdminVeiculos.Size = New System.Drawing.Size(200, 44)
+        Me.BtnImagemAdminVeiculos.TabIndex = 1
+        Me.BtnImagemAdminVeiculos.TamanhoLetra = 10
+        Me.BtnImagemAdminVeiculos.Texto = "Veiculos"
         '
         'BtnImagemAgendaManuReagendar
         '
@@ -2284,6 +2328,38 @@ Partial Class Form1
         Me.BtnImagemAgendaManu.TabIndex = 5
         Me.BtnImagemAgendaManu.TamanhoLetra = 10
         Me.BtnImagemAgendaManu.Texto = "Agenda Manutenção"
+        '
+        'BtnImagemInserirCancelar
+        '
+        Me.BtnImagemInserirCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemInserirCancelar.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemInserirCancelar.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemInserirCancelar.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemInserirCancelar.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemInserirCancelar.EstadoBotao = False
+        Me.BtnImagemInserirCancelar.Imagem = Nothing
+        Me.BtnImagemInserirCancelar.Location = New System.Drawing.Point(205, 401)
+        Me.BtnImagemInserirCancelar.Name = "BtnImagemInserirCancelar"
+        Me.BtnImagemInserirCancelar.Size = New System.Drawing.Size(170, 44)
+        Me.BtnImagemInserirCancelar.TabIndex = 1
+        Me.BtnImagemInserirCancelar.TamanhoLetra = 10
+        Me.BtnImagemInserirCancelar.Texto = "Cancelar"
+        '
+        'BtnImagemInserirInserir
+        '
+        Me.BtnImagemInserirInserir.BackColor = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemInserirInserir.CorFundo = System.Drawing.Color.FromArgb(CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BtnImagemInserirInserir.CorHover = System.Drawing.Color.Gray
+        Me.BtnImagemInserirInserir.CorSelecionado = System.Drawing.Color.SteelBlue
+        Me.BtnImagemInserirInserir.CorTexto = System.Drawing.Color.White
+        Me.BtnImagemInserirInserir.EstadoBotao = False
+        Me.BtnImagemInserirInserir.Imagem = Nothing
+        Me.BtnImagemInserirInserir.Location = New System.Drawing.Point(3, 401)
+        Me.BtnImagemInserirInserir.Name = "BtnImagemInserirInserir"
+        Me.BtnImagemInserirInserir.Size = New System.Drawing.Size(170, 44)
+        Me.BtnImagemInserirInserir.TabIndex = 0
+        Me.BtnImagemInserirInserir.TamanhoLetra = 10
+        Me.BtnImagemInserirInserir.Texto = "Inserir"
         '
         'BtnImagemDespEdit
         '
@@ -2623,13 +2699,13 @@ Partial Class Form1
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1000, 500)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PnlHome)
         Me.Controls.Add(Me.PnlDefUtilizador)
-        Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.PnlUser)
         Me.Controls.Add(Me.PnlLogin)
@@ -2689,6 +2765,7 @@ Partial Class Form1
         Me.GrpAgendaDesp.PerformLayout()
         Me.GrpAgendaDespNota.ResumeLayout(False)
         Me.GrpAgendaDespNota.PerformLayout()
+        Me.Panel7.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
@@ -2888,5 +2965,10 @@ Partial Class Form1
     Friend WithEvents BtnImagemAgendaDespApagar As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagemAgendaDespExecutar As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagemAgendaManuApagar As GestFrotPAP.BtnImagem
+    Friend WithEvents BtnImagem10 As GestFrotPAP.BtnImagem
+    Friend WithEvents BtnImagemAdminVeiculos As GestFrotPAP.BtnImagem
+    Friend WithEvents BtnImagemAdminUtilizador As GestFrotPAP.BtnImagem
+    Friend WithEvents PnlAdminVeiculos As System.Windows.Forms.Panel
+    Friend WithEvents PnlAdminUtilizador As System.Windows.Forms.Panel
 
 End Class

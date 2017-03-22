@@ -23,6 +23,10 @@ Public Class Form1
     Dim BtnImagemMenuAgenda(NMenuAgenda) As BtnImagem
     Dim panelMenuAgenda(NMenuAgenda) As Panel
 
+    Dim NMenuAdmin As Integer = 1 '  'Nº butões
+    Dim BtnImagemMenuAdmin(NMenuAdmin) As BtnImagem
+    Dim panelMenuAdmin(NMenuAdmin) As Panel
+
     Private Sub MenuPrincipal(ByVal c As Integer, Optional ByVal MenuDefault As Boolean = False, Optional ByVal MenuHome As Boolean = False)
         Dim a As Integer
         For a = 0 To NMenuPrincipal
@@ -76,6 +80,18 @@ Public Class Form1
                 panelMenuAgenda(a).Hide()
             End If
             panelMenuAgenda(d).Show()
+        Next
+    End Sub
+
+    Private Sub MenuAdmin(ByVal d As Integer)
+        Dim a As Integer
+        For a = 0 To NMenuAdmin
+            If BtnImagemMenuAdmin(a).EstadoBotao = True And a <> d Then
+                BtnImagemMenuAdmin(a).EstadoBotao = False
+                BtnImagemMenuAdmin(a).VerificarEstadoBotao()
+                panelMenuAdmin(a).Hide()
+            End If
+            panelMenuAdmin(d).Show()
         Next
     End Sub
 
@@ -160,6 +176,13 @@ Public Class Form1
         BtnImagemMenuAgenda(1) = BtnImagemAgendaDesp
         panelMenuAgenda(0) = PnlAgendaManu
         panelMenuAgenda(1) = PnlAgendaDesp
+        '
+        'Menu Admin
+        '
+        BtnImagemMenuAdmin(0) = BtnImagemAdminUtilizador
+        BtnImagemMenuAdmin(1) = BtnImagemAdminVeiculos
+        panelMenuAdmin(0) = PnlAdminUtilizador
+        panelMenuAdmin(1) = PnlAdminVeiculos
 
         'Arrays de Objetos
 
@@ -343,6 +366,21 @@ Public Class Form1
         End If
     End Sub
     Private Sub Panel2_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PnlBarraTop.MouseUp
+        drag = False
+    End Sub
+
+    Private Sub PanelInserir_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseDown
+        drag = True
+        mousex = Windows.Forms.Cursor.Position.X - Panel1.Left
+        mousey = Windows.Forms.Cursor.Position.Y - Panel1.Top
+    End Sub
+    Private Sub PanelInserir_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseMove
+        If drag Then
+            Panel1.Top = Windows.Forms.Cursor.Position.Y - mousey
+            Panel1.Left = Windows.Forms.Cursor.Position.X - mousex
+        End If
+    End Sub
+    Private Sub PanelInserir_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Panel1.MouseUp
         drag = False
     End Sub
 
@@ -716,5 +754,17 @@ Public Class Form1
         Else
             MsgBox("Selecione a despesa")
         End If
+    End Sub
+
+    Private Sub BtnImagemAdminUtilizador_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAdminUtilizador.ButtonClickMasterRace
+        MenuAdmin(0)
+    End Sub
+
+    Private Sub BtnImagemAdminVeiculos_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAdminVeiculos.ButtonClickMasterRace
+        MenuAdmin(1)
+    End Sub
+
+    Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint
+
     End Sub
 End Class
