@@ -241,6 +241,11 @@ Public Class Form1
             TmrSlide1.Enabled = False
             For a = 0 To NMenuPrincipal
                 BtnImagemMenuPrincipal(a).Show()
+                If DetalhesUtilizador.TipoUtilizadorCod = 1 Then
+                    BtnImagemMenuPrincipal(6).Show()
+                Else
+                    BtnImagemMenuPrincipal(6).Hide()
+                End If
             Next
         End If
         BtnMenu1.zEstadoBotao = True
@@ -257,6 +262,11 @@ Public Class Form1
             TmrSlide2.Enabled = False
             For a = 0 To NMenuPrincipal
                 BtnImagemMenuPrincipal(a).Show()
+                If DetalhesUtilizador.TipoUtilizadorCod = 1 Then
+                    BtnImagemMenuPrincipal(6).Show()
+                Else
+                    BtnImagemMenuPrincipal(6).Hide()
+                End If
             Next
         End If
         BtnMenu1.zEstadoBotao = False
@@ -285,14 +295,36 @@ Public Class Form1
     Private Sub BtnImagemLogin_ButtonClickMasterRace(ByVal sender As Object, ByVal e As EventArgs) Handles BtnImagemLogin.ButtonClickMasterRace
         Botao(BtnImagemLogin)
         If Login(TxtUserLogin.Text, HashPassword(TxtPwdLogin.Text)) = True Then
-            'If DetalhesUtilizador.TipoUtilizadorCod = 1 Then 'Só Admin
-            LoadOrder.MenuPrincipalPage()
-            MenuPrincipal(0)
-            ' If
+            If DetalhesUtilizador.TipoUtilizadorCod = 1 Then 'Só Admin
+                LoadOrder.MenuPrincipalPage()
+                BtnImagem2.Show()
+                BtnImagem3.Show()
+                BtnImagem4.Show()
+                BtnImagem5.Show()
+                BtnImagem6.Show()
+                BtnImagem7.Show()
+                BtnImagem7.Show()
+            ElseIf DetalhesUtilizador.TipoUtilizadorCod = 2 Then
+                LoadOrder.MenuPrincipalPage()
+                BtnImagem2.Hide()
+                BtnImagem3.Hide()
+                BtnImagem4.Hide()
+                BtnImagem5.Hide()
+                BtnImagem6.Hide()
+                BtnImagem7.Hide()
+            Else
+                LoadOrder.MenuPrincipalPage()
+                BtnImagem2.Show()
+                BtnImagem3.Show()
+                BtnImagem4.Show()
+                BtnImagem5.Show()
+                BtnImagem6.Show()
+                BtnImagem7.Hide()
+            End If
         Else
 
         End If
-
+        MenuPrincipal(0)
         'LoadOrder.l2()
     End Sub
 
