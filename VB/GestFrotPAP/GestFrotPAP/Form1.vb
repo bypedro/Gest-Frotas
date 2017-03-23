@@ -253,6 +253,10 @@ Public Class Form1
 
     Private Sub BtnImagem7_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagem7.ButtonClickMasterRace
         MenuPrincipal(6, True)
+        BtnImagemAdminUtilizador.EstadoBotao = True
+        MenuAdmin(0)
+        UtilizadorVer()
+        VeiculoVer()
     End Sub
 
     Private Sub TmrSlide1_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles TmrSlide1.Tick
@@ -765,6 +769,26 @@ Public Class Form1
     End Sub
 
     Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
+
+    Private Sub BtnImagemAdminUtilizadorAtivar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAdminUtilizadorAtivar.ButtonClickMasterRace
+        Botao(BtnImagemAdminUtilizadorAtivar)
+    End Sub
+
+    Private Sub BtnImagemAdminUtilizadorEdit_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAdminUtilizadorEdit.ButtonClickMasterRace
+        Botao(BtnImagemAdminUtilizadorEdit)
+    End Sub
+
+    Private Sub BtnImagemAdminUtilizadorInsert_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAdminUtilizadorInsert.ButtonClickMasterRace
+        Botao(BtnImagemAdminUtilizadorInsert)
+    End Sub
+
+    Private Sub BtnImagemAdminUtilizadorInserir_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+    Private Sub BtnImagemAdminUtilizadorEditar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
 End Class

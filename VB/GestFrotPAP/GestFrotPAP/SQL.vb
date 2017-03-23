@@ -202,7 +202,6 @@ Module SQL
     Public Function EditarUtilizador(ByVal Utilizador As String, ByVal NomeProprio As String, ByVal Apelido As String, ByVal DataNasc As String, ByVal DataContrat As String, ByVal PagamentoHora As String, ByVal Genero As String, ByVal Habilitacoes As String, ByVal Notas As String)
         Dim Comando As MySqlCommand
         Try
-
             'Comando = New MySqlCommand("update Utilizador set Nome_Registo='" + Utilizador + "'where CodUser='" + DetalhesUtilizador.CodUser + "'", ligacao)
             'update utilizador set Nome="LOL", Apelido="1" where cout="1"
             Comando = New MySqlCommand("update Utilizador set Nome_Registo='" + Utilizador + "', Nome_Proprio='" + NomeProprio + "', Apelido='" + Apelido + "', Data_Nascimento='" + DataNasc + "', Data_Contratacao='" + DataContrat + "', Pagamentos_Hora='" + PagamentoHora + "', Genero='" + Genero + "', Habilitacoes='" + Habilitacoes + "', Notas_Contracto='" + Notas + "'where CodUser='" + DetalhesUtilizador.CodUser + "'", ligacao)
@@ -226,7 +225,6 @@ Module SQL
         Dim KMManutencao As Integer = 0
         Dim KMAbastecimento As Integer = 0
         Dim KM4 As String = 0
-
         Dim Comando As MySqlCommand
         Dim Objecto As Object
         Try
@@ -244,7 +242,6 @@ Module SQL
             MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         Try
             Comando = New MySqlCommand("select Max(Veiculo_KM) from manutencao where efetuada='sim' and Codvei='" + DetalhesUtilizador.CodVeiculo.ToString + "'", ligacao)
             ligacao.Open()
@@ -260,7 +257,6 @@ Module SQL
             MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         Try
             Comando = New MySqlCommand("select Max(Veiculo_KM) from veiabast where Codvei='" + DetalhesUtilizador.CodVeiculo.ToString + "'", ligacao)
             ligacao.Open()
@@ -276,7 +272,6 @@ Module SQL
             MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         If KMDespesas > KMManutencao And KMDespesas > KMAbastecimento Then
             Max = KMDespesas
             Return Max
@@ -290,15 +285,8 @@ Module SQL
             Return Max
             Exit Function
         End If
-
         Return 0
     End Function
-
-
-
-
-
-
 
     'Buscar Dados
     Public Sub BuscarDadosUtilizador(ByVal Utilizador As String)
@@ -769,7 +757,6 @@ Module SQL
             MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-
         'Agenda
         
 
@@ -917,8 +904,6 @@ Module SQL
         Next
         ListViewSize("LstVAgendaManu")
 
-
-
         '
         'Desp
         Dim Despesa As DataSet = New DataSet
@@ -950,6 +935,76 @@ Module SQL
             Form1.LstVAgendaDesp.Items.Add(lvi)
         Next
         ListViewSize("LstVAgendaDesp")
+    End Sub
+
+    Public Sub UtilizadorVer()
+        Dim Tabelas As DataSet = New DataSet
+        adapter.SelectCommand = New MySqlCommand
+        adapter.SelectCommand.Connection = ligacao
+        Dim itemcoll(100) As String
+        'Trocar KM nas definições do programa..->
+        adapter.SelectCommand.CommandText = ("Select CodUser,CodUser as 'Codigo',Nome_Registo as 'Nome de Registo',Designacao as 'Designação' from utilizador, TipoUser where Utilizador.CodtipoU=TipoUser.CodTipoU")
+        Try
+            ligacao.Open()
+            adapter.Fill(Tabelas, "Utilizador")
+            ligacao.Close()
+        Catch ex As Exception
+            ligacao.Close()
+            MsgBox("ERRO UtilizadorVer")
+            Exit Sub
+        End Try
+        Form1.LstVUtilizador.Font = GetInstance(8, FontStyle.Bold)
+        Form1.LstVUtilizador.Clear()
+        Dim i As Integer = 0
+        Dim j As Integer = 0
+        ' adding the columns in ListView
+        For i = 0 To Tabelas.Tables(0).Columns.Count - 1
+            Form1.LstVUtilizador.Columns.Add(Tabelas.Tables(0).Columns(i).ColumnName.ToString())
+        Next
+        'Now adding the Items in Listview
+        For i = 0 To Tabelas.Tables(0).Rows.Count - 1
+            For j = 0 To Tabelas.Tables(0).Columns.Count - 1
+                itemcoll(j) = Tabelas.Tables(0).Rows(i)(j)
+            Next
+            Dim lvi As New ListViewItem(itemcoll)
+            Form1.LstVUtilizador.Items.Add(lvi)
+        Next
+        ListViewSize("LstVUtilizador")
+    End Sub
+
+    Public Sub VeiculoVer()
+        Dim Tabelas As DataSet = New DataSet
+        adapter.SelectCommand = New MySqlCommand
+        adapter.SelectCommand.Connection = ligacao
+        Dim itemcoll(100) As String
+        'Trocar KM nas definições do programa..->
+        adapter.SelectCommand.CommandText = ("Select Codvei,Codvei as Codigo, Matricula, Marca ,TipoVei.Nome as 'Tipo de Veiculo',TipoCom.nome as 'Tipo de Combustivel' from Veiculos,TipoVei,TipoCom where veiculos.CodtipoV=TipoVei.CodTipoV and Veiculos.CodtipoC=TipoCom.CodTipoc")
+        Try
+            ligacao.Open()
+            adapter.Fill(Tabelas, "Veiculo")
+            ligacao.Close()
+        Catch ex As Exception
+            ligacao.Close()
+            MsgBox("ERRO VeiculoVer")
+            Exit Sub
+        End Try
+        Form1.LstVVeiculo.Font = GetInstance(8, FontStyle.Bold)
+        Form1.LstVVeiculo.Clear()
+        Dim i As Integer = 0
+        Dim j As Integer = 0
+        ' adding the columns in ListView
+        For i = 0 To Tabelas.Tables(0).Columns.Count - 1
+            Form1.LstVVeiculo.Columns.Add(Tabelas.Tables(0).Columns(i).ColumnName.ToString())
+        Next
+        'Now adding the Items in Listview
+        For i = 0 To Tabelas.Tables(0).Rows.Count - 1
+            For j = 0 To Tabelas.Tables(0).Columns.Count - 1
+                itemcoll(j) = Tabelas.Tables(0).Rows(i)(j)
+            Next
+            Dim lvi As New ListViewItem(itemcoll)
+            Form1.LstVVeiculo.Items.Add(lvi)
+        Next
+        ListViewSize("LstVVeiculo")
     End Sub
 
     Public Sub DetalhesAbast(ByVal Cod As String) 'Mudar Metodo
