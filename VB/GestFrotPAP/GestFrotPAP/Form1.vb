@@ -138,7 +138,17 @@ Public Class Form1
         Next
         AddHandler LblNomeProjeto.MouseDown, AddressOf c_MouseDown
 
-
+        Dim p As New Drawing2D.GraphicsPath()
+        p.StartFigure()
+        p.AddArc(New Rectangle(0, 0, 5, 5), 180, 90)
+        p.AddLine(5, 0, Me.Width - 5, 0)
+        p.AddArc(New Rectangle(Me.Width - 5, 0, 5, 5), -90, 90)
+        p.AddLine(Me.Width, 5, Me.Width, Me.Height - 5)
+        p.AddArc(New Rectangle(Me.Width + 5, Me.Height - 5, 5, 5), 90, 90)
+        p.AddLine(Me.Width - 5, Me.Height, 5, Me.Height)
+        p.AddArc(New Rectangle(0, Me.Height - 5, 5, 5), 90, 90)
+        p.CloseFigure()
+        Me.Region = New Region(p)
 
 
 
@@ -791,4 +801,25 @@ Public Class Form1
     Private Sub BtnImagemAdminUtilizadorEditar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
+
+    Private Sub LstVUtilizador_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LstVUtilizador.Click
+        BtnImagemAdminUtilizadorAtivar.EstadoBotao = True
+
+        If LstVUtilizador.SelectedItems.Count > 0 Then
+            If LstVUtilizador.SelectedItems(0).SubItems(3).Text() = "Admin" Then
+                BtnImagemAdminUtilizadorAtivar.Texto = "Editar"
+                BtnImagemAdminUtilizadorAtivar.Enabled = False
+            ElseIf LstVUtilizador.SelectedItems(0).SubItems(3).Text() = "Guest" Or LstVUtilizador.SelectedItems(0).SubItems(3).Text() = "Desativado" Then
+                BtnImagemAdminUtilizadorAtivar.Texto = "Ativar"
+                BtnImagemAdminUtilizadorAtivar.Enabled = True
+                BtnImagemAdminUtilizadorAtivar.EstadoBotao = False
+            Else
+                BtnImagemAdminUtilizadorAtivar.Texto = "Editar"
+                BtnImagemAdminUtilizadorAtivar.Enabled = True
+                BtnImagemAdminUtilizadorAtivar.EstadoBotao = False
+            End If
+        End If
+    End Sub
+
+
 End Class

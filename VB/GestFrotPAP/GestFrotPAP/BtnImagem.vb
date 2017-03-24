@@ -110,7 +110,6 @@ Public Class BtnImagem
 
 
     Private Sub BtnImagem_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
         'TESTE
         'Dim p As New Drawing2D.GraphicsPath()
         ' p.StartFigure()
@@ -138,7 +137,6 @@ Public Class BtnImagem
     End Sub
 
     Public Sub EventoClick()
-        
         If _EstadoBotao = False Then
             Me.BackColor = CorSelecionado
             Me._EstadoBotao = True
@@ -154,8 +152,7 @@ Public Class BtnImagem
     End Sub
 
 
-    Private Sub Btnhover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.MouseEnter, LblTexto.MouseEnter, PctImagem.MouseEnter 'Mousehover tem delay
-        'Talvez em vez de uma cor escolhida por a mesma cor mas mais clara
+    Private Sub Btnhover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.MouseEnter, LblTexto.MouseEnter, PctImagem.MouseEnter
         If _EstadoBotao = False Then
             Me.BackColor = _CorHover
         End If

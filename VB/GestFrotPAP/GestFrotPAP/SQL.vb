@@ -943,7 +943,7 @@ Module SQL
         adapter.SelectCommand.Connection = ligacao
         Dim itemcoll(100) As String
         'Trocar KM nas definições do programa..->
-        adapter.SelectCommand.CommandText = ("Select CodUser,CodUser as 'Codigo',Nome_Registo as 'Nome de Registo',Designacao as 'Designação' from utilizador, TipoUser where Utilizador.CodtipoU=TipoUser.CodTipoU")
+        adapter.SelectCommand.CommandText = ("Select CodUser,CodUser as 'Codigo',Nome_Registo as 'Nome de Registo',Designacao as 'Designação' from utilizador, TipoUser where Utilizador.CodtipoU=TipoUser.CodTipoU order by CodUser")
         Try
             ligacao.Open()
             adapter.Fill(Tabelas, "Utilizador")
