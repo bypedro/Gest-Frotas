@@ -1007,6 +1007,42 @@ Module SQL
         ListViewSize("LstVVeiculo")
     End Sub
 
+
+    Public Sub FornecedorVer()
+        Dim Tabelas As DataSet = New DataSet
+        adapter.SelectCommand = New MySqlCommand
+        adapter.SelectCommand.Connection = ligacao
+        Dim itemcoll(100) As String
+        'Trocar KM nas definições do programa..->
+        adapter.SelectCommand.CommandText = ("Select Codforn,Codforn as Codigo, Fornecedores.Nome ,tipoFor.Nome as 'Tipo de Fornecedor' from fornecedores,Tipofor where fornecedores.Codtipof=tipoFor.Codtipof")
+        Try
+            ligacao.Open()
+            adapter.Fill(Tabelas, "Veiculo")
+            ligacao.Close()
+        Catch ex As Exception
+            ligacao.Close()
+            MsgBox("ERRO VeiculoVer")
+            Exit Sub
+        End Try
+        Form1.LstVAdminFornecedores.Font = GetInstance(8, FontStyle.Bold)
+        Form1.LstVAdminFornecedores.Clear()
+        Dim i As Integer = 0
+        Dim j As Integer = 0
+        ' adding the columns in ListView
+        For i = 0 To Tabelas.Tables(0).Columns.Count - 1
+            Form1.LstVAdminFornecedores.Columns.Add(Tabelas.Tables(0).Columns(i).ColumnName.ToString())
+        Next
+        'Now adding the Items in Listview
+        For i = 0 To Tabelas.Tables(0).Rows.Count - 1
+            For j = 0 To Tabelas.Tables(0).Columns.Count - 1
+                itemcoll(j) = Tabelas.Tables(0).Rows(i)(j)
+            Next
+            Dim lvi As New ListViewItem(itemcoll)
+            Form1.LstVAdminFornecedores.Items.Add(lvi)
+        Next
+        ListViewSize("LstVAdminFornecedores")
+    End Sub
+
     Public Sub DetalhesAbast(ByVal Cod As String) 'Mudar Metodo
         Dim Comando As MySqlCommand
         Dim Objecto As Object

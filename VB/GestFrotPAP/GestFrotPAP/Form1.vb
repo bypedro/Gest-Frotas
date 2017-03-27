@@ -23,7 +23,7 @@ Public Class Form1
     Dim BtnImagemMenuAgenda(NMenuAgenda) As BtnImagem
     Dim panelMenuAgenda(NMenuAgenda) As Panel
 
-    Dim NMenuAdmin As Integer = 1 '  'Nº butões
+    Dim NMenuAdmin As Integer = 3 '  'Nº butões
     Dim BtnImagemMenuAdmin(NMenuAdmin) As BtnImagem
     Dim panelMenuAdmin(NMenuAdmin) As Panel
 
@@ -151,7 +151,6 @@ Public Class Form1
         Me.Region = New Region(p)
 
 
-
         'Adiciona evento a todos os objetos do programa(Só os da microsoft)
 
         'Arrays de Objetos
@@ -191,8 +190,14 @@ Public Class Form1
         '
         BtnImagemMenuAdmin(0) = BtnImagemAdminUtilizador
         BtnImagemMenuAdmin(1) = BtnImagemAdminVeiculos
+        BtnImagemMenuAdmin(2) = BtnImagemAdminFornecedores
+        BtnImagemMenuAdmin(3) = BtnImagemAdminMisc
+
         panelMenuAdmin(0) = PnlAdminUtilizador
         panelMenuAdmin(1) = PnlAdminVeiculos
+        panelMenuAdmin(2) = PnlAdminFornecedores
+        panelMenuAdmin(3) = PnlAdminMisc
+
 
         'Arrays de Objetos
 
@@ -267,6 +272,8 @@ Public Class Form1
         MenuAdmin(0)
         UtilizadorVer()
         VeiculoVer()
+        FornecedorVer()
+
     End Sub
 
     Private Sub TmrSlide1_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles TmrSlide1.Tick
@@ -778,9 +785,14 @@ Public Class Form1
         MenuAdmin(1)
     End Sub
 
-    Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel1.Paint
-
+    Private Sub BtnImagemAdminFornecedores_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAdminFornecedores.ButtonClickMasterRace
+        MenuAdmin(2)
     End Sub
+
+    Private Sub BtnImagemAdminMisc_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAdminMisc.ButtonClickMasterRace
+        MenuAdmin(3)
+    End Sub
+
 
     Private Sub BtnImagemAdminUtilizadorAtivar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAdminUtilizadorAtivar.ButtonClickMasterRace
         Botao(BtnImagemAdminUtilizadorAtivar)
