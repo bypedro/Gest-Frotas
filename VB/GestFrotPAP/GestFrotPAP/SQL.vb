@@ -953,13 +953,13 @@ Module SQL
             MsgBox("ERRO UtilizadorVer")
             Exit Sub
         End Try
-        Form1.LstVUtilizador.Font = GetInstance(8, FontStyle.Bold)
-        Form1.LstVUtilizador.Clear()
+        Form1.LstVAdminUtilizador.Font = GetInstance(8, FontStyle.Bold)
+        Form1.LstVAdminUtilizador.Clear()
         Dim i As Integer = 0
         Dim j As Integer = 0
         ' adding the columns in ListView
         For i = 0 To Tabelas.Tables(0).Columns.Count - 1
-            Form1.LstVUtilizador.Columns.Add(Tabelas.Tables(0).Columns(i).ColumnName.ToString())
+            Form1.LstVAdminUtilizador.Columns.Add(Tabelas.Tables(0).Columns(i).ColumnName.ToString())
         Next
         'Now adding the Items in Listview
         For i = 0 To Tabelas.Tables(0).Rows.Count - 1
@@ -967,7 +967,7 @@ Module SQL
                 itemcoll(j) = Tabelas.Tables(0).Rows(i)(j)
             Next
             Dim lvi As New ListViewItem(itemcoll)
-            Form1.LstVUtilizador.Items.Add(lvi)
+            Form1.LstVAdminUtilizador.Items.Add(lvi)
         Next
         ListViewSize("LstVUtilizador")
     End Sub
@@ -988,13 +988,13 @@ Module SQL
             MsgBox("ERRO VeiculoVer")
             Exit Sub
         End Try
-        Form1.LstVVeiculo.Font = GetInstance(8, FontStyle.Bold)
-        Form1.LstVVeiculo.Clear()
+        Form1.LstVAdminVeiculo.Font = GetInstance(8, FontStyle.Bold)
+        Form1.LstVAdminVeiculo.Clear()
         Dim i As Integer = 0
         Dim j As Integer = 0
         ' adding the columns in ListView
         For i = 0 To Tabelas.Tables(0).Columns.Count - 1
-            Form1.LstVVeiculo.Columns.Add(Tabelas.Tables(0).Columns(i).ColumnName.ToString())
+            Form1.LstVAdminVeiculo.Columns.Add(Tabelas.Tables(0).Columns(i).ColumnName.ToString())
         Next
         'Now adding the Items in Listview
         For i = 0 To Tabelas.Tables(0).Rows.Count - 1
@@ -1002,7 +1002,7 @@ Module SQL
                 itemcoll(j) = Tabelas.Tables(0).Rows(i)(j)
             Next
             Dim lvi As New ListViewItem(itemcoll)
-            Form1.LstVVeiculo.Items.Add(lvi)
+            Form1.LstVAdminVeiculo.Items.Add(lvi)
         Next
         ListViewSize("LstVVeiculo")
     End Sub
@@ -1238,6 +1238,37 @@ Module SQL
                 MsgBox(ex.ToString)
                 Exit Sub
             End Try
+    End Sub
+
+    Public Sub DetalhesUtilizadorAdmin(ByVal Cod As String)
+        Dim Comando As MySqlCommand
+        Dim reader As MySqlDataReader
+        Form1.LblAdminCod.Text = "Código: " + Cod
+        Form1.LblAdminUtilizadorNome.Text = "Nome Completo: "
+        Form1.LblAdminUtilizadorDataNas.Text = "Data Nascimento: "
+        Form1.LblAdminUtilizadorMorada.Text = "Morada: "
+        Comando = New MySqlCommand
+        Comando.Connection = ligacao
+        Comando.CommandText = ("select CodUser,Nome_Registo,Nome_Proprio,Apelido,Genero,data_Nascimento,Data_contratacao,Pagamentos_hora,N_Telemovel,N_Telefone,Email,Notas_Contacto,Notas_Contracto,Designacao,Habilitacoes,Rua,Cidade.nome as Cidade, Pais.Nome as Pais from Utilizador,cidade,pais,Tipouser where Utilizador.codci=Cidade.codci and Cidade.codpais=Pais.codpais and Utilizador.codtipoU=TipoUser.codtipoU and codUser=" + Cod + " ")
+        Try
+            ligacao.Open()
+            reader = Comando.ExecuteReader
+            While reader.Read
+                Form1.LblAdminUtilizadorNome.Text = "Nome Completo: " + reader.GetString("Nome_Proprio") + " " + reader.GetString("Apelido")
+                Form1.LblAdminUtilizadorDataNas.Text = "Data Nascimento: " + reader("data_Nascimento")
+                Form1.LblAdminUtilizadorMorada.Text = "Morada: " + reader.GetString("Rua") + ", " + reader.GetString("Cidade") + ", " + reader.GetString("Pais")
+
+                'Form1.LblManuVeiculo.Text = "Data Contratacao: " + reader.GetString("Data_contratacao")
+                'Form1.LblManuFornecedor.Text = "Pagmamento hora: " + reader.GetString("Pagmamentos_hora")
+                'Tele,ema,notas
+                'Form1.TxtManuNota.Text = reader.GetString("Nota")
+            End While
+            ligacao.Close()
+        Catch ex As Exception
+            ligacao.Close()
+            MsgBox(ex.ToString)
+            Exit Sub
+        End Try
     End Sub
 
     Public Sub DetalhesAgendaDesp(ByVal Cod As String)

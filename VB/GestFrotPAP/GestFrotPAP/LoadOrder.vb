@@ -861,18 +861,18 @@
             'Form1.LstVUtilizador.Columns(2).Width = 100
             'Form1.LstVUtilizador.Columns(3).Width = 100
             'End If
-            Form1.LstVUtilizador.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
-            Form1.LstVUtilizador.Columns(3).Text = "Designação"
-            Form1.LstVUtilizador.Columns(1).Text = "Código"
-            Form1.LstVUtilizador.Columns(3).Width = Form1.LstVUtilizador.Columns(3).Width + Form1.LstVUtilizador.Columns(0).Width
-            Form1.LstVUtilizador.Columns(0).Width = 0
+            Form1.LstVAdminUtilizador.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+            Form1.LstVAdminUtilizador.Columns(3).Text = "Designação"
+            Form1.LstVAdminUtilizador.Columns(1).Text = "Código"
+            Form1.LstVAdminUtilizador.Columns(3).Width = Form1.LstVAdminUtilizador.Columns(3).Width + Form1.LstVAdminUtilizador.Columns(0).Width
+            Form1.LstVAdminUtilizador.Columns(0).Width = 0
 
 
         ElseIf Listview = "LstVVeiculo" Then
-            Form1.LstVVeiculo.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
-            Form1.LstVVeiculo.Columns(1).Text = "Código"
-            Form1.LstVVeiculo.Columns(5).Width = Form1.LstVVeiculo.Columns(5).Width + Form1.LstVVeiculo.Columns(0).Width
-            Form1.LstVVeiculo.Columns(0).Width = 0
+            Form1.LstVAdminVeiculo.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+            Form1.LstVAdminVeiculo.Columns(1).Text = "Código"
+            Form1.LstVAdminVeiculo.Columns(5).Width = Form1.LstVAdminVeiculo.Columns(5).Width + Form1.LstVAdminVeiculo.Columns(0).Width
+            Form1.LstVAdminVeiculo.Columns(0).Width = 0
         End If
     End Sub
 End Module

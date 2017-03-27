@@ -568,6 +568,26 @@ Public Class Form1
         DetalhesAgendaManu(LstVAgendaManu.SelectedItems(0).Text)
     End Sub
 
+    Private Sub LstVUtilizador_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LstVAdminUtilizador.Click
+        BtnImagemAdminUtilizadorAtivar.EstadoBotao = True
+        DetalhesUtilizadorAdmin(LstVAdminUtilizador.SelectedItems(0).Text)
+        If LstVAdminUtilizador.SelectedItems.Count > 0 Then
+            If LstVAdminUtilizador.SelectedItems(0).SubItems(3).Text() = "Admin" Then
+                BtnImagemAdminUtilizadorAtivar.Texto = "Editar"
+                BtnImagemAdminUtilizadorAtivar.Enabled = False
+            ElseIf LstVAdminUtilizador.SelectedItems(0).SubItems(3).Text() = "Guest" Or LstVAdminUtilizador.SelectedItems(0).SubItems(3).Text() = "Desativado" Then
+                BtnImagemAdminUtilizadorAtivar.Texto = "Ativar"
+                BtnImagemAdminUtilizadorAtivar.Enabled = True
+                BtnImagemAdminUtilizadorAtivar.EstadoBotao = False
+            Else
+                BtnImagemAdminUtilizadorAtivar.Texto = "Editar"
+                BtnImagemAdminUtilizadorAtivar.Enabled = True
+                BtnImagemAdminUtilizadorAtivar.EstadoBotao = False
+            End If
+        End If
+    End Sub
+
+
 
 
     Private Sub BtnImagemAbastInsert_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagemAbastInsert.ButtonClickMasterRace
@@ -814,24 +834,6 @@ Public Class Form1
 
     End Sub
 
-    Private Sub LstVUtilizador_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LstVUtilizador.Click
-        BtnImagemAdminUtilizadorAtivar.EstadoBotao = True
-
-        If LstVUtilizador.SelectedItems.Count > 0 Then
-            If LstVUtilizador.SelectedItems(0).SubItems(3).Text() = "Admin" Then
-                BtnImagemAdminUtilizadorAtivar.Texto = "Editar"
-                BtnImagemAdminUtilizadorAtivar.Enabled = False
-            ElseIf LstVUtilizador.SelectedItems(0).SubItems(3).Text() = "Guest" Or LstVUtilizador.SelectedItems(0).SubItems(3).Text() = "Desativado" Then
-                BtnImagemAdminUtilizadorAtivar.Texto = "Ativar"
-                BtnImagemAdminUtilizadorAtivar.Enabled = True
-                BtnImagemAdminUtilizadorAtivar.EstadoBotao = False
-            Else
-                BtnImagemAdminUtilizadorAtivar.Texto = "Editar"
-                BtnImagemAdminUtilizadorAtivar.Enabled = True
-                BtnImagemAdminUtilizadorAtivar.EstadoBotao = False
-            End If
-        End If
-    End Sub
 
 
 End Class

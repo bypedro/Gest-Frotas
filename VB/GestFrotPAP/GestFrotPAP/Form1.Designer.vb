@@ -178,13 +178,13 @@ Partial Class Form1
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
+        Me.LblAdminUtilizadorMorada = New System.Windows.Forms.Label()
+        Me.LblAdminUtilizadorNome = New System.Windows.Forms.Label()
+        Me.LblAdminUtilizadorDataNas = New System.Windows.Forms.Label()
+        Me.LblAdminCod = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.LstVUtilizador = New System.Windows.Forms.ListView()
+        Me.LstVAdminUtilizador = New System.Windows.Forms.ListView()
         Me.PnlAdminVeiculos = New System.Windows.Forms.Panel()
         Me.GrpAdminVeiculos = New System.Windows.Forms.GroupBox()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -195,7 +195,8 @@ Partial Class Form1
         Me.Label17 = New System.Windows.Forms.Label()
         Me.GrpAdminVeiculosNota = New System.Windows.Forms.GroupBox()
         Me.TxtAdminVeiculosNota = New System.Windows.Forms.TextBox()
-        Me.LstVVeiculo = New System.Windows.Forms.ListView()
+        Me.LstVAdminVeiculo = New System.Windows.Forms.ListView()
+        Me.PnlAdminMisc = New System.Windows.Forms.Panel()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.LblInserirTitulo = New System.Windows.Forms.Label()
         Me.LblInserirValor = New System.Windows.Forms.Label()
@@ -219,7 +220,6 @@ Partial Class Form1
         Me.LstInserirTipo = New System.Windows.Forms.ListBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.PnlAdminMisc = New System.Windows.Forms.Panel()
         Me.BtnImagemAdminMisc = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAdminUtilizador = New GestFrotPAP.BtnImagem()
         Me.BtnImagemAdminFornecedores = New GestFrotPAP.BtnImagem()
@@ -1878,10 +1878,10 @@ Partial Class Form1
         Me.Panel7.Controls.Add(Me.BtnImagemAdminUtilizador)
         Me.Panel7.Controls.Add(Me.BtnImagemAdminFornecedores)
         Me.Panel7.Controls.Add(Me.BtnImagemAdminVeiculos)
-        Me.Panel7.Controls.Add(Me.PnlAdminFornecedores)
         Me.Panel7.Controls.Add(Me.PnlAdminUtilizador)
         Me.Panel7.Controls.Add(Me.PnlAdminVeiculos)
         Me.Panel7.Controls.Add(Me.PnlAdminMisc)
+        Me.Panel7.Controls.Add(Me.PnlAdminFornecedores)
         Me.Panel7.Location = New System.Drawing.Point(32, 30)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(968, 470)
@@ -2028,7 +2028,7 @@ Partial Class Form1
         Me.PnlAdminUtilizador.Controls.Add(Me.BtnImagemAdminUtilizadorAtivar)
         Me.PnlAdminUtilizador.Controls.Add(Me.BtnImagemAdminUtilizadorInsert)
         Me.PnlAdminUtilizador.Controls.Add(Me.GroupBox4)
-        Me.PnlAdminUtilizador.Controls.Add(Me.LstVUtilizador)
+        Me.PnlAdminUtilizador.Controls.Add(Me.LstVAdminUtilizador)
         Me.PnlAdminUtilizador.Location = New System.Drawing.Point(0, 44)
         Me.PnlAdminUtilizador.Name = "PnlAdminUtilizador"
         Me.PnlAdminUtilizador.Size = New System.Drawing.Size(968, 427)
@@ -2038,10 +2038,10 @@ Partial Class Form1
         '
         Me.GroupBox4.Controls.Add(Me.Label5)
         Me.GroupBox4.Controls.Add(Me.Label6)
-        Me.GroupBox4.Controls.Add(Me.Label8)
-        Me.GroupBox4.Controls.Add(Me.Label9)
-        Me.GroupBox4.Controls.Add(Me.Label10)
-        Me.GroupBox4.Controls.Add(Me.Label11)
+        Me.GroupBox4.Controls.Add(Me.LblAdminUtilizadorMorada)
+        Me.GroupBox4.Controls.Add(Me.LblAdminUtilizadorNome)
+        Me.GroupBox4.Controls.Add(Me.LblAdminUtilizadorDataNas)
+        Me.GroupBox4.Controls.Add(Me.LblAdminCod)
         Me.GroupBox4.Controls.Add(Me.GroupBox5)
         Me.GroupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox4.ForeColor = System.Drawing.Color.White
@@ -2072,45 +2072,45 @@ Partial Class Form1
         Me.Label6.TabIndex = 32
         Me.Label6.Text = "Veículo:"
         '
-        'Label8
+        'LblAdminUtilizadorMorada
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(5, 70)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(96, 13)
-        Me.Label8.TabIndex = 31
-        Me.Label8.Text = "KM Agendados:"
+        Me.LblAdminUtilizadorMorada.AutoSize = True
+        Me.LblAdminUtilizadorMorada.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblAdminUtilizadorMorada.Location = New System.Drawing.Point(5, 70)
+        Me.LblAdminUtilizadorMorada.Name = "LblAdminUtilizadorMorada"
+        Me.LblAdminUtilizadorMorada.Size = New System.Drawing.Size(53, 13)
+        Me.LblAdminUtilizadorMorada.TabIndex = 31
+        Me.LblAdminUtilizadorMorada.Text = "Morada:"
         '
-        'Label9
+        'LblAdminUtilizadorNome
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(6, 40)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(99, 13)
-        Me.Label9.TabIndex = 30
-        Me.Label9.Text = "Data Agendada:"
+        Me.LblAdminUtilizadorNome.AutoSize = True
+        Me.LblAdminUtilizadorNome.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblAdminUtilizadorNome.Location = New System.Drawing.Point(6, 40)
+        Me.LblAdminUtilizadorNome.Name = "LblAdminUtilizadorNome"
+        Me.LblAdminUtilizadorNome.Size = New System.Drawing.Size(99, 13)
+        Me.LblAdminUtilizadorNome.TabIndex = 30
+        Me.LblAdminUtilizadorNome.Text = "Nome Completo:"
         '
-        'Label10
+        'LblAdminUtilizadorDataNas
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(5, 55)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(36, 13)
-        Me.Label10.TabIndex = 29
-        Me.Label10.Text = "Tipo:"
+        Me.LblAdminUtilizadorDataNas.AutoSize = True
+        Me.LblAdminUtilizadorDataNas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblAdminUtilizadorDataNas.Location = New System.Drawing.Point(5, 55)
+        Me.LblAdminUtilizadorDataNas.Name = "LblAdminUtilizadorDataNas"
+        Me.LblAdminUtilizadorDataNas.Size = New System.Drawing.Size(108, 13)
+        Me.LblAdminUtilizadorDataNas.TabIndex = 29
+        Me.LblAdminUtilizadorDataNas.Text = "Data Nascimento:"
         '
-        'Label11
+        'LblAdminCod
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(5, 25)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(50, 13)
-        Me.Label11.TabIndex = 28
-        Me.Label11.Text = "Código:"
+        Me.LblAdminCod.AutoSize = True
+        Me.LblAdminCod.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblAdminCod.Location = New System.Drawing.Point(5, 25)
+        Me.LblAdminCod.Name = "LblAdminCod"
+        Me.LblAdminCod.Size = New System.Drawing.Size(50, 13)
+        Me.LblAdminCod.TabIndex = 28
+        Me.LblAdminCod.Text = "Código:"
         '
         'GroupBox5
         '
@@ -2136,22 +2136,22 @@ Partial Class Form1
         Me.TextBox1.Size = New System.Drawing.Size(387, 154)
         Me.TextBox1.TabIndex = 0
         '
-        'LstVUtilizador
+        'LstVAdminUtilizador
         '
-        Me.LstVUtilizador.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid
-        Me.LstVUtilizador.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer))
-        Me.LstVUtilizador.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LstVUtilizador.ForeColor = System.Drawing.Color.Silver
-        Me.LstVUtilizador.FullRowSelect = True
-        Me.LstVUtilizador.GridLines = True
-        Me.LstVUtilizador.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.LstVUtilizador.HideSelection = False
-        Me.LstVUtilizador.Location = New System.Drawing.Point(15, 4)
-        Me.LstVUtilizador.Name = "LstVUtilizador"
-        Me.LstVUtilizador.Size = New System.Drawing.Size(773, 156)
-        Me.LstVUtilizador.TabIndex = 65
-        Me.LstVUtilizador.UseCompatibleStateImageBehavior = False
-        Me.LstVUtilizador.View = System.Windows.Forms.View.Details
+        Me.LstVAdminUtilizador.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid
+        Me.LstVAdminUtilizador.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.LstVAdminUtilizador.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LstVAdminUtilizador.ForeColor = System.Drawing.Color.Silver
+        Me.LstVAdminUtilizador.FullRowSelect = True
+        Me.LstVAdminUtilizador.GridLines = True
+        Me.LstVAdminUtilizador.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.LstVAdminUtilizador.HideSelection = False
+        Me.LstVAdminUtilizador.Location = New System.Drawing.Point(15, 4)
+        Me.LstVAdminUtilizador.Name = "LstVAdminUtilizador"
+        Me.LstVAdminUtilizador.Size = New System.Drawing.Size(773, 156)
+        Me.LstVAdminUtilizador.TabIndex = 65
+        Me.LstVAdminUtilizador.UseCompatibleStateImageBehavior = False
+        Me.LstVAdminUtilizador.View = System.Windows.Forms.View.Details
         '
         'PnlAdminVeiculos
         '
@@ -2160,7 +2160,7 @@ Partial Class Form1
         Me.PnlAdminVeiculos.Controls.Add(Me.BtnImagem9)
         Me.PnlAdminVeiculos.Controls.Add(Me.BtnImagemAdminVeiculosInsert)
         Me.PnlAdminVeiculos.Controls.Add(Me.GrpAdminVeiculos)
-        Me.PnlAdminVeiculos.Controls.Add(Me.LstVVeiculo)
+        Me.PnlAdminVeiculos.Controls.Add(Me.LstVAdminVeiculo)
         Me.PnlAdminVeiculos.Location = New System.Drawing.Point(0, 44)
         Me.PnlAdminVeiculos.Name = "PnlAdminVeiculos"
         Me.PnlAdminVeiculos.Size = New System.Drawing.Size(968, 427)
@@ -2269,22 +2269,31 @@ Partial Class Form1
         Me.TxtAdminVeiculosNota.Size = New System.Drawing.Size(387, 154)
         Me.TxtAdminVeiculosNota.TabIndex = 0
         '
-        'LstVVeiculo
+        'LstVAdminVeiculo
         '
-        Me.LstVVeiculo.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid
-        Me.LstVVeiculo.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer))
-        Me.LstVVeiculo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LstVVeiculo.ForeColor = System.Drawing.Color.Silver
-        Me.LstVVeiculo.FullRowSelect = True
-        Me.LstVVeiculo.GridLines = True
-        Me.LstVVeiculo.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.LstVVeiculo.HideSelection = False
-        Me.LstVVeiculo.Location = New System.Drawing.Point(15, 4)
-        Me.LstVVeiculo.Name = "LstVVeiculo"
-        Me.LstVVeiculo.Size = New System.Drawing.Size(773, 156)
-        Me.LstVVeiculo.TabIndex = 71
-        Me.LstVVeiculo.UseCompatibleStateImageBehavior = False
-        Me.LstVVeiculo.View = System.Windows.Forms.View.Details
+        Me.LstVAdminVeiculo.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid
+        Me.LstVAdminVeiculo.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.LstVAdminVeiculo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LstVAdminVeiculo.ForeColor = System.Drawing.Color.Silver
+        Me.LstVAdminVeiculo.FullRowSelect = True
+        Me.LstVAdminVeiculo.GridLines = True
+        Me.LstVAdminVeiculo.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.LstVAdminVeiculo.HideSelection = False
+        Me.LstVAdminVeiculo.Location = New System.Drawing.Point(15, 4)
+        Me.LstVAdminVeiculo.Name = "LstVAdminVeiculo"
+        Me.LstVAdminVeiculo.Size = New System.Drawing.Size(773, 156)
+        Me.LstVAdminVeiculo.TabIndex = 71
+        Me.LstVAdminVeiculo.UseCompatibleStateImageBehavior = False
+        Me.LstVAdminVeiculo.View = System.Windows.Forms.View.Details
+        '
+        'PnlAdminMisc
+        '
+        Me.PnlAdminMisc.BackColor = System.Drawing.Color.Lime
+        Me.PnlAdminMisc.Location = New System.Drawing.Point(0, 44)
+        Me.PnlAdminMisc.Name = "PnlAdminMisc"
+        Me.PnlAdminMisc.Size = New System.Drawing.Size(968, 427)
+        Me.PnlAdminMisc.TabIndex = 72
+        Me.PnlAdminMisc.Visible = False
         '
         'Timer1
         '
@@ -2564,15 +2573,6 @@ Partial Class Form1
         Me.Panel8.Size = New System.Drawing.Size(380, 450)
         Me.Panel8.TabIndex = 18
         Me.Panel8.Visible = False
-        '
-        'PnlAdminMisc
-        '
-        Me.PnlAdminMisc.BackColor = System.Drawing.Color.Lime
-        Me.PnlAdminMisc.Location = New System.Drawing.Point(0, 44)
-        Me.PnlAdminMisc.Name = "PnlAdminMisc"
-        Me.PnlAdminMisc.Size = New System.Drawing.Size(968, 427)
-        Me.PnlAdminMisc.TabIndex = 72
-        Me.PnlAdminMisc.Visible = False
         '
         'BtnImagemAdminMisc
         '
@@ -3582,13 +3582,13 @@ Partial Class Form1
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents LblAdminUtilizadorMorada As System.Windows.Forms.Label
+    Friend WithEvents LblAdminUtilizadorNome As System.Windows.Forms.Label
+    Friend WithEvents LblAdminUtilizadorDataNas As System.Windows.Forms.Label
+    Friend WithEvents LblAdminCod As System.Windows.Forms.Label
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents LstVUtilizador As System.Windows.Forms.ListView
+    Friend WithEvents LstVAdminUtilizador As System.Windows.Forms.ListView
     Friend WithEvents BtnImagem8 As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagem9 As GestFrotPAP.BtnImagem
     Friend WithEvents BtnImagemAdminVeiculosInsert As GestFrotPAP.BtnImagem
@@ -3601,7 +3601,7 @@ Partial Class Form1
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents GrpAdminVeiculosNota As System.Windows.Forms.GroupBox
     Friend WithEvents TxtAdminVeiculosNota As System.Windows.Forms.TextBox
-    Friend WithEvents LstVVeiculo As System.Windows.Forms.ListView
+    Friend WithEvents LstVAdminVeiculo As System.Windows.Forms.ListView
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents LstInserirTipo As System.Windows.Forms.ListBox
     Friend WithEvents LblInserirManuTipo As System.Windows.Forms.Label
