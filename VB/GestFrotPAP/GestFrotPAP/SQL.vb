@@ -978,7 +978,7 @@ Module SQL
         adapter.SelectCommand.Connection = ligacao
         Dim itemcoll(100) As String
         'Trocar KM nas definições do programa..->
-        adapter.SelectCommand.CommandText = ("Select Codvei,Codvei as Codigo, Matricula, Marca ,TipoVei.Nome as 'Tipo de Veiculo',TipoCom.nome as 'Tipo de Combustivel' from Veiculos,TipoVei,TipoCom where veiculos.CodtipoV=TipoVei.CodTipoV and Veiculos.CodtipoC=TipoCom.CodTipoc")
+        adapter.SelectCommand.CommandText = ("Select Codvei,Codvei as Codigo, Matricula, TipoVei.Nome as 'Tipo de Veiculo' from Veiculos,TipoVei where veiculos.CodtipoV=TipoVei.CodTipoV")
         Try
             ligacao.Open()
             adapter.Fill(Tabelas, "Veiculo")
@@ -1243,10 +1243,13 @@ Module SQL
     Public Sub DetalhesUtilizadorAdmin(ByVal Cod As String)
         Dim Comando As MySqlCommand
         Dim reader As MySqlDataReader
-        Form1.LblAdminCod.Text = "Código: " + Cod
+        Form1.LblAdminUtilizadorCod.Text = "Código: " + Cod
         Form1.LblAdminUtilizadorNome.Text = "Nome Completo: "
         Form1.LblAdminUtilizadorDataNas.Text = "Data Nascimento: "
         Form1.LblAdminUtilizadorMorada.Text = "Morada: "
+        Form1.LblAdminUtilizadorTelem.Text = "Nº Telemovel: "
+        Form1.LblAdminUtilizadorTelef.Text = "Nº Telefone: "
+        Form1.TxtAdminUtilizadorNotasContact.Text = ""
         Comando = New MySqlCommand
         Comando.Connection = ligacao
         Comando.CommandText = ("select CodUser,Nome_Registo,Nome_Proprio,Apelido,Genero,data_Nascimento,Data_contratacao,Pagamentos_hora,N_Telemovel,N_Telefone,Email,Notas_Contacto,Notas_Contracto,Designacao,Habilitacoes,Rua,Cidade.nome as Cidade, Pais.Nome as Pais from Utilizador,cidade,pais,Tipouser where Utilizador.codci=Cidade.codci and Cidade.codpais=Pais.codpais and Utilizador.codtipoU=TipoUser.codtipoU and codUser=" + Cod + " ")
@@ -1257,11 +1260,42 @@ Module SQL
                 Form1.LblAdminUtilizadorNome.Text = "Nome Completo: " + reader.GetString("Nome_Proprio") + " " + reader.GetString("Apelido")
                 Form1.LblAdminUtilizadorDataNas.Text = "Data Nascimento: " + reader("data_Nascimento")
                 Form1.LblAdminUtilizadorMorada.Text = "Morada: " + reader.GetString("Rua") + ", " + reader.GetString("Cidade") + ", " + reader.GetString("Pais")
+                Form1.LblAdminUtilizadorTelem.Text = "Nº Telemovel: " + reader.GetString("N_Telemovel")
+                Form1.LblAdminUtilizadorTelef.Text = "Nº Telefone: " + reader.GetString("N_Telefone")
 
                 'Form1.LblManuVeiculo.Text = "Data Contratacao: " + reader.GetString("Data_contratacao")
                 'Form1.LblManuFornecedor.Text = "Pagmamento hora: " + reader.GetString("Pagmamentos_hora")
-                'Tele,ema,notas
-                'Form1.TxtManuNota.Text = reader.GetString("Nota")
+                ' Form1.TxtAdminUtilizadorNotasContract.Text = reader.GetString("Notas_Contracto")
+                Form1.TxtAdminUtilizadorNotasContact.Text = reader.GetString("Notas_Contacto")
+            End While
+            ligacao.Close()
+        Catch ex As Exception
+            ligacao.Close()
+            MsgBox(ex.ToString)
+            Exit Sub
+        End Try
+    End Sub
+
+    Public Sub DetalhesVeiculosAdmin(ByVal Cod As String)
+        Dim Comando As MySqlCommand
+        Dim reader As MySqlDataReader
+        Form1.LblAdminVeiculoCod.Text = "Código: " + Cod
+        Comando = New MySqlCommand
+        Comando.Connection = ligacao
+        Comando.CommandText = ("select CodVei,Matricula,Marca,Modelo,Cor,Ano,tipocom.Nome as 'Tipo de Combustivel',tipovei.Nome as 'Tipo de Veiculo' from veiculos,tipocom,tipovei where veiculos.CodtipoV=TipoVei.CodTipoV and Veiculos.CodtipoC=TipoCom.CodTipoc and codvei=" + Cod + " ")
+        Try
+            ligacao.Open()
+            reader = Comando.ExecuteReader
+            While reader.Read
+                Form1.LblAdminVeiculoMatricula.Text = "Matricula: " + reader.GetString("Matricula")
+                Form1.LblAdminVeiculoMarca.Text = "Marca: " + reader.GetString("Marca")
+                Form1.LblAdminVeiculoModelo.Text = "Modelo: " + reader.GetString("Modelo")
+                Form1.LblAdminVeiculoAno.Text = "Ano: " + reader.GetString("Ano")
+                Form1.LblAdminVeiculoCor.Text = "Cor: " + reader.GetString("Cor")
+                Form1.LblAdminVeiculoTipoCom.Text = "Tipo de combustivel: " + reader.GetString("Tipo de Combustivel")
+                'Form1.LblManuVeiculo.Text = "Data Contratacao: " + reader.GetString("Data_contratacao")
+                'Form1.LblManuFornecedor.Text = "Pagmamento hora: " + reader.GetString("Pagmamentos_hora")
+                ' Form1.TxtAdminUtilizadorNotasContract.Text = reader.GetString("Notas_Contracto"
             End While
             ligacao.Close()
         Catch ex As Exception

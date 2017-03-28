@@ -587,6 +587,10 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub LstVAdminVeiculoClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LstVAdminVeiculo.Click
+        DetalhesVeiculosAdmin(LstVAdminVeiculo.SelectedItems(0).Text)
+    End Sub
+
 
 
 
@@ -826,14 +830,8 @@ Public Class Form1
         Botao(BtnImagemAdminUtilizadorInsert)
     End Sub
 
-    Private Sub BtnImagemAdminUtilizadorInserir_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    Private Sub LstVAdminVeiculo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LstVAdminVeiculo.SelectedIndexChanged
 
     End Sub
-
-    Private Sub BtnImagemAdminUtilizadorEditar_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
-
-
 End Class

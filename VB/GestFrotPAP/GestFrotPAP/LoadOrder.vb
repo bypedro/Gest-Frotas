@@ -871,7 +871,7 @@
         ElseIf Listview = "LstVVeiculo" Then
             Form1.LstVAdminVeiculo.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
             Form1.LstVAdminVeiculo.Columns(1).Text = "Código"
-            Form1.LstVAdminVeiculo.Columns(5).Width = Form1.LstVAdminVeiculo.Columns(5).Width + Form1.LstVAdminVeiculo.Columns(0).Width
+            Form1.LstVAdminVeiculo.Columns(3).Width = Form1.LstVAdminVeiculo.Columns(3).Width + Form1.LstVAdminVeiculo.Columns(0).Width
             Form1.LstVAdminVeiculo.Columns(0).Width = 0
         End If
     End Sub
