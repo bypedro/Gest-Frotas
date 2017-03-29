@@ -50,7 +50,6 @@
         Form1.LblUtilizadorLogin.Hide()
         Form1.LblPasswordLogin.Hide()
 
-
         Form1.TxtEmailReg.ForeColor = Color.White
         Form1.TxtUserReg.ForeColor = Color.White
         Form1.TxtPwdReg1.ForeColor = Color.White
@@ -64,8 +63,6 @@
         'Registar
         'Talvez outro panel?
 
-
-
         Form1.TxtUserReg.Font = Fonte.GetInstance(12, FontStyle.Bold)
         Form1.TxtUserReg.Left = CentroEcranX - Form1.TxtUserReg.Width - 5
         Form1.TxtUserReg.Top = Form1.PnlBarraTop.Bottom + 150
@@ -73,14 +70,12 @@
         Form1.TxtEmailReg.Left = CentroEcranX + 5
         Form1.TxtEmailReg.Top = Form1.PnlBarraTop.Bottom + 150
 
-
         Form1.TxtPwdReg1.Font = Fonte.GetInstance(12, FontStyle.Bold)
         Form1.TxtPwdReg1.Left = CentroEcranX - Form1.TxtPwdReg1.Width - 5
         Form1.TxtPwdReg1.Top = Form1.TxtUserReg.Bottom + 12
         Form1.TxtPwdReg2.Font = Fonte.GetInstance(12, FontStyle.Bold)
         Form1.TxtPwdReg2.Left = CentroEcranX + 5
         Form1.TxtPwdReg2.Top = Form1.TxtEmailReg.Bottom + 12
-
 
         Form1.LblUtilizadorReg.ForeColor = Color.Red
         Form1.LblUtilizadorReg.Left = Form1.TxtUserReg.Left
@@ -92,10 +87,10 @@
         Form1.LblEmailReg.ForeColor = Color.Red
         Form1.LblEmailReg.Left = Form1.TxtEmailReg.Left
         Form1.LblEmailReg.Top = Form1.TxtEmailReg.Bottom
+
         Form1.LblUtilizadorReg.Hide()
         Form1.LblPasswordReg.Hide()
         Form1.LblEmailReg.Hide()
-
         Form1.BtnImagemCancelar.Hide()
         Form1.BtnImagemRegistar.Hide()
         Form1.TxtEmailReg.Hide()
@@ -108,17 +103,13 @@
 
         Form1.TxtUserLogin.Show()
         Form1.TxtPwdLogin.Show()
-
-
     End Sub
 
 
 
     Public Sub MenuPrincipalPage() 'Depois do Login
-        'Utilizador(Label)
         'Esconde Pagina de Login
         Form1.PnlLogin.Hide()
-
         'Mostra Pagina Principal
         Form1.PnlHome.Show()
         'Paginas
@@ -163,8 +154,30 @@
         Form1.Panel7.Height = Form1.Height - Form1.PnlBarraTop.Height
         Form1.Panel7.SendToBack()
 
-        'IDK
-        Form1.PnlLogin.Hide()
+        Form1.PnlAdminUtilizador.Left = 0
+        Form1.PnlAdminUtilizador.Top = Form1.BtnImagemAdminUtilizador.Bottom
+        Form1.PnlAdminUtilizador.Width = Form1.Width - Form1.PnlMenu.Width + 164
+        Form1.PnlAdminUtilizador.Height = Form1.Height - Form1.PnlBarraTop.Height - Form1.BtnImagemAdminUtilizador.Bottom
+        Form1.PnlAdminUtilizador.SendToBack()
+
+        Form1.PnlAdminVeiculos.Left = 0
+        Form1.PnlAdminVeiculos.Top = Form1.BtnImagemAdminUtilizador.Bottom
+        Form1.PnlAdminVeiculos.Width = Form1.Width - Form1.PnlMenu.Width + 164
+        Form1.PnlAdminVeiculos.Height = Form1.Height - Form1.PnlBarraTop.Height - Form1.BtnImagemAdminUtilizador.Bottom
+        Form1.PnlAdminVeiculos.SendToBack()
+
+        Form1.PnlAgendaDesp.Left = 0
+        Form1.PnlAgendaDesp.Top = Form1.BtnImagemAgendaDesp.Bottom
+        Form1.PnlAgendaDesp.Width = Form1.Width - Form1.PnlMenu.Width + 164
+        Form1.PnlAgendaDesp.Height = Form1.Height - Form1.PnlBarraTop.Height - Form1.BtnImagemAgendaDesp.Bottom
+        Form1.PnlAgendaDesp.SendToBack()
+
+        Form1.PnlAgendaManu.Left = 0
+        Form1.PnlAgendaManu.Top = Form1.BtnImagemAgendaDesp.Bottom
+        Form1.PnlAgendaManu.Width = Form1.Width - Form1.PnlMenu.Width + 164
+        Form1.PnlAgendaManu.Height = Form1.Height - Form1.PnlBarraTop.Height - Form1.BtnImagemAgendaDesp.Bottom
+        Form1.PnlAgendaManu.SendToBack()
+
         'Menu Utilizador
         Form1.LblUtilzadorMenu.Text = DetalhesUtilizador.NomeRegisto 'Form1.TxtUser.Text + "MUDAR" 'nome do Utilizador/ email/ idk possivelmente buscar nome e apelido á bd
         Form1.LblUtilzadorMenu.Visible = True
@@ -185,15 +198,11 @@
         Form1.PnlUser.Height = Form1.Label1.Height + Form1.Label2.Height + Form1.Label3.Height + 5
         Form1.PnlUser.Width = 100
 
-
-
         'Panel utilizador
         Form1.PnlDefUtilizador.Left = 0
         Form1.PnlDefUtilizador.Top = Form1.PnlBarraTop.Bottom
         Form1.PnlDefUtilizador.Height = Form1.Height - Form1.PnlBarraTop.Height
         Form1.PnlDefUtilizador.Width = Form1.Width
-
-
         'Veiculo
         Form1.LblVeiMarcEmUso.Text = "Cod= " + DetalhesUtilizador.CodVeiculo.ToString + ""
         Form1.LblVeiCorEmUso.Text = "Cor= " + DetalhesUtilizador.VeiCor.ToString + ""
@@ -201,10 +210,7 @@
         Form1.LblVeiModelEmUso.Text = "Modelo= " + DetalhesUtilizador.VeiModelo.ToString + ""
         Form1.LblVeiMatricEmUso.Text = "Matricula = " + DetalhesUtilizador.VeiMatricula.ToString + ""
         'Agenda
-
-        Form1.LblVeiProxInspEmUso.Text = "----------MUDAR NO SQL-------Proxima Inspecao = " + DetalhesUtilizador.VeiProxInspecao.ToString + ""
-
-
+        'Form1.LblVeiProxInspEmUso.Text = "----------MUDAR NO SQL-------Proxima Inspecao = " + DetalhesUtilizador.VeiProxInspecao.ToString + ""
     End Sub
 
     Public Sub RegistarPage()
@@ -390,16 +396,10 @@
         Form1.TxtCidadeUserCon.Top = Form1.TxtUtilizadorDataContratDef.Bottom + 5
         Form1.TxtRuaUserCon.Top = Form1.TxtUtilizadorPagmentoDef.Bottom + 5
 
-
-        '
         Form1.LblNotasUserCon.Left = Form1.PnlDefUtilizadorContato.Left + 10
         Form1.LblNotasUserCon.Top = Form1.LblTelefoneUserCon.Bottom + 25
-
         Form1.TxtNotasUserCon.Left = Form1.PnlDefUtilizadorContato.Left + 10
         Form1.TxtNotasUserCon.Top = Form1.LblNotasUserCon.Bottom + 5
-
-
-
 
         'DADOS Utilizador
         Form1.TxtUtilizadorUserDef.Text = DetalhesUtilizador.NomeRegisto
@@ -411,8 +411,6 @@
         Form1.TxtUtilizadorNotasDef.Text = DetalhesUtilizador.NotasContrato
         Form1.TxtUtilizadorPagmentoDef.Text = DetalhesUtilizador.PagamentoHora
         Form1.TxtUtilizadorGeneroDef.Text = DetalhesUtilizador.Genero
-
-
         Form1.TxtEmailUserCon.Text = DetalhesUtilizador.Email
         Form1.TxtTelemovelUserCon.Text = DetalhesUtilizador.NTelemovel
         Form1.TxtTelefoneUserCon.Text = DetalhesUtilizador.NTelefone
@@ -423,14 +421,15 @@
     End Sub
 
     Public Sub MenuInserir_Editar(ByVal Tabela As String)
+        Form1.LblInserirTitulo.Font = GetInstance(12, FontStyle.Bold)
         For Each c As Control In Form1.Panel1.Controls
             c.Hide()
         Next
+        Form1.BtnImagemInserirCancelar.Show()
         Form1.LblInserirUltimoKM.Text = "Ultimo Registo: " + UltimoKM().ToString + " KM"
         If Tabela = "AbastInsert" Then
             Form1.LblInserirTitulo.Text = "Novo Abastecimento"
             Form1.BtnImagemInserirInserir.Texto = "Inserir"
-
             Form1.LblInserirTitulo.Show()
             Form1.LblInserirQuilometros.Show()
             Form1.TxtInserirQuilometros.Show()
@@ -441,32 +440,41 @@
             Form1.TxtInserirValor.Show()
             Form1.LblInserirFornecedor.Show()
             Form1.LstInserirFornecedor.Show()
-
             Form1.LblInserirNota.Show()
             Form1.TxtInserirNota.Show()
             Form1.BtnImagemInserirInserir.Show()
-            Form1.BtnImagemInserirCancelar.Show()
+            'DATA
+            Form1.LblInserirDataAgendada.Show()
+            Form1.LblInserirDataAgendada.Text = "Data Efetuada"
+            Form1.CmbInserirAno.Show()
+            Form1.CmbInserirDia.Show()
+            Form1.CmbInserirMes.Show()
+            Form1.CmbInserirAno.Enabled = True
+            Form1.CmbInserirAno.Text = ""
+            Form1.CmbInserirAno.SelectedText = Year
+            Form1.CmbInserirDia.Enabled = True
+            Form1.CmbInserirDia.Text = ""
+            Form1.CmbInserirDia.SelectedText = Day
+            Form1.CmbInserirMes.Enabled = True
+            Form1.CmbInserirMes.Text = ""
+            Form1.CmbInserirMes.SelectedText = Month
         ElseIf Tabela = "AbastEdit" Then
             Form1.LblInserirTitulo.Text = "Editar Abastecimento"
             Form1.BtnImagemInserirInserir.Texto = "Editar"
+            Form1.TxtInserirQuilometros.Enabled = False
 
             Form1.LblInserirTitulo.Show()
             Form1.LblInserirQuilometros.Show()
             Form1.TxtInserirQuilometros.Show()
-            Form1.TxtInserirQuilometros.Enabled = False
-            Form1.LblInserirUltimoKM.Show()
             Form1.LblInserirQuantiade.Show()
             Form1.TxtInserirQuantidade.Show()
             Form1.LblInserirValor.Show()
             Form1.TxtInserirValor.Show()
             Form1.LblInserirFornecedor.Show()
             Form1.LstInserirFornecedor.Show()
-
             Form1.LblInserirNota.Show()
             Form1.TxtInserirNota.Show()
             Form1.BtnImagemInserirInserir.Show()
-            Form1.BtnImagemInserirCancelar.Show()
-
         ElseIf Tabela = "ManuInsert" Then
             Form1.LblInserirTitulo.Text = "Novo manutenção"
             Form1.BtnImagemInserirInserir.Texto = "Inserir"
@@ -475,75 +483,285 @@
             Form1.LblInserirQuilometros.Show()
             Form1.TxtInserirQuilometros.Show()
             Form1.LblInserirUltimoKM.Show()
-            Form1.LblInserirQuantiade.Show()
-            Form1.TxtInserirQuantidade.Show()
             Form1.LblInserirValor.Show()
             Form1.TxtInserirValor.Show()
             Form1.LblInserirFornecedor.Show()
             Form1.LstInserirFornecedor.Show()
-
+            Form1.LstInserirTipo.Show()
+            Form1.LblInserirManuTipo.Show()
             Form1.LblInserirNota.Show()
             Form1.TxtInserirNota.Show()
             Form1.BtnImagemInserirInserir.Show()
-            Form1.BtnImagemInserirCancelar.Show()
+            'DATA
+            Form1.LblInserirDataAgendada.Show()
+            Form1.LblInserirDataAgendada.Text = "Data Efetuada"
+            Form1.CmbInserirAno.Show()
+            Form1.CmbInserirDia.Show()
+            Form1.CmbInserirMes.Show()
+            Form1.CmbInserirAno.Text = ""
+            Form1.CmbInserirAno.SelectedText = Year
+            Form1.CmbInserirDia.Text = ""
+            Form1.CmbInserirDia.SelectedText = Day
+            Form1.CmbInserirMes.Enabled = True
+            Form1.CmbInserirMes.Text = ""
+            Form1.CmbInserirMes.SelectedText = Month
+
+        ElseIf Tabela = "ManuEdit" Then
+            Form1.LblInserirTitulo.Text = "Editar manutenção"
+            Form1.BtnImagemInserirInserir.Texto = "Editar"
+            Form1.TxtInserirQuilometros.Enabled = False
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirValor.Show()
+            Form1.TxtInserirValor.Show()
+            Form1.LblInserirFornecedor.Show()
+            Form1.LstInserirFornecedor.Show()
+            Form1.LstInserirTipo.Show()
+            Form1.LblInserirManuTipo.Show()
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+        ElseIf Tabela = "DespInsert" Then
+            Form1.LblInserirTitulo.Text = "Novo Despesa"
+            Form1.BtnImagemInserirInserir.Texto = "Inserir"
+
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirUltimoKM.Show()
+            Form1.LblInserirValor.Show()
+            Form1.TxtInserirValor.Show()
+            Form1.LblInserirFornecedor.Show()
+            Form1.LstInserirFornecedor.Show()
+            Form1.LstInserirTipo.Show()
+            Form1.LblInserirManuTipo.Show()
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+            'DATA
+            Form1.LblInserirDataAgendada.Show()
+            Form1.LblInserirDataAgendada.Text = "Data Efetuada"
+            Form1.CmbInserirAno.Show()
+            Form1.CmbInserirDia.Show()
+            Form1.CmbInserirMes.Show()
+            Form1.CmbInserirAno.Text = ""
+            Form1.CmbInserirAno.SelectedText = Year
+            Form1.CmbInserirDia.Text = ""
+            Form1.CmbInserirDia.SelectedText = Day
+            Form1.CmbInserirMes.Text = ""
+            Form1.CmbInserirMes.SelectedText = Month
+
+
+        ElseIf Tabela = "DespEdit" Then
+            Form1.LblInserirTitulo.Text = "Editar Despesa"
+            Form1.BtnImagemInserirInserir.Texto = "Editar"
+            Form1.TxtInserirQuilometros.Enabled = False
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirValor.Show()
+            Form1.TxtInserirValor.Show()
+            Form1.LblInserirFornecedor.Show()
+            Form1.LstInserirFornecedor.Show()
+            Form1.LstInserirTipo.Show()
+            Form1.LblInserirManuTipo.Show()
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+
+        ElseIf Tabela = "AgendaDespReagendar" Then
+            Form1.LblInserirTitulo.Text = "Reagendar Despesa"
+            Form1.BtnImagemInserirInserir.Texto = "Reagendar"
+            Form1.LblInserirQuilometros.Text = "Quilometros agendados:"
+            Form1.LblInserirDataAgendada.Text = "Data agendada:"
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirDataAgendada.Show()
+            Form1.CmbInserirDia.Show()
+            Form1.CmbInserirAno.Show()
+            Form1.CmbInserirMes.Show()
+            Form1.LstInserirLembrarPor.Show()
+            Form1.LblInserirLembrarPor.Show()
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+
+
+        ElseIf Tabela = "AgendaDespExecutar" Then
+            Form1.LblInserirTitulo.Text = "Novo Despesa"
+            Form1.BtnImagemInserirInserir.Texto = "Inserir"
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirUltimoKM.Show()
+            Form1.LblInserirValor.Show()
+            Form1.TxtInserirValor.Show()
+            Form1.LblInserirFornecedor.Show()
+            Form1.LstInserirFornecedor.Show()
+            Form1.LstInserirTipo.Show()
+            Form1.LblInserirManuTipo.Show()
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+            'DATA
+            Form1.LblInserirDataAgendada.Show()
+            Form1.LblInserirDataAgendada.Text = "Data Efetuada"
+            Form1.CmbInserirAno.Show()
+            Form1.CmbInserirDia.Show()
+            Form1.CmbInserirMes.Show()
+            Form1.CmbInserirAno.Text = ""
+            Form1.CmbInserirAno.SelectedText = Year
+            Form1.CmbInserirDia.Text = ""
+            Form1.CmbInserirDia.SelectedText = Day
+            Form1.CmbInserirMes.Text = ""
+            Form1.CmbInserirMes.SelectedText = Month
+
+        ElseIf Tabela = "AgendaDespInsert" Then
+            Form1.LblInserirTitulo.Text = "Agendar Despesa"
+            Form1.BtnImagemInserirInserir.Texto = "Agendar"
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.LblInserirQuilometros.Text = "Quilometros a efetuar:"
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirUltimoKM.Show()
+            Form1.LstInserirTipo.Show()
+            Form1.LblInserirManuTipo.Show()
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+            Form1.LblInserirLembrarPor.Show()
+            Form1.LstInserirLembrarPor.Show()
+            'DATA
+            Form1.LblInserirDataAgendada.Show()
+            Form1.LblInserirDataAgendada.Text = "Data a efetuar:"
+            Form1.CmbInserirAno.Show()
+            Form1.CmbInserirDia.Show()
+            Form1.CmbInserirMes.Show()
+            Form1.CmbInserirAno.Text = ""
+            Form1.CmbInserirAno.SelectedText = Year
+            Form1.CmbInserirDia.Text = ""
+            Form1.CmbInserirDia.SelectedText = Day
+            Form1.CmbInserirMes.Text = ""
+            Form1.CmbInserirMes.SelectedText = Month
+        ElseIf Tabela = "AgendaManuReagendar" Then
+            Form1.LblInserirTitulo.Text = "Reagendar Manutenção"
+            Form1.BtnImagemInserirInserir.Texto = "Reagendar"
+            Form1.LblInserirQuilometros.Text = "Quilometros agendados:"
+            Form1.LblInserirDataAgendada.Text = "Data agendada:"
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirDataAgendada.Show()
+            Form1.CmbInserirDia.Show()
+            Form1.CmbInserirAno.Show()
+            Form1.CmbInserirMes.Show()
+            Form1.LstInserirLembrarPor.Show()
+            Form1.LblInserirLembrarPor.Show()
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+        ElseIf Tabela = "AgendaManuExecutar" Then
+            Form1.LblInserirTitulo.Text = "Nova Manutenção"
+            Form1.BtnImagemInserirInserir.Texto = "Inserir"
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirUltimoKM.Show()
+            Form1.LblInserirValor.Show()
+            Form1.TxtInserirValor.Show()
+            Form1.LblInserirFornecedor.Show()
+            Form1.LstInserirFornecedor.Show()
+            Form1.LstInserirTipo.Show()
+            Form1.LblInserirManuTipo.Show()
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+            'DATA
+            Form1.LblInserirDataAgendada.Show()
+            Form1.LblInserirDataAgendada.Text = "Data Efetuada"
+            Form1.CmbInserirAno.Show()
+            Form1.CmbInserirDia.Show()
+            Form1.CmbInserirMes.Show()
+            Form1.CmbInserirAno.Text = ""
+            Form1.CmbInserirAno.SelectedText = Year
+            Form1.CmbInserirDia.Text = ""
+            Form1.CmbInserirDia.SelectedText = Day
+            Form1.CmbInserirMes.Text = ""
+            Form1.CmbInserirMes.SelectedText = Month
+        ElseIf Tabela = "AgendaManuInsert" Then
+            Form1.LblInserirTitulo.Text = "Agendar Despesa"
+            Form1.BtnImagemInserirInserir.Texto = "Agendar"
+            Form1.LblInserirTitulo.Show()
+            Form1.LblInserirQuilometros.Show()
+            Form1.LblInserirQuilometros.Text = "Quilometros a efetuar:"
+            Form1.TxtInserirQuilometros.Show()
+            Form1.LblInserirUltimoKM.Show()
+            Form1.LstInserirTipo.Show()
+            Form1.LblInserirManuTipo.Show()
+            Form1.LblInserirNota.Show()
+            Form1.TxtInserirNota.Show()
+            Form1.BtnImagemInserirInserir.Show()
+            Form1.LblInserirLembrarPor.Show()
+            Form1.LstInserirLembrarPor.Show()
+            'DATA
+            Form1.LblInserirDataAgendada.Show()
+            Form1.LblInserirDataAgendada.Text = "Data a efetuar:"
+            Form1.CmbInserirAno.Show()
+            Form1.CmbInserirDia.Show()
+            Form1.CmbInserirMes.Show()
+            Form1.CmbInserirAno.Text = ""
+            Form1.CmbInserirAno.SelectedText = Year
+            Form1.CmbInserirDia.Text = ""
+            Form1.CmbInserirDia.SelectedText = Day
+            Form1.CmbInserirMes.Text = ""
+            Form1.CmbInserirMes.SelectedText = Month
+        Else
+            MsgBox("TABELA NÂO DEFINIDA")
         End If
     End Sub
 
     Public Sub ListViewSize(ByVal Listview As String)
         If Listview = "LstVAbastecimento" Then
+            Form1.LstVAbastecimento.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+            Form1.LstVAbastecimento.Columns(7).Width = Form1.LstVAbastecimento.Columns(7).Width + Form1.LstVAbastecimento.Columns(0).Width
             Form1.LstVAbastecimento.Columns(0).Width = 0
-            Form1.LstVAbastecimento.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVAbastecimento.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVAbastecimento.Columns(3).Width = 100
-            Form1.LstVAbastecimento.Columns(4).Width = 100
-            Form1.LstVAbastecimento.Columns(5).Width = 100
-            Form1.LstVAbastecimento.AutoResizeColumn(6, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVAbastecimento.Columns(7).Width = 100
-
-            Form1.LstVAbastecimento.Columns(0).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAbastecimento.Columns(1).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAbastecimento.Columns(2).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAbastecimento.Columns(3).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAbastecimento.Columns(4).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAbastecimento.Columns(5).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAbastecimento.Columns(6).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAbastecimento.Columns(7).TextAlign = HorizontalAlignment.Center
-            If Form1.LstVAbastecimento.Items.Count = 0 Then
-                Form1.LstVAbastecimento.Columns(0).Width = 0
-                Form1.LstVAbastecimento.Columns(1).Width = 100
-                Form1.LstVAbastecimento.Columns(2).Width = 100
-                Form1.LstVAbastecimento.Columns(3).Width = 100
-                Form1.LstVAbastecimento.Columns(4).Width = 100
-                Form1.LstVAbastecimento.Columns(5).Width = 100
-                Form1.LstVAbastecimento.Columns(6).Width = 100
-                Form1.LstVAbastecimento.Columns(7).Width = 200
-            End If
         ElseIf Listview = "LstVManu" Then
+            Form1.LstVManu.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+            Form1.LstVManu.Columns(7).Width = Form1.LstVManu.Columns(7).Width + Form1.LstVManu.Columns(0).Width
             Form1.LstVManu.Columns(0).Width = 0
-            Form1.LstVManu.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVManu.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVManu.Columns(3).Width = 100
-            Form1.LstVManu.Columns(4).Width = 100
-            Form1.LstVManu.AutoResizeColumn(5, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVManu.AutoResizeColumn(6, ColumnHeaderAutoResizeStyle.ColumnContent)
+        ElseIf Listview = "LstVDesp" Then
+            Form1.LstVDesp.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+            Form1.LstVDesp.Columns(5).Width = Form1.LstVDesp.Columns(5).Width + Form1.LstVDesp.Columns(0).Width
+            Form1.LstVDesp.Columns(0).Width = 0
+        ElseIf Listview = "LstVAgendaManu" Then
+            Form1.LstVAgendaManu.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+            Form1.LstVAgendaManu.Columns(5).Width = Form1.LstVAgendaManu.Columns(5).Width + Form1.LstVAgendaManu.Columns(0).Width
+            Form1.LstVAgendaManu.Columns(0).Width = 0
+        ElseIf Listview = "LstVAgendaDesp" Then
+            Form1.LstVAgendaDesp.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+            Form1.LstVAgendaDesp.Columns(5).Width = Form1.LstVAgendaDesp.Columns(5).Width + Form1.LstVAgendaDesp.Columns(0).Width
+            Form1.LstVAgendaDesp.Columns(0).Width = 0
+        ElseIf Listview = "LstVUtilizador" Then
+            Form1.LstVAdminUtilizador.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+            Form1.LstVAdminUtilizador.Columns(3).Text = "Designação"
+            Form1.LstVAdminUtilizador.Columns(1).Text = "Código"
+            Form1.LstVAdminUtilizador.Columns(3).Width = Form1.LstVAdminUtilizador.Columns(3).Width + Form1.LstVAdminUtilizador.Columns(0).Width
+            Form1.LstVAdminUtilizador.Columns(0).Width = 0
+        ElseIf Listview = "LstVVeiculo" Then
+            Form1.LstVAdminVeiculo.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+            Form1.LstVAdminVeiculo.Columns(1).Text = "Código"
+            Form1.LstVAdminVeiculo.Columns(3).Width = Form1.LstVAdminVeiculo.Columns(3).Width + Form1.LstVAdminVeiculo.Columns(0).Width
+            Form1.LstVAdminVeiculo.Columns(0).Width = 0
 
-            Form1.LstVManu.Columns(0).TextAlign = HorizontalAlignment.Center
-            Form1.LstVManu.Columns(1).TextAlign = HorizontalAlignment.Center
-            Form1.LstVManu.Columns(2).TextAlign = HorizontalAlignment.Center
-            Form1.LstVManu.Columns(3).TextAlign = HorizontalAlignment.Center
-            Form1.LstVManu.Columns(4).TextAlign = HorizontalAlignment.Center
-            Form1.LstVManu.Columns(5).TextAlign = HorizontalAlignment.Center
-            Form1.LstVManu.Columns(6).TextAlign = HorizontalAlignment.Center
-            If Form1.LstVManu.Items.Count = 0 Then
-                Form1.LstVManu.Columns(0).Width = 0
-                Form1.LstVManu.Columns(1).Width = 100
-                Form1.LstVManu.Columns(2).Width = 100
-                Form1.LstVManu.Columns(3).Width = 100
-                Form1.LstVManu.Columns(4).Width = 100
-                Form1.LstVManu.Columns(5).Width = 100
-                Form1.LstVManu.Columns(6).Width = 100
-            End If
+        ElseIf Listview = "LstVAdminFornecedores" Then
+            Form1.LstVAdminFornecedores.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+            Form1.LstVAdminFornecedores.Columns(1).Text = "Código"
+            Form1.LstVAdminFornecedores.Columns(3).Width = Form1.LstVAdminFornecedores.Columns(3).Width + Form1.LstVAdminFornecedores.Columns(0).Width
+            Form1.LstVAdminFornecedores.Columns(0).Width = 0
         End If
-       
+
+
     End Sub
 End Module
