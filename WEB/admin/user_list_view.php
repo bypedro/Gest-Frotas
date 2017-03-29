@@ -1,31 +1,20 @@
 <!DOCTYPE html>
 <?php
-	ob_start();
-	session_start();
-	require_once 'dbconnect.php';
-	
-	// if session is not set this will redirect to login page
-	if( !isset($_SESSION['user']) ) {
-		header("Location: index.php");
-		exit;
-	}
-	// select loggedin users detail
-	$res=mysql_query("SELECT * FROM veicondu, utilizador, veiculos, tipouser where utilizador.CodTipoU=tipouser.CodTipoU and veicondu.CodUser=utilizador.CodUser and veicondu.CodVei=veiculos.CodVei and EmUso='Sim' and utilizador.CodUser=".$_SESSION['user']);
-	$userRow=mysql_fetch_array($res);
-	
+
 	
 ?>
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Início</title>
+    <title>Serviços</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="jquery.touchSwipe.min.js"></script>
 	<link rel="stylesheet" href="style.css" type="text/css" />
+	
       
     
     <style type="text/css">
-			body, html {
+		body, html {
           height: 100%;
           margin: 0;
           overflow:hidden;
@@ -57,7 +46,7 @@
           z-index: 0;
       }
       #sidebar {
-          background: #DF314D;
+          background: #3775c1;
           position: absolute;
           width: 240px;
           height: 100%;
@@ -80,7 +69,7 @@
           color: white;
           text-decoration: none;
           display: block;
-          border-bottom: 1px solid #C9223D;
+          border-bottom: 1px solid #2d609e;
           -webkit-transition:  background 0.3s ease-in-out;
           -moz-transition:  background 0.3s ease-in-out;
           -ms-transition:  background 0.3s ease-in-out;
@@ -88,7 +77,7 @@
           transition:  background 0.3s ease-in-out;
       }
       #sidebar ul li:hover a {
-          background: #C9223D;
+          background: #2d609e;
       }
       .main-content {
           width: 100%;
@@ -133,7 +122,7 @@
 	  
 	  .alert {
     padding: 20px;
-    background-color: #DF314D;
+    background-color: #3775c1;
     color: white;
 }
 
@@ -179,24 +168,12 @@
   <body>
     <div class="container">
       <div id="sidebar">
-		<center><img src="https://image.flaticon.com/icons/svg/265/265729.svg"></center>
+		<center><img src="https://image.flaticon.com/icons/svg/265/265668.svg"></center>
           <ul>
-       
-              <li><a href="demo3.php">Início</a></li>
-              <li><a href="demo5.php">Serviços</a></li>
-			  <li><a href="demo2.php">Perfil</a></li>
-			  <li><a href="demo4.php">Histórico</a></li>
+                     <li><a href="index.php">Início</a></li>
+              <li><a href="user_list_view.php">Utilizadores</a></li>
+			  <li><a href="#">Veículos</a></li>
               <li><a href="logout.php?logout">Sair</a></li>
-			  		  	<?php
-	$q = mysql_query ("SELECT CodTipoU from utilizador where CodTipoU=1 and CodUser=".$_SESSION['user']);
-	$num = mysql_num_rows ($q);
-	if($num == '1')	
-	{
-	echo '<a href="admin/index.php" target="_blank">';
-	echo '<input name="admin" type="submit" class="btnadmin" value="Painel Administrador" />' ;
-	echo '</a>';
-	}
-	?>
           </ul>
       </div>
       <div class="main-content">
@@ -207,66 +184,17 @@
               <span class="bar"></span>
           </a>
           <div class="content">
-          
-		  
-		 <div class="alert">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Bem Vindo - </strong> <?php echo $userRow['Nome_Registo']; ?> | <strong>Serviço Ativo - </strong> <?php echo $userRow['EmUso']; ?>
-</div>
-		  
-		<h2>Painel Utilizador</h2>
+	
+         
+		<h2>Lista Utilizadores</h2>
 		<div class="page-title">
 		</div>
-		<div class="hover08 column">
-			 <div class="boxt">
-			 <figure><img src="https://image.flaticon.com/icons/svg/351/351758.svg"
-			align="left" title="Veiculo Activo"></figure><br>
-		<div class="page-box">
-		</div>			
-			<b><h1>Marca:</b> <?php echo $userRow['Marca']; ?></h1><p>
-			<b><h1>Modelo:</b> <?php echo $userRow['Modelo']; ?></h1><p>
-			<b><h1>Matrícula:</b> <?php echo $userRow['Matricula']; ?></h1>
+		<br>
+<iframe src="user_list.php" frameborder="0" width="100%" height="700px"></iframe>
+
+
 		
-			<p>
-			<button class="" type=button onClick="parent.location='#'"></button>
-			 </div>
-			 
-			 <div class="boxt">
-			 <figure><img src="https://image.flaticon.com/icons/svg/252/252021.svg"
-			align="left" title="Manutenção"></figure><br>
-			<div class="page-box">
-		</div>	
-			<b><h1>Inspeção:</b> <?php echo $userRow['Proxima_Inspecao']; ?></h1><p>
-			<b><h1>Manutenção:</b> </h1><p>
-			<h1>Editar</h1>
-			
-			<button class="" type=button onClick="parent.location='#'"></button>
-			 </div>
-			  <div class="boxt">
-			 <figure><img src="https://image.flaticon.com/icons/svg/140/140638.svg"
-			align="left" title="Despesas"></figure><br>
-			<div class="page-box">
-		</div>	
-			<b><h1>Abastecimento:</b> </h1><p>
-			<b><h1>Manutenção:</b> </h1><p>
-			<b><h1>Despesas:</b> </h1>
-			
-			<button class="" type=button onClick="parent.location='#'"></button>
-			 </div>
-			 
-			  <div class="boxt">
-			 <figure><img src="https://image.flaticon.com/icons/svg/340/340068.svg"
-			align="left" title="Notas"></figure><br>
-			<div class="page-box">
-		</div>	
-			<h1>Editar</h1><p>
-			<h1> Editar</h1><p>
-			<h1> Editar</h1>
-			
-			<button class="" type=button onClick="parent.location='#'"></button>
-			 </div>
-			 
-		</div>
+		
       </div>
     </div>
   </body>

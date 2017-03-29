@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <?php
+	
 	ob_start();
 	session_start();
 	require_once 'dbconnect.php';
@@ -9,13 +9,14 @@
 		header("Location: index.php");
 		exit;
 	}
+	
+	$id=$_GET['id'];
+	
 	// select loggedin users detail
-	$res=mysql_query("SELECT * FROM utilizador, cidade, tipouser, pais WHERE pais.CodPais=cidade.CodPais and tipouser.CodTipoU=utilizador.CodTipoU and cidade.CodCi=utilizador.CodCi and utilizador.CodUser=".$_SESSION['user']);
+	$res=mysql_query("SELECT * from despesas, veiculos, fornecedores, utilizador, tipodesp WHERE CodDesp='$id' and Efetuada='Nao' and despesas.codVei=veiculos.codVei AND despesas.codForn=fornecedores.CodForn and despesas.CodUser=utilizador.CodUser and despesas.CodTipoD=tipodesp.CodTipoD");
 	$userRow=mysql_fetch_array($res);
 	
-
 ?>
-
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -23,7 +24,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="jquery.touchSwipe.min.js"></script>
 	<link rel="stylesheet" href="style.css" type="text/css" />
-	<link rel="stylesheet" href="circle.css" type="text/css" />
+	
       
     
     <style type="text/css">
@@ -172,7 +173,68 @@ div.panel {
     transition: max-height 0.2s ease-out;
 }
 
+ul.tab li a:focus, .active {
+        color: #000000 !important;
+}
 
+input, select {
+    width: 100%;
+}
+
+tr:hover {background-color: white}
+
+.search_categories{
+font-family: "Raleway";
+    font-size: 14px;
+    padding: 10px 10px 9px 14px;
+    background: #fff;
+        border: none;
+    overflow: hidden;
+    position: relative;
+}
+
+.search_categories .select{
+    background:transparent;
+      border:0;
+  width: 120%;
+  background:url('arrow.png') no-repeat;
+  background-position:80% center;
+}
+
+.search_categories .select select{
+
+  background: transparent;
+  line-height: 1;
+  border:none !important;
+  padding: 0;
+  border-radius: 0;
+  width: 120%;
+  position: relative;
+  z-index: 10;
+  font-size: 1em;
+}
+
+input[type=date] {
+font-family: "Raleway";
+font-size: 14px;
+border: none;
+ outline: none;
+padding: 9px 0 3px 17px;
+}
+
+input[type=text] {
+font-family: "Raleway";
+border: none;
+margin: 3px 20px 17px;
+color: black;
+padding: 8px 0px 0px 0px;
+border: none;
+font: 400 14px 'Cabin', sans-serif;
+    background: #FFF;
+	    max-width: 100%;
+
+}
+	  
 	  
     </style>
     <script type="text/javascript">
@@ -199,27 +261,35 @@ div.panel {
     </script>
   </head>
   <body>
+  
+  <body>
+	<?php
+	include('dbconnect.php');
+	if(isset($_GET['id']))
+	{
+	$id=$_GET['id'];
+	if(isset($_POST['submit']))
+	{
+	$date=$_POST['date'];
+	$query3=mysql_query("update despesas set Data_Efetuada='$date', Data_Agendada='$date' where CodDesp='$id'");
+	header("Location: demo5.php");
+	if($query3)
+	{
+	
+	}
+	}
+	$query1=mysql_query("select * from despesas where CodDesp='$id'");
+	$query2=mysql_fetch_array($query1);
+	?>
     <div class="container">
       <div id="sidebar">
 		<center><img src="https://image.flaticon.com/icons/svg/265/265729.svg"></center>
           <ul>
-         
-<li><a href="demo3.php">Início</a></li>
+                 <li><a href="demo3.php">Início</a></li>
               <li><a href="demo5.php">Serviços</a></li>
 			  <li><a href="demo2.php">Perfil</a></li>
 			  <li><a href="demo4.php">Histórico</a></li>
               <li><a href="logout.php?logout">Sair</a></li>
-			  		  	<?php
-	$q = mysql_query ("SELECT CodTipoU from utilizador where CodTipoU=1 and CodUser=".$_SESSION['user']);
-	$num = mysql_num_rows ($q);
-	if($num == '1')	
-	{
-	echo '<a href="admin/index.php" target="_blank">';
-	echo '<input name="admin" type="submit" class="btnadmin" value="Painel Administrador" />' ;
-	echo '</a>';
-	}
-	?>
-          </ul>
           </ul>
       </div>
       <div class="main-content">
@@ -231,100 +301,44 @@ div.panel {
           </a>
           <div class="content">
               
-				<h2>Perfil</h2>
-		
-		 <div class="page-header">
+		<h2>Editar Agenda</h2>
+		<div class="page-title">
 		</div>
-		
-    	<div class="page-header">
-		
-		
-			
-		
-
-		<ul class="tab">
-  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Geral')" id="defaultOpen">Dados Gerais</a></li>
-  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Pessoal')">Dados Pessoais</a></li>
-  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'notas')">Notas</a></li>
-
-	</ul>
-    	
-		</div>
-
-	<div id="Geral" class="tabcontent">
-  <p><table cellspacing='0'>
-			<tr><th>ID</th><td><?php echo $userRow['CodUser']; ?></td></tr>
-			<tr><th>Utilizador</th><td><?php echo $userRow['Nome_Registo']; ?></td></tr>
-			<tr><th>Email</th><td><?php echo $userRow['Email']; ?></td></tr>
-			<tr><th>País</th><td><?php echo $userRow['Nomep']; ?></td></tr>
-			<tr><th>Género</th><td><?php echo $userRow['Genero']; ?></td></tr>
-			<tr><th>Data Contratação</th><td><?php echo $userRow['Data_Contratacao']; ?></td></tr>
-			</table>
-			</p>
-	<br>
-	<p align="right">
-		<button class="btnnn" type=button onClick="parent.location='#.php'">?</button>
-		<button class="btnn" type=button onClick="parent.location='editarperfil.php'">&#10000; Alterar</button>
-	</p>
-	</div>
-	
-	<div id="Pessoal" class="tabcontent">
-  <p><table cellspacing='0'>
-			<tr><th>Nome Próprio</th><td><?php echo $userRow['Nome_Proprio']; ?></td></tr>
-			<tr><th>Apelido</th><td><?php echo $userRow['Apelido']; ?></td></tr>
-			<tr><th>Data Nascimento</th><td><?php echo $userRow['Data_Nascimento']; ?></td></tr>
-			<tr><th>Habilitações</th><td><?php echo $userRow['Habilitacoes']; ?></td></tr>
-			<tr><th>Pagamentos</th><td><?php echo $userRow['Pagamentos_Hora']; ?>€</td></tr>
-			<tr><th>Morada</th><td><?php echo $userRow['Rua']; ?></td></tr>
-			<tr><th>Telemóvel</th><td><?php echo $userRow['N_Telemovel']; ?></td></tr>
-			<tr><th>Telefone</th><td><?php echo $userRow['N_Telefone']; ?></td></tr>
-			</table>
-			</p>
-	<br>
-	<p align="right">
-		<button class="btnnn" type=button onClick="parent.location='#.php'">?</button>
-		<button class="btnn" type=button onClick="parent.location='editarperfil.php' ">&#10000; Alterar</button>
-	</p>
-	</div>
-	
-	
-	<div id="notas" class="tabcontent">
-	<p><table cellspacing='0'>
-			<tr><th>Notas Contacto</th><td><?php echo $userRow['Notas_contacto']; ?></td></tr>
-			<tr><th>Notas Contracto</th><td><?php echo $userRow['Notas_Contracto']; ?></td></tr>
-			</table>
-			</p>
-	<br>
-	<p align="right">
-		<button class="btnnn" type=button onClick="parent.location='#.php'">?</button>
-		<button class="btnn" type=button onClick="parent.location='editarperfil.php'">&#10000; Alterar</button>
-	</p>
-	</div>
-	
-
-	
-	</div>
-	<script>
-	
-	function openCity(evt, cityName) {
-		var i, tabcontent, tablinks;
-		tabcontent = document.getElementsByClassName("tabcontent");
-		for (i = 0; i < tabcontent.length; i++) {
-			tabcontent[i].style.display = "none";
+		<br>
+		<form method="post" action="">
+		<table cellspacing='0'>
+	<tr><th>Data Agendada</th><td><input type="date"  name="date" value="<?php echo $userRow['Data_Agendada'] ?>" /> </td></tr>
+		<br />
+		</table>
+		<br>
+		<p align="right">
+		<button type="submit" name="submit" class="btnnn" value="update">Editar<button/>
+		<button class="btnn" type=button onClick="parent.location='demo5.php'">Voltar</button>   
+		</P>
+		</form>
+		<?php
 		}
-		tablinks = document.getElementsByClassName("tablinks");
-		for (i = 0; i < tablinks.length; i++) {
-			tablinks[i].className = tablinks[i].className.replace(" active", "");
-		}
-		document.getElementById(cityName).style.display = "block";
-		evt.currentTarget.className += " active";
-	}
+		?>
 
-	// Get the element with id="defaultOpen" and click on it
-	document.getElementById("defaultOpen").click();
-	</script>
-			 
-		</div>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  }
+}
+</script>
+
+		
+		
       </div>
     </div>
   </body>

@@ -10,20 +10,18 @@
 		exit;
 	}
 	// select loggedin users detail
-	$res=mysql_query("SELECT * FROM utilizador, cidade, tipouser, pais WHERE pais.CodPais=cidade.CodPais and tipouser.CodTipoU=utilizador.CodTipoU and cidade.CodCi=utilizador.CodCi and utilizador.CodUser=".$_SESSION['user']);
+	$res=mysql_query("SELECT * from utilizador, veiculos, tipocom, tipovei where veiculos.CodTipoV=tipovei.CodTipoV and veiculos.CodTipoC=tipocom.CodTipoC and CodUser=".$_SESSION['user']);
 	$userRow=mysql_fetch_array($res);
 	
-
+	
 ?>
-
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Início</title>
+    <title>Lista Agenda</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="jquery.touchSwipe.min.js"></script>
 	<link rel="stylesheet" href="style.css" type="text/css" />
-	<link rel="stylesheet" href="circle.css" type="text/css" />
       
     
     <style type="text/css">
@@ -132,48 +130,6 @@
       .main-content #sidebar-toggle .bar:last-child{
            margin-bottom: 0;   
       }
-	  
-	button.accordion {
-	background: #FFF url(logos/serv.png) no-repeat 1px ;
-	margin-bottom: 5px;
-    background-color: #eee;
-    color: white;
-    cursor: pointer;
-    padding: 0.8%;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-}
-
-button.accordion.active, button.accordion:hover {
-    background-color: #ddd;
-}
-
-button.accordion:after {
-    content: '\002B';
-    color: #777;
-    font-weight: bold;
-    float: right;
-    margin-left: 5px;
-}
-
-button.accordion.active:after {
-    content: "\2212";
-}
-
-div.panel {
-    padding: 12px 0px 0 0px;
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-}
-
-
-	  
     </style>
     <script type="text/javascript">
       $(window).load(function(){
@@ -203,8 +159,7 @@ div.panel {
       <div id="sidebar">
 		<center><img src="https://image.flaticon.com/icons/svg/265/265729.svg"></center>
           <ul>
-         
-<li><a href="demo3.php">Início</a></li>
+          <li><a href="demo3.php">Início</a></li>
               <li><a href="demo5.php">Serviços</a></li>
 			  <li><a href="demo2.php">Perfil</a></li>
 			  <li><a href="demo4.php">Histórico</a></li>
@@ -231,100 +186,12 @@ div.panel {
           </a>
           <div class="content">
               
-				<h2>Perfil</h2>
-		
-		 <div class="page-header">
+		<h2>Lista Agenda</h2>
+		<div class="page-title">
 		</div>
+		<br>
+		<iframe src="agenda_list.php" frameborder="0" width="100%" height="1000px"></iframe>
 		
-    	<div class="page-header">
-		
-		
-			
-		
-
-		<ul class="tab">
-  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Geral')" id="defaultOpen">Dados Gerais</a></li>
-  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Pessoal')">Dados Pessoais</a></li>
-  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'notas')">Notas</a></li>
-
-	</ul>
-    	
-		</div>
-
-	<div id="Geral" class="tabcontent">
-  <p><table cellspacing='0'>
-			<tr><th>ID</th><td><?php echo $userRow['CodUser']; ?></td></tr>
-			<tr><th>Utilizador</th><td><?php echo $userRow['Nome_Registo']; ?></td></tr>
-			<tr><th>Email</th><td><?php echo $userRow['Email']; ?></td></tr>
-			<tr><th>País</th><td><?php echo $userRow['Nomep']; ?></td></tr>
-			<tr><th>Género</th><td><?php echo $userRow['Genero']; ?></td></tr>
-			<tr><th>Data Contratação</th><td><?php echo $userRow['Data_Contratacao']; ?></td></tr>
-			</table>
-			</p>
-	<br>
-	<p align="right">
-		<button class="btnnn" type=button onClick="parent.location='#.php'">?</button>
-		<button class="btnn" type=button onClick="parent.location='editarperfil.php'">&#10000; Alterar</button>
-	</p>
-	</div>
-	
-	<div id="Pessoal" class="tabcontent">
-  <p><table cellspacing='0'>
-			<tr><th>Nome Próprio</th><td><?php echo $userRow['Nome_Proprio']; ?></td></tr>
-			<tr><th>Apelido</th><td><?php echo $userRow['Apelido']; ?></td></tr>
-			<tr><th>Data Nascimento</th><td><?php echo $userRow['Data_Nascimento']; ?></td></tr>
-			<tr><th>Habilitações</th><td><?php echo $userRow['Habilitacoes']; ?></td></tr>
-			<tr><th>Pagamentos</th><td><?php echo $userRow['Pagamentos_Hora']; ?>€</td></tr>
-			<tr><th>Morada</th><td><?php echo $userRow['Rua']; ?></td></tr>
-			<tr><th>Telemóvel</th><td><?php echo $userRow['N_Telemovel']; ?></td></tr>
-			<tr><th>Telefone</th><td><?php echo $userRow['N_Telefone']; ?></td></tr>
-			</table>
-			</p>
-	<br>
-	<p align="right">
-		<button class="btnnn" type=button onClick="parent.location='#.php'">?</button>
-		<button class="btnn" type=button onClick="parent.location='editarperfil.php' ">&#10000; Alterar</button>
-	</p>
-	</div>
-	
-	
-	<div id="notas" class="tabcontent">
-	<p><table cellspacing='0'>
-			<tr><th>Notas Contacto</th><td><?php echo $userRow['Notas_contacto']; ?></td></tr>
-			<tr><th>Notas Contracto</th><td><?php echo $userRow['Notas_Contracto']; ?></td></tr>
-			</table>
-			</p>
-	<br>
-	<p align="right">
-		<button class="btnnn" type=button onClick="parent.location='#.php'">?</button>
-		<button class="btnn" type=button onClick="parent.location='editarperfil.php'">&#10000; Alterar</button>
-	</p>
-	</div>
-	
-
-	
-	</div>
-	<script>
-	
-	function openCity(evt, cityName) {
-		var i, tabcontent, tablinks;
-		tabcontent = document.getElementsByClassName("tabcontent");
-		for (i = 0; i < tabcontent.length; i++) {
-			tabcontent[i].style.display = "none";
-		}
-		tablinks = document.getElementsByClassName("tablinks");
-		for (i = 0; i < tablinks.length; i++) {
-			tablinks[i].className = tablinks[i].className.replace(" active", "");
-		}
-		document.getElementById(cityName).style.display = "block";
-		evt.currentTarget.className += " active";
-	}
-
-	// Get the element with id="defaultOpen" and click on it
-	document.getElementById("defaultOpen").click();
-	</script>
-			 
-		</div>
       </div>
     </div>
   </body>

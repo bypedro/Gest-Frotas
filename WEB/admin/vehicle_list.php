@@ -1,19 +1,9 @@
 <!DOCTYPE html>
 <?php
-	ob_start();
-	session_start();
-	require_once 'dbconnect.php';
-	
-	// if session is not set this will redirect to login page
-	if( !isset($_SESSION['user']) ) {
-		header("Location: index.php");
-		exit;
-	}
-	// select loggedin users detail
-	$res=mysql_query("SELECT * FROM veicondu, utilizador, veiculos, tipouser where utilizador.CodTipoU=tipouser.CodTipoU and veicondu.CodUser=utilizador.CodUser and veicondu.CodVei=veiculos.CodVei and EmUso='Sim' and utilizador.CodUser=".$_SESSION['user']);
-	$userRow=mysql_fetch_array($res);
-	
-	
+ob_start();
+session_start();
+$con=mysqli_connect("localhost","root","") or die(mysqli_error());
+mysqli_select_db($con,"frotas") or die(mysqli_error($con));
 ?>
 <html>
   <head>
@@ -28,7 +18,7 @@
 			body, html {
           height: 100%;
           margin: 0;
-          overflow:hidden;
+          
           font-family: helvetica;
           font-weight: 100;
       }
@@ -131,26 +121,9 @@
            margin-bottom: 0;   
       }
 	  
-	  .alert {
-    padding: 20px;
-    background-color: #DF314D;
-    color: white;
-}
-
-.closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.closebtn:hover {
-    color: black;
-}
+	  td a{font-size:16px; color:#1f1f1f; margin-left:5px; padding:5px 10px; text-decoration:none; border-radius: 10px;}
+	  td a:hover{color:#3775c1;}
+	  
 	  
     </style>
     <script type="text/javascript">
@@ -176,98 +149,93 @@
       
     </script>
   </head>
-  <body>
-    <div class="container">
-      <div id="sidebar">
-		<center><img src="https://image.flaticon.com/icons/svg/265/265729.svg"></center>
-          <ul>
-       
-              <li><a href="demo3.php">Início</a></li>
-              <li><a href="demo5.php">Serviços</a></li>
-			  <li><a href="demo2.php">Perfil</a></li>
-			  <li><a href="demo4.php">Histórico</a></li>
-              <li><a href="logout.php?logout">Sair</a></li>
-			  		  	<?php
-	$q = mysql_query ("SELECT CodTipoU from utilizador where CodTipoU=1 and CodUser=".$_SESSION['user']);
-	$num = mysql_num_rows ($q);
-	if($num == '1')	
+<body>
+
+
+<?php
+	$start=0;
+	$limit=7;
+	$page=0;
+	if(isset($_GET['page']))
 	{
-	echo '<a href="admin/index.php" target="_blank">';
-	echo '<input name="admin" type="submit" class="btnadmin" value="Painel Administrador" />' ;
-	echo '</a>';
+		$page=$_GET['page'];
+		$start=($page-1)*$limit;
 	}
+
+ 	$sql=mysqli_query($con, "select * from veiculos, tipocom, tipovei where veiculos.CodTipoC=tipocom.CodTipoC and veiculos.CodTipoV=tipovei.CodTipoV ORDER BY codVei ASC LIMIT $start, $limit") or die(mysqli_error($con));
+
+?>
+<table align='center' class='table-fill'>
+	<?php
+	echo "<tr>";
+                echo "<th>ID</th>";
+                echo "<th>Matricula</th>";
+                echo "<th>Marca</th>";
+				echo "<th>Modelo</th>";
+				echo "<th>Cor</th>";
+				echo "<th>Ano</th>";
+				echo "<th>Combustível</th>";
+				echo "<th>Veículo</th>";
+				echo "<th>Opção</th>";
+            echo "</tr>";
+	
 	?>
-          </ul>
-      </div>
-      <div class="main-content">
-          <div class="swipe-area"></div>
-          <a href="#" data-toggle=".container" id="sidebar-toggle">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
-          </a>
-          <div class="content">
-          
-		  
-		 <div class="alert">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Bem Vindo - </strong> <?php echo $userRow['Nome_Registo']; ?> | <strong>Serviço Ativo - </strong> <?php echo $userRow['EmUso']; ?>
-</div>
-		  
-		<h2>Painel Utilizador</h2>
-		<div class="page-title">
-		</div>
-		<div class="hover08 column">
-			 <div class="boxt">
-			 <figure><img src="https://image.flaticon.com/icons/svg/351/351758.svg"
-			align="left" title="Veiculo Activo"></figure><br>
-		<div class="page-box">
-		</div>			
-			<b><h1>Marca:</b> <?php echo $userRow['Marca']; ?></h1><p>
-			<b><h1>Modelo:</b> <?php echo $userRow['Modelo']; ?></h1><p>
-			<b><h1>Matrícula:</b> <?php echo $userRow['Matricula']; ?></h1>
+	<?php
+			
+		while($row=mysqli_fetch_assoc($sql))
+		{
 		
-			<p>
-			<button class="" type=button onClick="parent.location='#'"></button>
-			 </div>
-			 
-			 <div class="boxt">
-			 <figure><img src="https://image.flaticon.com/icons/svg/252/252021.svg"
-			align="left" title="Manutenção"></figure><br>
-			<div class="page-box">
-		</div>	
-			<b><h1>Inspeção:</b> <?php echo $userRow['Proxima_Inspecao']; ?></h1><p>
-			<b><h1>Manutenção:</b> </h1><p>
-			<h1>Editar</h1>
+	?>
+	<?php
+	
+	  echo "<tr>";
+                echo "<td>" . $row['codVei'] . "</td>";
+                echo "<td>" . $row['Matricula'] . "</td>";
+                echo "<td>" . $row['Marca'] . "</td>";
+                echo "<td>" . $row['Modelo'] . "</td>";
+				echo "<td>" . $row['cor'] . "</td>";
+				echo "<td>" . $row['Ano'] . "</td>";
+				echo "<td>" . $row['nomec'] . "</td>";
+				echo "<td>" . $row['nome'] . "</td>";
+				echo "<td>" . "<a href='edit.php?id=".$row['codVei']."' target='_blank'><img src='logos/edit.png' title='Editar Veículo' class='imgg' /></a>" . "</td>"; 
+            echo "</tr>";
+	
+	
+	
+	?>
+	<?php
+	
+		}
+	?>
 			
-			<button class="" type=button onClick="parent.location='#'"></button>
-			 </div>
-			  <div class="boxt">
-			 <figure><img src="https://image.flaticon.com/icons/svg/140/140638.svg"
-			align="left" title="Despesas"></figure><br>
-			<div class="page-box">
-		</div>	
-			<b><h1>Abastecimento:</b> </h1><p>
-			<b><h1>Manutenção:</b> </h1><p>
-			<b><h1>Despesas:</b> </h1>
-			
-			<button class="" type=button onClick="parent.location='#'"></button>
-			 </div>
-			 
-			  <div class="boxt">
-			 <figure><img src="https://image.flaticon.com/icons/svg/340/340068.svg"
-			align="left" title="Notas"></figure><br>
-			<div class="page-box">
-		</div>	
-			<h1>Editar</h1><p>
-			<h1> Editar</h1><p>
-			<h1> Editar</h1>
-			
-			<button class="" type=button onClick="parent.location='#'"></button>
-			 </div>
-			 
-		</div>
-      </div>
-    </div>
-  </body>
+	<tr>
+		<td colspan='3'>
+		
+	<?php
+		
+	$rows=mysqli_num_rows(mysqli_query($con, "select * from veiculos"));
+	$total=ceil($rows/$limit);
+	if(isset($page))
+	{
+		if($page>1)
+		{
+			echo "<a href='?page=".($page-1)."' class='paging'>Anterior</a>";
+		}
+	}
+
+	for($i=1;$i<=$total;$i++)
+	{
+		echo "<a class='paging' href='?page=".$i."'>".$i."</a>"; 
+	}
+	
+	if($page!=$total)
+	{
+		echo "<a class='paging' href='?page=".($page+1)."' class=paging''>Próximo</a>";
+	}
+	
+	?>
+	</td>
+	</tr>
+</table>
+</body>
 </html>
