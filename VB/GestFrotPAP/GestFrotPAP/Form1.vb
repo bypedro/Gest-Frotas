@@ -264,6 +264,8 @@ Public Class Form1
 
     Private Sub BtnImagem6_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagem6.ButtonClickMasterRace
         MenuPrincipal(5, True)
+        MsgBox("TODO: Quilometros->Milhas,Litros->Galões, Linguagem, Aspeto, Etc")
+
     End Sub
 
     Private Sub BtnImagem7_ButtonClickMasterRace(sender As Object, e As EventArgs) Handles BtnImagem7.ButtonClickMasterRace
@@ -349,6 +351,8 @@ Public Class Form1
                 BtnImagem7.Show()
                 BtnImagem7.Show()
             ElseIf DetalhesUtilizador.TipoUtilizadorCod = 2 Then
+                MsgBox("WIP")
+                Exit Sub
                 LoadOrder.MenuPrincipalPage()
                 BtnImagem2.Hide()
                 BtnImagem3.Hide()
@@ -357,6 +361,8 @@ Public Class Form1
                 BtnImagem6.Hide()
                 BtnImagem7.Hide()
             Else
+                MsgBox("WIP")
+                Exit Sub
                 LoadOrder.MenuPrincipalPage()
                 BtnImagem2.Show()
                 BtnImagem3.Show()
@@ -589,6 +595,11 @@ Public Class Form1
 
     Private Sub LstVAdminVeiculoClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LstVAdminVeiculo.Click
         DetalhesVeiculosAdmin(LstVAdminVeiculo.SelectedItems(0).Text)
+
+    End Sub
+
+    Private Sub LstVAdminFornecedoresClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LstVAdminFornecedores.Click
+        DetalhesFornecedorAdmin(LstVAdminFornecedores.SelectedItems(0).Text)
     End Sub
 
 

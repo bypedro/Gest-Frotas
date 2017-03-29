@@ -292,6 +292,31 @@ Module SQL
     Public Sub BuscarDadosUtilizador(ByVal Utilizador As String)
         Dim Comando As MySqlCommand
         Dim Objecto As Object
+
+        Try
+            Comando = New MySqlCommand("select CodTipoU from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
+            ligacao.Open()
+            Objecto = Comando.ExecuteScalar
+            If IsDBNull(Objecto) Then
+                DetalhesUtilizador.TipoUtilizadorCod = 0
+                MsgBox("ERRO Tipo Utilizador Cod")
+                ligacao.Close()
+
+            Else
+                DetalhesUtilizador.TipoUtilizadorCod = CType(Objecto, String)
+                ligacao.Close()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            ligacao.Close()
+        End Try
+
+        'CODIGO TEMPORÀRIO PARA OPRIMIR OS UTILIZADORES QUE NÂO SÂO ADMINISTRADORES
+        If DetalhesUtilizador.TipoUtilizadorCod <> 1 Then
+            MsgBox("Utilizador Não disponivel")
+            Exit Sub
+        End If
+
         Try
             Comando = New MySqlCommand("select CodUser from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -308,6 +333,7 @@ Module SQL
             MsgBox(ex.ToString)
             ligacao.Close()
         End Try
+       
         Try
             Comando = New MySqlCommand("select Nome_Registo from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
             ligacao.Open()
@@ -547,23 +573,6 @@ Module SQL
             MsgBox(ex.ToString)
             ligacao.Close()
         End Try
-        Try
-            Comando = New MySqlCommand("select CodTipoU from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
-            ligacao.Open()
-            Objecto = Comando.ExecuteScalar
-            If IsDBNull(Objecto) Then
-                DetalhesUtilizador.TipoUtilizadorCod = 0
-                MsgBox("ERRO Tipo Utilizador Cod")
-                ligacao.Close()
-
-            Else
-                DetalhesUtilizador.TipoUtilizadorCod = CType(Objecto, String)
-                ligacao.Close()
-            End If
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-            ligacao.Close()
-        End Try
 
         Try
             Comando = New MySqlCommand("select Codci from Utilizador where Nome_Registo='" + Utilizador + "'", ligacao)
@@ -758,7 +767,7 @@ Module SQL
             ligacao.Close()
         End Try
         'Agenda
-        
+
 
     End Sub
 
@@ -1296,6 +1305,32 @@ Module SQL
                 'Form1.LblManuVeiculo.Text = "Data Contratacao: " + reader.GetString("Data_contratacao")
                 'Form1.LblManuFornecedor.Text = "Pagmamento hora: " + reader.GetString("Pagmamentos_hora")
                 ' Form1.TxtAdminUtilizadorNotasContract.Text = reader.GetString("Notas_Contracto"
+            End While
+            ligacao.Close()
+        Catch ex As Exception
+            ligacao.Close()
+            MsgBox(ex.ToString)
+            Exit Sub
+        End Try
+    End Sub
+
+    Public Sub DetalhesFornecedorAdmin(ByVal Cod As String)
+        Dim Comando As MySqlCommand
+        Dim reader As MySqlDataReader
+        Form1.LblAdminFornecedoresCod.Text = "Código: " + Cod
+        Comando = New MySqlCommand
+        Comando.Connection = ligacao
+        Comando.CommandText = ("select CodForn,Fornecedores.Nome as Nome,Rua,N_Telemovel,N_Telefone,Email,site, tipofor.Nome as 'Tipo de Fornecedor',Cidade.Nome as 'Cidade', Pais.Nome as 'Pais' from Fornecedores,Tipofor,Cidade,Pais where fornecedores.CodtipoF=Tipofor.CodtipoF and Fornecedores.codci=cidade.codci and cidade.codpais=pais.codpais and codforn=" + Cod + " ")
+        Try
+            ligacao.Open()
+            reader = Comando.ExecuteReader
+            While reader.Read
+                Form1.LblAdminFornecedoresNome.Text = "Nome: " + reader("Nome")
+                Form1.LblAdminFornecedoresMorada.Text = "Morada: " + reader("Rua") + ", " + reader("Cidade") + ", " + reader("pais")
+                Form1.LblAdminFornecedoresTele.Text = "Telemovel: " + reader.GetString("N_Telemovel")
+                Form1.LblAdminFornecedoresTelef.Text = "Telefone: " + reader.GetString("N_Telefone")
+                Form1.LblAdminFornecedoresEmail.Text = "Email:: " + reader("Email")
+                Form1.LblAdminFornecedoresSite.Text = "Website: " + reader("site")
             End While
             ligacao.Close()
         Catch ex As Exception

@@ -724,155 +724,44 @@
 
     Public Sub ListViewSize(ByVal Listview As String)
         If Listview = "LstVAbastecimento" Then
+            Form1.LstVAbastecimento.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+            Form1.LstVAbastecimento.Columns(7).Width = Form1.LstVAbastecimento.Columns(7).Width + Form1.LstVAbastecimento.Columns(0).Width
             Form1.LstVAbastecimento.Columns(0).Width = 0
-            Form1.LstVAbastecimento.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVAbastecimento.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVAbastecimento.Columns(3).Width = 100
-            Form1.LstVAbastecimento.Columns(4).Width = 100
-            Form1.LstVAbastecimento.Columns(5).Width = 100
-            Form1.LstVAbastecimento.AutoResizeColumn(6, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVAbastecimento.Columns(7).Width = 100
-            Form1.LstVAbastecimento.Columns(0).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAbastecimento.Columns(1).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAbastecimento.Columns(2).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAbastecimento.Columns(3).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAbastecimento.Columns(4).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAbastecimento.Columns(5).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAbastecimento.Columns(6).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAbastecimento.Columns(7).TextAlign = HorizontalAlignment.Center
-            If Form1.LstVAbastecimento.Items.Count = 0 Then
-                Form1.LstVAbastecimento.Columns(0).Width = 0
-                Form1.LstVAbastecimento.Columns(1).Width = 100
-                Form1.LstVAbastecimento.Columns(2).Width = 100
-                Form1.LstVAbastecimento.Columns(3).Width = 100
-                Form1.LstVAbastecimento.Columns(4).Width = 100
-                Form1.LstVAbastecimento.Columns(5).Width = 100
-                Form1.LstVAbastecimento.Columns(6).Width = 100
-                Form1.LstVAbastecimento.Columns(7).Width = 200
-            End If
         ElseIf Listview = "LstVManu" Then
+            Form1.LstVManu.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+            Form1.LstVManu.Columns(7).Width = Form1.LstVManu.Columns(7).Width + Form1.LstVManu.Columns(0).Width
             Form1.LstVManu.Columns(0).Width = 0
-            Form1.LstVManu.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVManu.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVManu.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVManu.Columns(4).Width = 100
-            Form1.LstVManu.AutoResizeColumn(5, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVManu.AutoResizeColumn(6, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVManu.Columns(7).Width = 100
-            Form1.LstVManu.Columns(0).TextAlign = HorizontalAlignment.Center
-            Form1.LstVManu.Columns(1).TextAlign = HorizontalAlignment.Center
-            Form1.LstVManu.Columns(2).TextAlign = HorizontalAlignment.Center
-            Form1.LstVManu.Columns(3).TextAlign = HorizontalAlignment.Center
-            Form1.LstVManu.Columns(4).TextAlign = HorizontalAlignment.Center
-            Form1.LstVManu.Columns(5).TextAlign = HorizontalAlignment.Center
-            Form1.LstVManu.Columns(6).TextAlign = HorizontalAlignment.Center
-            Form1.LstVManu.Columns(7).TextAlign = HorizontalAlignment.Center
-            If Form1.LstVManu.Items.Count = 0 Then
-                Form1.LstVManu.Columns(0).Width = 0
-                Form1.LstVManu.Columns(1).Width = 100
-                Form1.LstVManu.Columns(2).Width = 100
-                Form1.LstVManu.Columns(3).Width = 100
-                Form1.LstVManu.Columns(4).Width = 100
-                Form1.LstVManu.Columns(5).Width = 100
-                Form1.LstVManu.Columns(6).Width = 100
-                Form1.LstVManu.Columns(7).Width = 100
-            End If
         ElseIf Listview = "LstVDesp" Then
+            Form1.LstVDesp.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+            Form1.LstVDesp.Columns(5).Width = Form1.LstVDesp.Columns(5).Width + Form1.LstVDesp.Columns(0).Width
             Form1.LstVDesp.Columns(0).Width = 0
-            Form1.LstVDesp.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVDesp.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVDesp.Columns(3).Width = 100
-            Form1.LstVDesp.Columns(4).Width = 100
-            Form1.LstVDesp.AutoResizeColumn(5, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVDesp.AutoResizeColumn(6, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVDesp.Columns(7).Width = 100
-            Form1.LstVDesp.Columns(0).TextAlign = HorizontalAlignment.Center
-            Form1.LstVDesp.Columns(1).TextAlign = HorizontalAlignment.Center
-            Form1.LstVDesp.Columns(2).TextAlign = HorizontalAlignment.Center
-            Form1.LstVDesp.Columns(3).TextAlign = HorizontalAlignment.Center
-            Form1.LstVDesp.Columns(4).TextAlign = HorizontalAlignment.Center
-            Form1.LstVDesp.Columns(5).TextAlign = HorizontalAlignment.Center
-            Form1.LstVDesp.Columns(6).TextAlign = HorizontalAlignment.Center
-            Form1.LstVDesp.Columns(7).TextAlign = HorizontalAlignment.Center
-            If Form1.LstVDesp.Items.Count = 0 Then
-                Form1.LstVDesp.Columns(0).Width = 0
-                Form1.LstVDesp.Columns(1).Width = 100
-                Form1.LstVDesp.Columns(2).Width = 100
-                Form1.LstVDesp.Columns(3).Width = 100
-                Form1.LstVDesp.Columns(4).Width = 100
-                Form1.LstVDesp.Columns(5).Width = 100
-                Form1.LstVDesp.Columns(6).Width = 100
-                Form1.LstVDesp.Columns(7).Width = 100
-            End If
         ElseIf Listview = "LstVAgendaManu" Then
+            Form1.LstVAgendaManu.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+            Form1.LstVAgendaManu.Columns(5).Width = Form1.LstVAgendaManu.Columns(5).Width + Form1.LstVAgendaManu.Columns(0).Width
             Form1.LstVAgendaManu.Columns(0).Width = 0
-            Form1.LstVAgendaManu.Columns(1).Width = 120
-            Form1.LstVAgendaManu.Columns(2).Width = 100
-            Form1.LstVAgendaManu.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVAgendaManu.AutoResizeColumn(4, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVAgendaManu.Columns(5).Width = 100
-            Form1.LstVAgendaManu.Columns(0).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAgendaManu.Columns(1).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAgendaManu.Columns(2).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAgendaManu.Columns(3).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAgendaManu.Columns(4).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAgendaManu.Columns(5).TextAlign = HorizontalAlignment.Center
-            If Form1.LstVAgendaManu.Items.Count = 0 Then
-                Form1.LstVAgendaManu.Columns(0).Width = 0
-                Form1.LstVAgendaManu.Columns(1).Width = 100
-                Form1.LstVAgendaManu.Columns(2).Width = 100
-                Form1.LstVAgendaManu.Columns(3).Width = 100
-                Form1.LstVAgendaManu.Columns(4).Width = 100
-                Form1.LstVAgendaManu.Columns(5).Width = 100
-            End If
         ElseIf Listview = "LstVAgendaDesp" Then
+            Form1.LstVAgendaDesp.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+            Form1.LstVAgendaDesp.Columns(5).Width = Form1.LstVAgendaDesp.Columns(5).Width + Form1.LstVAgendaDesp.Columns(0).Width
             Form1.LstVAgendaDesp.Columns(0).Width = 0
-            Form1.LstVAgendaDesp.Columns(1).Width = 120
-            Form1.LstVAgendaDesp.Columns(2).Width = 100
-            Form1.LstVAgendaDesp.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVAgendaDesp.AutoResizeColumn(4, ColumnHeaderAutoResizeStyle.ColumnContent)
-            Form1.LstVAgendaDesp.Columns(5).Width = 100
-            Form1.LstVAgendaDesp.Columns(0).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAgendaDesp.Columns(1).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAgendaDesp.Columns(2).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAgendaDesp.Columns(3).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAgendaDesp.Columns(4).TextAlign = HorizontalAlignment.Center
-            Form1.LstVAgendaDesp.Columns(5).TextAlign = HorizontalAlignment.Center
-            If Form1.LstVAgendaDesp.Items.Count = 0 Then
-                Form1.LstVAgendaDesp.Columns(0).Width = 0
-                Form1.LstVAgendaDesp.Columns(1).Width = 100
-                Form1.LstVAgendaDesp.Columns(2).Width = 100
-                Form1.LstVAgendaDesp.Columns(3).Width = 100
-                Form1.LstVAgendaDesp.Columns(4).Width = 100
-                Form1.LstVAgendaDesp.Columns(5).Width = 100
-            End If
         ElseIf Listview = "LstVUtilizador" Then
-            'Form1.LstVUtilizador.Columns(0).Width = 0
-            'Form1.LstVUtilizador.Columns(1).Width = 100
-            'Form1.LstVUtilizador.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.HeaderSize)
-            'Form1.LstVUtilizador.Columns(3).Width = 100
-            'Form1.LstVUtilizador.Columns(0).TextAlign = HorizontalAlignment.Center
-            'Form1.LstVUtilizador.Columns(1).TextAlign = HorizontalAlignment.Center
-            'Form1.LstVUtilizador.Columns(2).TextAlign = HorizontalAlignment.Center
-            'Form1.LstVUtilizador.Columns(3).TextAlign = HorizontalAlignment.Center
-            'If Form1.LstVUtilizador.Items.Count = 0 Then
-            ' Form1.LstVUtilizador.Columns(0).Width = 100
-            ' Form1.LstVUtilizador.Columns(1).Width = 100
-            'Form1.LstVUtilizador.Columns(2).Width = 100
-            'Form1.LstVUtilizador.Columns(3).Width = 100
-            'End If
             Form1.LstVAdminUtilizador.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
             Form1.LstVAdminUtilizador.Columns(3).Text = "Designação"
             Form1.LstVAdminUtilizador.Columns(1).Text = "Código"
             Form1.LstVAdminUtilizador.Columns(3).Width = Form1.LstVAdminUtilizador.Columns(3).Width + Form1.LstVAdminUtilizador.Columns(0).Width
             Form1.LstVAdminUtilizador.Columns(0).Width = 0
-
-
         ElseIf Listview = "LstVVeiculo" Then
             Form1.LstVAdminVeiculo.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
             Form1.LstVAdminVeiculo.Columns(1).Text = "Código"
             Form1.LstVAdminVeiculo.Columns(3).Width = Form1.LstVAdminVeiculo.Columns(3).Width + Form1.LstVAdminVeiculo.Columns(0).Width
             Form1.LstVAdminVeiculo.Columns(0).Width = 0
+
+        ElseIf Listview = "LstVAdminFornecedores" Then
+            Form1.LstVAdminFornecedores.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+            Form1.LstVAdminFornecedores.Columns(1).Text = "Código"
+            Form1.LstVAdminFornecedores.Columns(3).Width = Form1.LstVAdminFornecedores.Columns(3).Width + Form1.LstVAdminFornecedores.Columns(0).Width
+            Form1.LstVAdminFornecedores.Columns(0).Width = 0
         End If
+
+
     End Sub
 End Module
