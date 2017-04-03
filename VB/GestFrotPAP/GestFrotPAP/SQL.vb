@@ -774,7 +774,6 @@ Module SQL
 
 
     ' SELECT * FROM veicondu where emuso="sim" and coduser="1"
-
     '  Comando = New MySqlCommand("select CodVei from pais where ='" + DetalhesUtilizador.CodUser + "'codpais='" + DetalhesUtilizador.CodUser + "'", ligacao)
 
     Public Sub AbastecimentoVer()
@@ -1055,143 +1054,29 @@ Module SQL
 
     Public Sub DetalhesAbast(ByVal Cod As String) 'Mudar Metodo
         Dim Comando As MySqlCommand
-        Dim Objecto As Object
+        Dim reader As MySqlDataReader
         Form1.LblAbastCOD.Text = "Codigo: " + Cod
+        Comando = New MySqlCommand
+        Comando.Connection = ligacao
+        Comando.CommandText = ("select CodVeiAbast,Data,notas,concat(Nome_Proprio,' ',Apelido) as Utilizador,concat(Marca, ' ', Modelo,' ',Ano,' ',Matricula) as Veiculo,concat(Veiculo_KM,' KM') as '" + "QuilometrosMUDAR" + "',Quantidade,Valor,fornecedores.Nome as Fornecedor from veiabast,Utilizador,Veiculos,fornecedores where fornecedores.codforn=Veiabast.codforn and Veiculos.CodVei=Veiabast.CodVei and utilizador.coduser=Veiabast.CoDuser and CodVeiAbast=" + Cod + " ")
         Try
-            Comando = New MySqlCommand("select data from veiabast where CodVeiAbast='" + Cod + "'", ligacao)
             ligacao.Open()
-            Objecto = Comando.ExecuteScalar
-            If IsDBNull(Objecto) Then
-                Form1.LblAbastData.Text = "Data:" 'Mudar
-                MsgBox("ERRO Data")
-                ligacao.Close()
-            Else
-                Form1.LblAbastData.Text = "Data: " + CType(Objecto, String)
-                ligacao.Close()
-            End If
-        Catch ex As Exception
-            MsgBox(ex.ToString)
+            reader = Comando.ExecuteReader
+            While reader.Read
+                Form1.LblAbastData.Text = "Data: " + reader.GetString("data")
+                Form1.TxtAbastNota.Text = reader.GetString("notas")
+                Form1.LblAbastUtilizador.Text = "Utilizador: " + reader.GetString("Utilizador")
+                Form1.LblAbastVeiculo.Text = "Veiculo: " + reader.GetString("Veiculo")
+                Form1.LblAbastKM.Text = "KM: " + reader.GetString("QuilometrosMUDAR")
+                Form1.LblAbastQuantidade.Text = "Quantidade: " + reader.GetString("Quantidade")
+                Form1.LblAbastValor.Text = "Valor: " + reader.GetString("Valor")
+                Form1.LblAbastFornecedor.Text = "Fornecedores: " + reader.GetString("Fornecedor")
+            End While
             ligacao.Close()
-        End Try
-
-        Try
-            Comando = New MySqlCommand("select notas from veiabast where CodVeiAbast='" + Cod + "'", ligacao)
-            ligacao.Open()
-            Objecto = Comando.ExecuteScalar
-            If IsDBNull(Objecto) Then
-                Form1.TxtAbastNota.Text = "" 'Mudar
-                MsgBox("ERRO Nota")
-                ligacao.Close()
-            Else
-                Form1.TxtAbastNota.Text = CType(Objecto, String)
-                ligacao.Close()
-            End If
         Catch ex As Exception
-            MsgBox(ex.ToString)
             ligacao.Close()
-        End Try
-
-
-        Try
-            Comando = New MySqlCommand("select concat(Nome_Proprio,' ',Apelido) from veiabast,Utilizador where utilizador.coduser=Veiabast.CoDuser and CodVeiAbast='" + Cod + "'", ligacao)
-            ligacao.Open()
-            Objecto = Comando.ExecuteScalar
-            If IsDBNull(Objecto) Then
-                Form1.LblAbastUtilizador.Text = "Utilizador:" 'Mudar
-                MsgBox("ERRO Data")
-                ligacao.Close()
-            Else
-                Form1.LblAbastUtilizador.Text = "Utilizador: " + CType(Objecto, String)
-                ligacao.Close()
-            End If
-        Catch ex As Exception
             MsgBox(ex.ToString)
-            ligacao.Close()
-        End Try
-
-        Try
-            Comando = New MySqlCommand("select concat(Marca, ' ', Modelo,' ',Ano,' ',Matricula) from Veiculos,Veiabast where Veiculos.CodVei=Veiabast.CodVei and CodVeiAbast='" + Cod + "'", ligacao)
-            ligacao.Open()
-            Objecto = Comando.ExecuteScalar
-            If IsDBNull(Objecto) Then
-                Form1.LblAbastVeiculo.Text = "Veiculo:" 'Mudar
-                MsgBox("ERRO Data")
-                ligacao.Close()
-            Else
-                Form1.LblAbastVeiculo.Text = "Veiculo: " + CType(Objecto, String)
-                ligacao.Close()
-            End If
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-            ligacao.Close()
-        End Try
-
-        Try
-            Comando = New MySqlCommand("select Veiculo_KM from Veiabast where  CodVeiAbast='" + Cod + "'", ligacao)
-            ligacao.Open()
-            Objecto = Comando.ExecuteScalar
-            If IsDBNull(Objecto) Then
-                Form1.LblAbastKM.Text = "KM:" 'Mudar
-                MsgBox("ERRO Data")
-                ligacao.Close()
-            Else
-                Form1.LblAbastKM.Text = "KM: " + CType(Objecto, String)
-                ligacao.Close()
-            End If
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-            ligacao.Close()
-        End Try
-
-        Try
-            Comando = New MySqlCommand("select Quantidade from Veiabast where  CodVeiAbast='" + Cod + "'", ligacao)
-            ligacao.Open()
-            Objecto = Comando.ExecuteScalar
-            If IsDBNull(Objecto) Then
-                Form1.LblAbastQuantidade.Text = "Quantidade:"
-                MsgBox("ERRO Quantidade")
-                ligacao.Close()
-            Else
-                Form1.LblAbastQuantidade.Text = "Quantidade: " + CType(Objecto, String)
-                ligacao.Close()
-            End If
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-            ligacao.Close()
-        End Try
-
-        Try
-            Comando = New MySqlCommand("select Valor from Veiabast where  CodVeiAbast='" + Cod + "'", ligacao)
-            ligacao.Open()
-            Objecto = Comando.ExecuteScalar
-            If IsDBNull(Objecto) Then
-                Form1.LblAbastValor.Text = "Valor:"
-                MsgBox("ERRO Quantidade")
-                ligacao.Close()
-            Else
-                Form1.LblAbastValor.Text = "Valor: " + CType(Objecto, String)
-                ligacao.Close()
-            End If
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-            ligacao.Close()
-        End Try
-
-        Try
-            Comando = New MySqlCommand("select nome from Veiabast,fornecedores where  fornecedores.codforn=Veiabast.codforn and CodVeiAbast='" + Cod + "'", ligacao)
-            ligacao.Open()
-            Objecto = Comando.ExecuteScalar
-            If IsDBNull(Objecto) Then
-                Form1.LblAbastFornecedor.Text = "Fornecedores:"
-                MsgBox("ERRO Quantidade")
-                ligacao.Close()
-            Else
-                Form1.LblAbastFornecedor.Text = "Fornecedores: " + CType(Objecto, String)
-                ligacao.Close()
-            End If
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-            ligacao.Close()
+            Exit Sub
         End Try
     End Sub
 
@@ -1200,7 +1085,6 @@ Module SQL
         Dim reader As MySqlDataReader
         Form1.LblDespCod.Text = "Código: " + Cod
         Comando = New MySqlCommand
-        lComando = New MySqlCommand
         Comando.Connection = ligacao
         Comando.CommandText = ("select CodDesp,nota,Data_Efetuada as Data,tipodesp.Nome as Tipo,Valor,concat(Veiculo_km,' KM') as '" + "QuilometrosMUDAR" + "',concat(Marca, ' ', Modelo,' ',Ano,' ',Matricula) as Veiculo,fornecedores.Nome as Fornecedor from despesas,Veiculos,Fornecedores,Utilizador,TipoDesp where Despesas.codvei=veiculos.codvei and Despesas.codforn=Fornecedores.codforn and Despesas.coduser=Utilizador.coduser and Despesas.codtipod=tipodesp.codtipod and efetuada='Sim' and CodDesp=" + Cod + " ")
         Try
@@ -1272,7 +1156,6 @@ Module SQL
                 Form1.LblAdminUtilizadorMorada.Text = "Morada: " + reader.GetString("Rua") + ", " + reader.GetString("Cidade") + ", " + reader.GetString("Pais")
                 Form1.LblAdminUtilizadorTelem.Text = "Nº Telemovel: " + reader.GetString("N_Telemovel")
                 Form1.LblAdminUtilizadorTelef.Text = "Nº Telefone: " + reader.GetString("N_Telefone")
-
                 'Form1.LblManuVeiculo.Text = "Data Contratacao: " + reader.GetString("Data_contratacao")
                 'Form1.LblManuFornecedor.Text = "Pagmamento hora: " + reader.GetString("Pagmamentos_hora")
                 ' Form1.TxtAdminUtilizadorNotasContract.Text = reader.GetString("Notas_Contracto")
@@ -1303,9 +1186,6 @@ Module SQL
                 Form1.LblAdminVeiculoAno.Text = "Ano: " + reader.GetString("Ano")
                 Form1.LblAdminVeiculoCor.Text = "Cor: " + reader.GetString("Cor")
                 Form1.LblAdminVeiculoTipoCom.Text = "Tipo de combustivel: " + reader.GetString("Tipo de Combustivel")
-                'Form1.LblManuVeiculo.Text = "Data Contratacao: " + reader.GetString("Data_contratacao")
-                'Form1.LblManuFornecedor.Text = "Pagmamento hora: " + reader.GetString("Pagmamentos_hora")
-                ' Form1.TxtAdminUtilizadorNotasContract.Text = reader.GetString("Notas_Contracto"
             End While
             ligacao.Close()
         Catch ex As Exception
@@ -1393,13 +1273,11 @@ Module SQL
         End Try
     End Sub
 
-
     Public Sub Inserir_EditarTabelaSQL(ByVal Tabela As String, Optional ByVal Id As String = "")
         Dim Manutencao As DataSet = New DataSet
         Dim reader As MySqlDataReader
         adapter.SelectCommand = New MySqlCommand
         adapter.SelectCommand.Connection = ligacao
-
         '
         'Selecionar dados a mostrar na ListBox Tipo
         '
@@ -1438,7 +1316,6 @@ Module SQL
             Form1.LstInserirTipo.DisplayMember = "Nome"
             Form1.LstInserirTipo.ValueMember = "CodTipoD"
         End If
-
         '
         'Selecionar dados da ListBox Fornecedor
         '
@@ -1456,11 +1333,11 @@ Module SQL
         Form1.LstInserirFornecedor.DisplayMember = "Nome"
         Form1.LstInserirFornecedor.ValueMember = "CodForn"
 
+        Comando = New MySqlCommand
+        Comando.Connection = ligacao
         '
         'Selecionar dados da entrada a editar
         '
-        Comando = New MySqlCommand
-        Comando.Connection = ligacao
         Try
             If Tabela = "AbastEdit" Then
                 Comando.CommandText = "select * from veiabast,veiculos,fornecedores,Utilizador where Veiculos.Codvei=Veiabast.CodVei and fornecedores.Codforn=Veiabast.Codforn and Utilizador.CodUser=Veiabast.Coduser and CodVeiAbast=" + Id + ""
@@ -1474,7 +1351,6 @@ Module SQL
                     Form1.LstInserirFornecedor.SelectedValue = reader.GetString("CodForn")
                 End While
                 ligacao.Close()
-
             ElseIf Tabela = "ManuEdit" Then
                 Comando.CommandText = "select * from Manutencao,veiculos,fornecedores,tipomanu where Veiculos.Codvei=manutencao.CodVei and fornecedores.Codforn=manutencao.Codforn and tipomanu.CodtipoM=manutencao.codtipom and CodManu=" + Id + ""
                     ligacao.Open()
@@ -1487,7 +1363,6 @@ Module SQL
                         Form1.LstInserirTipo.SelectedValue = reader.GetString("CodTipoM")
                     End While
                 ligacao.Close()
-
             ElseIf Tabela = "DespEdit" Then
                 Comando.CommandText = "select * from despesas,Veiculos,Fornecedores,Utilizador,TipoDesp where Despesas.codvei=veiculos.codvei and Despesas.codforn=Fornecedores.codforn and Despesas.coduser=Utilizador.coduser and Despesas.codtipod=tipodesp.codtipod and CodDesp=" + Id + ""
                 ligacao.Open()
@@ -1500,7 +1375,6 @@ Module SQL
                     Form1.LstInserirTipo.SelectedValue = reader.GetString("CodTipoD")
                 End While
                 ligacao.Close()
-
             ElseIf Tabela = "AgendaDespReagendar" Then
                 Comando.CommandText = "select * from despesas,Veiculos,Fornecedores,Utilizador,TipoDesp where Despesas.codvei=veiculos.codvei and Despesas.codforn=Fornecedores.codforn and Despesas.coduser=Utilizador.coduser and Despesas.codtipod=tipodesp.codtipod and CodDesp=" + Id + ""
                 ligacao.Open()
@@ -1514,7 +1388,6 @@ Module SQL
                     Form1.CmbInserirDia.Text = String.Format("{0:dd}", reader("Data_agendada"))
                 End While
                 ligacao.Close()
-
             ElseIf Tabela = "AgendaDespExecutar" Then
                 Comando.CommandText = "select * from despesas,Veiculos,Fornecedores,Utilizador,TipoDesp where Despesas.codvei=veiculos.codvei and Despesas.codforn=Fornecedores.codforn and Despesas.coduser=Utilizador.coduser and Despesas.codtipod=tipodesp.codtipod and CodDesp=" + Id + ""
                 ligacao.Open()
@@ -1524,7 +1397,6 @@ Module SQL
                     Form1.TxtInserirNota.Text = reader.GetString("nota")
                 End While
                 ligacao.Close()
-
             ElseIf Tabela = "AgendaManuReagendar" Then
                 Comando.CommandText = "select * from Manutencao,veiculos,fornecedores,tipomanu where Veiculos.Codvei=manutencao.CodVei and fornecedores.Codforn=manutencao.Codforn and tipomanu.CodtipoM=manutencao.codtipom and CodManu=" + Id + ""
                 ligacao.Open()
@@ -1538,7 +1410,6 @@ Module SQL
                     Form1.CmbInserirDia.Text = String.Format("{0:dd}", reader("Data_agendada"))
                 End While
                 ligacao.Close()
-
             ElseIf Tabela = "AgendaManuExecutar" Then
                 Comando.CommandText = "select * from Manutencao,veiculos,fornecedores,tipomanu where Veiculos.Codvei=manutencao.CodVei and fornecedores.Codforn=manutencao.Codforn and tipomanu.CodtipoM=manutencao.codtipom and CodManu=" + Id + ""
                 ligacao.Open()
@@ -1549,13 +1420,11 @@ Module SQL
                 End While
                 ligacao.Close()
             End If
-
         Catch ex As Exception
             ligacao.Close()
             MsgBox(ex.ToString)
             Exit Sub
         End Try
-
         '
         'Selecionar Objetos Uteis a tabela
         '
@@ -1573,8 +1442,14 @@ Module SQL
 
 
     Public Sub InserirDados(ByVal Tabela As String)
+        '
+        'Variavel para juntar os campos ano/mes/dia
+        '
         Dim Data As String
         Data = Form1.CmbInserirAno.Text + "-" + Form1.CmbInserirMes.Text + "-" + Form1.CmbInserirDia.Text
+        '
+        'Selecionar comando para inserir
+        '
         If Tabela = "AbastInsert" Then
             Comando = New MySqlCommand("insert into veiabast(Veiculo_KM,Quantidade,Valor,Notas,Codforn,Data,Codvei,Coduser) values ('" + Val(Form1.TxtInserirQuilometros.Text).ToString + "', '" + Val(Form1.TxtInserirQuantidade.Text).ToString + "', '" + Val(Form1.TxtInserirValor.Text).ToString + "', '" + Form1.TxtInserirNota.Text.ToString + "','" + Form1.LstInserirFornecedor.SelectedValue.ToString + "', '" + Data + "', '" + DetalhesUtilizador.CodVeiculo.ToString + "', '" + DetalhesUtilizador.CodUser.ToString + "')", ligacao)
         ElseIf Tabela = "ManuInsert" Then
@@ -1586,6 +1461,9 @@ Module SQL
         ElseIf Tabela = "AgendaManuInsert" Then
             Comando = New MySqlCommand("insert into Manutencao(Veiculo_KM_Agendado,CodTipoM,Nota,Codforn,Data_Agendada,Efetuada,Codvei,CodUser,lembrarpor) values ('" + Val(Form1.TxtInserirQuilometros.Text).ToString + "', '" + Form1.LstInserirTipo.SelectedValue.ToString + "', '" + Form1.TxtInserirNota.Text.ToString + "', '" + "1" + "', '" + Data + "', '" + "Nao" + "', '" + DetalhesUtilizador.CodVeiculo.ToString + "', '" + DetalhesUtilizador.CodUser.ToString + "', '" + Form1.LstInserirLembrarPor.SelectedItem.ToString + "')", ligacao)
         End If
+        '
+        'Executar comando
+        '
         Try
             ligacao.Open()
             Comando.ExecuteNonQuery()
@@ -1601,8 +1479,14 @@ Module SQL
     End Sub
 
     Public Sub EditarDados(ByVal Tabela As String)
+        '
+        'Variavel para juntar os campos ano/mes/dia
+        '
         Dim data As String
-        Data = Form1.CmbInserirAno.Text + "-" + Form1.CmbInserirMes.Text + "-" + Form1.CmbInserirDia.Text
+        data = Form1.CmbInserirAno.Text + "-" + Form1.CmbInserirMes.Text + "-" + Form1.CmbInserirDia.Text
+        '
+        'Selecionar comando para editar
+        '
         If Tabela = "AbastEdit" Then
             Comando = New MySqlCommand("Update veiabast set Veiculo_KM='" + Val(Form1.TxtInserirQuilometros.Text).ToString + "',Quantidade='" + Val(Form1.TxtInserirQuantidade.Text).ToString + "',Valor='" + Val(Form1.TxtInserirValor.Text).ToString + "',Notas='" + Form1.TxtInserirNota.Text.ToString + "',Codforn='" + Form1.LstInserirFornecedor.SelectedValue.ToString + "' where CodveiAbast='" + IDSelecionado + "'", ligacao)
         ElseIf Tabela = "ManuEdit" Then
@@ -1618,6 +1502,9 @@ Module SQL
         ElseIf Tabela = "AgendaManuExecutar" Then
             Comando = New MySqlCommand("Update Manutencao set Veiculo_KM='" + Val(Form1.TxtInserirQuilometros.Text).ToString + "',CodTipoM='" + Form1.LstInserirTipo.SelectedValue.ToString + "',Valor='" + Val(Form1.TxtInserirValor.Text).ToString + "',Nota='" + Form1.TxtInserirNota.Text.ToString + "',Codforn='" + Form1.LstInserirFornecedor.SelectedValue.ToString + "', CodUser='" + DetalhesUtilizador.CodUser + "', Data_Efetuada='" + data + "', efetuada='Sim' where CodManu='" + IDSelecionado + "'", ligacao)
         End If
+        '
+        'Executar comando
+        '
         Try
             ligacao.Open()
             Comando.ExecuteNonQuery()
@@ -1633,6 +1520,9 @@ Module SQL
 
     Public Sub ApagarDados(ByVal Tabela As String, ByVal COD As String)
         Dim NOMECOD As String = ""
+        '
+        'Selecionar nome do codigo da tabela
+        '
         If Tabela.Contains("manu") Then
             NOMECOD = "codmanu"
         ElseIf Tabela.Contains("desp") Then
@@ -1641,6 +1531,9 @@ Module SQL
             MsgBox("Erro Apagar")
             Exit Sub
         End If
+        '
+        'Executar comando
+        '
         Try
             Comando = New MySqlCommand("Delete from " + Tabela + " where " + NOMECOD + "='" + COD + "'", ligacao)
             ligacao.Open()
@@ -1654,6 +1547,5 @@ Module SQL
             Exit Sub
         End Try
     End Sub
-
 
 End Module
