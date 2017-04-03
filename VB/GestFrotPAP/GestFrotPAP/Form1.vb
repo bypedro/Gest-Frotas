@@ -842,7 +842,7 @@ Public Class Form1
     End Sub
 
 
-    Private Sub LstVAdminVeiculo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LstVAdminVeiculo.SelectedIndexChanged
-
+    Private Sub BtnImagemAdminVeiculosInsert_ButtonClickMasterRace(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnImagemAdminVeiculosInsert.ButtonClickMasterRace
+        Botao(BtnImagemAdminVeiculosInsert)
     End Sub
 End Class
